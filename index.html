@@ -17,7 +17,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 10px;
+            padding: 20px 10px 40px 10px;
         }
         /* Top Logo / Icon */
         .logo-container {
@@ -102,6 +102,9 @@
             outline: none;
             font-size: 13px;
         }
+        .search-box input:focus {
+            border-color: #e1b12c;
+        }
         .search-box input::placeholder {
             color: #747d8c;
         }
@@ -132,17 +135,19 @@
             border-color: #e1b12c;
         }
         .card-icon {
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             background: #1e1e1e;
-            border: 1px solid #e1b12c;
-            border-radius: 12px;
+            border: 1.5px solid #e1b12c;
+            border-radius: 13px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #f1c40f;
             margin-bottom: 10px;
-            box-shadow: 0 0 8px rgba(225, 177, 44, 0.2);
+            box-shadow: 0 0 10px rgba(225, 177, 44, 0.2);
         }
         .card h3 {
             font-size: 13px;
@@ -189,44 +194,87 @@
 
     <!-- Search Bar -->
     <div class="search-box">
-        <input type="text" placeholder="Search platforms...">
+        <input type="text" id="searchInput" onkeyup="filterPlatforms()" placeholder="Search platforms...">
     </div>
 
-    <!-- Batches / Cards Grid -->
-    <div class="grid-container">
-        <a href="#" class="card">
-            <div class="card-icon">📚</div>
-            <h3>PW Selection</h3>
-        </a>
-        <a href="#" class="card">
-            <div class="card-icon">📘</div>
-            <h3>PW Books</h3>
-        </a>
-        <a href="#" class="card">
-            <div class="card-icon">⚡</div>
-            <h3>Next Topper</h3>
-        </a>
+    <!-- Batches / Cards Grid (2 Columns per Row) -->
+    <div class="grid-container" id="platformGrid">
+        <!-- Row 1 -->
         <a href="#" class="card">
             <div class="card-icon">🚀</div>
             <h3>Selection Way</h3>
         </a>
         <a href="#" class="card">
-            <div class="card-icon">💡</div>
-            <h3>Science & Fun</h3>
+            <div class="card-icon">PW</div>
+            <h3>PW</h3>
+        </a>
+
+        <!-- Row 2 -->
+        <a href="#" class="card">
+            <div class="card-icon">⚛️</div>
+            <h3>Physics Wallah</h3>
+        </a>
+        <a href="#" class="card">
+            <div class="card-icon">CW</div>
+            <h3>Careerwill</h3>
+        </a>
+
+        <!-- Row 3 -->
+        <a href="#" class="card">
+            <div class="card-icon">KGS</div>
+            <h3>KGS</h3>
+        </a>
+        <a href="#" class="card">
+            <div class="card-icon">🧲</div>
+            <h3>Science Magnet</h3>
+        </a>
+
+        <!-- Row 4 -->
+        <a href="#" class="card">
+            <div class="card-icon">PA</div>
+            <h3>Parmar Academy</h3>
         </a>
         <a href="#" class="card">
             <div class="card-icon">🎯</div>
             <h3>Mission Jeet</h3>
         </a>
+
+        <!-- Row 5 -->
         <a href="#" class="card">
-            <div class="card-icon">🔥</div>
-            <h3>Just Padhle</h3>
+            <div class="card-icon">⚡</div>
+            <h3>Next Toppers</h3>
         </a>
         <a href="#" class="card">
-            <div class="card-icon">⭐</div>
-            <h3>Vibrant Academy</h3>
+            <div class="card-icon">📖</div>
+            <h3>Edu Teria</h3>
+        </a>
+
+        <!-- Row 6 -->
+        <a href="#" class="card">
+            <div class="card-icon">🌟</div>
+            <h3>Future Kul</h3>
+        </a>
+        <a href="#" class="card">
+            <div class="card-icon">🎖️</div>
+            <h3>Yes Officer</h3>
         </a>
     </div>
+
+    <!-- Live Search Script -->
+    <script>
+        function filterPlatforms() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
