@@ -1,37 +1,278 @@
-        .card-icon {
-            width: 54px;
-            height: 54px;
-            background: #1e1e1e;
-            border: 1.5px solid #e1b12c;
-            border-radius: 14px;
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NK Pathshala - Study Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #080808;
+            color: #ffffff;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            box-shadow: 0 0 10px rgba(225, 177, 44, 0.25);
-            overflow: hidden;
+            padding: 20px 10px 40px 10px;
         }
-        .card-icon img {
-            width: 80%;
-            height: 80%;
-            object-fit: contain;
-        }
-                .logo-container {
-            width: 80px;
-            height: 80px;
-            background: #141414;
+        /* Top Logo / Icon */
+        .logo-container {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #161616, #222);
             border: 2px solid #e1b12c;
             border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
-            box-shadow: 0 0 15px rgba(225, 177, 44, 0.35);
-            overflow: hidden;
+            box-shadow: 0 0 15px rgba(225, 177, 44, 0.3);
         }
-        .logo-container img {
-            width: 85%;
-            height: 85%;
-            object-fit: contain;
+        .logo-container span {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e1b12c;
         }
-        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 22px;
+            color: #f1c40f;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+        .header p {
+            font-size: 11px;
+            color: #a4b0be;
+            letter-spacing: 1px;
+        }
+        /* Special Buttons */
+        .action-btn {
+            background: linear-gradient(145deg, #141414, #1c1c1c);
+            border: 1px solid #333;
+            color: #fff;
+            width: 100%;
+            max-width: 420px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+        .action-btn.special {
+            border: 1px solid rgba(225, 177, 44, 0.3);
+        }
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .btn-content span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .sub-text {
+            font-size: 11px;
+            color: #e1b12c;
+            display: block;
+            margin-top: 2px;
+        }
+        /* Search Bar */
+        .search-box {
+            width: 100%;
+            max-width: 420px;
+            margin: 10px 0 20px 0;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 13px 16px;
+            background: #121212;
+            border: 1px solid #2f3542;
+            border-radius: 14px;
+            color: #fff;
+            outline: none;
+            font-size: 13px;
+        }
+        .search-box input:focus {
+            border-color: #e1b12c;
+        }
+        .search-box input::placeholder {
+            color: #747d8c;
+        }
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 420px;
+        }
+        .card {
+            background: linear-gradient(145deg, #121212, #181818);
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 18px 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card:active {
+            transform: scale(0.96);
+            border-color: #e1b12c;
+        }
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            background: #1e1e1e;
+            border: 1.5px solid #e1b12c;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 10px rgba(225, 177, 44, 0.25);
+        }
+        .card h3 {
+            font-size: 13px;
+            font-weight: 500;
+            color: #f1f2f6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Premium Logo -->
+    <div class="logo-container">
+        <span>NK</span>
+    </div>
+
+    <div class="header">
+        <h1>Welcome to NK Pathshala</h1>
+        <p>EDUCATION MUST BE FREE FOR EVERYONE</p>
+    </div>
+
+    <!-- Telegram Button -->
+    <a href="https://telegram.org" target="_blank" class="action-btn">
+        <div class="btn-content">
+            <span style="font-size: 18px;">📢</span>
+            <div>
+                <span>Join Our Telegram</span>
+                <span class="sub-text">⚡ 976+ Joined</span>
+            </div>
+        </div>
+        <span style="color: #a4b0be;">➔</span>
+    </a>
+
+    <!-- Special Chill Zone Button -->
+    <a href="#" class="action-btn special">
+        <div class="btn-content">
+            <span style="font-size: 18px;">🎬</span>
+            <div>
+                <span>NK-FLIX <span style="background: #eb2f06; color:#fff; font-size:9px; padding:2px 5px; border-radius:4px; margin-left:5px;">STREAM</span></span>
+                <span class="sub-text" style="color: #ff4757;">🔴 Chill Zone</span>
+            </div>
+        </div>
+        <span style="color: #a4b0be;">➔</span>
+    </a>
+
+    <!-- Search Bar -->
+    <div class="search-box">
+        <input type="text" id="searchInput" onkeyup="filterPlatforms()" placeholder="Search platforms...">
+    </div>
+
+    <!-- Batches / Cards Grid -->
+    <div class="grid-container" id="platformGrid">
+        <!-- Row 1 -->
+        <a href="#" class="card">
+            <div class="card-icon">🚀</div>
+            <h3>Selection Way</h3>
+        </a>
+        <a href="#" class="card">
+            <div class="card-icon">🎯</div>
+            <h3>PW</h3>
+        </a>
+
+        <!-- Row 2 -->
+        <a href="#" class="card">
+            <div class="card-icon">⚛️</div>
+            <h3>Physics Wallah</h3>
+        </a>
+        <a href="#" class="card">
+            <div class="card-icon">📚</div>
+            <h3>Careerwill</h3>
+        </a>
+
+        <!-- Row 3 -->
+        <a href="#" class="card">
+            <div class="card-icon">🇮🇳</div>
+            <h3>KGS</h3>
+        </a>
+        <a href="#" class="card">
+            <div class="card-icon">🧲</div>
+            <h3>Science Magnet</h3>
+        </a>
+
+        <!-- Row 4 -->
+        <a href="#" class="card">
+            <div class="card-icon">🎖️</div>
+            <h3>Parmar Academy</h3>
+        </a>
+        <a href="#" class="card">
+            <div class="card-icon">🔥</div>
+            <h3>Mission Jeet</h3>
+        </a>
+
+        <!-- Row 5 -->
+        <a href="#" class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Next Toppers</h3>
+        </a>
+        <a href="#" class="card">
+            <div class="card-icon">📖</div>
+            <h3>Edu Teria</h3>
+        </a>
+
+        <!-- Row 6 -->
+        <a href="#" class="card">
+            <div class="card-icon">🌟</div>
+            <h3>Future Kul</h3>
+        </a>
+        <a href="#" class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>Yes Officer</h3>
+        </a>
+    </div>
+
+    <!-- Live Search Script -->
+    <script>
+        function filterPlatforms() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
