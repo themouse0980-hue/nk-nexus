@@ -17,7 +17,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 10px 40px 10px;
+            padding: 20px 12px 40px 12px;
+            min-height: 100vh;
         }
         /* Top Logo / Icon */
         .logo-container {
@@ -109,7 +110,7 @@
         .search-box input::placeholder {
             color: #747d8c;
         }
-        /* Grid Container */
+        /* Main Categories Grid */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -157,221 +158,265 @@
             color: #f1f2f6;
         }
 
-        /* Modal Popup for Multiple Links */
-        .modal {
+        /* --- SERVER / LINK VIEW (Like Reference Screenshot) --- */
+        #serverView {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 20px;
+            max-width: 420px;
+            flex-direction: column;
+            align-items: flex-start;
+            animation: fadeIn 0.25s ease;
         }
-        .modal-content {
-            background: #141414;
-            border: 1px solid #e1b12c;
-            border-radius: 16px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .server-header {
             width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(225, 177, 44, 0.3);
+            margin-bottom: 25px;
+            padding: 0 5px;
         }
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
+        .server-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
         }
-        .modal-header h3 {
+        .server-header p {
+            font-size: 13px;
             color: #f1c40f;
-            font-size: 16px;
+            font-weight: 500;
         }
-        .close-btn {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 20px;
-            cursor: pointer;
+        .server-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px 16px;
+            width: 100%;
+            margin-bottom: 35px;
         }
-        .link-list {
+        .server-item {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        .link-item {
-            background: #1c1c1c;
-            color: #fff;
-            padding: 12px;
-            border-radius: 10px;
+            align-items: center;
             text-decoration: none;
+            color: #fff;
+            transition: transform 0.2s ease;
+        }
+        .server-item:active {
+            transform: scale(0.94);
+        }
+        .circle-icon {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #22201a 0%, #121212 100%);
+            border: 2px solid #e1b12c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 15px rgba(225, 177, 44, 0.25);
+        }
+        .server-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
             text-align: center;
+            margin-bottom: 2px;
+        }
+        .server-sub {
+            font-size: 11px;
+            color: #a4b0be;
+            text-align: center;
+        }
+        .back-btn {
+            background: linear-gradient(145deg, #2b2310, #1c170a);
+            border: 1px solid #e1b12c;
+            color: #f1c40f;
+            padding: 12px 22px;
+            border-radius: 25px;
             font-size: 13px;
-            border: 1px solid #333;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(225, 177, 44, 0.2);
             transition: 0.2s;
         }
-        .link-item:hover {
-            border-color: #e1b12c;
-            color: #f1c40f;
+        .back-btn:active {
+            transform: scale(0.96);
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Premium Logo -->
-    <div class="logo-container">
-        <span>NK</span>
+    <!-- MAIN HOME VIEW -->
+    <div id="homeView" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <!-- Top Premium Logo -->
+        <div class="logo-container">
+            <span>NK</span>
+        </div>
+
+        <div class="header">
+            <h1>Welcome to NK Pathshala</h1>
+            <p>EDUCATION MUST BE FREE FOR EVERYONE</p>
+        </div>
+
+        <!-- Telegram Button -->
+        <a href="https://telegram.org" target="_blank" class="action-btn">
+            <div class="btn-content">
+                <span style="font-size: 18px;">📢</span>
+                <div>
+                    <span>Join Our Telegram</span>
+                    <span class="sub-text">⚡ 976+ Joined</span>
+                </div>
+            </div>
+            <span style="color: #a4b0be;">➔</span>
+        </a>
+
+        <!-- Special Chill Zone Button -->
+        <a href="#" class="action-btn special">
+            <div class="btn-content">
+                <span style="font-size: 18px;">🎬</span>
+                <div>
+                    <span>NK-FLIX <span style="background: #eb2f06; color:#fff; font-size:9px; padding:2px 5px; border-radius:4px; margin-left:5px;">STREAM</span></span>
+                    <span class="sub-text" style="color: #ff4757;">🔴 Chill Zone</span>
+                </div>
+            </div>
+            <span style="color: #a4b0be;">➔</span>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="search-box">
+            <input type="text" id="searchInput" onkeyup="filterPlatforms()" placeholder="Search platforms...">
+        </div>
+
+        <!-- Batches / Cards Grid -->
+        <div class="grid-container" id="platformGrid">
+            <!-- Row 1 -->
+            <div class="card" onclick="openPlatform('selectionWay')">
+                <div class="card-icon">SEL</div>
+                <h3>Selection Way</h3>
+            </div>
+            <a href="#" class="card">
+                <div class="card-icon">RWA</div>
+                <h3>RWA</h3>
+            </a>
+
+            <!-- Row 2 -->
+            <a href="#" class="card">
+                <div class="card-icon">KGS</div>
+                <h3>KGS</h3>
+            </a>
+            <a href="#" class="card">
+                <div class="card-icon">PW</div>
+                <h3>PW</h3>
+            </a>
+
+            <!-- Row 3 -->
+            <a href="#" class="card">
+                <div class="card-icon">CW</div>
+                <h3>Careerwill</h3>
+            </a>
+            <a href="#" class="card">
+                <div class="card-icon">PAR</div>
+                <h3>Parmar Academy</h3>
+            </a>
+
+            <!-- Row 4 -->
+            <a href="#" class="card">
+                <div class="card-icon">YES</div>
+                <h3>Yes Officer</h3>
+            </a>
+            <a href="#" class="card">
+                <div class="card-icon">SAC</div>
+                <h3>Sachin Academy</h3>
+            </a>
+
+            <!-- Row 5 -->
+            <a href="#" class="card">
+                <div class="card-icon">EDU</div>
+                <h3>Edu Teria</h3>
+            </a>
+            <a href="#" class="card">
+                <div class="card-icon">FUT</div>
+                <h3>Futurekul</h3>
+            </a>
+
+            <!-- Row 6 -->
+            <a href="#" class="card">
+                <div class="card-icon">MJ</div>
+                <h3>Mission Jeet</h3>
+            </a>
+            <a href="#" class="card">
+                <div class="card-icon">NEXT</div>
+                <h3>Next Toppers</h3>
+            </a>
+        </div>
     </div>
 
-    <div class="header">
-        <h1>Welcome to NK Pathshala</h1>
-        <p>EDUCATION MUST BE FREE FOR EVERYONE</p>
-    </div>
-
-    <!-- Telegram Button -->
-    <a href="https://telegram.org" target="_blank" class="action-btn">
-        <div class="btn-content">
-            <span style="font-size: 18px;">📢</span>
-            <div>
-                <span>Join Our Telegram</span>
-                <span class="sub-text">⚡ 976+ Joined</span>
-            </div>
+    <!-- SERVER SELECTION VIEW (Opens when clicking a platform) -->
+    <div id="serverView">
+        <div class="server-header">
+            <h2 id="platformTitle">Selection Way</h2>
+            <p>Select Server / Link 👇</p>
         </div>
-        <span style="color: #a4b0be;">➔</span>
-    </a>
 
-    <!-- Special Chill Zone Button -->
-    <a href="#" class="action-btn special">
-        <div class="btn-content">
-            <span style="font-size: 18px;">🎬</span>
-            <div>
-                <span>NK-FLIX <span style="background: #eb2f06; color:#fff; font-size:9px; padding:2px 5px; border-radius:4px; margin-left:5px;">STREAM</span></span>
-                <span class="sub-text" style="color: #ff4757;">🔴 Chill Zone</span>
-            </div>
+        <div class="server-grid" id="serverGridContainer">
+            <!-- Circular Server Icons will load here -->
         </div>
-        <span style="color: #a4b0be;">➔</span>
-    </a>
 
-    <!-- Search Bar -->
-    <div class="search-box">
-        <input type="text" id="searchInput" onkeyup="filterPlatforms()" placeholder="Search platforms...">
-    </div>
-
-    <!-- Batches / Cards Grid -->
-    <div class="grid-container" id="platformGrid">
-        <!-- Row 1: Selection Way (Opens Modal with Links) -->
-        <div class="card" onclick="openModal('Selection Way Links')">
-            <div class="card-icon">SEL</div>
-            <h3>Selection Way</h3>
-        </div>
-        <a href="#" class="card">
-            <div class="card-icon">RWA</div>
-            <h3>RWA</h3>
-        </a>
-
-        <!-- Row 2 -->
-        <a href="#" class="card">
-            <div class="card-icon">KGS</div>
-            <h3>KGS</h3>
-        </a>
-        <a href="#" class="card">
-            <div class="card-icon">PW</div>
-            <h3>PW</h3>
-        </a>
-
-        <!-- Row 3 -->
-        <a href="#" class="card">
-            <div class="card-icon">CW</div>
-            <h3>Careerwill</h3>
-        </a>
-        <a href="#" class="card">
-            <div class="card-icon">PAR</div>
-            <h3>Parmar Academy</h3>
-        </a>
-
-        <!-- Row 4 -->
-        <a href="#" class="card">
-            <div class="card-icon">YES</div>
-            <h3>Yes Officer</h3>
-        </a>
-        <a href="#" class="card">
-            <div class="card-icon">SAC</div>
-            <h3>Sachin Academy</h3>
-        </a>
-
-        <!-- Row 5 -->
-        <a href="#" class="card">
-            <div class="card-icon">EDU</div>
-            <h3>Edu Teria</h3>
-        </a>
-        <a href="#" class="card">
-            <div class="card-icon">FUT</div>
-            <h3>Futurekul</h3>
-        </a>
-
-        <!-- Row 6 -->
-        <a href="#" class="card">
-            <div class="card-icon">MJ</div>
-            <h3>Mission Jeet</h3>
-        </a>
-        <a href="#" class="card">
-            <div class="card-icon">NEXT</div>
-            <h3>Next Toppers</h3>
-        </a>
-    </div>
-
-    <!-- Modal Popup Box -->
-    <div class="modal" id="linkModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">Links</h3>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="link-list" id="linkListContainer">
-                <!-- Links will load here -->
-            </div>
-        </div>
+        <button class="back-btn" onclick="goBack()">← Back to Categories</button>
     </div>
 
     <!-- Script -->
     <script>
-        const selectionLinks = [
-            { name: "Server 1 (EdgeOne)", url: "https://selectionwayvivid.edgeone.dev/" },
-            { name: "Server 2 (Space-Z)", url: "https://sw-studybison.space-z.ai/" },
-            { name: "Server 3 (CodeWithVivek)", url: "https://sw.codewithvivek.xyz/" },
-            { name: "Server 4 (NextHope Pages)", url: "https://nexthope.pages.dev/sw/" },
-            { name: "Server 5 (EdgeOne Alt)", url: "https://selectionwayvivid.edgeone.dev/" },
-            { name: "Server 6 (Test Ranking Free)", url: "https://testrankingfree.vercel.app" },
-            { name: "Server 7 (Cloud Run)", url: "https://ais-pre-44p3s4dkjz7od7x7g3qwu6-49225910278.asia-east1.run.app/" },
-            { name: "Server 8 (NextHope CC)", url: "https://nexthope.cc.cd/sw/" }
-        ];
+        const platformsData = {
+            selectionWay: {
+                title: "Selection Way",
+                servers: [
+                    { name: "SW Vivid", sub: "Server 1", icon: "🌐", url: "https://selectionwayvivid.edgeone.dev/" },
+                    { name: "Studybison", sub: "Server 2", icon: "🚀", url: "https://sw-studybison.space-z.ai/" },
+                    { name: "CodeWithVivek", sub: "Server 3", icon: "⚡", url: "https://sw.codewithvivek.xyz/" },
+                    { name: "NextHope SW", sub: "Server 4", icon: "🎯", url: "https://nexthope.pages.dev/sw/" },
+                    { name: "Test & Ranking", sub: "Server 5", icon: "📝", url: "https://testrankingfree.vercel.app" },
+                    { name: "NextHope CC", sub: "Server 6", icon: "💎", url: "https://nexthope.cc.cd/sw/" },
+                    { name: "Cloud Server", sub: "Server 7", icon: "☁️", url: "https://ais-pre-44p3s4dkjz7od7x7g3qwu6-49225910278.asia-east1.run.app/" }
+                ]
+            }
+        };
 
-        function openModal(title) {
-            document.getElementById('modalTitle').innerText = title;
-            let container = document.getElementById('linkListContainer');
-            container.innerHTML = '';
-            
-            selectionLinks.forEach((item, index) => {
-                let a = document.createElement('a');
-                a.href = item.url;
+        function openPlatform(platformKey) {
+            const data = platformsData[platformKey];
+            if (!data) return;
+
+            document.getElementById('platformTitle').innerText = data.title;
+            const grid = document.getElementById('serverGridContainer');
+            grid.innerHTML = '';
+
+            data.servers.forEach(server => {
+                const a = document.createElement('a');
+                a.href = server.url;
                 a.target = "_blank";
-                a.className = "link-item";
-                a.innerText = item.name;
-                container.appendChild(a);
+                a.className = "server-item";
+                a.innerHTML = `
+                    <div class="circle-icon">${server.icon}</div>
+                    <div class="server-title">${server.name}</div>
+                    <div class="server-sub">${server.sub}</div>
+                `;
+                grid.appendChild(a);
             });
 
-            document.getElementById('linkModal').style.display = 'flex';
+            document.getElementById('homeView').style.display = 'none';
+            document.getElementById('serverView').style.display = 'flex';
+            window.scrollTo(0, 0);
         }
 
-        function closeModal() {
-            document.getElementById('linkModal').style.display = 'none';
+        function goBack() {
+            document.getElementById('serverView').style.display = 'none';
+            document.getElementById('homeView').style.display = 'flex';
         }
 
         function filterPlatforms() {
