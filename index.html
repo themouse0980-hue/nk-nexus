@@ -21,24 +21,22 @@
         }
         /* Top Logo / Icon */
         .logo-container {
-            width: 80px;
-            height: 80px;
-            background: #141414;
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #161616, #222);
             border: 2px solid #e1b12c;
             border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
-            box-shadow: 0 0 15px rgba(225, 177, 44, 0.35);
+            box-shadow: 0 0 15px rgba(225, 177, 44, 0.3);
+        }
+        .logo-container span {
+            font-size: 26px;
             font-weight: bold;
             color: #e1b12c;
-            font-size: 20px;
-        }
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            letter-spacing: 1px;
         }
         .header {
             text-align: center;
@@ -132,15 +130,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            cursor: pointer;
         }
         .card:active {
             transform: scale(0.96);
             border-color: #e1b12c;
         }
         .card-icon {
-            width: 54px;
-            height: 54px;
-            background: #1e1e1e;
+            width: 52px;
+            height: 52px;
+            background: #1a1a1a;
             border: 1.5px solid #e1b12c;
             border-radius: 14px;
             display: flex;
@@ -150,19 +149,77 @@
             box-shadow: 0 0 10px rgba(225, 177, 44, 0.25);
             font-weight: bold;
             color: #e1b12c;
-            font-size: 14px;
-            overflow: hidden;
-            padding: 4px;
-        }
-        .card-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            font-size: 13px;
         }
         .card h3 {
             font-size: 13px;
             font-weight: 500;
             color: #f1f2f6;
+        }
+
+        /* Modal Popup for Multiple Links */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .modal-content {
+            background: #141414;
+            border: 1px solid #e1b12c;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(225, 177, 44, 0.3);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        .modal-header h3 {
+            color: #f1c40f;
+            font-size: 16px;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .link-item {
+            background: #1c1c1c;
+            color: #fff;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid #333;
+            transition: 0.2s;
+        }
+        .link-item:hover {
+            border-color: #e1b12c;
+            color: #f1c40f;
         }
     </style>
 </head>
@@ -170,7 +227,7 @@
 
     <!-- Top Premium Logo -->
     <div class="logo-container">
-        <img src="selection.png" alt="NK" onerror="this.style.display='none'; this.parentElement.innerHTML='NK';">
+        <span>NK</span>
     </div>
 
     <div class="header">
@@ -207,71 +264,116 @@
         <input type="text" id="searchInput" onkeyup="filterPlatforms()" placeholder="Search platforms...">
     </div>
 
-    <!-- Batches / Cards Grid (Strictly Ordered as Requested) -->
+    <!-- Batches / Cards Grid -->
     <div class="grid-container" id="platformGrid">
-        <!-- Row 1 -->
-        <a href="#" class="card">
-            <div class="card-icon"><img src="selection.png" alt="SEL" onerror="this.style.display='none'; this.parentElement.innerHTML='SEL';"></div>
+        <!-- Row 1: Selection Way (Opens Modal with Links) -->
+        <div class="card" onclick="openModal('Selection Way Links')">
+            <div class="card-icon">SEL</div>
             <h3>Selection Way</h3>
-        </a>
+        </div>
         <a href="#" class="card">
-            <div class="card-icon"><img src="rwa.png" alt="RWA" onerror="this.style.display='none'; this.parentElement.innerHTML='RWA';"></div>
+            <div class="card-icon">RWA</div>
             <h3>RWA</h3>
         </a>
 
         <!-- Row 2 -->
         <a href="#" class="card">
-            <div class="card-icon"><img src="kgs.png" alt="KGS" onerror="this.style.display='none'; this.parentElement.innerHTML='KGS';"></div>
+            <div class="card-icon">KGS</div>
             <h3>KGS</h3>
         </a>
         <a href="#" class="card">
-            <div class="card-icon"><img src="pw.png" alt="PW" onerror="this.style.display='none'; this.parentElement.innerHTML='PW';"></div>
+            <div class="card-icon">PW</div>
             <h3>PW</h3>
         </a>
 
         <!-- Row 3 -->
         <a href="#" class="card">
-            <div class="card-icon"><img src="careerwill.png" alt="CW" onerror="this.style.display='none'; this.parentElement.innerHTML='CW';"></div>
+            <div class="card-icon">CW</div>
             <h3>Careerwill</h3>
         </a>
         <a href="#" class="card">
-            <div class="card-icon"><img src="parmar.png" alt="PAR" onerror="this.style.display='none'; this.parentElement.innerHTML='PAR';"></div>
+            <div class="card-icon">PAR</div>
             <h3>Parmar Academy</h3>
         </a>
 
         <!-- Row 4 -->
         <a href="#" class="card">
-            <div class="card-icon"><img src="yesofficer.png" alt="YES" onerror="this.style.display='none'; this.parentElement.innerHTML='YES';"></div>
+            <div class="card-icon">YES</div>
             <h3>Yes Officer</h3>
         </a>
         <a href="#" class="card">
-            <div class="card-icon"><img src="sciencemagnet.png" alt="SAC" onerror="this.style.display='none'; this.parentElement.innerHTML='SAC';"></div>
+            <div class="card-icon">SAC</div>
             <h3>Sachin Academy</h3>
         </a>
 
         <!-- Row 5 -->
         <a href="#" class="card">
-            <div class="card-icon"><img src="eduteria.png" alt="EDU" onerror="this.style.display='none'; this.parentElement.innerHTML='EDU';"></div>
+            <div class="card-icon">EDU</div>
             <h3>Edu Teria</h3>
         </a>
         <a href="#" class="card">
-            <div class="card-icon"><img src="futurekul.png" alt="FUT" onerror="this.style.display='none'; this.parentElement.innerHTML='FUT';"></div>
+            <div class="card-icon">FUT</div>
             <h3>Futurekul</h3>
         </a>
 
         <!-- Row 6 -->
         <a href="#" class="card">
-            <div class="card-icon"><img src="missionjeet.png" alt="MJ" onerror="this.style.display='none'; this.parentElement.innerHTML='MJ';"></div>
+            <div class="card-icon">MJ</div>
             <h3>Mission Jeet</h3>
         </a>
         <a href="#" class="card">
-            <div class="card-icon"><img src="nexttoppers.png" alt="NEXT" onerror="this.style.display='none'; this.parentElement.innerHTML='NEXT';"></div>
+            <div class="card-icon">NEXT</div>
             <h3>Next Toppers</h3>
         </a>
     </div>
 
-    <!-- Live Search Script -->
+    <!-- Modal Popup Box -->
+    <div class="modal" id="linkModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Links</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="link-list" id="linkListContainer">
+                <!-- Links will load here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
     <script>
+        const selectionLinks = [
+            { name: "Server 1 (EdgeOne)", url: "https://selectionwayvivid.edgeone.dev/" },
+            { name: "Server 2 (Space-Z)", url: "https://sw-studybison.space-z.ai/" },
+            { name: "Server 3 (CodeWithVivek)", url: "https://sw.codewithvivek.xyz/" },
+            { name: "Server 4 (NextHope Pages)", url: "https://nexthope.pages.dev/sw/" },
+            { name: "Server 5 (EdgeOne Alt)", url: "https://selectionwayvivid.edgeone.dev/" },
+            { name: "Server 6 (Test Ranking Free)", url: "https://testrankingfree.vercel.app" },
+            { name: "Server 7 (Cloud Run)", url: "https://ais-pre-44p3s4dkjz7od7x7g3qwu6-49225910278.asia-east1.run.app/" },
+            { name: "Server 8 (NextHope CC)", url: "https://nexthope.cc.cd/sw/" }
+        ];
+
+        function openModal(title) {
+            document.getElementById('modalTitle').innerText = title;
+            let container = document.getElementById('linkListContainer');
+            container.innerHTML = '';
+            
+            selectionLinks.forEach((item, index) => {
+                let a = document.createElement('a');
+                a.href = item.url;
+                a.target = "_blank";
+                a.className = "link-item";
+                a.innerText = item.name;
+                container.appendChild(a);
+            });
+
+            document.getElementById('linkModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('linkModal').style.display = 'none';
+        }
+
         function filterPlatforms() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('card');
