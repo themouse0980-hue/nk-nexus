@@ -158,7 +158,7 @@
             color: #f1f2f6;
         }
 
-        /* --- SERVER / LINK VIEW (Like Reference Screenshot) --- */
+        /* --- SERVER / LINK VIEW --- */
         #serverView {
             display: none;
             width: 100%;
@@ -306,20 +306,20 @@
             </a>
 
             <!-- Row 2 -->
-            <a href="#" class="card">
+            <div class="card" onclick="openPlatform('kgs')">
                 <div class="card-icon">KGS</div>
                 <h3>KGS</h3>
-            </a>
+            </div>
             <a href="#" class="card">
                 <div class="card-icon">PW</div>
                 <h3>PW</h3>
             </a>
 
             <!-- Row 3 -->
-            <a href="#" class="card">
+            <div class="card" onclick="openPlatform('careerwill')">
                 <div class="card-icon">CW</div>
                 <h3>Careerwill</h3>
-            </a>
+            </div>
             <a href="#" class="card">
                 <div class="card-icon">PAR</div>
                 <h3>Parmar Academy</h3>
@@ -336,14 +336,14 @@
             </a>
 
             <!-- Row 5 -->
-            <a href="#" class="card">
+            <div class="card" onclick="openPlatform('eduteria')">
                 <div class="card-icon">EDU</div>
                 <h3>Edu Teria</h3>
-            </a>
-            <a href="#" class="card">
+            </div>
+            <div class="card" onclick="openPlatform('futurekul')">
                 <div class="card-icon">FUT</div>
                 <h3>Futurekul</h3>
-            </a>
+            </div>
 
             <!-- Row 6 -->
             <a href="#" class="card">
@@ -354,13 +354,23 @@
                 <div class="card-icon">NEXT</div>
                 <h3>Next Toppers</h3>
             </a>
+
+            <!-- Row 7 (New Additions) -->
+            <div class="card" onclick="openPlatform('studyiq')">
+                <div class="card-icon">IQ</div>
+                <h3>Study IQ</h3>
+            </div>
+            <div class="card" onclick="openPlatform('vidyagram')">
+                <div class="card-icon">VG</div>
+                <h3>Vidyagram</h3>
+            </div>
         </div>
     </div>
 
-    <!-- SERVER SELECTION VIEW (Opens when clicking a platform) -->
+    <!-- SERVER SELECTION VIEW -->
     <div id="serverView">
         <div class="server-header">
-            <h2 id="platformTitle">Selection Way</h2>
+            <h2 id="platformTitle">Platform</h2>
             <p>Select Server / Link 👇</p>
         </div>
 
@@ -383,7 +393,56 @@
                     { name: "NextHope SW", sub: "Server 4", icon: "🎯", url: "https://nexthope.pages.dev/sw/" },
                     { name: "Test & Ranking", sub: "Server 5", icon: "📝", url: "https://testrankingfree.vercel.app" },
                     { name: "NextHope CC", sub: "Server 6", icon: "💎", url: "https://nexthope.cc.cd/sw/" },
-                    { name: "Cloud Server", sub: "Server 7", icon: "☁️", url: "https://ais-pre-44p3s4dkjz7od7x7g3qwu6-49225910278.asia-east1.run.app/" }
+                    { name: "Cloud Server 1", sub: "Server 7", icon: "☁️", url: "https://ais-pre-44p3s4dkjz7od7x7g3qwu6-49225910278.asia-east1.run.app/" },
+                    { name: "Cloud Server 2", sub: "Server 8", icon: "🔥", url: "https://ais-pre-a5hvjqc66aerxlyco5jzkx-49225910278.asia-east1.run.app/" }
+                ]
+            },
+            kgs: {
+                title: "KGS",
+                servers: [
+                    { name: "Study Mate", sub: "Server 1", icon: "📚", url: "https://www.study-mate.in/batches" },
+                    { name: "Sahu KGS", sub: "Server 2", icon: "🇮🇳", url: "https://sahukgs.com/batches" },
+                    { name: "MadX Rohit", sub: "Server 3", icon: "⚡", url: "https://madxrohit.vercel.app/kgs.html" }
+                ]
+            },
+            careerwill: {
+                title: "Careerwill",
+                servers: [
+                    { name: "Sangam CW", sub: "Server 1", icon: "🎯", url: "https://sangam.free.nf/CW/course_index.html" },
+                    { name: "Runtkyp CW", sub: "Server 2", icon: "🚀", url: "https://runtkyp.xo.je/?i=1" },
+                    { name: "CW Studybison", sub: "Server 3", icon: "🌐", url: "https://cw.studybison.in/" }
+                ]
+            },
+            eduteria: {
+                title: "Edu Teria",
+                servers: [
+                    { name: "CodeWithVivek", sub: "Server 1", icon: "📖", url: "https://all.codewithvivek.qzz.io/eduteria" }
+                ]
+            },
+            futurekul: {
+                title: "Futurekul",
+                servers: [
+                    { name: "Studybison FC", sub: "Server 1", icon: "🚀", url: "https://studybison-fc.space-z.ai/" },
+                    { name: "MadX Rohit", sub: "Server 2", icon: "⚡", url: "https://madxrohit.vercel.app/futurekul.html" },
+                    { name: "CodeWithVivek", sub: "Server 3", icon: "🌐", url: "https://all.codewithvivek.qzz.io/futurekul" },
+                    { name: "NextHope Pages", sub: "Server 4", icon: "🎯", url: "https://nexthope.pages.dev/futurekul/" },
+                    { name: "StudyApkMod", sub: "Server 5", icon: "💎", url: "https://studyapkmod-futurekull.vercel.app/" }
+                ]
+            },
+            studyiq: {
+                title: "Study IQ",
+                servers: [
+                    { name: "Spidy IQ", sub: "Server 1", icon: "🕷️", url: "https://spidyiq.vercel.app/" },
+                    { name: "Study IQQ", sub: "Server 2", icon: "🧠", url: "https://studyiqq.vercel.app/" }
+                ]
+            },
+            vidyagram: {
+                title: "Vidyagram",
+                servers: [
+                    { name: "PW Nexus VG", sub: "Server 1", icon: "🌐", url: "https://pwnexus.eu.cc/vidyagram" },
+                    { name: "VG Studybison", sub: "Server 2", icon: "🚀", url: "https://vidyagram-studybison.space-z.ai/" },
+                    { name: "Study Monkey", sub: "Server 3", icon: "🐒", url: "https://studymonkeyvg.netlify.app/" },
+                    { name: "Cloud Server", sub: "Server 4", icon: "☁️", url: "https://ais-pre-a5hvjqc66aerxlyco5jzkx-49225910278.asia-east1.run.app/" }
                 ]
             }
         };
