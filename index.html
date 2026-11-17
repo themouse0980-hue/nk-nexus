@@ -293,73 +293,39 @@
             <input type="text" id="searchInput" onkeyup="filterPlatforms()" placeholder="Search platforms...">
         </div>
 
-        <!-- Batches / Cards Grid -->
+        <!-- Clean Grid Container (Active Platforms) -->
         <div class="grid-container" id="platformGrid">
-            <!-- Row 1 -->
+            <!-- 1. Selection Way -->
             <div class="card" onclick="openPlatform('selectionWay')">
                 <div class="card-icon">SEL</div>
                 <h3>Selection Way</h3>
             </div>
-            <a href="#" class="card">
-                <div class="card-icon">RWA</div>
-                <h3>RWA</h3>
-            </a>
-
-            <!-- Row 2 -->
+            <!-- 2. KGS -->
             <div class="card" onclick="openPlatform('kgs')">
                 <div class="card-icon">KGS</div>
                 <h3>KGS</h3>
             </div>
-            <a href="#" class="card">
-                <div class="card-icon">PW</div>
-                <h3>PW</h3>
-            </a>
-
-            <!-- Row 3 -->
-            <div class="card" onclick="openPlatform('careerwill')">
-                <div class="card-icon">CW</div>
-                <h3>Careerwill</h3>
-            </div>
-            <a href="#" class="card">
-                <div class="card-icon">PAR</div>
-                <h3>Parmar Academy</h3>
-            </a>
-
-            <!-- Row 4 -->
-            <a href="#" class="card">
-                <div class="card-icon">YES</div>
-                <h3>Yes Officer</h3>
-            </a>
-            <a href="#" class="card">
-                <div class="card-icon">SAC</div>
-                <h3>Sachin Academy</h3>
-            </a>
-
-            <!-- Row 5 -->
-            <div class="card" onclick="openPlatform('eduteria')">
-                <div class="card-icon">EDU</div>
-                <h3>Edu Teria</h3>
-            </div>
-            <div class="card" onclick="openPlatform('futurekul')">
-                <div class="card-icon">FUT</div>
-                <h3>Futurekul</h3>
-            </div>
-
-            <!-- Row 6 -->
-            <a href="#" class="card">
-                <div class="card-icon">MJ</div>
-                <h3>Mission Jeet</h3>
-            </a>
-            <a href="#" class="card">
-                <div class="card-icon">NEXT</div>
-                <h3>Next Toppers</h3>
-            </a>
-
-            <!-- Row 7 (New Additions) -->
+            <!-- 3. Study IQ -->
             <div class="card" onclick="openPlatform('studyiq')">
                 <div class="card-icon">IQ</div>
                 <h3>Study IQ</h3>
             </div>
+            <!-- 4. Futurekul -->
+            <div class="card" onclick="openPlatform('futurekul')">
+                <div class="card-icon">FUT</div>
+                <h3>Futurekul</h3>
+            </div>
+            <!-- 5. Edu Teria -->
+            <div class="card" onclick="openPlatform('eduteria')">
+                <div class="card-icon">EDU</div>
+                <h3>Edu Teria</h3>
+            </div>
+            <!-- 6. Careerwill -->
+            <div class="card" onclick="openPlatform('careerwill')">
+                <div class="card-icon">CW</div>
+                <h3>Careerwill</h3>
+            </div>
+            <!-- 7. Vidyagram -->
             <div class="card" onclick="openPlatform('vidyagram')">
                 <div class="card-icon">VG</div>
                 <h3>Vidyagram</h3>
@@ -405,18 +371,11 @@
                     { name: "MadX Rohit", sub: "Server 3", icon: "⚡", url: "https://madxrohit.vercel.app/kgs.html" }
                 ]
             },
-            careerwill: {
-                title: "Careerwill",
+            studyiq: {
+                title: "Study IQ",
                 servers: [
-                    { name: "Sangam CW", sub: "Server 1", icon: "🎯", url: "https://sangam.free.nf/CW/course_index.html" },
-                    { name: "Runtkyp CW", sub: "Server 2", icon: "🚀", url: "https://runtkyp.xo.je/?i=1" },
-                    { name: "CW Studybison", sub: "Server 3", icon: "🌐", url: "https://cw.studybison.in/" }
-                ]
-            },
-            eduteria: {
-                title: "Edu Teria",
-                servers: [
-                    { name: "CodeWithVivek", sub: "Server 1", icon: "📖", url: "https://all.codewithvivek.qzz.io/eduteria" }
+                    { name: "Spidy IQ", sub: "Server 1", icon: "🕷️", url: "https://spidyiq.vercel.app/" },
+                    { name: "Study IQQ", sub: "Server 2", icon: "🧠", url: "https://studyiqq.vercel.app/" }
                 ]
             },
             futurekul: {
@@ -429,11 +388,18 @@
                     { name: "StudyApkMod", sub: "Server 5", icon: "💎", url: "https://studyapkmod-futurekull.vercel.app/" }
                 ]
             },
-            studyiq: {
-                title: "Study IQ",
+            eduteria: {
+                title: "Edu Teria",
                 servers: [
-                    { name: "Spidy IQ", sub: "Server 1", icon: "🕷️", url: "https://spidyiq.vercel.app/" },
-                    { name: "Study IQQ", sub: "Server 2", icon: "🧠", url: "https://studyiqq.vercel.app/" }
+                    { name: "CodeWithVivek", sub: "Server 1", icon: "📖", url: "https://all.codewithvivek.qzz.io/eduteria" }
+                ]
+            },
+            careerwill: {
+                title: "Careerwill",
+                servers: [
+                    { name: "Sangam CW", sub: "Server 1", icon: "🎯", url: "https://sangam.free.nf/CW/course_index.html" },
+                    { name: "Runtkyp CW", sub: "Server 2", icon: "🚀", url: "https://runtkyp.xo.je/?i=1" },
+                    { name: "CW Studybison", sub: "Server 3", icon: "🌐", url: "https://cw.studybison.in/" }
                 ]
             },
             vidyagram: {
