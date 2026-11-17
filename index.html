@@ -110,13 +110,160 @@
         .search-box input::placeholder {
             color: #747d8c;
         }
-        /* Main Categories Grid (Currently Empty, Ready for New Additions) */
+        /* Main Categories Grid (Reference Style) */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 14px;
             width: 100%;
             max-width: 420px;
+        }
+        .card {
+            background: #111111;
+            border: 1px solid #222222;
+            border-radius: 18px;
+            padding: 20px 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+        .card:active {
+            transform: scale(0.96);
+            border-color: #e1b12c;
+        }
+        /* Golden Rounded-Square Logo Box (Matches Screenshot) */
+        .logo-box {
+            width: 64px;
+            height: 64px;
+            border: 2px solid #e1b12c;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            box-shadow: 0 0 12px rgba(225, 177, 44, 0.2);
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+            padding: 4px;
+        }
+        .card h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #f1f2f6;
+        }
+
+        /* Brand-Styled Logo Boxes */
+        .bg-sw { background: linear-gradient(135deg, #0f2027, #203a43); color: #38ada9; font-size: 16px; }
+        .bg-rwa { background: #1a1a1a; color: #ff4757; font-size: 17px; }
+        .bg-pw { background: #ffffff; color: #000000; font-size: 20px; font-family: Georgia, serif; }
+        .bg-kgs { background: linear-gradient(135deg, #b33939, #227093); color: #ffffff; font-size: 17px; }
+        .bg-parmar { background: #192a56; color: #fbc531; font-size: 12px; }
+        .bg-science { background: #2f3640; color: #00a8ff; font-size: 13px; }
+        .bg-vg { background: radial-gradient(circle, #3d2c00, #000000); color: #f1c40f; font-size: 18px; }
+        .bg-yes { background: #ffffff; color: #1e272e; font-size: 11px; }
+        .bg-mj { background: #000000; color: #ffffff; font-size: 10px; }
+        .bg-mj span { background: #eb2f06; color: #fff; padding: 2px 5px; border-radius: 3px; font-size: 12px; margin-top: 2px; }
+        .bg-next { background: #2f3542; color: #2ed573; font-size: 22px; }
+        .bg-edu { background: #0a3d62; color: #82ccdd; font-size: 13px; }
+        .bg-fut { background: linear-gradient(135deg, #4a00e0, #8e2de2); color: #ffffff; font-size: 13px; }
+
+        /* --- SERVER / LINK VIEW --- */
+        #serverView {
+            display: none;
+            width: 100%;
+            max-width: 420px;
+            flex-direction: column;
+            align-items: flex-start;
+            animation: fadeIn 0.25s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .server-header {
+            width: 100%;
+            margin-bottom: 25px;
+            padding: 0 5px;
+        }
+        .server-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        .server-header p {
+            font-size: 13px;
+            color: #f1c40f;
+            font-weight: 500;
+        }
+        .server-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px 16px;
+            width: 100%;
+            margin-bottom: 35px;
+        }
+        .server-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            transition: transform 0.2s ease;
+        }
+        .server-item:active {
+            transform: scale(0.94);
+        }
+        .circle-icon {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #22201a 0%, #121212 100%);
+            border: 2px solid #e1b12c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 15px rgba(225, 177, 44, 0.25);
+        }
+        .server-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 2px;
+        }
+        .server-sub {
+            font-size: 11px;
+            color: #a4b0be;
+            text-align: center;
+        }
+        .back-btn {
+            background: linear-gradient(145deg, #2b2310, #1c170a);
+            border: 1px solid #e1b12c;
+            color: #f1c40f;
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(225, 177, 44, 0.2);
+            transition: 0.2s;
+        }
+        .back-btn:active {
+            transform: scale(0.96);
         }
     </style>
 </head>
@@ -160,14 +307,185 @@
 
         <!-- Search Bar -->
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search platforms...">
+            <input type="text" id="searchInput" onkeyup="filterPlatforms()" placeholder="Search platforms...">
         </div>
 
-        <!-- Empty Grid Container -->
+        <!-- Ordered 12 Platforms Grid -->
         <div class="grid-container" id="platformGrid">
-            <!-- New platforms will be added here -->
+            <!-- Row 1 -->
+            <div class="card" onclick="openPlatform('selectionWay')">
+                <div class="logo-box bg-sw">SW</div>
+                <h3>Selection Way</h3>
+            </div>
+            <div class="card" onclick="openPlatform('rwa')">
+                <div class="logo-box bg-rwa">RWA</div>
+                <h3>RWA</h3>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="card" onclick="openPlatform('pw')">
+                <div class="logo-box bg-pw">PW</div>
+                <h3>PW</h3>
+            </div>
+            <div class="card" onclick="openPlatform('kgs')">
+                <div class="logo-box bg-kgs">KGS</div>
+                <h3>KGS</h3>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="card" onclick="openPlatform('parmar')">
+                <div class="logo-box bg-parmar">PARMAR</div>
+                <h3>Parmar Academy</h3>
+            </div>
+            <div class="card" onclick="openPlatform('scienceMagnet')">
+                <div class="logo-box bg-science">SCIENCE<br>MAGNET</div>
+                <h3>Science Magnet</h3>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="card" onclick="openPlatform('vidyagram')">
+                <div class="logo-box bg-vg">VG</div>
+                <h3>Vidyagram</h3>
+            </div>
+            <div class="card" onclick="openPlatform('yesOfficer')">
+                <div class="logo-box bg-yes">yes<br><span style="font-size:8px; letter-spacing:0;">OFFICER</span></div>
+                <h3>Yes Officer</h3>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="card" onclick="openPlatform('missionJeet')">
+                <div class="logo-box bg-mj">Mission<span>JEET</span></div>
+                <h3>Mission Jeet</h3>
+            </div>
+            <div class="card" onclick="openPlatform('nextToppers')">
+                <div class="logo-box bg-next">❯❯</div>
+                <h3>Next Toppers</h3>
+            </div>
+
+            <!-- Row 6 -->
+            <div class="card" onclick="openPlatform('eduteria')">
+                <div class="logo-box bg-edu">EDU<br>TERIA</div>
+                <h3>Edu Teria</h3>
+            </div>
+            <div class="card" onclick="openPlatform('futurekul')">
+                <div class="logo-box bg-fut">FUTURE<br>KUL</div>
+                <h3>Futurekul</h3>
+            </div>
         </div>
     </div>
+
+    <!-- SERVER SELECTION VIEW -->
+    <div id="serverView">
+        <div class="server-header">
+            <h2 id="platformTitle">Platform</h2>
+            <p>Select Server / Link 👇</p>
+        </div>
+
+        <div class="server-grid" id="serverGridContainer">
+            <!-- Circular Server Icons will load here -->
+        </div>
+
+        <button class="back-btn" onclick="goBack()">← Back to Categories</button>
+    </div>
+
+    <!-- Script -->
+    <script>
+        const platformsData = {
+            selectionWay: {
+                title: "Selection Way",
+                servers: [
+                    { name: "SW Vivid", sub: "Server 1", icon: "🌐", url: "https://selectionwayvivid.edgeone.dev/" },
+                    { name: "Studybison", sub: "Server 2", icon: "🚀", url: "https://sw-studybison.space-z.ai/" },
+                    { name: "CodeWithVivek", sub: "Server 3", icon: "⚡", url: "https://sw.codewithvivek.xyz/" },
+                    { name: "NextHope SW", sub: "Server 4", icon: "🎯", url: "https://nexthope.pages.dev/sw/" },
+                    { name: "Test & Ranking", sub: "Server 5", icon: "📝", url: "https://testrankingfree.vercel.app" },
+                    { name: "NextHope CC", sub: "Server 6", icon: "💎", url: "https://nexthope.cc.cd/sw/" },
+                    { name: "Cloud Server 1", sub: "Server 7", icon: "☁️", url: "https://ais-pre-44p3s4dkjz7od7x7g3qwu6-49225910278.asia-east1.run.app/" },
+                    { name: "Cloud Server 2", sub: "Server 8", icon: "🔥", url: "https://ais-pre-a5hvjqc66aerxlyco5jzkx-49225910278.asia-east1.run.app/" }
+                ]
+            },
+            kgs: {
+                title: "KGS",
+                servers: [
+                    { name: "Study Mate", sub: "Server 1", icon: "📚", url: "https://www.study-mate.in/batches" },
+                    { name: "Sahu KGS", sub: "Server 2", icon: "🇮🇳", url: "https://sahukgs.com/batches" },
+                    { name: "MadX Rohit", sub: "Server 3", icon: "⚡", url: "https://madxrohit.vercel.app/kgs.html" }
+                ]
+            },
+            vidyagram: {
+                title: "Vidyagram",
+                servers: [
+                    { name: "PW Nexus VG", sub: "Server 1", icon: "🌐", url: "https://pwnexus.eu.cc/vidyagram" },
+                    { name: "VG Studybison", sub: "Server 2", icon: "🚀", url: "https://vidyagram-studybison.space-z.ai/" },
+                    { name: "Study Monkey", sub: "Server 3", icon: "🐒", url: "https://studymonkeyvg.netlify.app/" },
+                    { name: "Cloud Server", sub: "Server 4", icon: "☁️", url: "https://ais-pre-a5hvjqc66aerxlyco5jzkx-49225910278.asia-east1.run.app/" }
+                ]
+            },
+            eduteria: {
+                title: "Edu Teria",
+                servers: [
+                    { name: "CodeWithVivek", sub: "Server 1", icon: "📖", url: "https://all.codewithvivek.qzz.io/eduteria" }
+                ]
+            },
+            futurekul: {
+                title: "Futurekul",
+                servers: [
+                    { name: "Studybison FC", sub: "Server 1", icon: "🚀", url: "https://studybison-fc.space-z.ai/" },
+                    { name: "MadX Rohit", sub: "Server 2", icon: "⚡", url: "https://madxrohit.vercel.app/futurekul.html" },
+                    { name: "CodeWithVivek", sub: "Server 3", icon: "🌐", url: "https://all.codewithvivek.qzz.io/futurekul" },
+                    { name: "NextHope Pages", sub: "Server 4", icon: "🎯", url: "https://nexthope.pages.dev/futurekul/" },
+                    { name: "StudyApkMod", sub: "Server 5", icon: "💎", url: "https://studyapkmod-futurekull.vercel.app/" }
+                ]
+            }
+        };
+
+        function openPlatform(platformKey) {
+            const data = platformsData[platformKey];
+            if (!data) {
+                alert("Is platform ke links jald hi add kiye jayenge!");
+                return;
+            }
+
+            document.getElementById('platformTitle').innerText = data.title;
+            const grid = document.getElementById('serverGridContainer');
+            grid.innerHTML = '';
+
+            data.servers.forEach(server => {
+                const a = document.createElement('a');
+                a.href = server.url;
+                a.target = "_blank";
+                a.className = "server-item";
+                a.innerHTML = `
+                    <div class="circle-icon">${server.icon}</div>
+                    <div class="server-title">${server.name}</div>
+                    <div class="server-sub">${server.sub}</div>
+                `;
+                grid.appendChild(a);
+            });
+
+            document.getElementById('homeView').style.display = 'none';
+            document.getElementById('serverView').style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
+
+        function goBack() {
+            document.getElementById('serverView').style.display = 'none';
+            document.getElementById('homeView').style.display = 'flex';
+        }
+
+        function filterPlatforms() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
