@@ -32,12 +32,13 @@
             justify-content: center;
             margin-bottom: 15px;
             box-shadow: 0 0 15px rgba(225, 177, 44, 0.3);
+            overflow: hidden;
+            padding: 4px;
         }
-        .logo-container span {
-            font-size: 26px;
-            font-weight: bold;
-            color: #e1b12c;
-            letter-spacing: 1px;
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .header {
             text-align: center;
@@ -110,7 +111,7 @@
         .search-box input::placeholder {
             color: #747d8c;
         }
-        /* Main Categories Grid (Reference Style) */
+        /* Main Categories Grid */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -137,43 +138,34 @@
             transform: scale(0.96);
             border-color: #e1b12c;
         }
-        /* Golden Rounded-Square Logo Box (Matches Screenshot) */
+        /* Golden Rounded-Square Logo Box for Images */
         .logo-box {
             width: 64px;
             height: 64px;
+            background: #181818;
             border: 2px solid #e1b12c;
             border-radius: 16px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             margin-bottom: 12px;
             box-shadow: 0 0 12px rgba(225, 177, 44, 0.2);
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            line-height: 1.1;
+            overflow: hidden;
             padding: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #e1b12c;
+        }
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .card h3 {
             font-size: 13px;
             font-weight: 600;
             color: #f1f2f6;
         }
-
-        /* Brand-Styled Logo Boxes */
-        .bg-sw { background: linear-gradient(135deg, #0f2027, #203a43); color: #38ada9; font-size: 16px; }
-        .bg-rwa { background: #1a1a1a; color: #ff4757; font-size: 17px; }
-        .bg-pw { background: #ffffff; color: #000000; font-size: 20px; font-family: Georgia, serif; }
-        .bg-kgs { background: linear-gradient(135deg, #b33939, #227093); color: #ffffff; font-size: 17px; }
-        .bg-parmar { background: #192a56; color: #fbc531; font-size: 12px; }
-        .bg-science { background: #2f3640; color: #00a8ff; font-size: 13px; }
-        .bg-vg { background: radial-gradient(circle, #3d2c00, #000000); color: #f1c40f; font-size: 18px; }
-        .bg-yes { background: #ffffff; color: #1e272e; font-size: 11px; }
-        .bg-mj { background: #000000; color: #ffffff; font-size: 10px; }
-        .bg-mj span { background: #eb2f06; color: #fff; padding: 2px 5px; border-radius: 3px; font-size: 12px; margin-top: 2px; }
-        .bg-next { background: #2f3542; color: #2ed573; font-size: 22px; }
-        .bg-edu { background: #0a3d62; color: #82ccdd; font-size: 13px; }
-        .bg-fut { background: linear-gradient(135deg, #4a00e0, #8e2de2); color: #ffffff; font-size: 13px; }
 
         /* --- SERVER / LINK VIEW --- */
         #serverView {
@@ -273,7 +265,7 @@
     <div id="homeView" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
         <!-- Top Premium Logo -->
         <div class="logo-container">
-            <span>NK</span>
+            <img src="logo.png" alt="NK" onerror="this.style.display='none'; this.parentElement.innerHTML='NK';">
         </div>
 
         <div class="header">
@@ -310,65 +302,89 @@
             <input type="text" id="searchInput" onkeyup="filterPlatforms()" placeholder="Search platforms...">
         </div>
 
-        <!-- Ordered 12 Platforms Grid -->
+        <!-- Ordered 12 Platforms Grid with Image Logos -->
         <div class="grid-container" id="platformGrid">
             <!-- Row 1 -->
             <div class="card" onclick="openPlatform('selectionWay')">
-                <div class="logo-box bg-sw">SW</div>
+                <div class="logo-box">
+                    <img src="selection.png" alt="SW" onerror="this.style.display='none'; this.parentElement.innerHTML='SW';">
+                </div>
                 <h3>Selection Way</h3>
             </div>
             <div class="card" onclick="openPlatform('rwa')">
-                <div class="logo-box bg-rwa">RWA</div>
+                <div class="logo-box">
+                    <img src="rwa.png" alt="RWA" onerror="this.style.display='none'; this.parentElement.innerHTML='RWA';">
+                </div>
                 <h3>RWA</h3>
             </div>
 
             <!-- Row 2 -->
             <div class="card" onclick="openPlatform('pw')">
-                <div class="logo-box bg-pw">PW</div>
+                <div class="logo-box">
+                    <img src="pw.png" alt="PW" onerror="this.style.display='none'; this.parentElement.innerHTML='PW';">
+                </div>
                 <h3>PW</h3>
             </div>
             <div class="card" onclick="openPlatform('kgs')">
-                <div class="logo-box bg-kgs">KGS</div>
+                <div class="logo-box">
+                    <img src="kgs.png" alt="KGS" onerror="this.style.display='none'; this.parentElement.innerHTML='KGS';">
+                </div>
                 <h3>KGS</h3>
             </div>
 
             <!-- Row 3 -->
             <div class="card" onclick="openPlatform('parmar')">
-                <div class="logo-box bg-parmar">PARMAR</div>
+                <div class="logo-box">
+                    <img src="parmar.png" alt="PAR" onerror="this.style.display='none'; this.parentElement.innerHTML='PAR';">
+                </div>
                 <h3>Parmar Academy</h3>
             </div>
             <div class="card" onclick="openPlatform('scienceMagnet')">
-                <div class="logo-box bg-science">SCIENCE<br>MAGNET</div>
+                <div class="logo-box">
+                    <img src="science.png" alt="SCI" onerror="this.style.display='none'; this.parentElement.innerHTML='SCI';">
+                </div>
                 <h3>Science Magnet</h3>
             </div>
 
             <!-- Row 4 -->
             <div class="card" onclick="openPlatform('vidyagram')">
-                <div class="logo-box bg-vg">VG</div>
+                <div class="logo-box">
+                    <img src="vg.png" alt="VG" onerror="this.style.display='none'; this.parentElement.innerHTML='VG';">
+                </div>
                 <h3>Vidyagram</h3>
             </div>
             <div class="card" onclick="openPlatform('yesOfficer')">
-                <div class="logo-box bg-yes">yes<br><span style="font-size:8px; letter-spacing:0;">OFFICER</span></div>
+                <div class="logo-box">
+                    <img src="yesofficer.png" alt="YES" onerror="this.style.display='none'; this.parentElement.innerHTML='YES';">
+                </div>
                 <h3>Yes Officer</h3>
             </div>
 
             <!-- Row 5 -->
             <div class="card" onclick="openPlatform('missionJeet')">
-                <div class="logo-box bg-mj">Mission<span>JEET</span></div>
+                <div class="logo-box">
+                    <img src="missionjeet.png" alt="MJ" onerror="this.style.display='none'; this.parentElement.innerHTML='MJ';">
+                </div>
                 <h3>Mission Jeet</h3>
             </div>
             <div class="card" onclick="openPlatform('nextToppers')">
-                <div class="logo-box bg-next">❯❯</div>
+                <div class="logo-box">
+                    <img src="nexttoppers.png" alt="NEXT" onerror="this.style.display='none'; this.parentElement.innerHTML='NEXT';">
+                </div>
                 <h3>Next Toppers</h3>
             </div>
 
             <!-- Row 6 -->
             <div class="card" onclick="openPlatform('eduteria')">
-                <div class="logo-box bg-edu">EDU<br>TERIA</div>
+                <div class="logo-box">
+                    <img src="eduteria.png" alt="EDU" onerror="this.style.display='none'; this.parentElement.innerHTML='EDU';">
+                </div>
                 <h3>Edu Teria</h3>
             </div>
             <div class="card" onclick="openPlatform('futurekul')">
-                <div class="logo-box bg-fut">FUTURE<br>KUL</div>
+                <div class="logo-box">
+                    <img src="futurekul.png" alt="FUT" onerror="this.style.display='none'; this.parentElement.innerHTML='FUT';">
+                </div>
                 <h3>Futurekul</h3>
             </div>
         </div>
