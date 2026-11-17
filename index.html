@@ -32,13 +32,10 @@
             justify-content: center;
             margin-bottom: 15px;
             box-shadow: 0 0 15px rgba(225, 177, 44, 0.3);
-            overflow: hidden;
-            padding: 4px;
-        }
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            font-size: 26px;
+            font-weight: bold;
+            color: #e1b12c;
+            letter-spacing: 1px;
         }
         .header {
             text-align: center;
@@ -140,8 +137,8 @@
         }
         /* Golden Rounded-Square Logo Box */
         .logo-box {
-            width: 64px;
-            height: 64px;
+            width: 66px;
+            height: 66px;
             background: #181818;
             border: 2px solid #e1b12c;
             border-radius: 16px;
@@ -149,7 +146,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 12px;
-            box-shadow: 0 0 12px rgba(225, 177, 44, 0.2);
+            box-shadow: 0 0 12px rgba(225, 177, 44, 0.25);
             overflow: hidden;
             padding: 4px;
             font-size: 11px;
@@ -160,7 +157,8 @@
         .logo-box img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            border-radius: 11px;
         }
         .card h3 {
             font-size: 13px;
@@ -266,7 +264,7 @@
     <div id="homeView" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
         <!-- Top Premium Logo -->
         <div class="logo-container">
-            <img src="logo.png" alt="NK" onerror="this.style.display='none'; this.parentElement.innerHTML='NK';">
+            <span>NK</span>
         </div>
 
         <div class="header">
@@ -303,18 +301,18 @@
             <input type="text" id="searchInput" onkeyup="filterPlatforms()" placeholder="Search platforms...">
         </div>
 
-        <!-- Ordered 12 Platforms Grid -->
+        <!-- Ordered 12 Platforms Grid (Direct GitHub Raw Links from nk-nexus) -->
         <div class="grid-container" id="platformGrid">
             <!-- Row 1 -->
             <div class="card" onclick="openPlatform('selectionWay')">
                 <div class="logo-box">
-                    <img src="selection.png" alt="SW" onerror="this.style.display='none'; this.parentElement.innerText='SW';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/selection.png" alt="SW">
                 </div>
                 <h3>Selection Way</h3>
             </div>
             <div class="card" onclick="openPlatform('rwa')">
                 <div class="logo-box">
-                    <img src="rwa.png" alt="RWA" onerror="this.style.display='none'; this.parentElement.innerText='RWA';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/rwa.png" alt="RWA">
                 </div>
                 <h3>RWA</h3>
             </div>
@@ -322,13 +320,13 @@
             <!-- Row 2 -->
             <div class="card" onclick="openPlatform('pw')">
                 <div class="logo-box">
-                    <img src="pw.png" alt="PW" onerror="this.style.display='none'; this.parentElement.innerText='PW';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/pw.png" alt="PW">
                 </div>
                 <h3>PW</h3>
             </div>
             <div class="card" onclick="openPlatform('kgs')">
                 <div class="logo-box">
-                    <img src="kgs.png" alt="KGS" onerror="this.style.display='none'; this.parentElement.innerText='KGS';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/kgs.png" alt="KGS">
                 </div>
                 <h3>KGS</h3>
             </div>
@@ -336,13 +334,13 @@
             <!-- Row 3 -->
             <div class="card" onclick="openPlatform('parmar')">
                 <div class="logo-box">
-                    <img src="parmar.png" alt="PAR" onerror="this.style.display='none'; this.parentElement.innerText='PARMAR';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/parmar.png" alt="PARMAR">
                 </div>
                 <h3>Parmar Academy</h3>
             </div>
             <div class="card" onclick="openPlatform('scienceMagnet')">
                 <div class="logo-box">
-                    <img src="science.png" alt="SCI" onerror="this.style.display='none'; this.parentElement.innerText='SCIENCE';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/science.png" alt="SCIENCE">
                 </div>
                 <h3>Science Magnet</h3>
             </div>
@@ -350,13 +348,13 @@
             <!-- Row 4 -->
             <div class="card" onclick="openPlatform('vidyagram')">
                 <div class="logo-box">
-                    <img src="vg.png" alt="VG" onerror="this.style.display='none'; this.parentElement.innerText='VIDYAGRAM';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/vg.png" alt="VG">
                 </div>
                 <h3>Vidyagram</h3>
             </div>
             <div class="card" onclick="openPlatform('yesOfficer')">
                 <div class="logo-box">
-                    <img src="yesofficer.png" alt="YES" onerror="this.style.display='none'; this.parentElement.innerText='YES OFFICER';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/yesofficer.png" alt="YES">
                 </div>
                 <h3>Yes Officer</h3>
             </div>
@@ -364,13 +362,13 @@
             <!-- Row 5 -->
             <div class="card" onclick="openPlatform('missionJeet')">
                 <div class="logo-box">
-                    <img src="missionjeet.png" alt="MJ" onerror="this.style.display='none'; this.parentElement.innerText='MISSION JEET';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/missionjeet.png" alt="MJ">
                 </div>
                 <h3>Mission Jeet</h3>
             </div>
             <div class="card" onclick="openPlatform('nextToppers')">
                 <div class="logo-box">
-                    <img src="nexttoppers.png" alt="NEXT" onerror="this.style.display='none'; this.parentElement.innerText='NEXT TOPPERS';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/nexttoppers.png" alt="NEXT">
                 </div>
                 <h3>Next Toppers</h3>
             </div>
@@ -378,13 +376,13 @@
             <!-- Row 6 -->
             <div class="card" onclick="openPlatform('eduteria')">
                 <div class="logo-box">
-                    <img src="eduteria.png" alt="EDU" onerror="this.style.display='none'; this.parentElement.innerText='EDU TERIA';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/eduteria.png" alt="EDU">
                 </div>
                 <h3>Edu Teria</h3>
             </div>
             <div class="card" onclick="openPlatform('futurekul')">
                 <div class="logo-box">
-                    <img src="futurekul.png" alt="FUT" onerror="this.style.display='none'; this.parentElement.innerText='FUTUREKUL';">
+                    <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/futurekul.png" alt="FUT">
                 </div>
                 <h3>Futurekul</h3>
             </div>
