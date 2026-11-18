@@ -12,7 +12,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #080808;
+            /* Background Shiv Ji Wallpaper with Dark Overlay */
+            background: linear-gradient(rgba(8, 8, 8, 0.78), rgba(8, 8, 8, 0.90)), url('https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/shiv.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -24,14 +28,14 @@
         .logo-container {
             width: 75px;
             height: 75px;
-            background: linear-gradient(135deg, #161616, #222);
+            background: rgba(22, 22, 22, 0.85);
             border: 2px solid #e1b12c;
             border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
-            box-shadow: 0 0 15px rgba(225, 177, 44, 0.3);
+            box-shadow: 0 0 15px rgba(225, 177, 44, 0.4);
             font-size: 26px;
             font-weight: bold;
             color: #e1b12c;
@@ -46,16 +50,19 @@
             color: #f1c40f;
             margin-bottom: 4px;
             letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
         .header p {
             font-size: 11px;
-            color: #a4b0be;
+            color: #f5f6fa;
             letter-spacing: 1px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
         /* Special Buttons */
         .action-btn {
-            background: linear-gradient(145deg, #141414, #1c1c1c);
-            border: 1px solid #333;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(225, 177, 44, 0.3);
             color: #fff;
             width: 100%;
             max-width: 420px;
@@ -66,10 +73,10 @@
             justify-content: space-between;
             text-decoration: none;
             margin-bottom: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
         .action-btn.special {
-            border: 1px solid rgba(225, 177, 44, 0.3);
+            border: 1px solid rgba(225, 177, 44, 0.5);
         }
         .btn-content {
             display: flex;
@@ -95,8 +102,9 @@
         .search-box input {
             width: 100%;
             padding: 13px 16px;
-            background: #121212;
-            border: 1px solid #2f3542;
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(225, 177, 44, 0.4);
             border-radius: 14px;
             color: #fff;
             outline: none;
@@ -104,9 +112,10 @@
         }
         .search-box input:focus {
             border-color: #e1b12c;
+            box-shadow: 0 0 8px rgba(225, 177, 44, 0.3);
         }
         .search-box input::placeholder {
-            color: #747d8c;
+            color: #a4b0be;
         }
         /* Main Categories Grid */
         .grid-container {
@@ -117,15 +126,16 @@
             max-width: 420px;
         }
         .card {
-            background: #111111;
-            border: 1px solid #222222;
+            background: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 18px;
             padding: 20px 10px;
             text-align: center;
             text-decoration: none;
             color: #fff;
             transition: 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -139,31 +149,24 @@
         .logo-box {
             width: 66px;
             height: 66px;
-            background: #181818;
+            background: rgba(24, 24, 24, 0.9);
             border: 2px solid #e1b12c;
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 12px;
-            box-shadow: 0 0 12px rgba(225, 177, 44, 0.25);
-            overflow: hidden;
-            padding: 4px;
+            box-shadow: 0 0 12px rgba(225, 177, 44, 0.3);
             font-size: 11px;
             font-weight: bold;
             color: #e1b12c;
             text-align: center;
         }
-        .logo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 11px;
-        }
         .card h3 {
             font-size: 13px;
             font-weight: 600;
             color: #f1f2f6;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
         }
 
         /* --- SERVER / LINK VIEW --- */
@@ -189,11 +192,13 @@
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 4px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
         .server-header p {
             font-size: 13px;
             color: #f1c40f;
             font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
         .server-grid {
             display: grid;
@@ -217,14 +222,14 @@
             width: 82px;
             height: 82px;
             border-radius: 50%;
-            background: radial-gradient(circle, #22201a 0%, #121212 100%);
+            background: radial-gradient(circle, rgba(34,32,26,0.9) 0%, rgba(18,18,18,0.9) 100%);
             border: 2px solid #e1b12c;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 30px;
             margin-bottom: 10px;
-            box-shadow: 0 4px 15px rgba(225, 177, 44, 0.25);
+            box-shadow: 0 4px 15px rgba(225, 177, 44, 0.3);
         }
         .server-title {
             font-size: 14px;
@@ -232,6 +237,7 @@
             color: #ffffff;
             text-align: center;
             margin-bottom: 2px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
         }
         .server-sub {
             font-size: 11px;
@@ -250,7 +256,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(225, 177, 44, 0.2);
+            box-shadow: 0 4px 12px rgba(225, 177, 44, 0.3);
             transition: 0.2s;
         }
         .back-btn:active {
@@ -305,85 +311,61 @@
         <div class="grid-container" id="platformGrid">
             <!-- Row 1 -->
             <div class="card" onclick="openPlatform('selectionWay')">
-                <div class="logo-box">
-                    <img src="selection.png" alt="SW" onerror="this.remove(); this.parentElement.innerText='SW';">
-                </div>
+                <div class="logo-box">SW</div>
                 <h3>Selection Way</h3>
             </div>
             <div class="card" onclick="openPlatform('rwa')">
-                <div class="logo-box">
-                    <img src="rwa.png" alt="RWA" onerror="this.remove(); this.parentElement.innerText='RWA';">
-                </div>
+                <div class="logo-box">RWA</div>
                 <h3>RWA</h3>
             </div>
 
             <!-- Row 2 -->
             <div class="card" onclick="openPlatform('pw')">
-                <div class="logo-box">
-                    <img src="pw.png" alt="PW" onerror="this.remove(); this.parentElement.innerText='PW';">
-                </div>
+                <div class="logo-box">PW</div>
                 <h3>PW</h3>
             </div>
             <div class="card" onclick="openPlatform('kgs')">
-                <div class="logo-box">
-                    <img src="kgs.png" alt="KGS" onerror="this.remove(); this.parentElement.innerText='KGS';">
-                </div>
+                <div class="logo-box">KGS</div>
                 <h3>KGS</h3>
             </div>
 
             <!-- Row 3 -->
             <div class="card" onclick="openPlatform('parmar')">
-                <div class="logo-box">
-                    <img src="parmar.png" alt="PAR" onerror="this.remove(); this.parentElement.innerText='PARMAR';">
-                </div>
+                <div class="logo-box">PAR</div>
                 <h3>Parmar Academy</h3>
             </div>
             <div class="card" onclick="openPlatform('scienceMagnet')">
-                <div class="logo-box">
-                    <img src="science.png" alt="SCI" onerror="this.remove(); this.parentElement.innerText='SCIENCE';">
-                </div>
+                <div class="logo-box">SCI</div>
                 <h3>Science Magnet</h3>
             </div>
 
             <!-- Row 4 -->
             <div class="card" onclick="openPlatform('vidyagram')">
-                <div class="logo-box">
-                    <img src="vg.png" alt="VG" onerror="this.remove(); this.parentElement.innerText='VG';">
-                </div>
+                <div class="logo-box">VG</div>
                 <h3>Vidyagram</h3>
             </div>
             <div class="card" onclick="openPlatform('yesOfficer')">
-                <div class="logo-box">
-                    <img src="yesofficer.png" alt="YES" onerror="this.remove(); this.parentElement.innerText='YES';">
-                </div>
+                <div class="logo-box">YES</div>
                 <h3>Yes Officer</h3>
             </div>
 
             <!-- Row 5 -->
             <div class="card" onclick="openPlatform('missionJeet')">
-                <div class="logo-box">
-                    <img src="missionjeet.png" alt="MJ" onerror="this.remove(); this.parentElement.innerText='MJ';">
-                </div>
+                <div class="logo-box">MJ</div>
                 <h3>Mission Jeet</h3>
             </div>
             <div class="card" onclick="openPlatform('nextToppers')">
-                <div class="logo-box">
-                    <img src="nexttoppers.png" alt="NEXT" onerror="this.remove(); this.parentElement.innerText='NEXT';">
-                </div>
+                <div class="logo-box">NEXT</div>
                 <h3>Next Toppers</h3>
             </div>
 
             <!-- Row 6 -->
             <div class="card" onclick="openPlatform('eduteria')">
-                <div class="logo-box">
-                    <img src="eduteria.png" alt="EDU" onerror="this.remove(); this.parentElement.innerText='EDU';">
-                </div>
+                <div class="logo-box">EDU</div>
                 <h3>Edu Teria</h3>
             </div>
             <div class="card" onclick="openPlatform('futurekul')">
-                <div class="logo-box">
-                    <img src="futurekul.png" alt="FUT" onerror="this.remove(); this.parentElement.innerText='FUT';">
-                </div>
+                <div class="logo-box">FUT</div>
                 <h3>Futurekul</h3>
             </div>
         </div>
