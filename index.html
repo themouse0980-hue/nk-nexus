@@ -36,7 +36,7 @@
       --toggle-bg: rgba(34, 24, 62, 0.9);
       --toggle-text: #ffffff;
       --toggle-border: rgba(255, 255, 255, 0.22);
-      --modal-bg: rgba(18, 18, 22, 0.94);
+      --modal-bg: rgba(18, 18, 22, 0.95);
       --server-item-bg: rgba(255, 255, 255, 0.08);
       --server-item-hover: rgba(245, 183, 0, 0.22);
       --resume-bg: rgba(20, 20, 20, 0.82);
@@ -61,7 +61,7 @@
       --toggle-bg: rgba(238, 234, 246, 0.94);
       --toggle-text: #1e1b2e;
       --toggle-border: rgba(30, 27, 46, 0.16);
-      --modal-bg: rgba(255, 253, 248, 0.96);
+      --modal-bg: rgba(255, 253, 248, 0.97);
       --server-item-bg: rgba(0, 0, 0, 0.06);
       --server-item-hover: rgba(154, 91, 0, 0.16);
       --resume-bg: rgba(255, 255, 255, 0.86);
@@ -470,7 +470,6 @@
       transition: box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    /* Golden Spotlight / Pulse Glow on Live or Pinned Cards */
     .card.has-live .logo-box,
     .card.is-pinned .logo-box {
       border-width: 2px;
@@ -493,7 +492,6 @@
       border-radius: 8px;
     }
 
-    /* LIVE डॉट */
     .live-dot {
       position: absolute;
       top: -4px;
@@ -506,7 +504,6 @@
       box-shadow: 0 0 8px rgba(34, 197, 94, 0.95);
     }
 
-    /* Active Servers काउंट बैज */
     .server-count-badge {
       position: absolute;
       bottom: -8px;
@@ -532,7 +529,6 @@
       text-shadow: var(--text-shadow-strong);
     }
 
-    /* Last Used छोटा टैग */
     .last-used-badge {
       display: none;
       font-size: 10px;
@@ -589,11 +585,11 @@
       color: var(--accent);
     }
 
-    /* Server Selection Modal */
+    /* NK Pathshala Own Class / Server Desk Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.68);
+      background: rgba(0, 0, 0, 0.72);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       display: none;
@@ -609,7 +605,9 @@
 
     .modal-box {
       width: 100%;
-      max-width: 380px;
+      max-width: 390px;
+      max-height: 86vh;
+      overflow-y: auto;
       background: var(--modal-bg);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
@@ -656,10 +654,18 @@
       padding: 3px;
     }
 
+    .modal-brand-tag {
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
     .modal-title {
       font-size: 16px;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--text-main);
     }
 
     .modal-subtitle {
@@ -682,7 +688,6 @@
       justify-content: center;
     }
 
-    /* Quick Start Button inside Modal */
     .quick-start-btn {
       display: flex;
       align-items: center;
@@ -780,6 +785,96 @@
       color: var(--accent);
     }
 
+    /* Self Study Custom Link Box inside Modal */
+    .custom-note-box {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(128, 128, 128, 0.25);
+    }
+
+    .custom-note-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .custom-form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .custom-input {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 11px;
+      border: 1px solid rgba(245, 183, 0, 0.45);
+      background: var(--server-item-bg);
+      color: var(--text-main);
+      font-size: 12.5px;
+      outline: none;
+    }
+
+    .custom-input::placeholder {
+      color: var(--footer-text);
+      opacity: 0.75;
+    }
+
+    .custom-save-btn {
+      padding: 9px 12px;
+      border-radius: 11px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      font-size: 12.5px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .custom-save-btn:active {
+      background: var(--server-item-hover);
+    }
+
+    .custom-links-list {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .custom-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: var(--server-item-bg);
+      border: 1px solid rgba(128, 128, 128, 0.25);
+    }
+
+    .custom-item-link {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 12.5px;
+      font-weight: 700;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    .custom-del-btn {
+      border: none;
+      background: transparent;
+      color: #ef4444;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      padding: 2px 6px;
+    }
+
     /* हल्का Coming Soon / Notice Toast */
     .toast {
       position: fixed;
@@ -826,7 +921,7 @@
       </div>
       <h1>Welcome to NK Pathshala</h1>
       <p>Education Must Be Free For Everyone</p>
-      <div class="focus-chip">SSC • Railway • State Exams • Free Access</div>
+      <div class="focus-chip">NK Pathshala Self Study Desk • Free Access</div>
     </div>
 
     <div class="action-row">
@@ -978,20 +1073,21 @@
 
     <footer class="footer-note">
       <p>
-        <strong>Disclaimer:</strong> NK Pathshala sirf students ki suvidha ke liye study resources ka quick access hub hai. Sabhi platform logos aur names unke respective owners ke hain.
+        <strong>Disclaimer:</strong> NK Pathshala sirf self-study aur students ki suvidha ke liye banaya gaya personal study hub hai. Sabhi platform logos aur names unke respective owners ke hain.
       </p>
     </footer>
   </div>
 
-  <!-- Server Selection Modal -->
+  <!-- NK Pathshala Own Class / Server Desk Modal -->
   <div id="serverModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box">
       <div class="modal-header">
         <div class="modal-title-wrap">
           <img id="modalLogo" class="modal-logo" src="" alt="" />
           <div>
+            <div class="modal-brand-tag">NK PATHSHALA • MY STUDY DESK</div>
             <div id="modalTitle" class="modal-title">Platform</div>
-            <div class="modal-subtitle">Apna class server chunein</div>
+            <div class="modal-subtitle">Apna class server ya study link chunein</div>
           </div>
         </div>
         <button type="button" id="modalClose" class="modal-close" aria-label="Close">×</button>
@@ -1003,6 +1099,29 @@
       </a>
 
       <div id="serverList" class="server-list"></div>
+
+      <!-- Apni Self-Study ke liye Custom Link / Notes Section -->
+      <div class="custom-note-box">
+        <div class="custom-note-title">+ Apna Self-Study Link / Note Save Karein</div>
+        <form id="customLinkForm" class="custom-form">
+          <input
+            type="text"
+            id="customTitleInput"
+            class="custom-input"
+            placeholder="Title (e.g., Polity Notes / Class 5)"
+            maxlength="40"
+          />
+          <input
+            type="url"
+            id="customUrlInput"
+            class="custom-input"
+            placeholder="Link (https://...)"
+            required
+          />
+          <button type="submit" class="custom-save-btn">Save in NK Pathshala</button>
+        </form>
+        <div id="customLinksList" class="custom-links-list"></div>
+      </div>
     </div>
   </div>
 
@@ -1014,16 +1133,15 @@
         title: "Next Toppers",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png",
         servers: [
-          { name: "Server 1", tag: "Class Link 1", url: "https://all.codewithvivek.qzz.io/next-toppers" },
-          { name: "Server 2", tag: "Class Link 2", url: "https://nt-study-bison.space-z.ai/" },
-          { name: "Server 3", tag: "Class Link 3", url: "https://nt.studybeepro.site/" },
-          { name: "Server 4", tag: "Class Link 4", url: "https://spidystudynt.vercel.app/" },
-          { name: "Server 5", tag: "Class Link 5", url: "https://studymonkeynxt.netlify.app/" }
+          { name: "Server 1", tag: "NK Desk • Class Link 1", url: "https://all.codewithvivek.qzz.io/next-toppers" },
+          { name: "Server 2", tag: "NK Desk • Class Link 2", url: "https://nt-study-bison.space-z.ai/" },
+          { name: "Server 3", tag: "NK Desk • Class Link 3", url: "https://nt.studybeepro.site/" },
+          { name: "Server 4", tag: "NK Desk • Class Link 4", url: "https://spidystudynt.vercel.app/" },
+          { name: "Server 5", tag: "NK Desk • Class Link 5", url: "https://studymonkeynxt.netlify.app/" }
         ]
       }
     };
 
-    // Active Server Count Badges Populate
     document.querySelectorAll("[data-server-count]").forEach((badge) => {
       const key = badge.dataset.serverCount;
       const count = PLATFORM_SERVERS[key]?.servers?.length || 0;
@@ -1175,7 +1293,6 @@
         const btn = card.querySelector(".fav-btn");
         const isFav = favs.has(key);
         btn.classList.toggle("active", isFav);
-        btn.classList.toggle("is-pinned", isFav);
         card.classList.toggle("is-pinned", isFav);
         btn.textContent = isFav ? "★" : "☆";
       });
@@ -1239,7 +1356,25 @@
       searchInput.focus();
     });
 
-    // Server Selection Modal
+    // Self-Study Custom Links Storage
+    function getCustomLinks(platformKey) {
+      try {
+        const all = JSON.parse(localStorage.getItem("nk_custom_links") || "{}");
+        return Array.isArray(all[platformKey]) ? all[platformKey] : [];
+      } catch (_) {
+        return [];
+      }
+    }
+
+    function saveCustomLinks(platformKey, items) {
+      try {
+        const all = JSON.parse(localStorage.getItem("nk_custom_links") || "{}");
+        all[platformKey] = items;
+        localStorage.setItem("nk_custom_links", JSON.stringify(all));
+      } catch (_) {}
+    }
+
+    // NK Pathshala Study Desk Modal Controls
     const serverModal = document.getElementById("serverModal");
     const modalLogo = document.getElementById("modalLogo");
     const modalTitle = document.getElementById("modalTitle");
@@ -1247,8 +1382,54 @@
     const quickStartSub = document.getElementById("quickStartSub");
     const serverList = document.getElementById("serverList");
     const modalClose = document.getElementById("modalClose");
+    const customLinkForm = document.getElementById("customLinkForm");
+    const customTitleInput = document.getElementById("customTitleInput");
+    const customUrlInput = document.getElementById("customUrlInput");
+    const customLinksList = document.getElementById("customLinksList");
+
+    let activePlatformKey = null;
+    let activePlatformData = null;
+
+    function renderCustomLinks(platformKey) {
+      const items = getCustomLinks(platformKey);
+      customLinksList.innerHTML = "";
+      items.forEach((item, index) => {
+        const row = document.createElement("div");
+        row.className = "custom-item";
+
+        const link = document.createElement("a");
+        link.href = item.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "custom-item-link";
+        link.textContent = `📌 ${item.title || item.url}`;
+        link.addEventListener("click", () => {
+          setLastUsed(platformKey, activePlatformData?.title || platformKey, item.title || "My Link", item.url);
+          showToast(`All the best! Opening ${item.title || "study link"}...`);
+        });
+
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "custom-del-btn";
+        delBtn.setAttribute("aria-label", "Remove link");
+        delBtn.textContent = "×";
+        delBtn.addEventListener("click", () => {
+          const updated = getCustomLinks(platformKey).filter((_, i) => i !== index);
+          saveCustomLinks(platformKey, updated);
+          renderCustomLinks(platformKey);
+          showToast("Saved link hata diya gaya");
+        });
+
+        row.appendChild(link);
+        row.appendChild(delBtn);
+        customLinksList.appendChild(row);
+      });
+    }
 
     function openServerModal(platformKey, platformData) {
+      activePlatformKey = platformKey;
+      activePlatformData = platformData;
+
       const last = getLastUsed();
       const lastServerForPlatform = last && last.platform === platformKey ? last.server : "";
       const bestServer =
@@ -1296,8 +1477,31 @@
         serverList.appendChild(a);
       });
 
+      renderCustomLinks(platformKey);
       serverModal.classList.add("open");
     }
+
+    customLinkForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!activePlatformKey) return;
+      const rawUrl = customUrlInput.value.trim();
+      if (!rawUrl) return;
+
+      let safeUrl = rawUrl;
+      if (!/^https?:\/\//i.test(safeUrl)) {
+        safeUrl = "https://" + safeUrl;
+      }
+
+      const title = customTitleInput.value.trim() || "My Study Link";
+      const existing = getCustomLinks(activePlatformKey);
+      existing.unshift({ title, url: safeUrl });
+      saveCustomLinks(activePlatformKey, existing);
+
+      customTitleInput.value = "";
+      customUrlInput.value = "";
+      renderCustomLinks(activePlatformKey);
+      showToast("NK Pathshala mein link save ho gaya!");
+    });
 
     function closeServerModal() {
       serverModal.classList.remove("open");
