@@ -19,19 +19,20 @@
       --watermark-opacity: 0.85;
       --light-overlay-opacity: 0;
       --accent: #f5b700;
+      --accent-glow: rgba(245, 183, 0, 0.28);
       --text-main: #ffffff;
       --text-sub: #ffffff;
-      --box-bg: rgba(15, 15, 15, 0.78);
-      --badge-bg: rgba(15, 15, 15, 0.85);
-      --input-bg: rgba(15, 15, 15, 0.78);
-      --input-focus-bg: rgba(15, 15, 15, 0.9);
-      --footer-bg: rgba(15, 15, 15, 0.78);
-      --footer-text: rgba(255, 255, 255, 0.88);
+      --box-bg: rgba(15, 15, 15, 0.72);
+      --badge-bg: rgba(15, 15, 15, 0.82);
+      --input-bg: rgba(15, 15, 15, 0.72);
+      --input-focus-bg: rgba(15, 15, 15, 0.88);
+      --footer-bg: rgba(15, 15, 15, 0.74);
+      --footer-text: rgba(255, 255, 255, 0.9);
       --text-shadow-strong: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 6px rgba(0, 0, 0, 0.9);
-      --toggle-bg: rgba(34, 24, 62, 0.92);
+      --toggle-bg: rgba(34, 24, 62, 0.9);
       --toggle-text: #ffffff;
       --toggle-border: rgba(255, 255, 255, 0.22);
-      --modal-bg: rgba(18, 18, 22, 0.96);
+      --modal-bg: rgba(18, 18, 22, 0.94);
       --server-item-bg: rgba(255, 255, 255, 0.08);
       --server-item-hover: rgba(245, 183, 0, 0.22);
     }
@@ -41,19 +42,20 @@
       --watermark-opacity: 0.92;
       --light-overlay-opacity: 0.34;
       --accent: #9a5b00;
+      --accent-glow: rgba(154, 91, 0, 0.22);
       --text-main: #141414;
       --text-sub: #1c1c1c;
-      --box-bg: rgba(255, 255, 255, 0.82);
-      --badge-bg: rgba(255, 255, 255, 0.88);
-      --input-bg: rgba(255, 255, 255, 0.85);
-      --input-focus-bg: rgba(255, 255, 255, 0.96);
-      --footer-bg: rgba(255, 255, 255, 0.86);
+      --box-bg: rgba(255, 255, 255, 0.76);
+      --badge-bg: rgba(255, 255, 255, 0.85);
+      --input-bg: rgba(255, 255, 255, 0.8);
+      --input-focus-bg: rgba(255, 255, 255, 0.94);
+      --footer-bg: rgba(255, 255, 255, 0.82);
       --footer-text: #1c1c1c;
       --text-shadow-strong: 0 1px 6px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.9);
-      --toggle-bg: rgba(238, 234, 246, 0.95);
+      --toggle-bg: rgba(238, 234, 246, 0.94);
       --toggle-text: #1e1b2e;
       --toggle-border: rgba(30, 27, 46, 0.16);
-      --modal-bg: rgba(255, 253, 248, 0.97);
+      --modal-bg: rgba(255, 253, 248, 0.96);
       --server-item-bg: rgba(0, 0, 0, 0.06);
       --server-item-hover: rgba(154, 91, 0, 0.16);
     }
@@ -68,7 +70,7 @@
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    /* Peeche Radha-Krishna ki saaf watermark photo */
+    /* पीछे राधा-कृष्ण की साफ़ वॉटरमार्क फोटो */
     .bg-watermark {
       position: fixed;
       inset: 0;
@@ -82,7 +84,7 @@
       transition: opacity 0.25s ease;
     }
 
-    /* Light mode mein halki bright parat */
+    /* लाइट मोड में हल्की ब्राइट परत */
     .light-tint {
       position: fixed;
       inset: 0;
@@ -93,7 +95,7 @@
       transition: opacity 0.25s ease;
     }
 
-    /* Upar dayein kone mein Light / Dark toggle button */
+    /* ऊपर दाईं कोने में Light / Dark टॉगल बटन */
     .theme-toggle {
       position: fixed;
       top: 12px;
@@ -107,6 +109,8 @@
       background: var(--toggle-bg);
       color: var(--toggle-text);
       border: 1px solid var(--toggle-border);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
@@ -147,7 +151,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 14px var(--accent-glow);
     }
 
     .nk-badge img {
@@ -173,7 +177,7 @@
       text-shadow: var(--text-shadow-strong);
     }
 
-    /* Telegram button */
+    /* Telegram बटन */
     .telegram-wrap {
       display: flex;
       justify-content: center;
@@ -193,7 +197,7 @@
       color: #ffffff;
       background: rgba(24, 119, 242, 0.92);
       border: 1.5px solid rgba(255, 255, 255, 0.35);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 4px 16px rgba(24, 119, 242, 0.35);
       transition: transform 0.18s ease, background 0.18s ease;
     }
 
@@ -210,7 +214,7 @@
       flex-shrink: 0;
     }
 
-    /* Halka search bar */
+    /* Glass सर्च बार */
     .search-wrap {
       margin-bottom: 16px;
       position: relative;
@@ -222,16 +226,18 @@
       border-radius: 999px;
       border: 1.5px solid var(--accent);
       background: var(--input-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       color: var(--text-main);
       font-size: 14px;
       outline: none;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 10px var(--accent-glow);
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
 
     .search-input::placeholder {
       color: var(--text-main);
-      opacity: 0.7;
+      opacity: 0.72;
     }
 
     .search-input:focus {
@@ -264,6 +270,7 @@
     }
 
     .card {
+      position: relative;
       text-decoration: none;
       color: var(--text-main);
       background: transparent;
@@ -274,7 +281,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 7px;
       touch-action: manipulation;
       transition: transform 0.16s ease;
       cursor: pointer;
@@ -292,18 +299,54 @@
       display: none;
     }
 
+    /* Favorite स्टार बटन */
+    .fav-btn {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      z-index: 4;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(245, 183, 0, 0.45);
+      background: var(--badge-bg);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: var(--accent);
+      font-size: 14px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .fav-btn:active {
+      transform: scale(0.88);
+    }
+
+    .fav-btn.active {
+      background: var(--accent);
+      color: #111111;
+      border-color: var(--accent);
+    }
+
     .logo-box {
       width: 64px;
       height: 64px;
       border-radius: 14px;
       background: var(--box-bg);
+      backdrop-filter: blur(9px);
+      -webkit-backdrop-filter: blur(9px);
       border: 1.5px solid var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 6px;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      overflow: visible;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45), 0 0 10px var(--accent-glow);
       position: relative;
     }
 
@@ -314,12 +357,42 @@
       border-radius: 8px;
     }
 
+    /* LIVE डॉट (जिन प्लेटफॉर्म्स के लिंक जुड़े हैं) */
+    .live-dot {
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #22c55e;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.95);
+    }
+
     .platform-name {
       font-size: 14px;
       font-weight: 700;
       text-align: center;
       color: var(--text-main);
       text-shadow: var(--text-shadow-strong);
+    }
+
+    /* Last Used छोटा टैग */
+    .last-used-badge {
+      display: none;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #111111;
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    .card.is-last-used .last-used-badge {
+      display: inline-block;
     }
 
     .no-result {
@@ -329,6 +402,8 @@
       margin-top: 8px;
       border-radius: 14px;
       background: var(--footer-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--accent);
       font-size: 14px;
       color: var(--text-main);
@@ -338,12 +413,14 @@
       display: block;
     }
 
-    /* Neeche clean Disclaimer */
+    /* नीचे क्लीन Glass Disclaimer */
     .footer-note {
       margin-top: 28px;
       padding: 12px 14px;
       border-radius: 14px;
       background: var(--footer-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(128, 128, 128, 0.28);
       text-align: center;
     }
@@ -358,13 +435,13 @@
       color: var(--accent);
     }
 
-    /* Server Selection Sheet / Modal */
+    /* Server Selection Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.68);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -380,10 +457,12 @@
       width: 100%;
       max-width: 380px;
       background: var(--modal-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1.5px solid var(--accent);
       border-radius: 20px;
       padding: 18px 16px 16px;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 0 0 18px var(--accent-glow);
       animation: popIn 0.18s ease;
     }
 
@@ -468,6 +547,11 @@
       transition: background 0.16s ease, transform 0.16s ease, border-color 0.16s ease;
     }
 
+    .server-link.last-server {
+      border-color: var(--accent);
+      background: var(--server-item-hover);
+    }
+
     .server-link:hover,
     .server-link:active {
       background: var(--server-item-hover);
@@ -481,10 +565,25 @@
       gap: 2px;
     }
 
+    .server-name-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     .server-name {
       font-size: 14px;
       font-weight: 700;
       color: var(--text-main);
+    }
+
+    .server-used-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #111111;
     }
 
     .server-tag {
@@ -498,7 +597,7 @@
       color: var(--accent);
     }
 
-    /* Halka Coming Soon / Notice Toast */
+    /* हल्का Coming Soon / Notice Toast */
     .toast {
       position: fixed;
       left: 50%;
@@ -508,6 +607,8 @@
       padding: 10px 16px;
       border-radius: 999px;
       background: var(--badge-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1.5px solid var(--accent);
       color: var(--text-main);
       font-size: 12.5px;
@@ -566,87 +667,112 @@
 
     <div class="grid" id="platformGrid">
       <a href="#" class="card" data-platform="selectionway" data-name="selection way">
+        <button type="button" class="fav-btn" aria-label="Pin Selection Way">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png" alt="Selection Way" class="logo-img" />
         </div>
         <span class="platform-name">Selection Way</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="rwa" data-name="rwa rojgar with ankit">
+        <button type="button" class="fav-btn" aria-label="Pin RWA">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="RWA" class="logo-img" />
         </div>
         <span class="platform-name">RWA</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="pw" data-name="pw physics wallah">
+        <button type="button" class="fav-btn" aria-label="Pin PW">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png" alt="PW" class="logo-img" />
         </div>
         <span class="platform-name">PW</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="kgs" data-name="kgs khan global studies">
+        <button type="button" class="fav-btn" aria-label="Pin KGS">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png" alt="KGS" class="logo-img" />
         </div>
         <span class="platform-name">KGS</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="parmar" data-name="parmar academy ssc">
+        <button type="button" class="fav-btn" aria-label="Pin Parmar Academy">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png" alt="Parmar Academy" class="logo-img" />
         </div>
         <span class="platform-name">Parmar Academy</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="sciencemagnet" data-name="science magnet">
+        <button type="button" class="fav-btn" aria-label="Pin Science Magnet">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png" alt="Science Magnet" class="logo-img" />
         </div>
         <span class="platform-name">Science Magnet</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="vidyagram" data-name="vidyagram">
+        <button type="button" class="fav-btn" aria-label="Pin Vidyagram">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png" alt="Vidyagram" class="logo-img" />
         </div>
         <span class="platform-name">Vidyagram</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="yesofficer" data-name="yes officer">
+        <button type="button" class="fav-btn" aria-label="Pin Yes Officer">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png" alt="Yes Officer" class="logo-img" />
         </div>
         <span class="platform-name">Yes Officer</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="missionjeet" data-name="mission jeet">
+        <button type="button" class="fav-btn" aria-label="Pin Mission Jeet">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png" alt="Mission Jeet" class="logo-img" />
         </div>
         <span class="platform-name">Mission Jeet</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#nexttoppers" class="card" data-platform="nexttoppers" data-name="next toppers">
+        <button type="button" class="fav-btn" aria-label="Pin Next Toppers">☆</button>
         <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png" alt="Next Toppers" class="logo-img" />
         </div>
         <span class="platform-name">Next Toppers</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="eduteria" data-name="eduteria edu teria">
+        <button type="button" class="fav-btn" aria-label="Pin Edu Teria">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png" alt="Edu Teria" class="logo-img" />
         </div>
         <span class="platform-name">Edu Teria</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="futurekul" data-name="futurekul">
+        <button type="button" class="fav-btn" aria-label="Pin Futurekul">☆</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png" alt="Futurekul" class="logo-img" />
         </div>
         <span class="platform-name">Futurekul</span>
+        <span class="last-used-badge">Last Used</span>
       </a>
     </div>
 
@@ -679,7 +805,6 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
-    // Platform-wise class/server links yahan add hote jayenge
     const PLATFORM_SERVERS = {
       nexttoppers: {
         title: "Next Toppers",
@@ -694,6 +819,7 @@
       }
     };
 
+    // Theme Toggle
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
     const themeLabel = document.getElementById("themeLabel");
@@ -722,17 +848,12 @@
     applyTheme(initialLight);
 
     themeToggle.addEventListener("click", () => {
-      const nextIsLight = !document.body.classList.contains("light-mode");
-      applyTheme(nextIsLight);
+      applyTheme(!document.body.classList.contains("light-mode"));
     });
 
-    const searchInput = document.getElementById("platformSearch");
-    const clearBtn = document.getElementById("clearSearch");
-    const cards = Array.from(document.querySelectorAll("#platformGrid .card"));
-    const noResult = document.getElementById("noResult");
+    // Toast Helper
     const toast = document.getElementById("toast");
     let toastTimer;
-
     function showToast(message) {
       toast.textContent = message;
       toast.classList.add("show");
@@ -741,6 +862,95 @@
         toast.classList.remove("show");
       }, 2200);
     }
+
+    // Favorites & Last Used State
+    const grid = document.getElementById("platformGrid");
+    const cards = Array.from(grid.querySelectorAll(".card"));
+    const initialOrder = new Map(cards.map((card, idx) => [card, idx]));
+
+    function getFavorites() {
+      try {
+        const raw = JSON.parse(localStorage.getItem("nk_favorites") || "[]");
+        return Array.isArray(raw) ? raw : [];
+      } catch (_) {
+        return [];
+      }
+    }
+
+    function saveFavorites(list) {
+      try {
+        localStorage.setItem("nk_favorites", JSON.stringify(list));
+      } catch (_) {}
+    }
+
+    function getLastUsed() {
+      try {
+        return JSON.parse(localStorage.getItem("nk_last_used") || "null");
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function setLastUsed(platformKey, serverName) {
+      const data = { platform: platformKey, server: serverName || "" };
+      try {
+        localStorage.setItem("nk_last_used", JSON.stringify(data));
+      } catch (_) {}
+      renderLastUsed();
+    }
+
+    function renderLastUsed() {
+      const last = getLastUsed();
+      cards.forEach((card) => {
+        const isMatch = last && card.dataset.platform === last.platform;
+        card.classList.toggle("is-last-used", Boolean(isMatch));
+      });
+    }
+
+    function syncFavoritesAndOrder() {
+      const favs = new Set(getFavorites());
+      cards.forEach((card) => {
+        const key = card.dataset.platform;
+        const btn = card.querySelector(".fav-btn");
+        const isFav = favs.has(key);
+        btn.classList.toggle("active", isFav);
+        btn.textContent = isFav ? "★" : "☆";
+      });
+
+      const sorted = [...cards].sort((a, b) => {
+        const aFav = favs.has(a.dataset.platform) ? 0 : 1;
+        const bFav = favs.has(b.dataset.platform) ? 0 : 1;
+        if (aFav !== bFav) return aFav - bFav;
+        return initialOrder.get(a) - initialOrder.get(b);
+      });
+
+      sorted.forEach((card) => grid.appendChild(card));
+    }
+
+    cards.forEach((card) => {
+      const favBtn = card.querySelector(".fav-btn");
+      favBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const key = card.dataset.platform;
+        const name = card.querySelector(".platform-name").textContent.trim();
+        const current = new Set(getFavorites());
+        if (current.has(key)) {
+          current.delete(key);
+          showToast(`${name} favorites se hata diya gaya`);
+        } else {
+          current.add(key);
+          showToast(`${name} top par pin ho gaya`);
+        }
+        saveFavorites([...current]);
+        syncFavoritesAndOrder();
+      });
+    });
+
+    // Search Filter
+    const searchInput = document.getElementById("platformSearch");
+    const clearBtn = document.getElementById("clearSearch");
+    const noResult = document.getElementById("noResult");
 
     function filterPlatforms() {
       const q = searchInput.value.trim().toLowerCase();
@@ -766,32 +976,42 @@
       searchInput.focus();
     });
 
-    // Server Modal Controls
+    // Server Selection Modal
     const serverModal = document.getElementById("serverModal");
     const modalLogo = document.getElementById("modalLogo");
     const modalTitle = document.getElementById("modalTitle");
     const serverList = document.getElementById("serverList");
     const modalClose = document.getElementById("modalClose");
 
-    function openServerModal(platformData) {
+    function openServerModal(platformKey, platformData) {
+      const last = getLastUsed();
+      const lastServerForPlatform = last && last.platform === platformKey ? last.server : "";
+
       modalLogo.src = platformData.logo;
       modalLogo.alt = platformData.title;
       modalTitle.textContent = platformData.title;
       serverList.innerHTML = "";
 
       platformData.servers.forEach((srv) => {
+        const isLastSrv = lastServerForPlatform && lastServerForPlatform === srv.name;
         const a = document.createElement("a");
         a.href = srv.url;
         a.target = "_blank";
         a.rel = "noopener noreferrer";
-        a.className = "server-link";
+        a.className = `server-link${isLastSrv ? " last-server" : ""}`;
         a.innerHTML = `
           <div class="server-left">
-            <span class="server-name">${srv.name}</span>
+            <div class="server-name-row">
+              <span class="server-name">${srv.name}</span>
+              ${isLastSrv ? '<span class="server-used-pill">Last Used</span>' : ""}
+            </div>
             <span class="server-tag">${srv.tag}</span>
           </div>
           <span class="server-arrow">Open →</span>
         `;
+        a.addEventListener("click", () => {
+          setLastUsed(platformKey, srv.name);
+        });
         serverList.appendChild(a);
       });
 
@@ -815,7 +1035,7 @@
         const key = card.dataset.platform;
         if (key && PLATFORM_SERVERS[key]) {
           e.preventDefault();
-          openServerModal(PLATFORM_SERVERS[key]);
+          openServerModal(key, PLATFORM_SERVERS[key]);
           return;
         }
 
@@ -827,6 +1047,10 @@
         }
       });
     });
+
+    // Initial Render
+    syncFavoritesAndOrder();
+    renderLastUsed();
   </script>
 </body>
 </html>
