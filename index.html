@@ -31,6 +31,9 @@
       --toggle-bg: rgba(34, 24, 62, 0.92);
       --toggle-text: #ffffff;
       --toggle-border: rgba(255, 255, 255, 0.22);
+      --modal-bg: rgba(18, 18, 22, 0.96);
+      --server-item-bg: rgba(255, 255, 255, 0.08);
+      --server-item-hover: rgba(245, 183, 0, 0.22);
     }
 
     body.light-mode {
@@ -50,6 +53,9 @@
       --toggle-bg: rgba(238, 234, 246, 0.95);
       --toggle-text: #1e1b2e;
       --toggle-border: rgba(30, 27, 46, 0.16);
+      --modal-bg: rgba(255, 253, 248, 0.97);
+      --server-item-bg: rgba(0, 0, 0, 0.06);
+      --server-item-hover: rgba(154, 91, 0, 0.16);
     }
 
     body {
@@ -62,7 +68,7 @@
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    /* पीछे राधा-कृष्ण की साफ़ वॉटरमार्क फोटो */
+    /* Peeche Radha-Krishna ki saaf watermark photo */
     .bg-watermark {
       position: fixed;
       inset: 0;
@@ -76,7 +82,7 @@
       transition: opacity 0.25s ease;
     }
 
-    /* लाइट मोड में हल्की ब्राइट परत (वॉटरमार्क दिखता रहेगा) */
+    /* Light mode mein halki bright parat */
     .light-tint {
       position: fixed;
       inset: 0;
@@ -87,7 +93,7 @@
       transition: opacity 0.25s ease;
     }
 
-    /* ऊपर दाईं कोने में Light / Dark टॉगल बटन */
+    /* Upar dayein kone mein Light / Dark toggle button */
     .theme-toggle {
       position: fixed;
       top: 12px;
@@ -167,7 +173,7 @@
       text-shadow: var(--text-shadow-strong);
     }
 
-    /* Telegram बटन */
+    /* Telegram button */
     .telegram-wrap {
       display: flex;
       justify-content: center;
@@ -204,7 +210,7 @@
       flex-shrink: 0;
     }
 
-    /* हल्का सर्च बार */
+    /* Halka search bar */
     .search-wrap {
       margin-bottom: 16px;
       position: relative;
@@ -271,6 +277,7 @@
       gap: 8px;
       touch-action: manipulation;
       transition: transform 0.16s ease;
+      cursor: pointer;
     }
 
     .card:hover {
@@ -297,6 +304,7 @@
       padding: 6px;
       overflow: hidden;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      position: relative;
     }
 
     .logo-img {
@@ -330,7 +338,7 @@
       display: block;
     }
 
-    /* नीचे क्लीन Disclaimer */
+    /* Neeche clean Disclaimer */
     .footer-note {
       margin-top: 28px;
       padding: 12px 14px;
@@ -350,7 +358,147 @@
       color: var(--accent);
     }
 
-    /* हल्का Coming Soon / Notice Toast */
+    /* Server Selection Sheet / Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.68);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 40;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 380px;
+      background: var(--modal-bg);
+      border: 1.5px solid var(--accent);
+      border-radius: 20px;
+      padding: 18px 16px 16px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65);
+      animation: popIn 0.18s ease;
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.94);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    }
+
+    .modal-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      object-fit: contain;
+      background: var(--box-bg);
+      padding: 3px;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .modal-subtitle {
+      font-size: 11px;
+      color: var(--footer-text);
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(128, 128, 128, 0.35);
+      background: transparent;
+      color: var(--text-main);
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .server-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .server-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--server-item-bg);
+      border: 1px solid rgba(245, 183, 0, 0.35);
+      color: var(--text-main);
+      transition: background 0.16s ease, transform 0.16s ease, border-color 0.16s ease;
+    }
+
+    .server-link:hover,
+    .server-link:active {
+      background: var(--server-item-hover);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .server-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .server-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .server-tag {
+      font-size: 11px;
+      color: var(--footer-text);
+    }
+
+    .server-arrow {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    /* Halka Coming Soon / Notice Toast */
     .toast {
       position: fixed;
       left: 50%;
@@ -369,7 +517,7 @@
       pointer-events: none;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
       transition: opacity 0.22s ease, transform 0.22s ease;
-      z-index: 35;
+      z-index: 50;
     }
 
     .toast.show {
@@ -417,84 +565,84 @@
     </div>
 
     <div class="grid" id="platformGrid">
-      <a href="#" class="card" data-name="selection way">
+      <a href="#" class="card" data-platform="selectionway" data-name="selection way">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png" alt="Selection Way" class="logo-img" />
         </div>
         <span class="platform-name">Selection Way</span>
       </a>
 
-      <a href="#" class="card" data-name="rwa rojgar with ankit">
+      <a href="#" class="card" data-platform="rwa" data-name="rwa rojgar with ankit">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="RWA" class="logo-img" />
         </div>
         <span class="platform-name">RWA</span>
       </a>
 
-      <a href="#" class="card" data-name="pw physics wallah">
+      <a href="#" class="card" data-platform="pw" data-name="pw physics wallah">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png" alt="PW" class="logo-img" />
         </div>
         <span class="platform-name">PW</span>
       </a>
 
-      <a href="#" class="card" data-name="kgs khan global studies">
+      <a href="#" class="card" data-platform="kgs" data-name="kgs khan global studies">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png" alt="KGS" class="logo-img" />
         </div>
         <span class="platform-name">KGS</span>
       </a>
 
-      <a href="#" class="card" data-name="parmar academy ssc">
+      <a href="#" class="card" data-platform="parmar" data-name="parmar academy ssc">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png" alt="Parmar Academy" class="logo-img" />
         </div>
         <span class="platform-name">Parmar Academy</span>
       </a>
 
-      <a href="#" class="card" data-name="science magnet">
+      <a href="#" class="card" data-platform="sciencemagnet" data-name="science magnet">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png" alt="Science Magnet" class="logo-img" />
         </div>
         <span class="platform-name">Science Magnet</span>
       </a>
 
-      <a href="#" class="card" data-name="vidyagram">
+      <a href="#" class="card" data-platform="vidyagram" data-name="vidyagram">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png" alt="Vidyagram" class="logo-img" />
         </div>
         <span class="platform-name">Vidyagram</span>
       </a>
 
-      <a href="#" class="card" data-name="yes officer">
+      <a href="#" class="card" data-platform="yesofficer" data-name="yes officer">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png" alt="Yes Officer" class="logo-img" />
         </div>
         <span class="platform-name">Yes Officer</span>
       </a>
 
-      <a href="#" class="card" data-name="mission jeet">
+      <a href="#" class="card" data-platform="missionjeet" data-name="mission jeet">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png" alt="Mission Jeet" class="logo-img" />
         </div>
         <span class="platform-name">Mission Jeet</span>
       </a>
 
-      <a href="#" class="card" data-name="next toppers">
+      <a href="#nexttoppers" class="card" data-platform="nexttoppers" data-name="next toppers">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png" alt="Next Toppers" class="logo-img" />
         </div>
         <span class="platform-name">Next Toppers</span>
       </a>
 
-      <a href="#" class="card" data-name="eduteria edu teria">
+      <a href="#" class="card" data-platform="eduteria" data-name="eduteria edu teria">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png" alt="Edu Teria" class="logo-img" />
         </div>
         <span class="platform-name">Edu Teria</span>
       </a>
 
-      <a href="#" class="card" data-name="futurekul">
+      <a href="#" class="card" data-platform="futurekul" data-name="futurekul">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png" alt="Futurekul" class="logo-img" />
         </div>
@@ -511,91 +659,39 @@
     </footer>
   </div>
 
+  <!-- Server Selection Modal -->
+  <div id="serverModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <img id="modalLogo" class="modal-logo" src="" alt="" />
+          <div>
+            <div id="modalTitle" class="modal-title">Platform</div>
+            <div class="modal-subtitle">Apna class server chunein</div>
+          </div>
+        </div>
+        <button type="button" id="modalClose" class="modal-close" aria-label="Close">×</button>
+      </div>
+      <div id="serverList" class="server-list"></div>
+    </div>
+  </div>
+
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const themeToggle = document.getElementById("themeToggle");
-    const themeIcon = document.getElementById("themeIcon");
-    const themeLabel = document.getElementById("themeLabel");
-    const metaTheme = document.querySelector('meta[name="theme-color"]');
-
-    function applyTheme(isLight) {
-      document.body.classList.toggle("light-mode", isLight);
-      if (isLight) {
-        themeIcon.textContent = "🌙";
-        themeLabel.textContent = "Dark";
-        if (metaTheme) metaTheme.setAttribute("content", "#f4f1ea");
-      } else {
-        themeIcon.textContent = "☀️";
-        themeLabel.textContent = "Light";
-        if (metaTheme) metaTheme.setAttribute("content", "#111111");
+    // Platform-wise class/server links yahan add hote jayenge
+    const PLATFORM_SERVERS = {
+      nexttoppers: {
+        title: "Next Toppers",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png",
+        servers: [
+          { name: "Server 1", tag: "Class Link 1", url: "https://all.codewithvivek.qzz.io/next-toppers" },
+          { name: "Server 2", tag: "Class Link 2", url: "https://nt-study-bison.space-z.ai/" },
+          { name: "Server 3", tag: "Class Link 3", url: "https://nt.studybeepro.site/" },
+          { name: "Server 4", tag: "Class Link 4", url: "https://spidystudynt.vercel.app/" },
+          { name: "Server 5", tag: "Class Link 5", url: "https://studymonkeynxt.netlify.app/" }
+        ]
       }
-      try {
-        localStorage.setItem("nk_theme_mode", isLight ? "light" : "dark");
-      } catch (_) {}
-    }
+    };
 
-    let initialLight = false;
-    try {
-      initialLight = localStorage.getItem("nk_theme_mode") === "light";
-    } catch (_) {}
-    applyTheme(initialLight);
-
-    themeToggle.addEventListener("click", () => {
-      const nextIsLight = !document.body.classList.contains("light-mode");
-      applyTheme(nextIsLight);
-    });
-
-    const searchInput = document.getElementById("platformSearch");
-    const clearBtn = document.getElementById("clearSearch");
-    const cards = Array.from(document.querySelectorAll("#platformGrid .card"));
-    const noResult = document.getElementById("noResult");
-    const toast = document.getElementById("toast");
-    let toastTimer;
-
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add("show");
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => {
-        toast.classList.remove("show");
-      }, 2200);
-    }
-
-    function filterPlatforms() {
-      const q = searchInput.value.trim().toLowerCase();
-      clearBtn.classList.toggle("visible", q.length > 0);
-
-      let visibleCount = 0;
-      cards.forEach((card) => {
-        const title = card.querySelector(".platform-name").textContent.toLowerCase();
-        const extra = (card.dataset.name || "").toLowerCase();
-        const matches = !q || title.includes(q) || extra.includes(q);
-        card.classList.toggle("hidden", !matches);
-        if (matches) visibleCount++;
-      });
-
-      noResult.classList.toggle("visible", visibleCount === 0);
-    }
-
-    searchInput.addEventListener("input", filterPlatforms);
-
-    clearBtn.addEventListener("click", () => {
-      searchInput.value = "";
-      filterPlatforms();
-      searchInput.focus();
-    });
-
-    cards.forEach((card) => {
-      card.addEventListener("click", (e) => {
-        const href = card.getAttribute("href");
-        if (!href || href.trim() === "#") {
-          e.preventDefault();
-          const name = card.querySelector(".platform-name").textContent.trim();
-          showToast(`${name} ka link jald hi update kiya jayega`);
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+    const the
