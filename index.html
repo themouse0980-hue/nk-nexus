@@ -83,7 +83,7 @@
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    /* पीछे राधा-कृष्ण की साफ़ वॉटरमार्क फोटो */
+    /* Peeche Radha-Krishna ki saaf watermark photo */
     .bg-watermark {
       position: fixed;
       inset: 0;
@@ -97,7 +97,7 @@
       transition: opacity 0.25s ease;
     }
 
-    /* लाइट मोड में हल्की ब्राइट परत */
+    /* Light mode mein halki bright parat */
     .light-tint {
       position: fixed;
       inset: 0;
@@ -108,7 +108,7 @@
       transition: opacity 0.25s ease;
     }
 
-    /* ऊपर दाईं कोने में Light / Dark टॉगल बटन */
+    /* Upar dayein kone mein Light / Dark toggle button */
     .theme-toggle {
       position: fixed;
       top: calc(12px + env(safe-area-inset-top));
@@ -270,7 +270,7 @@
       transform: scale(0.95);
     }
 
-    /* Glass सर्च बार */
+    /* Glass search bar */
     .search-wrap {
       margin-bottom: 12px;
       position: relative;
@@ -319,7 +319,7 @@
       display: block;
     }
 
-    /* Quick Resume बार */
+    /* Quick Resume bar */
     .quick-resume {
       display: none;
       align-items: center;
@@ -418,7 +418,7 @@
       display: none;
     }
 
-    /* स्टार पिन बटन */
+    /* Star pin button */
     .fav-btn {
       position: absolute;
       top: 3px;
@@ -563,7 +563,7 @@
       display: block;
     }
 
-    /* नीचे क्लीन Glass Disclaimer */
+    /* Neeche clean Glass Disclaimer */
     .footer-note {
       margin-top: 28px;
       padding: 12px 14px;
@@ -585,7 +585,7 @@
       color: var(--accent);
     }
 
-    /* NK Pathshala Own Class / Server Desk Modal */
+    /* NK Pathshala Class / Server Desk Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -785,97 +785,7 @@
       color: var(--accent);
     }
 
-    /* Self Study Custom Link Box inside Modal */
-    .custom-note-box {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(128, 128, 128, 0.25);
-    }
-
-    .custom-note-title {
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .custom-form {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .custom-input {
-      width: 100%;
-      padding: 9px 12px;
-      border-radius: 11px;
-      border: 1px solid rgba(245, 183, 0, 0.45);
-      background: var(--server-item-bg);
-      color: var(--text-main);
-      font-size: 12.5px;
-      outline: none;
-    }
-
-    .custom-input::placeholder {
-      color: var(--footer-text);
-      opacity: 0.75;
-    }
-
-    .custom-save-btn {
-      padding: 9px 12px;
-      border-radius: 11px;
-      border: 1px solid var(--accent);
-      background: transparent;
-      color: var(--accent);
-      font-size: 12.5px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .custom-save-btn:active {
-      background: var(--server-item-hover);
-    }
-
-    .custom-links-list {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .custom-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      padding: 9px 12px;
-      border-radius: 12px;
-      background: var(--server-item-bg);
-      border: 1px solid rgba(128, 128, 128, 0.25);
-    }
-
-    .custom-item-link {
-      text-decoration: none;
-      color: var(--text-main);
-      font-size: 12.5px;
-      font-weight: 700;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      flex: 1;
-    }
-
-    .custom-del-btn {
-      border: none;
-      background: transparent;
-      color: #ef4444;
-      font-size: 14px;
-      font-weight: 800;
-      cursor: pointer;
-      padding: 2px 6px;
-    }
-
-    /* हल्का Coming Soon / Notice Toast */
+    /* Halka Coming Soon / Notice Toast */
     .toast {
       position: fixed;
       left: 50%;
@@ -1078,7 +988,7 @@
     </footer>
   </div>
 
-  <!-- NK Pathshala Own Class / Server Desk Modal -->
+  <!-- NK Pathshala Class / Server Desk Modal -->
   <div id="serverModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box">
       <div class="modal-header">
@@ -1087,7 +997,7 @@
           <div>
             <div class="modal-brand-tag">NK PATHSHALA • MY STUDY DESK</div>
             <div id="modalTitle" class="modal-title">Platform</div>
-            <div class="modal-subtitle">Apna class server ya study link chunein</div>
+            <div class="modal-subtitle">Apna class server chunein</div>
           </div>
         </div>
         <button type="button" id="modalClose" class="modal-close" aria-label="Close">×</button>
@@ -1099,29 +1009,6 @@
       </a>
 
       <div id="serverList" class="server-list"></div>
-
-      <!-- Apni Self-Study ke liye Custom Link / Notes Section -->
-      <div class="custom-note-box">
-        <div class="custom-note-title">+ Apna Self-Study Link / Note Save Karein</div>
-        <form id="customLinkForm" class="custom-form">
-          <input
-            type="text"
-            id="customTitleInput"
-            class="custom-input"
-            placeholder="Title (e.g., Polity Notes / Class 5)"
-            maxlength="40"
-          />
-          <input
-            type="url"
-            id="customUrlInput"
-            class="custom-input"
-            placeholder="Link (https://...)"
-            required
-          />
-          <button type="submit" class="custom-save-btn">Save in NK Pathshala</button>
-        </form>
-        <div id="customLinksList" class="custom-links-list"></div>
-      </div>
     </div>
   </div>
 
@@ -1356,24 +1243,6 @@
       searchInput.focus();
     });
 
-    // Self-Study Custom Links Storage
-    function getCustomLinks(platformKey) {
-      try {
-        const all = JSON.parse(localStorage.getItem("nk_custom_links") || "{}");
-        return Array.isArray(all[platformKey]) ? all[platformKey] : [];
-      } catch (_) {
-        return [];
-      }
-    }
-
-    function saveCustomLinks(platformKey, items) {
-      try {
-        const all = JSON.parse(localStorage.getItem("nk_custom_links") || "{}");
-        all[platformKey] = items;
-        localStorage.setItem("nk_custom_links", JSON.stringify(all));
-      } catch (_) {}
-    }
-
     // NK Pathshala Study Desk Modal Controls
     const serverModal = document.getElementById("serverModal");
     const modalLogo = document.getElementById("modalLogo");
@@ -1382,54 +1251,8 @@
     const quickStartSub = document.getElementById("quickStartSub");
     const serverList = document.getElementById("serverList");
     const modalClose = document.getElementById("modalClose");
-    const customLinkForm = document.getElementById("customLinkForm");
-    const customTitleInput = document.getElementById("customTitleInput");
-    const customUrlInput = document.getElementById("customUrlInput");
-    const customLinksList = document.getElementById("customLinksList");
-
-    let activePlatformKey = null;
-    let activePlatformData = null;
-
-    function renderCustomLinks(platformKey) {
-      const items = getCustomLinks(platformKey);
-      customLinksList.innerHTML = "";
-      items.forEach((item, index) => {
-        const row = document.createElement("div");
-        row.className = "custom-item";
-
-        const link = document.createElement("a");
-        link.href = item.url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.className = "custom-item-link";
-        link.textContent = `📌 ${item.title || item.url}`;
-        link.addEventListener("click", () => {
-          setLastUsed(platformKey, activePlatformData?.title || platformKey, item.title || "My Link", item.url);
-          showToast(`All the best! Opening ${item.title || "study link"}...`);
-        });
-
-        const delBtn = document.createElement("button");
-        delBtn.type = "button";
-        delBtn.className = "custom-del-btn";
-        delBtn.setAttribute("aria-label", "Remove link");
-        delBtn.textContent = "×";
-        delBtn.addEventListener("click", () => {
-          const updated = getCustomLinks(platformKey).filter((_, i) => i !== index);
-          saveCustomLinks(platformKey, updated);
-          renderCustomLinks(platformKey);
-          showToast("Saved link hata diya gaya");
-        });
-
-        row.appendChild(link);
-        row.appendChild(delBtn);
-        customLinksList.appendChild(row);
-      });
-    }
 
     function openServerModal(platformKey, platformData) {
-      activePlatformKey = platformKey;
-      activePlatformData = platformData;
-
       const last = getLastUsed();
       const lastServerForPlatform = last && last.platform === platformKey ? last.server : "";
       const bestServer =
@@ -1477,31 +1300,8 @@
         serverList.appendChild(a);
       });
 
-      renderCustomLinks(platformKey);
       serverModal.classList.add("open");
     }
-
-    customLinkForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      if (!activePlatformKey) return;
-      const rawUrl = customUrlInput.value.trim();
-      if (!rawUrl) return;
-
-      let safeUrl = rawUrl;
-      if (!/^https?:\/\//i.test(safeUrl)) {
-        safeUrl = "https://" + safeUrl;
-      }
-
-      const title = customTitleInput.value.trim() || "My Study Link";
-      const existing = getCustomLinks(activePlatformKey);
-      existing.unshift({ title, url: safeUrl });
-      saveCustomLinks(activePlatformKey, existing);
-
-      customTitleInput.value = "";
-      customUrlInput.value = "";
-      renderCustomLinks(activePlatformKey);
-      showToast("NK Pathshala mein link save ho gaya!");
-    });
 
     function closeServerModal() {
       serverModal.classList.remove("open");
