@@ -1,494 +1,213 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NK Pathshala - Study Hub</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            /* Full Vibrant Background Wallpaper with light overlay */
-            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)), url('https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/main/shiv.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px 12px 40px 12px;
-            min-height: 100vh;
-        }
-        /* Top Logo / Icon */
-        .logo-container {
-            width: 75px;
-            height: 75px;
-            background: rgba(20, 20, 20, 0.65);
-            backdrop-filter: blur(6px);
-            border: 2px solid #e1b12c;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            box-shadow: 0 0 15px rgba(225, 177, 44, 0.4);
-            font-size: 26px;
-            font-weight: bold;
-            color: #e1b12c;
-            letter-spacing: 1px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            font-size: 22px;
-            color: #f1c40f;
-            margin-bottom: 4px;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
-        }
-        .header p {
-            font-size: 11px;
-            color: #f5f6fa;
-            letter-spacing: 1px;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.9);
-        }
-        /* Special Buttons */
-        .action-btn {
-            background: rgba(15, 15, 15, 0.60);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(225, 177, 44, 0.4);
-            color: #fff;
-            width: 100%;
-            max-width: 420px;
-            padding: 14px 16px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-        .action-btn.special {
-            border: 1px solid rgba(225, 177, 44, 0.7);
-        }
-        .btn-content {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .btn-content span {
-            font-size: 14px;
-            font-weight: 600;
-        }
-        .sub-text {
-            font-size: 11px;
-            color: #f1c40f;
-            display: block;
-            margin-top: 2px;
-        }
-        /* Search Bar */
-        .search-box {
-            width: 100%;
-            max-width: 420px;
-            margin: 10px 0 20px 0;
-        }
-        .search-box input {
-            width: 100%;
-            padding: 13px 16px;
-            background: rgba(15, 15, 15, 0.65);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(225, 177, 44, 0.5);
-            border-radius: 14px;
-            color: #fff;
-            outline: none;
-            font-size: 13px;
-        }
-        .search-box input:focus {
-            border-color: #f1c40f;
-            box-shadow: 0 0 10px rgba(225, 177, 44, 0.4);
-        }
-        .search-box input::placeholder {
-            color: #dcdde1;
-        }
-        /* Main Categories Grid */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            width: 100%;
-            max-width: 420px;
-        }
-        .card {
-            background: rgba(15, 15, 15, 0.60);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 18px;
-            padding: 20px 10px;
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
-            transition: 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-        }
-        .card:active {
-            transform: scale(0.96);
-            border-color: #e1b12c;
-        }
-        /* Golden Rounded-Square Logo Box */
-        .logo-box {
-            width: 66px;
-            height: 66px;
-            background: rgba(20, 20, 20, 0.7);
-            border: 2px solid #e1b12c;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            box-shadow: 0 0 12px rgba(225, 177, 44, 0.4);
-            font-size: 11px;
-            font-weight: bold;
-            color: #e1b12c;
-            text-align: center;
-        }
-        .card h3 {
-            font-size: 13px;
-            font-weight: 600;
-            color: #f1f2f6;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.9);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NK Pathshala</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
 
-        /* --- SERVER / LINK VIEW --- */
-        #serverView {
-            display: none;
-            width: 100%;
-            max-width: 420px;
-            flex-direction: column;
-            align-items: flex-start;
-            animation: fadeIn 0.25s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .server-header {
-            width: 100%;
-            margin-bottom: 25px;
-            padding: 0 5px;
-        }
-        .server-header h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 4px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.9);
-        }
-        .server-header p {
-            font-size: 13px;
-            color: #f1c40f;
-            font-weight: 500;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.9);
-        }
-        .server-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px 16px;
-            width: 100%;
-            margin-bottom: 35px;
-        }
-        .server-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #fff;
-            transition: transform 0.2s ease;
-        }
-        .server-item:active {
-            transform: scale(0.94);
-        }
-        .circle-icon {
-            width: 82px;
-            height: 82px;
-            border-radius: 50%;
-            background: rgba(20, 20, 20, 0.75);
-            backdrop-filter: blur(8px);
-            border: 2px solid #e1b12c;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            margin-bottom: 10px;
-            box-shadow: 0 4px 15px rgba(225, 177, 44, 0.4);
-        }
-        .server-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 2px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.9);
-        }
-        .server-sub {
-            font-size: 11px;
-            color: #f1c40f;
-            text-align: center;
-        }
-        .back-btn {
-            background: rgba(30, 25, 10, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid #e1b12c;
-            color: #f1c40f;
-            padding: 12px 22px;
-            border-radius: 25px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px rgba(225, 177, 44, 0.3);
-            transition: 0.2s;
-        }
-        .back-btn:active {
-            transform: scale(0.96);
-        }
-    </style>
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #3b3b3b, #141414);
+      color: #ffffff;
+      padding: 20px 14px 40px;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .nk-badge {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 10px;
+      border-radius: 14px;
+      background: rgba(25, 25, 25, 0.9);
+      border: 2px solid #f5b700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      color: #f5b700;
+      box-shadow: 0 0 18px rgba(245, 183, 0, 0.25);
+    }
+
+    .header h1 {
+      font-size: 22px;
+      color: #f5b700;
+      margin-bottom: 4px;
+    }
+
+    .header p {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #cfcfcf;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      text-decoration: none;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 16px;
+      padding: 18px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(245, 183, 0, 0.65);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .logo-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background: rgba(15, 15, 15, 0.85);
+      border: 1.5px solid #f5b700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      overflow: hidden;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .platform-name {
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      color: #f3f3f3;
+    }
+  </style>
 </head>
 <body>
-
-    <!-- MAIN HOME VIEW -->
-    <div id="homeView" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-        <!-- Top Premium Logo -->
-        <div class="logo-container">
-            <span>NK</span>
-        </div>
-
-        <div class="header">
-            <h1>Welcome to NK Pathshala</h1>
-            <p>EDUCATION MUST BE FREE FOR EVERYONE</p>
-        </div>
-
-        <!-- Telegram Button -->
-        <a href="https://telegram.org" target="_blank" class="action-btn">
-            <div class="btn-content">
-                <span style="font-size: 18px;">📢</span>
-                <div>
-                    <span>Join Our Telegram</span>
-                    <span class="sub-text">⚡ 976+ Joined</span>
-                </div>
-            </div>
-            <span style="color: #a4b0be;">➔</span>
-        </a>
-
-        <!-- Special Chill Zone Button -->
-        <a href="#" class="action-btn special">
-            <div class="btn-content">
-                <span style="font-size: 18px;">🎬</span>
-                <div>
-                    <span>NK-FLIX <span style="background: #eb2f06; color:#fff; font-size:9px; padding:2px 5px; border-radius:4px; margin-left:5px;">STREAM</span></span>
-                    <span class="sub-text" style="color: #ff4757;">🔴 Chill Zone</span>
-                </div>
-            </div>
-            <span style="color: #a4b0be;">➔</span>
-        </a>
-
-        <!-- Search Bar -->
-        <div class="search-box">
-            <input type="text" id="searchInput" onkeyup="filterPlatforms()" placeholder="Search platforms...">
-        </div>
-
-        <!-- Ordered 12 Platforms Grid -->
-        <div class="grid-container" id="platformGrid">
-            <!-- Row 1 -->
-            <div class="card" onclick="openPlatform('selectionWay')">
-                <div class="logo-box">SW</div>
-                <h3>Selection Way</h3>
-            </div>
-            <div class="card" onclick="openPlatform('rwa')">
-                <div class="logo-box">RWA</div>
-                <h3>RWA</h3>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="card" onclick="openPlatform('pw')">
-                <div class="logo-box">PW</div>
-                <h3>PW</h3>
-            </div>
-            <div class="card" onclick="openPlatform('kgs')">
-                <div class="logo-box">KGS</div>
-                <h3>KGS</h3>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="card" onclick="openPlatform('parmar')">
-                <div class="logo-box">PAR</div>
-                <h3>Parmar Academy</h3>
-            </div>
-            <div class="card" onclick="openPlatform('scienceMagnet')">
-                <div class="logo-box">SCI</div>
-                <h3>Science Magnet</h3>
-            </div>
-
-            <!-- Row 4 -->
-            <div class="card" onclick="openPlatform('vidyagram')">
-                <div class="logo-box">VG</div>
-                <h3>Vidyagram</h3>
-            </div>
-            <div class="card" onclick="openPlatform('yesOfficer')">
-                <div class="logo-box">YES</div>
-                <h3>Yes Officer</h3>
-            </div>
-
-            <!-- Row 5 -->
-            <div class="card" onclick="openPlatform('missionJeet')">
-                <div class="logo-box">MJ</div>
-                <h3>Mission Jeet</h3>
-            </div>
-            <div class="card" onclick="openPlatform('nextToppers')">
-                <div class="logo-box">NEXT</div>
-                <h3>Next Toppers</h3>
-            </div>
-
-            <!-- Row 6 -->
-            <div class="card" onclick="openPlatform('eduteria')">
-                <div class="logo-box">EDU</div>
-                <h3>Edu Teria</h3>
-            </div>
-            <div class="card" onclick="openPlatform('futurekul')">
-                <div class="logo-box">FUT</div>
-                <h3>Futurekul</h3>
-            </div>
-        </div>
+  <div class="container">
+    <div class="header">
+      <div class="nk-badge">NK</div>
+      <h1>Welcome to NK Pathshala</h1>
+      <p>Education Must Be Free For Everyone</p>
     </div>
 
-    <!-- SERVER SELECTION VIEW -->
-    <div id="serverView">
-        <div class="server-header">
-            <h2 id="platformTitle">Platform</h2>
-            <p>Select Server / Link 👇</p>
+    <div class="grid">
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="selectionway.png" alt="Selection Way" class="logo-img" />
         </div>
+        <span class="platform-name">Selection Way</span>
+      </a>
 
-        <div class="server-grid" id="serverGridContainer">
-            <!-- Circular Server Icons will load here -->
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="rwa.png" alt="RWA" class="logo-img" />
         </div>
+        <span class="platform-name">RWA</span>
+      </a>
 
-        <button class="back-btn" onclick="goBack()">← Back to Categories</button>
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="pw.png" alt="PW" class="logo-img" />
+        </div>
+        <span class="platform-name">PW</span>
+      </a>
+
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="kgs.png" alt="KGS" class="logo-img" />
+        </div>
+        <span class="platform-name">KGS</span>
+      </a>
+
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="parmar.png" alt="Parmar Academy" class="logo-img" />
+        </div>
+        <span class="platform-name">Parmar Academy</span>
+      </a>
+
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="sciencemagnet.png" alt="Science Magnet" class="logo-img" />
+        </div>
+        <span class="platform-name">Science Magnet</span>
+      </a>
+
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="vidyagram.png" alt="Vidyagram" class="logo-img" />
+        </div>
+        <span class="platform-name">Vidyagram</span>
+      </a>
+
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="yesofficer.png" alt="Yes Officer" class="logo-img" />
+        </div>
+        <span class="platform-name">Yes Officer</span>
+      </a>
+
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="missionjeet.png" alt="Mission Jeet" class="logo-img" />
+        </div>
+        <span class="platform-name">Mission Jeet</span>
+      </a>
+
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="nexttoppers.png" alt="Next Toppers" class="logo-img" />
+        </div>
+        <span class="platform-name">Next Toppers</span>
+      </a>
+
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="eduteria.png" alt="Edu Teria" class="logo-img" />
+        </div>
+        <span class="platform-name">Edu Teria</span>
+      </a>
+
+      <a href="#" class="card">
+        <div class="logo-box">
+          <img src="futurekul.png" alt="Futurekul" class="logo-img" />
+        </div>
+        <span class="platform-name">Futurekul</span>
+      </a>
     </div>
-
-    <!-- Script -->
-    <script>
-        const platformsData = {
-            selectionWay: {
-                title: "Selection Way",
-                servers: [
-                    { name: "SW Vivid", sub: "Server 1", icon: "🌐", url: "https://selectionwayvivid.edgeone.dev/" },
-                    { name: "Studybison", sub: "Server 2", icon: "🚀", url: "https://sw-studybison.space-z.ai/" },
-                    { name: "CodeWithVivek", sub: "Server 3", icon: "⚡", url: "https://sw.codewithvivek.xyz/" },
-                    { name: "NextHope SW", sub: "Server 4", icon: "🎯", url: "https://nexthope.pages.dev/sw/" },
-                    { name: "Test & Ranking", sub: "Server 5", icon: "📝", url: "https://testrankingfree.vercel.app" },
-                    { name: "NextHope CC", sub: "Server 6", icon: "💎", url: "https://nexthope.cc.cd/sw/" },
-                    { name: "Cloud Server 1", sub: "Server 7", icon: "☁️", url: "https://ais-pre-44p3s4dkjz7od7x7g3qwu6-49225910278.asia-east1.run.app/" },
-                    { name: "Cloud Server 2", sub: "Server 8", icon: "🔥", url: "https://ais-pre-a5hvjqc66aerxlyco5jzkx-49225910278.asia-east1.run.app/" }
-                ]
-            },
-            kgs: {
-                title: "KGS",
-                servers: [
-                    { name: "Study Mate", sub: "Server 1", icon: "📚", url: "https://www.study-mate.in/batches" },
-                    { name: "Sahu KGS", sub: "Server 2", icon: "🇮🇳", url: "https://sahukgs.com/batches" },
-                    { name: "MadX Rohit", sub: "Server 3", icon: "⚡", url: "https://madxrohit.vercel.app/kgs.html" }
-                ]
-            },
-            vidyagram: {
-                title: "Vidyagram",
-                servers: [
-                    { name: "PW Nexus VG", sub: "Server 1", icon: "🌐", url: "https://pwnexus.eu.cc/vidyagram" },
-                    { name: "VG Studybison", sub: "Server 2", icon: "🚀", url: "https://vidyagram-studybison.space-z.ai/" },
-                    { name: "Study Monkey", sub: "Server 3", icon: "🐒", url: "https://studymonkeyvg.netlify.app/" },
-                    { name: "Cloud Server", sub: "Server 4", icon: "☁️", url: "https://ais-pre-a5hvjqc66aerxlyco5jzkx-49225910278.asia-east1.run.app/" }
-                ]
-            },
-            eduteria: {
-                title: "Edu Teria",
-                servers: [
-                    { name: "CodeWithVivek", sub: "Server 1", icon: "📖", url: "https://all.codewithvivek.qzz.io/eduteria" }
-                ]
-            },
-            futurekul: {
-                title: "Futurekul",
-                servers: [
-                    { name: "Studybison FC", sub: "Server 1", icon: "🚀", url: "https://studybison-fc.space-z.ai/" },
-                    { name: "MadX Rohit", sub: "Server 2", icon: "⚡", url: "https://madxrohit.vercel.app/futurekul.html" },
-                    { name: "CodeWithVivek", sub: "Server 3", icon: "🌐", url: "https://all.codewithvivek.qzz.io/futurekul" },
-                    { name: "NextHope Pages", sub: "Server 4", icon: "🎯", url: "https://nexthope.pages.dev/futurekul/" },
-                    { name: "StudyApkMod", sub: "Server 5", icon: "💎", url: "https://studyapkmod-futurekull.vercel.app/" }
-                ]
-            }
-        };
-
-        function openPlatform(platformKey) {
-            const data = platformsData[platformKey];
-            if (!data) {
-                alert("Is platform ke links jald hi add kiye jayenge!");
-                return;
-            }
-
-            document.getElementById('platformTitle').innerText = data.title;
-            const grid = document.getElementById('serverGridContainer');
-            grid.innerHTML = '';
-
-            data.servers.forEach(server => {
-                const a = document.createElement('a');
-                a.href = server.url;
-                a.target = "_blank";
-                a.className = "server-item";
-                a.innerHTML = `
-                    <div class="circle-icon">${server.icon}</div>
-                    <div class="server-title">${server.name}</div>
-                    <div class="server-sub">${server.sub}</div>
-                `;
-                grid.appendChild(a);
-            });
-
-            document.getElementById('homeView').style.display = 'none';
-            document.getElementById('serverView').style.display = 'flex';
-            window.scrollTo(0, 0);
-        }
-
-        function goBack() {
-            document.getElementById('serverView').style.display = 'none';
-            document.getElementById('homeView').style.display = 'flex';
-        }
-
-        function filterPlatforms() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('card');
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-                if (title.includes(input)) {
-                    cards[i].style.display = "flex";
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
-        }
-    </script>
-
+  </div>
 </body>
 </html>
