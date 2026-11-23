@@ -694,4 +694,139 @@
       }
     };
 
-    const the
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+    const themeLabel = document.getElementById("themeLabel");
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+    function applyTheme(isLight) {
+      document.body.classList.toggle("light-mode", isLight);
+      if (isLight) {
+        themeIcon.textContent = "🌙";
+        themeLabel.textContent = "Dark";
+        if (metaTheme) metaTheme.setAttribute("content", "#f4f1ea");
+      } else {
+        themeIcon.textContent = "☀️";
+        themeLabel.textContent = "Light";
+        if (metaTheme) metaTheme.setAttribute("content", "#111111");
+      }
+      try {
+        localStorage.setItem("nk_theme_mode", isLight ? "light" : "dark");
+      } catch (_) {}
+    }
+
+    let initialLight = false;
+    try {
+      initialLight = localStorage.getItem("nk_theme_mode") === "light";
+    } catch (_) {}
+    applyTheme(initialLight);
+
+    themeToggle.addEventListener("click", () => {
+      const nextIsLight = !document.body.classList.contains("light-mode");
+      applyTheme(nextIsLight);
+    });
+
+    const searchInput = document.getElementById("platformSearch");
+    const clearBtn = document.getElementById("clearSearch");
+    const cards = Array.from(document.querySelectorAll("#platformGrid .card"));
+    const noResult = document.getElementById("noResult");
+    const toast = document.getElementById("toast");
+    let toastTimer;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+
+    function filterPlatforms() {
+      const q = searchInput.value.trim().toLowerCase();
+      clearBtn.classList.toggle("visible", q.length > 0);
+
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const title = card.querySelector(".platform-name").textContent.toLowerCase();
+        const extra = (card.dataset.name || "").toLowerCase();
+        const matches = !q || title.includes(q) || extra.includes(q);
+        card.classList.toggle("hidden", !matches);
+        if (matches) visibleCount++;
+      });
+
+      noResult.classList.toggle("visible", visibleCount === 0);
+    }
+
+    searchInput.addEventListener("input", filterPlatforms);
+
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      filterPlatforms();
+      searchInput.focus();
+    });
+
+    // Server Modal Controls
+    const serverModal = document.getElementById("serverModal");
+    const modalLogo = document.getElementById("modalLogo");
+    const modalTitle = document.getElementById("modalTitle");
+    const serverList = document.getElementById("serverList");
+    const modalClose = document.getElementById("modalClose");
+
+    function openServerModal(platformData) {
+      modalLogo.src = platformData.logo;
+      modalLogo.alt = platformData.title;
+      modalTitle.textContent = platformData.title;
+      serverList.innerHTML = "";
+
+      platformData.servers.forEach((srv) => {
+        const a = document.createElement("a");
+        a.href = srv.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.className = "server-link";
+        a.innerHTML = `
+          <div class="server-left">
+            <span class="server-name">${srv.name}</span>
+            <span class="server-tag">${srv.tag}</span>
+          </div>
+          <span class="server-arrow">Open →</span>
+        `;
+        serverList.appendChild(a);
+      });
+
+      serverModal.classList.add("open");
+    }
+
+    function closeServerModal() {
+      serverModal.classList.remove("open");
+    }
+
+    modalClose.addEventListener("click", closeServerModal);
+    serverModal.addEventListener("click", (e) => {
+      if (e.target === serverModal) closeServerModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeServerModal();
+    });
+
+    cards.forEach((card) => {
+      card.addEventListener("click", (e) => {
+        const key = card.dataset.platform;
+        if (key && PLATFORM_SERVERS[key]) {
+          e.preventDefault();
+          openServerModal(PLATFORM_SERVERS[key]);
+          return;
+        }
+
+        const href = card.getAttribute("href");
+        if (!href || href.trim() === "#") {
+          e.preventDefault();
+          const name = card.querySelector(".platform-name").textContent.trim();
+          showToast(`${name} ka link jald hi update kiya jayega`);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
