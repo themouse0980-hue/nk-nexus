@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#111111" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="NK Pathshala" />
   <title>NK Pathshala</title>
   <style>
     * {
@@ -35,6 +39,7 @@
       --modal-bg: rgba(18, 18, 22, 0.94);
       --server-item-bg: rgba(255, 255, 255, 0.08);
       --server-item-hover: rgba(245, 183, 0, 0.22);
+      --resume-bg: rgba(20, 20, 20, 0.82);
     }
 
     body.light-mode {
@@ -58,15 +63,21 @@
       --modal-bg: rgba(255, 253, 248, 0.96);
       --server-item-bg: rgba(0, 0, 0, 0.06);
       --server-item-hover: rgba(154, 91, 0, 0.16);
+      --resume-bg: rgba(255, 255, 255, 0.86);
+    }
+
+    html {
+      overscroll-behavior-y: none;
     }
 
     body {
       min-height: 100vh;
       background-color: var(--bg-base);
       color: var(--text-main);
-      padding: 46px 14px 36px;
+      padding: calc(46px + env(safe-area-inset-top)) 14px calc(36px + env(safe-area-inset-bottom));
       position: relative;
       overflow-x: hidden;
+      overscroll-behavior-y: none;
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
@@ -98,7 +109,7 @@
     /* ऊपर दाईं कोने में Light / Dark टॉगल बटन */
     .theme-toggle {
       position: fixed;
-      top: 12px;
+      top: calc(12px + env(safe-area-inset-top));
       right: 12px;
       z-index: 30;
       display: inline-flex;
@@ -216,7 +227,7 @@
 
     /* Glass सर्च बार */
     .search-wrap {
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       position: relative;
     }
 
@@ -263,6 +274,69 @@
       display: block;
     }
 
+    /* Quick Resume बार */
+    .quick-resume {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      margin-bottom: 14px;
+      padding: 9px 14px;
+      border-radius: 14px;
+      text-decoration: none;
+      background: var(--resume-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1.5px solid var(--accent);
+      color: var(--text-main);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 8px var(--accent-glow);
+      touch-action: manipulation;
+      transition: transform 0.16s ease;
+    }
+
+    .quick-resume.visible {
+      display: flex;
+    }
+
+    .quick-resume:active {
+      transform: scale(0.98);
+    }
+
+    .resume-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .resume-pill {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #111111;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .resume-text {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .resume-go {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -276,7 +350,7 @@
       background: transparent;
       border: none;
       border-radius: 16px;
-      padding: 12px 8px;
+      padding: 14px 8px 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -299,16 +373,16 @@
       display: none;
     }
 
-    /* Favorite स्टार बटन */
+    /* स्टार पिन बटन — कोने में साफ़ स्पेस के साथ */
     .fav-btn {
       position: absolute;
-      top: 6px;
-      right: 8px;
+      top: 3px;
+      right: 6px;
       z-index: 4;
       width: 26px;
       height: 26px;
       border-radius: 50%;
-      border: 1px solid rgba(245, 183, 0, 0.45);
+      border: 1px solid rgba(245, 183, 0, 0.5);
       background: var(--badge-bg);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
@@ -357,7 +431,7 @@
       border-radius: 8px;
     }
 
-    /* LIVE डॉट (जिन प्लेटफॉर्म्स के लिंक जुड़े हैं) */
+    /* LIVE डॉट (जिन प्लेटफॉर्म्स के सर्वर जुड़े हैं) */
     .live-dot {
       position: absolute;
       top: -4px;
@@ -370,7 +444,25 @@
       box-shadow: 0 0 8px rgba(34, 197, 94, 0.95);
     }
 
+    /* Active Servers काउंट बैज */
+    .server-count-badge {
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: #16a34a;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+    }
+
     .platform-name {
+      margin-top: 2px;
       font-size: 14px;
       font-weight: 700;
       text-align: center;
@@ -601,7 +693,7 @@
     .toast {
       position: fixed;
       left: 50%;
-      bottom: 22px;
+      bottom: calc(22px + env(safe-area-inset-bottom));
       transform: translateX(-50%) translateY(16px);
       max-width: 90%;
       padding: 10px 16px;
@@ -664,6 +756,14 @@
       />
       <button type="button" id="clearSearch" class="clear-btn" aria-label="Clear search">×</button>
     </div>
+
+    <a href="#" id="quickResume" class="quick-resume" target="_blank" rel="noopener noreferrer">
+      <div class="resume-left">
+        <span class="resume-pill">Continue</span>
+        <span id="resumeText" class="resume-text">Next Toppers • Server 1</span>
+      </div>
+      <span class="resume-go">Open →</span>
+    </a>
 
     <div class="grid" id="platformGrid">
       <a href="#" class="card" data-platform="selectionway" data-name="selection way">
@@ -752,6 +852,7 @@
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png" alt="Next Toppers" class="logo-img" />
+          <span class="server-count-badge" data-server-count="nexttoppers"></span>
         </div>
         <span class="platform-name">Next Toppers</span>
         <span class="last-used-badge">Last Used</span>
@@ -819,6 +920,17 @@
       }
     };
 
+    // Active Server Count Badges Populate
+    document.querySelectorAll("[data-server-count]").forEach((badge) => {
+      const key = badge.dataset.serverCount;
+      const count = PLATFORM_SERVERS[key]?.servers?.length || 0;
+      if (count > 0) {
+        badge.textContent = `${count} ${count === 1 ? "Server" : "Servers"}`;
+      } else {
+        badge.style.display = "none";
+      }
+    });
+
     // Theme Toggle
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
@@ -863,10 +975,12 @@
       }, 2200);
     }
 
-    // Favorites & Last Used State
+    // Favorites, Last Used & Quick Resume State
     const grid = document.getElementById("platformGrid");
     const cards = Array.from(grid.querySelectorAll(".card"));
     const initialOrder = new Map(cards.map((card, idx) => [card, idx]));
+    const quickResume = document.getElementById("quickResume");
+    const resumeText = document.getElementById("resumeText");
 
     function getFavorites() {
       try {
@@ -891,8 +1005,13 @@
       }
     }
 
-    function setLastUsed(platformKey, serverName) {
-      const data = { platform: platformKey, server: serverName || "" };
+    function setLastUsed(platformKey, platformTitle, serverName, url) {
+      const data = {
+        platform: platformKey,
+        title: platformTitle || platformKey,
+        server: serverName || "",
+        url: url || ""
+      };
       try {
         localStorage.setItem("nk_last_used", JSON.stringify(data));
       } catch (_) {}
@@ -905,6 +1024,16 @@
         const isMatch = last && card.dataset.platform === last.platform;
         card.classList.toggle("is-last-used", Boolean(isMatch));
       });
+
+      if (last && last.url) {
+        quickResume.href = last.url;
+        resumeText.textContent = last.server
+          ? `${last.title} • ${last.server}`
+          : last.title;
+        quickResume.classList.add("visible");
+      } else {
+        quickResume.classList.remove("visible");
+      }
     }
 
     function syncFavoritesAndOrder() {
@@ -1010,7 +1139,7 @@
           <span class="server-arrow">Open →</span>
         `;
         a.addEventListener("click", () => {
-          setLastUsed(platformKey, srv.name);
+          setLastUsed(platformKey, platformData.title, srv.name, srv.url);
         });
         serverList.appendChild(a);
       });
