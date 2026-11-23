@@ -23,7 +23,7 @@
       --watermark-opacity: 0.85;
       --light-overlay-opacity: 0;
       --accent: #f5b700;
-      --accent-glow: rgba(245, 183, 0, 0.28);
+      --accent-glow: rgba(245, 183, 0, 0.3);
       --text-main: #ffffff;
       --text-sub: #ffffff;
       --box-bg: rgba(15, 15, 15, 0.72);
@@ -40,6 +40,7 @@
       --server-item-bg: rgba(255, 255, 255, 0.08);
       --server-item-hover: rgba(245, 183, 0, 0.22);
       --resume-bg: rgba(20, 20, 20, 0.82);
+      --share-bg: rgba(20, 20, 20, 0.84);
     }
 
     body.light-mode {
@@ -47,7 +48,7 @@
       --watermark-opacity: 0.92;
       --light-overlay-opacity: 0.34;
       --accent: #9a5b00;
-      --accent-glow: rgba(154, 91, 0, 0.22);
+      --accent-glow: rgba(154, 91, 0, 0.24);
       --text-main: #141414;
       --text-sub: #1c1c1c;
       --box-bg: rgba(255, 255, 255, 0.76);
@@ -64,6 +65,7 @@
       --server-item-bg: rgba(0, 0, 0, 0.06);
       --server-item-hover: rgba(154, 91, 0, 0.16);
       --resume-bg: rgba(255, 255, 255, 0.86);
+      --share-bg: rgba(255, 255, 255, 0.88);
     }
 
     html {
@@ -188,10 +190,29 @@
       text-shadow: var(--text-shadow-strong);
     }
 
-    /* Telegram बटन */
-    .telegram-wrap {
+    .focus-chip {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: var(--text-main);
+      background: var(--badge-bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(245, 183, 0, 0.45);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Telegram + Share Action Row */
+    .action-row {
       display: flex;
       justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
       margin-bottom: 14px;
     }
 
@@ -223,6 +244,30 @@
       height: 16px;
       fill: currentColor;
       flex-shrink: 0;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: var(--share-bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--text-main);
+      border: 1.5px solid var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 8px var(--accent-glow);
+      touch-action: manipulation;
+      transition: transform 0.16s ease, background 0.16s ease;
+    }
+
+    .share-btn:active {
+      transform: scale(0.95);
     }
 
     /* Glass सर्च बार */
@@ -373,7 +418,7 @@
       display: none;
     }
 
-    /* स्टार पिन बटन — कोने में साफ़ स्पेस के साथ */
+    /* स्टार पिन बटन */
     .fav-btn {
       position: absolute;
       top: 3px;
@@ -422,6 +467,23 @@
       overflow: visible;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45), 0 0 10px var(--accent-glow);
       position: relative;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    /* Golden Spotlight / Pulse Glow on Live or Pinned Cards */
+    .card.has-live .logo-box,
+    .card.is-pinned .logo-box {
+      border-width: 2px;
+      animation: spotlightPulse 2.4s infinite ease-in-out;
+    }
+
+    @keyframes spotlightPulse {
+      0%, 100% {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.48), 0 0 12px var(--accent-glow);
+      }
+      50% {
+        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.52), 0 0 20px var(--accent-glow);
+      }
     }
 
     .logo-img {
@@ -431,7 +493,7 @@
       border-radius: 8px;
     }
 
-    /* LIVE डॉट (जिन प्लेटफॉर्म्स के सर्वर जुड़े हैं) */
+    /* LIVE डॉट */
     .live-dot {
       position: absolute;
       top: -4px;
@@ -620,6 +682,35 @@
       justify-content: center;
     }
 
+    /* Quick Start Button inside Modal */
+    .quick-start-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      text-decoration: none;
+      margin-bottom: 12px;
+      padding: 11px 14px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #111111;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 4px 14px var(--accent-glow);
+      transition: transform 0.16s ease, filter 0.16s ease;
+    }
+
+    .quick-start-btn:active {
+      transform: scale(0.98);
+      filter: brightness(0.95);
+    }
+
+    .quick-start-sub {
+      font-size: 11px;
+      font-weight: 700;
+      opacity: 0.85;
+    }
+
     .server-list {
       display: flex;
       flex-direction: column;
@@ -735,15 +826,21 @@
       </div>
       <h1>Welcome to NK Pathshala</h1>
       <p>Education Must Be Free For Everyone</p>
+      <div class="focus-chip">SSC • Railway • State Exams • Free Access</div>
     </div>
 
-    <div class="telegram-wrap">
+    <div class="action-row">
       <a href="https://t.me/+ci3EnMDrgswxMjc1" target="_blank" rel="noopener noreferrer" class="telegram-btn">
         <svg class="telegram-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M21.944 4.506a1.5 1.5 0 0 0-1.607-.246L3.168 11.12a1.5 1.5 0 0 0 .14 2.836l3.67 1.18 1.42 4.54a1.5 1.5 0 0 0 2.576.53l2.06-2.25 3.99 2.94a1.5 1.5 0 0 0 2.373-.91l2.62-13.5a1.5 1.5 0 0 0-.071-1.452zM8.32 14.37l9.42-6.58-7.43 8.12-.33 2.82-1.66-4.36z"/>
         </svg>
         <span>Join to Telegram</span>
       </a>
+
+      <button type="button" id="shareSiteBtn" class="share-btn" aria-label="Share NK Pathshala">
+        <span>🔗</span>
+        <span>Share</span>
+      </button>
     </div>
 
     <div class="search-wrap">
@@ -847,7 +944,7 @@
         <span class="last-used-badge">Last Used</span>
       </a>
 
-      <a href="#nexttoppers" class="card" data-platform="nexttoppers" data-name="next toppers">
+      <a href="#nexttoppers" class="card has-live" data-platform="nexttoppers" data-name="next toppers">
         <button type="button" class="fav-btn" aria-label="Pin Next Toppers">☆</button>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -899,6 +996,12 @@
         </div>
         <button type="button" id="modalClose" class="modal-close" aria-label="Close">×</button>
       </div>
+
+      <a href="#" id="quickStartBtn" class="quick-start-btn" target="_blank" rel="noopener noreferrer">
+        <span>⚡ Quick Start</span>
+        <span id="quickStartSub" class="quick-start-sub">Server 1</span>
+      </a>
+
       <div id="serverList" class="server-list"></div>
     </div>
   </div>
@@ -975,6 +1078,30 @@
       }, 2200);
     }
 
+    // Share Button
+    const shareSiteBtn = document.getElementById("shareSiteBtn");
+    shareSiteBtn.addEventListener("click", async () => {
+      const shareData = {
+        title: "NK Pathshala",
+        text: "NK Pathshala - Education Must Be Free For Everyone",
+        url: window.location.href
+      };
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (err) {
+          if (err && err.name === "AbortError") return;
+        }
+      }
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        showToast("NK Pathshala ka link copy ho gaya!");
+      } catch (_) {
+        showToast(window.location.href);
+      }
+    });
+
     // Favorites, Last Used & Quick Resume State
     const grid = document.getElementById("platformGrid");
     const cards = Array.from(grid.querySelectorAll(".card"));
@@ -1036,6 +1163,11 @@
       }
     }
 
+    quickResume.addEventListener("click", () => {
+      const last = getLastUsed();
+      showToast(`All the best! Opening ${last?.title || "class"}...`);
+    });
+
     function syncFavoritesAndOrder() {
       const favs = new Set(getFavorites());
       cards.forEach((card) => {
@@ -1043,6 +1175,8 @@
         const btn = card.querySelector(".fav-btn");
         const isFav = favs.has(key);
         btn.classList.toggle("active", isFav);
+        btn.classList.toggle("is-pinned", isFav);
+        card.classList.toggle("is-pinned", isFav);
         btn.textContent = isFav ? "★" : "☆";
       });
 
@@ -1109,17 +1243,34 @@
     const serverModal = document.getElementById("serverModal");
     const modalLogo = document.getElementById("modalLogo");
     const modalTitle = document.getElementById("modalTitle");
+    const quickStartBtn = document.getElementById("quickStartBtn");
+    const quickStartSub = document.getElementById("quickStartSub");
     const serverList = document.getElementById("serverList");
     const modalClose = document.getElementById("modalClose");
 
     function openServerModal(platformKey, platformData) {
       const last = getLastUsed();
       const lastServerForPlatform = last && last.platform === platformKey ? last.server : "";
+      const bestServer =
+        platformData.servers.find((s) => s.name === lastServerForPlatform) ||
+        platformData.servers[0];
 
       modalLogo.src = platformData.logo;
       modalLogo.alt = platformData.title;
       modalTitle.textContent = platformData.title;
       serverList.innerHTML = "";
+
+      if (bestServer) {
+        quickStartBtn.href = bestServer.url;
+        quickStartSub.textContent = bestServer.name;
+        quickStartBtn.style.display = "flex";
+        quickStartBtn.onclick = () => {
+          setLastUsed(platformKey, platformData.title, bestServer.name, bestServer.url);
+          showToast(`All the best! Opening ${bestServer.name}...`);
+        };
+      } else {
+        quickStartBtn.style.display = "none";
+      }
 
       platformData.servers.forEach((srv) => {
         const isLastSrv = lastServerForPlatform && lastServerForPlatform === srv.name;
@@ -1140,6 +1291,7 @@
         `;
         a.addEventListener("click", () => {
           setLastUsed(platformKey, platformData.title, srv.name, srv.url);
+          showToast(`All the best! Opening ${srv.name}...`);
         });
         serverList.appendChild(a);
       });
