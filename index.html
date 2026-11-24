@@ -418,38 +418,27 @@
       display: none;
     }
 
-    /* Star pin button */
-    .fav-btn {
+    /* Top-right RECENT badge */
+    .recent-badge {
+      display: none;
       position: absolute;
-      top: 3px;
+      top: 4px;
       right: 6px;
-      z-index: 4;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      border: 1px solid rgba(245, 183, 0, 0.5);
-      background: var(--badge-bg);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      color: var(--accent);
-      font-size: 14px;
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-      transition: transform 0.15s ease, background 0.15s ease;
+      z-index: 5;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: #15803d;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
     }
 
-    .fav-btn:active {
-      transform: scale(0.88);
-    }
-
-    .fav-btn.active {
-      background: var(--accent);
-      color: #111111;
-      border-color: var(--accent);
+    .card.is-recent .recent-badge {
+      display: inline-block;
     }
 
     .logo-box {
@@ -471,7 +460,7 @@
     }
 
     .card.has-live .logo-box,
-    .card.is-pinned .logo-box {
+    .card.is-recent .logo-box {
       border-width: 2px;
       animation: spotlightPulse 2.4s infinite ease-in-out;
     }
@@ -532,22 +521,6 @@
       text-align: center;
       color: var(--text-main);
       text-shadow: var(--text-shadow-strong);
-    }
-
-    .last-used-badge {
-      display: none;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #111111;
-      letter-spacing: 0.3px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-    }
-
-    .card.is-last-used .last-used-badge {
-      display: inline-block;
     }
 
     .no-result {
@@ -932,163 +905,148 @@
 
     <div class="grid" id="platformGrid">
       <a href="#" class="card" data-platform="selectionway" data-name="selection way">
-        <button type="button" class="fav-btn" aria-label="Pin Selection Way">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png" alt="Selection Way" class="logo-img" />
         </div>
         <span class="platform-name">Selection Way</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="rwa" data-name="rwa rojgar with ankit">
-        <button type="button" class="fav-btn" aria-label="Pin RWA">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="RWA" class="logo-img" />
         </div>
         <span class="platform-name">RWA</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#" class="card" data-platform="pw" data-name="pw physics wallah">
-        <button type="button" class="fav-btn" aria-label="Pin PW">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png" alt="PW" class="logo-img" />
           <span class="server-count-badge" data-server-count="pw"></span>
         </div>
         <span class="platform-name">PW</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#kgs" class="card has-live" data-platform="kgs" data-name="kgs khan global studies">
-        <button type="button" class="fav-btn" aria-label="Pin KGS">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png" alt="KGS" class="logo-img" />
           <span class="server-count-badge" data-server-count="kgs"></span>
         </div>
         <span class="platform-name">KGS</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#parmar" class="card has-live" data-platform="parmar" data-name="parmar academy ssc">
-        <button type="button" class="fav-btn" aria-label="Pin Parmar Academy">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png" alt="Parmar Academy" class="logo-img" />
           <span class="server-count-badge" data-server-count="parmar"></span>
         </div>
         <span class="platform-name">Parmar Academy</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#sciencemagnet" class="card has-live" data-platform="sciencemagnet" data-name="science magnet">
-        <button type="button" class="fav-btn" aria-label="Pin Science Magnet">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png" alt="Science Magnet" class="logo-img" />
           <span class="server-count-badge" data-server-count="sciencemagnet"></span>
         </div>
         <span class="platform-name">Science Magnet</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#vidyagram" class="card has-live" data-platform="vidyagram" data-name="vidyagram">
-        <button type="button" class="fav-btn" aria-label="Pin Vidyagram">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png" alt="Vidyagram" class="logo-img" />
           <span class="server-count-badge" data-server-count="vidyagram"></span>
         </div>
         <span class="platform-name">Vidyagram</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#yesofficer" class="card has-live" data-platform="yesofficer" data-name="yes officer">
-        <button type="button" class="fav-btn" aria-label="Pin Yes Officer">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png" alt="Yes Officer" class="logo-img" />
           <span class="server-count-badge" data-server-count="yesofficer"></span>
         </div>
         <span class="platform-name">Yes Officer</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#missionjeet" class="card has-live" data-platform="missionjeet" data-name="mission jeet mission cheat">
-        <button type="button" class="fav-btn" aria-label="Pin Mission Jeet">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png" alt="Mission Jeet" class="logo-img" />
           <span class="server-count-badge" data-server-count="missionjeet"></span>
         </div>
         <span class="platform-name">Mission Jeet</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#nexttoppers" class="card has-live" data-platform="nexttoppers" data-name="next toppers next topper">
-        <button type="button" class="fav-btn" aria-label="Pin Next Toppers">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png" alt="Next Toppers" class="logo-img" />
           <span class="server-count-badge" data-server-count="nexttoppers"></span>
         </div>
         <span class="platform-name">Next Toppers</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#eduteria" class="card has-live" data-platform="eduteria" data-name="eduteria edu teria">
-        <button type="button" class="fav-btn" aria-label="Pin Edu Teria">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png" alt="Edu Teria" class="logo-img" />
           <span class="server-count-badge" data-server-count="eduteria"></span>
         </div>
         <span class="platform-name">Edu Teria</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#futurekul" class="card has-live" data-platform="futurekul" data-name="futurekul future kul">
-        <button type="button" class="fav-btn" aria-label="Pin Futurekul">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png" alt="Futurekul" class="logo-img" />
           <span class="server-count-badge" data-server-count="futurekul"></span>
         </div>
         <span class="platform-name">Futurekul</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#unacademy" class="card has-live" data-platform="unacademy" data-name="unacademy">
-        <button type="button" class="fav-btn" aria-label="Pin Unacademy">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png" alt="Unacademy" class="logo-img" />
           <span class="server-count-badge" data-server-count="unacademy"></span>
         </div>
         <span class="platform-name">Unacademy</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#careerwill" class="card has-live" data-platform="careerwill" data-name="careerwill career will">
-        <button type="button" class="fav-btn" aria-label="Pin Careerwill">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png" alt="Careerwill" class="logo-img" />
           <span class="server-count-badge" data-server-count="careerwill"></span>
         </div>
         <span class="platform-name">Careerwill</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
 
       <a href="#nklibrary" class="card has-live" data-platform="nklibrary" data-name="nk library nk books notes pdf">
-        <button type="button" class="fav-btn" aria-label="Pin NK's Library">☆</button>
+        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="NK's Library Ready"></span>
           <span class="library-icon-text" aria-hidden="true">📚</span>
           <span class="server-count-badge" data-library-count></span>
         </div>
         <span class="platform-name">NK's Library</span>
-        <span class="last-used-badge">Last Used</span>
       </a>
     </div>
 
@@ -1167,13 +1125,11 @@
         title: "Next Toppers",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png",
         servers: [
-          // Pehle ke 5 unique servers
           { name: "Server 1", tag: "NK Desk • Next Toppers Server 1", url: "https://all.codewithvivek.qzz.io/next-toppers" },
           { name: "Server 2", tag: "NK Desk • Next Toppers Server 2", url: "https://nt-study-bison.space-z.ai/" },
           { name: "Server 3", tag: "NK Desk • Next Toppers Server 3", url: "https://nt.studybeepro.site/" },
           { name: "Server 4", tag: "NK Desk • Next Toppers Server 4", url: "https://spidystudynt.vercel.app/" },
           { name: "Server 5", tag: "NK Desk • Next Toppers Server 5", url: "https://studymonkeynxt.netlify.app/" },
-          // Naye added unique servers (duplicates skip kiye gaye hain)
           { name: "Server 6", tag: "NK Desk • Next Toppers New Link 1", url: "https://stream.nexthope.sbs/nexttopper/" },
           { name: "Server 7", tag: "NK Desk • Next Toppers New Link 2", url: "http://ntstudyhulk.vercel.app/" },
           { name: "Server 8", tag: "NK Desk • Next Toppers New Link 3", url: "https://ntnexusstudyy.netlify.app" }
@@ -1272,7 +1228,6 @@
       }
     };
 
-    // NK's Library items (yahan apni books / PDFs / notes ke links aasani se add ya edit karein)
     const NK_LIBRARY_ITEMS = [
       {
         title: "SSC Static GK & Polity Compendium",
@@ -1378,26 +1333,31 @@
       }
     });
 
-    // Favorites, Last Used & Quick Resume State
-    const grid = document.getElementById("platformGrid");
-    const cards = Array.from(grid.querySelectorAll(".card"));
-    const initialOrder = new Map(cards.map((card, idx) => [card, idx]));
+    // RECENT Platform & Last Used State
+    const cards = Array.from(document.querySelectorAll("#platformGrid .card"));
     const quickResume = document.getElementById("quickResume");
     const resumeText = document.getElementById("resumeText");
 
-    function getFavorites() {
+    function getRecentPlatform() {
       try {
-        const raw = JSON.parse(localStorage.getItem("nk_favorites") || "[]");
-        return Array.isArray(raw) ? raw : [];
+        return localStorage.getItem("nk_recent_platform") || "";
       } catch (_) {
-        return [];
+        return "";
       }
     }
 
-    function saveFavorites(list) {
+    function setRecentPlatform(platformKey) {
       try {
-        localStorage.setItem("nk_favorites", JSON.stringify(list));
+        localStorage.setItem("nk_recent_platform", platformKey || "");
       } catch (_) {}
+      renderRecentBadge();
+    }
+
+    function renderRecentBadge() {
+      const recentKey = getRecentPlatform();
+      cards.forEach((card) => {
+        card.classList.toggle("is-recent", Boolean(recentKey && card.dataset.platform === recentKey));
+      });
     }
 
     function getLastUsed() {
@@ -1418,16 +1378,12 @@
       try {
         localStorage.setItem("nk_last_used", JSON.stringify(data));
       } catch (_) {}
+      setRecentPlatform(platformKey);
       renderLastUsed();
     }
 
     function renderLastUsed() {
       const last = getLastUsed();
-      cards.forEach((card) => {
-        const isMatch = last && card.dataset.platform === last.platform;
-        card.classList.toggle("is-last-used", Boolean(isMatch));
-      });
-
       if (last && last.url) {
         quickResume.href = last.url;
         resumeText.textContent = last.server
@@ -1447,47 +1403,6 @@
         return;
       }
       showToast(`All the best! Opening ${last?.title || "class"}...`);
-    });
-
-    function syncFavoritesAndOrder() {
-      const favs = new Set(getFavorites());
-      cards.forEach((card) => {
-        const key = card.dataset.platform;
-        const btn = card.querySelector(".fav-btn");
-        const isFav = favs.has(key);
-        btn.classList.toggle("active", isFav);
-        card.classList.toggle("is-pinned", isFav);
-        btn.textContent = isFav ? "★" : "☆";
-      });
-
-      const sorted = [...cards].sort((a, b) => {
-        const aFav = favs.has(a.dataset.platform) ? 0 : 1;
-        const bFav = favs.has(b.dataset.platform) ? 0 : 1;
-        if (aFav !== bFav) return aFav - bFav;
-        return initialOrder.get(a) - initialOrder.get(b);
-      });
-
-      sorted.forEach((card) => grid.appendChild(card));
-    }
-
-    cards.forEach((card) => {
-      const favBtn = card.querySelector(".fav-btn");
-      favBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const key = card.dataset.platform;
-        const name = card.querySelector(".platform-name").textContent.trim();
-        const current = new Set(getFavorites());
-        if (current.has(key)) {
-          current.delete(key);
-          showToast(`${name} favorites se hata diya gaya`);
-        } else {
-          current.add(key);
-          showToast(`${name} top par pin ho gaya`);
-        }
-        saveFavorites([...current]);
-        syncFavoritesAndOrder();
-      });
     });
 
     // Search Filter
@@ -1563,7 +1478,7 @@
           <div class="server-left">
             <div class="server-name-row">
               <span class="server-name">${srv.name}</span>
-              ${isLastSrv ? '<span class="server-used-pill">Last Used</span>' : ""}
+              ${isLastSrv ? '<span class="server-used-pill">RECENT</span>' : ""}
             </div>
             <span class="server-tag">${srv.tag}</span>
           </div>
@@ -1686,6 +1601,10 @@
     cards.forEach((card) => {
       card.addEventListener("click", (e) => {
         const key = card.dataset.platform;
+        if (key) {
+          setRecentPlatform(key);
+        }
+
         if (key === "nklibrary") {
           e.preventDefault();
           openLibraryModal();
@@ -1708,7 +1627,7 @@
     });
 
     // Initial Render
-    syncFavoritesAndOrder();
+    renderRecentBadge();
     renderLastUsed();
   </script>
 </body>
