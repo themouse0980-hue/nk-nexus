@@ -492,6 +492,11 @@
       border-radius: 8px;
     }
 
+    .library-icon-text {
+      font-size: 26px;
+      line-height: 1;
+    }
+
     .live-dot {
       position: absolute;
       top: -4px;
@@ -585,7 +590,7 @@
       color: var(--accent);
     }
 
-    /* NK Pathshala Class / Server Desk Modal */
+    /* NK Pathshala Class / Server Desk & Library Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -652,6 +657,10 @@
       object-fit: contain;
       background: var(--box-bg);
       padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
     }
 
     .modal-brand-tag {
@@ -783,6 +792,54 @@
       font-size: 13px;
       font-weight: 800;
       color: var(--accent);
+    }
+
+    /* NK's Library inside modal */
+    .lib-search {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(245, 183, 0, 0.5);
+      background: var(--server-item-bg);
+      color: var(--text-main);
+      font-size: 13px;
+      outline: none;
+      margin-bottom: 10px;
+    }
+
+    .lib-search::placeholder {
+      color: var(--footer-text);
+    }
+
+    .lib-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .lib-chip {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 183, 0, 0.45);
+      background: var(--server-item-bg);
+      color: var(--text-main);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lib-chip.active {
+      background: var(--accent);
+      color: #111111;
+      border-color: var(--accent);
+    }
+
+    .lib-empty {
+      text-align: center;
+      font-size: 12px;
+      color: var(--footer-text);
+      padding: 14px 8px;
     }
 
     /* Halka Coming Soon / Notice Toast */
@@ -1003,6 +1060,17 @@
         <span class="platform-name">Careerwill</span>
         <span class="last-used-badge">Last Used</span>
       </a>
+
+      <a href="#nklibrary" class="card has-live" data-platform="nklibrary" data-name="nk library nk books notes pdf">
+        <button type="button" class="fav-btn" aria-label="Pin NK's Library">☆</button>
+        <div class="logo-box">
+          <span class="live-dot" title="NK's Library Ready"></span>
+          <span class="library-icon-text" aria-hidden="true">📚</span>
+          <span class="server-count-badge" data-library-count></span>
+        </div>
+        <span class="platform-name">NK's Library</span>
+        <span class="last-used-badge">Last Used</span>
+      </a>
     </div>
 
     <div id="noResult" class="no-result">Koi matching platform nahi mila.</div>
@@ -1035,6 +1103,40 @@
       </a>
 
       <div id="serverList" class="server-list"></div>
+    </div>
+  </div>
+
+  <!-- NK's Library Modal -->
+  <div id="libraryModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="libraryModalTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-logo" aria-hidden="true">📚</div>
+          <div>
+            <div class="modal-brand-tag">NK PATHSHALA • BOOKS & NOTES</div>
+            <div id="libraryModalTitle" class="modal-title">NK's Library</div>
+            <div class="modal-subtitle">Books, PDFs aur study notes search & open karein</div>
+          </div>
+        </div>
+        <button type="button" id="libraryClose" class="modal-close" aria-label="Close">×</button>
+      </div>
+
+      <input
+        type="text"
+        id="libSearch"
+        class="lib-search"
+        placeholder="Book ya subject search karein..."
+        autocomplete="off"
+      />
+
+      <div id="libChips" class="lib-chips">
+        <button type="button" class="lib-chip active" data-cat="All">All</button>
+        <button type="button" class="lib-chip" data-cat="GK & SSC">GK & SSC</button>
+        <button type="button" class="lib-chip" data-cat="Science">Science</button>
+        <button type="button" class="lib-chip" data-cat="Notes">Notes</button>
+      </div>
+
+      <div id="libraryList" class="server-list"></div>
     </div>
   </div>
 
@@ -1089,6 +1191,34 @@
         servers: []
       }
     };
+
+    // NK's Library items (yahan apni books / PDFs / notes ke links aasani se add ya edit karein)
+    const NK_LIBRARY_ITEMS = [
+      {
+        title: "SSC Static GK & Polity Compendium",
+        category: "GK & SSC",
+        tag: "PDF / Study Resource • Ready to add link",
+        url: "#add-gk-book-link"
+      },
+      {
+        title: "General Science Formula & Concept Book",
+        category: "Science",
+        tag: "Physics • Chemistry • Biology • Ready to add link",
+        url: "#add-science-book-link"
+      },
+      {
+        title: "Self Study Revision Notes",
+        category: "Notes",
+        tag: "Quick Revision • Ready to add link",
+        url: "#add-notes-link"
+      }
+    ];
+
+    const libCountBadge = document.querySelector("[data-library-count]");
+    if (libCountBadge) {
+      const totalBooks = NK_LIBRARY_ITEMS.length;
+      libCountBadge.textContent = `${totalBooks} ${totalBooks === 1 ? "Book" : "Books"}`;
+    }
 
     document.querySelectorAll("[data-server-count]").forEach((badge) => {
       const key = badge.dataset.serverCount;
@@ -1229,8 +1359,13 @@
       }
     }
 
-    quickResume.addEventListener("click", () => {
+    quickResume.addEventListener("click", (e) => {
       const last = getLastUsed();
+      if (!last || !last.url || last.url.startsWith("#")) {
+        e.preventDefault();
+        showToast("Is item ka real link abhi jodne ke liye baaki hai");
+        return;
+      }
       showToast(`All the best! Opening ${last?.title || "class"}...`);
     });
 
@@ -1372,13 +1507,111 @@
     serverModal.addEventListener("click", (e) => {
       if (e.target === serverModal) closeServerModal();
     });
+
+    // NK's Library Modal Controls
+    const libraryModal = document.getElementById("libraryModal");
+    const libraryClose = document.getElementById("libraryClose");
+    const libSearch = document.getElementById("libSearch");
+    const libChips = document.getElementById("libChips");
+    const libraryList = document.getElementById("libraryList");
+    let activeLibCategory = "All";
+
+    function renderLibraryItems() {
+      const q = libSearch.value.trim().toLowerCase();
+      const filtered = NK_LIBRARY_ITEMS.filter((item) => {
+        const catMatch = activeLibCategory === "All" || item.category === activeLibCategory;
+        const textMatch =
+          !q ||
+          item.title.toLowerCase().includes(q) ||
+          item.category.toLowerCase().includes(q) ||
+          item.tag.toLowerCase().includes(q);
+        return catMatch && textMatch;
+      });
+
+      libraryList.innerHTML = "";
+      if (filtered.length === 0) {
+        libraryList.innerHTML = '<div class="lib-empty">Koi matching book ya note nahi mila.</div>';
+        return;
+      }
+
+      filtered.forEach((book) => {
+        const hasRealLink = book.url && !book.url.startsWith("#");
+        const a = document.createElement("a");
+        a.href = hasRealLink ? book.url : "#";
+        if (hasRealLink) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+        a.className = "server-link";
+        a.innerHTML = `
+          <div class="server-left">
+            <div class="server-name-row">
+              <span class="server-name">${book.title}</span>
+              <span class="server-used-pill">${book.category}</span>
+            </div>
+            <span class="server-tag">${book.tag}</span>
+          </div>
+          <span class="server-arrow">${hasRealLink ? "Open →" : "Add Link"}</span>
+        `;
+        a.addEventListener("click", (e) => {
+          if (!hasRealLink) {
+            e.preventDefault();
+            showToast(`"${book.title}" ka link abhi add karna baaki hai`);
+            return;
+          }
+          setLastUsed("nklibrary", "NK's Library", book.title, book.url);
+          showToast(`Opening ${book.title}...`);
+        });
+        libraryList.appendChild(a);
+      });
+    }
+
+    function openLibraryModal() {
+      libSearch.value = "";
+      activeLibCategory = "All";
+      libChips.querySelectorAll(".lib-chip").forEach((chip) => {
+        chip.classList.toggle("active", chip.dataset.cat === "All");
+      });
+      renderLibraryItems();
+      libraryModal.classList.add("open");
+    }
+
+    function closeLibraryModal() {
+      libraryModal.classList.remove("open");
+    }
+
+    libSearch.addEventListener("input", renderLibraryItems);
+    libChips.addEventListener("click", (e) => {
+      const chip = e.target.closest(".lib-chip");
+      if (!chip) return;
+      activeLibCategory = chip.dataset.cat;
+      libChips.querySelectorAll(".lib-chip").forEach((c) => {
+        c.classList.toggle("active", c === chip);
+      });
+      renderLibraryItems();
+    });
+
+    libraryClose.addEventListener("click", closeLibraryModal);
+    libraryModal.addEventListener("click", (e) => {
+      if (e.target === libraryModal) closeLibraryModal();
+    });
+
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeServerModal();
+      if (e.key === "Escape") {
+        closeServerModal();
+        closeLibraryModal();
+      }
     });
 
     cards.forEach((card) => {
       card.addEventListener("click", (e) => {
         const key = card.dataset.platform;
+        if (key === "nklibrary") {
+          e.preventDefault();
+          openLibraryModal();
+          return;
+        }
+
         if (key && PLATFORM_SERVERS[key] && PLATFORM_SERVERS[key].servers.length > 0) {
           e.preventDefault();
           openServerModal(key, PLATFORM_SERVERS[key]);
