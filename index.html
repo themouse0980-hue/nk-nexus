@@ -983,6 +983,26 @@
         <span class="platform-name">Futurekul</span>
         <span class="last-used-badge">Last Used</span>
       </a>
+
+      <a href="#unacademy" class="card" data-platform="unacademy" data-name="unacademy">
+        <button type="button" class="fav-btn" aria-label="Pin Unacademy">☆</button>
+        <div class="logo-box">
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png" alt="Unacademy" class="logo-img" />
+          <span class="server-count-badge" data-server-count="unacademy"></span>
+        </div>
+        <span class="platform-name">Unacademy</span>
+        <span class="last-used-badge">Last Used</span>
+      </a>
+
+      <a href="#careerwill" class="card" data-platform="careerwill" data-name="careerwill career will">
+        <button type="button" class="fav-btn" aria-label="Pin Careerwill">☆</button>
+        <div class="logo-box">
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png" alt="Careerwill" class="logo-img" />
+          <span class="server-count-badge" data-server-count="careerwill"></span>
+        </div>
+        <span class="platform-name">Careerwill</span>
+        <span class="last-used-badge">Last Used</span>
+      </a>
     </div>
 
     <div id="noResult" class="no-result">Koi matching platform nahi mila.</div>
@@ -1057,6 +1077,16 @@
           { name: "Server 2", tag: "NK Desk • Vidyagram Class Link 2", url: "https://vidyagram-studybison.space-z.ai/" },
           { name: "Server 3", tag: "NK Desk • Vidyagram Class Link 3", url: "https://studymonkeyvg.netlify.app/" }
         ]
+      },
+      unacademy: {
+        title: "Unacademy",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png",
+        servers: []
+      },
+      careerwill: {
+        title: "Careerwill",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png",
+        servers: []
       }
     };
 
@@ -1349,14 +1379,14 @@
     cards.forEach((card) => {
       card.addEventListener("click", (e) => {
         const key = card.dataset.platform;
-        if (key && PLATFORM_SERVERS[key]) {
+        if (key && PLATFORM_SERVERS[key] && PLATFORM_SERVERS[key].servers.length > 0) {
           e.preventDefault();
           openServerModal(key, PLATFORM_SERVERS[key]);
           return;
         }
 
         const href = card.getAttribute("href");
-        if (!href || href.trim() === "#") {
+        if (!href || href.trim() === "#" || href.trim().startsWith("#")) {
           e.preventDefault();
           const name = card.querySelector(".platform-name").textContent.trim();
           showToast(`${name} ka link jald hi update kiya jayega`);
