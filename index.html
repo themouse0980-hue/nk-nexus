@@ -83,7 +83,7 @@
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    /* Peeche nayi background wallpaper (krish.png) */
+    /* Peeche background wallpaper (krish.png) */
     .bg-watermark {
       position: fixed;
       inset: 0;
@@ -926,10 +926,12 @@
         <span class="last-used-badge">Last Used</span>
       </a>
 
-      <a href="#" class="card" data-platform="vidyagram" data-name="vidyagram">
+      <a href="#vidyagram" class="card has-live" data-platform="vidyagram" data-name="vidyagram">
         <button type="button" class="fav-btn" aria-label="Pin Vidyagram">☆</button>
         <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png" alt="Vidyagram" class="logo-img" />
+          <span class="server-count-badge" data-server-count="vidyagram"></span>
         </div>
         <span class="platform-name">Vidyagram</span>
         <span class="last-used-badge">Last Used</span>
@@ -1045,6 +1047,15 @@
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Science Magnet Class Link", url: "https://troubled-beige-d2ktwr2j.edgeone.dev/" }
+        ]
+      },
+      vidyagram: {
+        title: "Vidyagram",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png",
+        servers: [
+          { name: "Server 1", tag: "NK Desk • Vidyagram Class Link 1", url: "https://pwnexus.eu.cc/vidyagram" },
+          { name: "Server 2", tag: "NK Desk • Vidyagram Class Link 2", url: "https://vidyagram-studybison.space-z.ai/" },
+          { name: "Server 3", tag: "NK Desk • Vidyagram Class Link 3", url: "https://studymonkeyvg.netlify.app/" }
         ]
       }
     };
