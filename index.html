@@ -735,6 +735,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 10px;
       text-decoration: none;
       padding: 12px 14px;
       border-radius: 14px;
@@ -760,12 +761,14 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
+      min-width: 0;
     }
 
     .server-name-row {
       display: flex;
       align-items: center;
       gap: 6px;
+      flex-wrap: wrap;
     }
 
     .server-name {
@@ -781,6 +784,7 @@
       border-radius: 999px;
       background: var(--accent);
       color: #111111;
+      white-space: nowrap;
     }
 
     .server-tag {
@@ -792,6 +796,8 @@
       font-size: 13px;
       font-weight: 800;
       color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     /* NK's Library inside modal */
@@ -1051,9 +1057,10 @@
         <span class="last-used-badge">Last Used</span>
       </a>
 
-      <a href="#careerwill" class="card" data-platform="careerwill" data-name="careerwill career will">
+      <a href="#careerwill" class="card has-live" data-platform="careerwill" data-name="careerwill career will">
         <button type="button" class="fav-btn" aria-label="Pin Careerwill">☆</button>
         <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png" alt="Careerwill" class="logo-img" />
           <span class="server-count-badge" data-server-count="careerwill"></span>
         </div>
@@ -1180,14 +1187,18 @@
           { name: "Server 3", tag: "NK Desk • Vidyagram Class Link 3", url: "https://studymonkeyvg.netlify.app/" }
         ]
       },
-      unacademy: {
-        title: "Unacademy",
-        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png",
-        servers: []
-      },
       careerwill: {
         title: "Careerwill",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png",
+        servers: [
+          { name: "Server 1", tag: "NK Desk • Careerwill Class Link 1", url: "https://stream.nexthope.sbs/careerwill/" },
+          { name: "Server 2", tag: "NK Desk • Careerwill Class Link 2", url: "https://runtkyp.xo.je/?i=1" },
+          { name: "Server 3", tag: "NK Desk • Careerwill Class Link 3", url: "https://pwnexus.eu.cc/career-will" }
+        ]
+      },
+      unacademy: {
+        title: "Unacademy",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png",
         servers: []
       }
     };
