@@ -36,7 +36,7 @@
       --toggle-bg: rgba(34, 24, 62, 0.9);
       --toggle-text: #ffffff;
       --toggle-border: rgba(255, 255, 255, 0.22);
-      --modal-bg: rgba(18, 18, 22, 0.95);
+      --modal-bg: rgba(18, 18, 22, 0.96);
       --server-item-bg: rgba(255, 255, 255, 0.08);
       --server-item-hover: rgba(245, 183, 0, 0.22);
       --resume-bg: rgba(20, 20, 20, 0.82);
@@ -61,7 +61,7 @@
       --toggle-bg: rgba(238, 234, 246, 0.94);
       --toggle-text: #1e1b2e;
       --toggle-border: rgba(30, 27, 46, 0.16);
-      --modal-bg: rgba(255, 253, 248, 0.97);
+      --modal-bg: rgba(255, 253, 248, 0.98);
       --server-item-bg: rgba(0, 0, 0, 0.06);
       --server-item-hover: rgba(154, 91, 0, 0.16);
       --resume-bg: rgba(255, 255, 255, 0.86);
@@ -583,8 +583,8 @@
 
     .modal-box {
       width: 100%;
-      max-width: 390px;
-      max-height: 86vh;
+      max-width: 400px;
+      max-height: 88vh;
       overflow-y: auto;
       background: var(--modal-bg);
       backdrop-filter: blur(14px);
@@ -701,20 +701,28 @@
     .server-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 9px;
+    }
+
+    .server-row {
+      display: flex;
+      align-items: stretch;
+      gap: 7px;
     }
 
     .server-link {
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       text-decoration: none;
-      padding: 12px 14px;
-      border-radius: 14px;
+      padding: 10px 12px;
+      border-radius: 13px;
       background: var(--server-item-bg);
       border: 1px solid rgba(245, 183, 0, 0.35);
       color: var(--text-main);
+      min-width: 0;
       transition: background 0.16s ease, transform 0.16s ease, border-color 0.16s ease;
     }
 
@@ -727,7 +735,6 @@
     .server-link:active {
       background: var(--server-item-hover);
       border-color: var(--accent);
-      transform: translateY(-1px);
     }
 
     .server-left {
@@ -745,15 +752,15 @@
     }
 
     .server-name {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
       color: var(--text-main);
     }
 
     .server-used-pill {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 700;
-      padding: 1px 7px;
+      padding: 1px 6px;
       border-radius: 999px;
       background: var(--accent);
       color: #111111;
@@ -761,16 +768,125 @@
     }
 
     .server-tag {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--footer-text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .server-arrow {
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 800;
       color: var(--accent);
       white-space: nowrap;
       flex-shrink: 0;
+    }
+
+    .delete-srv-btn {
+      width: 40px;
+      border-radius: 13px;
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      background: rgba(239, 68, 68, 0.14);
+      color: #ef4444;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .delete-srv-btn:active {
+      transform: scale(0.94);
+      background: rgba(239, 68, 68, 0.28);
+    }
+
+    .empty-servers {
+      text-align: center;
+      font-size: 12px;
+      color: var(--footer-text);
+      padding: 12px 8px;
+      border-radius: 12px;
+      background: var(--server-item-bg);
+    }
+
+    /* Add Server Form inside Modal */
+    .manage-box {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(128, 128, 128, 0.25);
+    }
+
+    .manage-heading {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .manage-input {
+      width: 100%;
+      padding: 9px 11px;
+      border-radius: 11px;
+      border: 1px solid rgba(245, 183, 0, 0.45);
+      background: var(--server-item-bg);
+      color: var(--text-main);
+      font-size: 12.5px;
+      outline: none;
+      margin-bottom: 8px;
+    }
+
+    .manage-input::placeholder {
+      color: var(--footer-text);
+      opacity: 0.8;
+    }
+
+    .add-srv-btn {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: none;
+      background: var(--accent);
+      color: #111111;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 3px 12px var(--accent-glow);
+      transition: transform 0.15s ease;
+    }
+
+    .add-srv-btn:active {
+      transform: scale(0.98);
+    }
+
+    .manage-tools {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .sub-tool-btn {
+      flex: 1;
+      padding: 7px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(128, 128, 128, 0.35);
+      background: var(--server-item-bg);
+      color: var(--text-main);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .manage-note {
+      margin-top: 7px;
+      font-size: 10.5px;
+      line-height: 1.4;
+      color: var(--footer-text);
     }
 
     /* NK's Library inside modal */
@@ -904,23 +1020,25 @@
     </a>
 
     <div class="grid" id="platformGrid">
-      <a href="#" class="card" data-platform="selectionway" data-name="selection way">
+      <a href="#selectionway" class="card" data-platform="selectionway" data-name="selection way">
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png" alt="Selection Way" class="logo-img" />
+          <span class="server-count-badge" data-server-count="selectionway"></span>
         </div>
         <span class="platform-name">Selection Way</span>
       </a>
 
-      <a href="#" class="card" data-platform="rwa" data-name="rwa rojgar with ankit">
+      <a href="#rwa" class="card" data-platform="rwa" data-name="rwa rojgar with ankit">
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="RWA" class="logo-img" />
+          <span class="server-count-badge" data-server-count="rwa"></span>
         </div>
         <span class="platform-name">RWA</span>
       </a>
 
-      <a href="#" class="card" data-platform="pw" data-name="pw physics wallah">
+      <a href="#pw" class="card" data-platform="pw" data-name="pw physics wallah">
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png" alt="PW" class="logo-img" />
@@ -1068,7 +1186,7 @@
           <div>
             <div class="modal-brand-tag">NK PATHSHALA • MY STUDY DESK</div>
             <div id="modalTitle" class="modal-title">Platform</div>
-            <div class="modal-subtitle">Apna class server chunein</div>
+            <div class="modal-subtitle">Server chunein, delete karein ya naya link jodein</div>
           </div>
         </div>
         <button type="button" id="modalClose" class="modal-close" aria-label="Close">×</button>
@@ -1080,6 +1198,40 @@
       </a>
 
       <div id="serverList" class="server-list"></div>
+
+      <div class="manage-box">
+        <div class="manage-heading">+ Add / Manage Servers</div>
+        <input
+          type="text"
+          id="newSrvName"
+          class="manage-input"
+          placeholder="Server naam (jaise: Server 4 या Working Link)"
+          autocomplete="off"
+        />
+        <input
+          type="url"
+          id="newSrvUrl"
+          class="manage-input"
+          placeholder="Naya link paste karein (https://...)"
+          autocomplete="off"
+        />
+        <input
+          type="text"
+          id="newSrvTag"
+          class="manage-input"
+          placeholder="Note / Tag (optional, jaise: Active Batch)"
+          autocomplete="off"
+        />
+        <button type="button" id="addSrvBtn" class="add-srv-btn">+ Add Server</button>
+
+        <div class="manage-tools">
+          <button type="button" id="copySrvDataBtn" class="sub-tool-btn">📋 Copy List</button>
+          <button type="button" id="resetSrvBtn" class="sub-tool-btn">↺ Reset Default</button>
+        </div>
+        <div class="manage-note">
+          Is browser mein turant save hota hai. Sab devices ke liye permanent karna ho to Copy List karke index.html mein update kar sakte hain.
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1120,7 +1272,7 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const PLATFORM_SERVERS = {
+    const DEFAULT_PLATFORM_SERVERS = {
       nexttoppers: {
         title: "Next Toppers",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png",
@@ -1225,8 +1377,70 @@
         title: "PW",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png",
         servers: []
+      },
+      selectionway: {
+        title: "Selection Way",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png",
+        servers: []
+      },
+      rwa: {
+        title: "RWA",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png",
+        servers: []
       }
     };
+
+    function loadPlatformServers() {
+      const merged = {};
+      let saved = {};
+      try {
+        saved = JSON.parse(localStorage.getItem("nk_custom_servers") || "{}") || {};
+      } catch (_) {
+        saved = {};
+      }
+
+      Object.keys(DEFAULT_PLATFORM_SERVERS).forEach((key) => {
+        const base = DEFAULT_PLATFORM_SERVERS[key];
+        const customList = Array.isArray(saved[key]) ? saved[key] : base.servers;
+        merged[key] = {
+          title: base.title,
+          logo: base.logo,
+          servers: customList.map((s) => ({ ...s }))
+        };
+      });
+
+      return merged;
+    }
+
+    const PLATFORM_SERVERS = loadPlatformServers();
+
+    function saveCustomServersToStorage() {
+      const payload = {};
+      Object.keys(PLATFORM_SERVERS).forEach((key) => {
+        payload[key] = PLATFORM_SERVERS[key].servers;
+      });
+      try {
+        localStorage.setItem("nk_custom_servers", JSON.stringify(payload));
+      } catch (_) {}
+      refreshServerBadges();
+    }
+
+    function refreshServerBadges() {
+      document.querySelectorAll("[data-server-count]").forEach((badge) => {
+        const key = badge.dataset.serverCount;
+        const count = PLATFORM_SERVERS[key]?.servers?.length || 0;
+        const card = badge.closest(".card");
+        if (count > 0) {
+          badge.textContent = `${count} ${count === 1 ? "Server" : "Servers"}`;
+          badge.style.display = "";
+          if (card) card.classList.add("has-live");
+        } else {
+          badge.textContent = "";
+          badge.style.display = "none";
+          if (card) card.classList.remove("has-live");
+        }
+      });
+    }
 
     const NK_LIBRARY_ITEMS = [
       {
@@ -1255,15 +1469,7 @@
       libCountBadge.textContent = `${totalBooks} ${totalBooks === 1 ? "Book" : "Books"}`;
     }
 
-    document.querySelectorAll("[data-server-count]").forEach((badge) => {
-      const key = badge.dataset.serverCount;
-      const count = PLATFORM_SERVERS[key]?.servers?.length || 0;
-      if (count > 0) {
-        badge.textContent = `${count} ${count === 1 ? "Server" : "Servers"}`;
-      } else {
-        badge.style.display = "none";
-      }
-    });
+    refreshServerBadges();
 
     // Theme Toggle
     const themeToggle = document.getElementById("themeToggle");
@@ -1434,7 +1640,7 @@
       searchInput.focus();
     });
 
-    // NK Pathshala Study Desk Modal Controls
+    // NK Pathshala Study Desk Modal Controls + Live Add/Delete
     const serverModal = document.getElementById("serverModal");
     const modalLogo = document.getElementById("modalLogo");
     const modalTitle = document.getElementById("modalTitle");
@@ -1442,17 +1648,25 @@
     const quickStartSub = document.getElementById("quickStartSub");
     const serverList = document.getElementById("serverList");
     const modalClose = document.getElementById("modalClose");
+    const newSrvName = document.getElementById("newSrvName");
+    const newSrvUrl = document.getElementById("newSrvUrl");
+    const newSrvTag = document.getElementById("newSrvTag");
+    const addSrvBtn = document.getElementById("addSrvBtn");
+    const copySrvDataBtn = document.getElementById("copySrvDataBtn");
+    const resetSrvBtn = document.getElementById("resetSrvBtn");
 
-    function openServerModal(platformKey, platformData) {
+    let activeModalPlatformKey = "";
+
+    function renderServerModalList(platformKey) {
+      const platformData = PLATFORM_SERVERS[platformKey];
+      if (!platformData) return;
+
       const last = getLastUsed();
       const lastServerForPlatform = last && last.platform === platformKey ? last.server : "";
       const bestServer =
         platformData.servers.find((s) => s.name === lastServerForPlatform) ||
         platformData.servers[0];
 
-      modalLogo.src = platformData.logo;
-      modalLogo.alt = platformData.title;
-      modalTitle.textContent = platformData.title;
       serverList.innerHTML = "";
 
       if (bestServer) {
@@ -1467,8 +1681,16 @@
         quickStartBtn.style.display = "none";
       }
 
-      platformData.servers.forEach((srv) => {
+      if (platformData.servers.length === 0) {
+        serverList.innerHTML = '<div class="empty-servers">Abhi koi server link nahi hai. Neeche se naya link add karein.</div>';
+        return;
+      }
+
+      platformData.servers.forEach((srv, idx) => {
         const isLastSrv = lastServerForPlatform && lastServerForPlatform === srv.name;
+        const row = document.createElement("div");
+        row.className = "server-row";
+
         const a = document.createElement("a");
         a.href = srv.url;
         a.target = "_blank";
@@ -1480,7 +1702,7 @@
               <span class="server-name">${srv.name}</span>
               ${isLastSrv ? '<span class="server-used-pill">RECENT</span>' : ""}
             </div>
-            <span class="server-tag">${srv.tag}</span>
+            <span class="server-tag">${srv.tag || "NK Desk • Class Link"}</span>
           </div>
           <span class="server-arrow">Open →</span>
         `;
@@ -1488,15 +1710,101 @@
           setLastUsed(platformKey, platformData.title, srv.name, srv.url);
           showToast(`All the best! Opening ${srv.name}...`);
         });
-        serverList.appendChild(a);
-      });
 
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "delete-srv-btn";
+        delBtn.title = "Delete this server";
+        delBtn.setAttribute("aria-label", `Delete ${srv.name}`);
+        delBtn.textContent = "🗑";
+        delBtn.addEventListener("click", () => {
+          const removedName = srv.name;
+          platformData.servers.splice(idx, 1);
+          saveCustomServersToStorage();
+          renderServerModalList(platformKey);
+          showToast(`${removedName} delete ho gaya`);
+        });
+
+        row.appendChild(a);
+        row.appendChild(delBtn);
+        serverList.appendChild(row);
+      });
+    }
+
+    function openServerModal(platformKey) {
+      const platformData = PLATFORM_SERVERS[platformKey];
+      if (!platformData) return;
+
+      activeModalPlatformKey = platformKey;
+      modalLogo.src = platformData.logo;
+      modalLogo.alt = platformData.title;
+      modalTitle.textContent = platformData.title;
+      newSrvName.value = `Server ${platformData.servers.length + 1}`;
+      newSrvUrl.value = "";
+      newSrvTag.value = "";
+
+      renderServerModalList(platformKey);
       serverModal.classList.add("open");
     }
 
     function closeServerModal() {
       serverModal.classList.remove("open");
+      activeModalPlatformKey = "";
     }
+
+    addSrvBtn.addEventListener("click", () => {
+      if (!activeModalPlatformKey) return;
+      const platformData = PLATFORM_SERVERS[activeModalPlatformKey];
+      const rawName = newSrvName.value.trim();
+      const rawUrl = newSrvUrl.value.trim();
+      const rawTag = newSrvTag.value.trim();
+
+      if (!rawUrl) {
+        showToast("Pehle server link paste karein!");
+        newSrvUrl.focus();
+        return;
+      }
+
+      const normalizedUrl = /^https?:\/\//i.test(rawUrl) ? rawUrl : `https://${rawUrl}`;
+      const srvName = rawName || `Server ${platformData.servers.length + 1}`;
+      const srvTag = rawTag || `NK Desk • ${platformData.title} Link`;
+
+      platformData.servers.push({
+        name: srvName,
+        tag: srvTag,
+        url: normalizedUrl
+      });
+
+      saveCustomServersToStorage();
+      newSrvName.value = `Server ${platformData.servers.length + 1}`;
+      newSrvUrl.value = "";
+      newSrvTag.value = "";
+      renderServerModalList(activeModalPlatformKey);
+      showToast(`${srvName} add ho gaya!`);
+    });
+
+    copySrvDataBtn.addEventListener("click", async () => {
+      if (!activeModalPlatformKey) return;
+      const list = PLATFORM_SERVERS[activeModalPlatformKey]?.servers || [];
+      const formatted = JSON.stringify(list, null, 2);
+      try {
+        await navigator.clipboard.writeText(formatted);
+        showToast("Updated server list copy ho gayi!");
+      } catch (_) {
+        showToast("Clipboard copy supported nahi hai");
+      }
+    });
+
+    resetSrvBtn.addEventListener("click", () => {
+      if (!activeModalPlatformKey) return;
+      const def = DEFAULT_PLATFORM_SERVERS[activeModalPlatformKey];
+      if (!def) return;
+      PLATFORM_SERVERS[activeModalPlatformKey].servers = def.servers.map((s) => ({ ...s }));
+      saveCustomServersToStorage();
+      newSrvName.value = `Server ${PLATFORM_SERVERS[activeModalPlatformKey].servers.length + 1}`;
+      renderServerModalList(activeModalPlatformKey);
+      showToast(`${def.title} servers default par reset ho gaye`);
+    });
 
     modalClose.addEventListener("click", closeServerModal);
     serverModal.addEventListener("click", (e) => {
@@ -1531,6 +1839,9 @@
 
       filtered.forEach((book) => {
         const hasRealLink = book.url && !book.url.startsWith("#");
+        const row = document.createElement("div");
+        row.className = "server-row";
+
         const a = document.createElement("a");
         a.href = hasRealLink ? book.url : "#";
         if (hasRealLink) {
@@ -1557,7 +1868,9 @@
           setLastUsed("nklibrary", "NK's Library", book.title, book.url);
           showToast(`Opening ${book.title}...`);
         });
-        libraryList.appendChild(a);
+
+        row.appendChild(a);
+        libraryList.appendChild(row);
       });
     }
 
@@ -1600,28 +1913,19 @@
 
     cards.forEach((card) => {
       card.addEventListener("click", (e) => {
+        e.preventDefault();
         const key = card.dataset.platform;
         if (key) {
           setRecentPlatform(key);
         }
 
         if (key === "nklibrary") {
-          e.preventDefault();
           openLibraryModal();
           return;
         }
 
-        if (key && PLATFORM_SERVERS[key] && PLATFORM_SERVERS[key].servers.length > 0) {
-          e.preventDefault();
-          openServerModal(key, PLATFORM_SERVERS[key]);
-          return;
-        }
-
-        const href = card.getAttribute("href");
-        if (!href || href.trim() === "#" || href.trim().startsWith("#")) {
-          e.preventDefault();
-          const name = card.querySelector(".platform-name").textContent.trim();
-          showToast(`${name} ka link jald hi update kiya jayega`);
+        if (key && PLATFORM_SERVERS[key]) {
+          openServerModal(key);
         }
       });
     });
