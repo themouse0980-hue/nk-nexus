@@ -76,7 +76,7 @@
       min-height: 100vh;
       background-color: var(--bg-base);
       color: var(--text-main);
-      padding: calc(52px + env(safe-area-inset-top)) 14px calc(36px + env(safe-area-inset-bottom));
+      padding: calc(46px + env(safe-area-inset-top)) 14px calc(36px + env(safe-area-inset-bottom));
       position: relative;
       overflow-x: hidden;
       overscroll-behavior-y: none;
@@ -108,37 +108,23 @@
       transition: opacity 0.25s ease;
     }
 
-    /* Top Bar: Focus Timer + Theme Toggle */
-    .top-bar {
+    /* Upar dayein kone mein Light / Dark toggle button */
+    .theme-toggle {
       position: fixed;
-      top: calc(10px + env(safe-area-inset-top));
-      left: 12px;
+      top: calc(12px + env(safe-area-inset-top));
       right: 12px;
       z-index: 30;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      pointer-events: none;
-    }
-
-    .top-bar > * {
-      pointer-events: auto;
-    }
-
-    .focus-timer-btn,
-    .theme-toggle {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 12px;
+      padding: 7px 13px;
       border-radius: 14px;
       background: var(--toggle-bg);
       color: var(--toggle-text);
       border: 1px solid var(--toggle-border);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 700;
       cursor: pointer;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
@@ -146,23 +132,13 @@
       transition: transform 0.16s ease, background 0.2s ease, color 0.2s ease;
     }
 
-    .focus-timer-btn.running {
-      border-color: var(--accent);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 12px var(--accent-glow);
-    }
-
-    .focus-timer-btn:active,
     .theme-toggle:active {
       transform: scale(0.95);
     }
 
-    .streak-pill {
-      font-size: 10.5px;
-      padding: 1px 6px;
-      border-radius: 999px;
-      background: rgba(245, 183, 0, 0.22);
-      color: var(--accent);
-      font-weight: 800;
+    .theme-icon {
+      font-size: 15px;
+      line-height: 1;
     }
 
     .container {
@@ -174,7 +150,7 @@
 
     .header {
       text-align: center;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .nk-badge {
@@ -230,72 +206,25 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
     }
 
-    /* Update Ticker Strip */
-    .ticker-wrap {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: var(--badge-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(245, 183, 0, 0.45);
-      overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .ticker-badge {
-      font-size: 9.5px;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #111111;
-      flex-shrink: 0;
-      text-transform: uppercase;
-    }
-
-    .ticker-marquee {
-      flex: 1;
-      overflow: hidden;
-      white-space: nowrap;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .ticker-text {
-      display: inline-block;
-      padding-left: 100%;
-      animation: tickerMove 16s linear infinite;
-    }
-
-    @keyframes tickerMove {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-200%); }
-    }
-
-    /* Telegram + Share + Install Action Row */
+    /* Telegram + Share Action Row */
     .action-row {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .telegram-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
-      padding: 9px 15px;
+      gap: 8px;
+      padding: 10px 18px;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 700;
       color: #ffffff;
       background: rgba(24, 119, 242, 0.92);
@@ -311,25 +240,25 @@
     }
 
     .telegram-icon {
-      width: 15px;
-      height: 15px;
+      width: 16px;
+      height: 16px;
       fill: currentColor;
       flex-shrink: 0;
     }
 
-    .pill-action-btn {
+    .share-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
-      padding: 9px 13px;
+      gap: 6px;
+      padding: 10px 15px;
       border-radius: 999px;
       background: var(--share-bg);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       color: var(--text-main);
       border: 1.5px solid var(--accent);
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 700;
       cursor: pointer;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 8px var(--accent-glow);
@@ -337,13 +266,13 @@
       transition: transform 0.16s ease, background 0.16s ease;
     }
 
-    .pill-action-btn:active {
+    .share-btn:active {
       transform: scale(0.95);
     }
 
     /* Glass search bar */
     .search-wrap {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       position: relative;
     }
 
@@ -388,35 +317,6 @@
 
     .clear-btn.visible {
       display: block;
-    }
-
-    /* Smart Filter Tabs */
-    .filter-tabs {
-      display: flex;
-      gap: 7px;
-      margin-bottom: 12px;
-    }
-
-    .filter-tab {
-      flex: 1;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(245, 183, 0, 0.45);
-      background: var(--badge-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: var(--text-main);
-      font-size: 11.5px;
-      font-weight: 700;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.16s ease;
-    }
-
-    .filter-tab.active {
-      background: var(--accent);
-      color: #111111;
-      border-color: var(--accent);
     }
 
     /* Quick Resume bar */
@@ -516,41 +416,6 @@
 
     .card.hidden {
       display: none;
-    }
-
-    /* Favorite Star button on card */
-    .fav-btn {
-      position: absolute;
-      top: 4px;
-      left: 6px;
-      z-index: 6;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      border: 1px solid rgba(245, 183, 0, 0.45);
-      background: var(--badge-bg);
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 12px;
-      line-height: 1;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.14s ease, color 0.14s ease, background 0.14s ease;
-    }
-
-    body.light-mode .fav-btn {
-      color: rgba(20, 20, 20, 0.55);
-    }
-
-    .card.is-fav .fav-btn {
-      color: #f5b700;
-      border-color: #f5b700;
-      background: rgba(245, 183, 0, 0.18);
-    }
-
-    .fav-btn:active {
-      transform: scale(0.9);
     }
 
     /* Top-right RECENT badge */
@@ -842,7 +707,7 @@
     .server-row {
       display: flex;
       align-items: stretch;
-      gap: 6px;
+      gap: 7px;
     }
 
     .server-link {
@@ -852,7 +717,7 @@
       justify-content: space-between;
       gap: 8px;
       text-decoration: none;
-      padding: 10px 11px;
+      padding: 10px 12px;
       border-radius: 13px;
       background: var(--server-item-bg);
       border: 1px solid rgba(245, 183, 0, 0.35);
@@ -887,7 +752,7 @@
     }
 
     .server-name {
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 700;
       color: var(--text-main);
     }
@@ -902,21 +767,6 @@
       white-space: nowrap;
     }
 
-    .ping-pill {
-      font-size: 9.5px;
-      font-weight: 700;
-      padding: 1px 6px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.2);
-      color: #22c55e;
-      white-space: nowrap;
-    }
-
-    .ping-pill.slow {
-      background: rgba(239, 68, 68, 0.2);
-      color: #ef4444;
-    }
-
     .server-tag {
       font-size: 10.5px;
       color: var(--footer-text);
@@ -926,31 +776,15 @@
     }
 
     .server-arrow {
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 800;
       color: var(--accent);
       white-space: nowrap;
       flex-shrink: 0;
     }
 
-    .ping-srv-btn {
-      padding: 0 8px;
-      border-radius: 13px;
-      border: 1px solid rgba(245, 183, 0, 0.4);
-      background: var(--server-item-bg);
-      color: var(--accent);
-      font-size: 10.5px;
-      font-weight: 800;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .ping-srv-btn:active {
-      transform: scale(0.95);
-    }
-
     .delete-srv-btn {
-      width: 38px;
+      width: 40px;
       border-radius: 13px;
       border: 1px solid rgba(239, 68, 68, 0.45);
       background: rgba(239, 68, 68, 0.14);
@@ -1137,18 +971,10 @@
   <div class="bg-watermark"></div>
   <div class="light-tint"></div>
 
-  <div class="top-bar">
-    <button type="button" id="focusTimerBtn" class="focus-timer-btn" title="25-min Focus Timer (Long-press to reset)">
-      <span>⏱</span>
-      <span id="focusClock">25:00</span>
-      <span id="streakBadge" class="streak-pill">🔥 0d</span>
-    </button>
-
-    <button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch Dark or Light mode">
-      <span id="themeIcon" class="theme-icon">☀️</span>
-      <span id="themeLabel">Light</span>
-    </button>
-  </div>
+  <button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch Dark or Light mode">
+    <span id="themeIcon" class="theme-icon">☀️</span>
+    <span id="themeLabel">Light</span>
+  </button>
 
   <div class="container">
     <div class="header">
@@ -1160,31 +986,17 @@
       <div class="focus-chip">NK Pathshala Self Study Desk • Free Access</div>
     </div>
 
-    <div class="ticker-wrap">
-      <span class="ticker-badge">Live Desk</span>
-      <div class="ticker-marquee">
-        <span class="ticker-text">
-          NK Pathshala Updated: Vidyagram, Selection Way & PW Servers Ready • Use ⭐ to Pin Favorites • Tap ⚡ Test inside Server Modal to Check Link Speed
-        </span>
-      </div>
-    </div>
-
     <div class="action-row">
       <a href="https://t.me/+ci3EnMDrgswxMjc1" target="_blank" rel="noopener noreferrer" class="telegram-btn">
         <svg class="telegram-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M21.944 4.506a1.5 1.5 0 0 0-1.607-.246L3.168 11.12a1.5 1.5 0 0 0 .14 2.836l3.67 1.18 1.42 4.54a1.5 1.5 0 0 0 2.576.53l2.06-2.25 3.99 2.94a1.5 1.5 0 0 0 2.373-.91l2.62-13.5a1.5 1.5 0 0 0-.071-1.452zM8.32 14.37l9.42-6.58-7.43 8.12-.33 2.82-1.66-4.36z"/>
         </svg>
-        <span>Telegram</span>
+        <span>Join to Telegram</span>
       </a>
 
-      <button type="button" id="shareSiteBtn" class="pill-action-btn" aria-label="Share NK Pathshala">
+      <button type="button" id="shareSiteBtn" class="share-btn" aria-label="Share NK Pathshala">
         <span>🔗</span>
         <span>Share</span>
-      </button>
-
-      <button type="button" id="installAppBtn" class="pill-action-btn" aria-label="Install NK Pathshala App">
-        <span>📲</span>
-        <span>Install App</span>
       </button>
     </div>
 
@@ -1199,12 +1011,6 @@
       <button type="button" id="clearSearch" class="clear-btn" aria-label="Clear search">×</button>
     </div>
 
-    <div class="filter-tabs" id="filterTabs">
-      <button type="button" class="filter-tab active" data-filter="all">All</button>
-      <button type="button" class="filter-tab" data-filter="active">Active Servers</button>
-      <button type="button" class="filter-tab" data-filter="fav">⭐ Favorites</button>
-    </div>
-
     <a href="#" id="quickResume" class="quick-resume" target="_blank" rel="noopener noreferrer">
       <div class="resume-left">
         <span class="resume-pill">Continue</span>
@@ -1215,7 +1021,6 @@
 
     <div class="grid" id="platformGrid">
       <a href="#selectionway" class="card has-live" data-platform="selectionway" data-name="selection way">
-        <button type="button" class="fav-btn" data-fav="selectionway" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1226,7 +1031,6 @@
       </a>
 
       <a href="#rwa" class="card" data-platform="rwa" data-name="rwa rojgar with ankit">
-        <button type="button" class="fav-btn" data-fav="rwa" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="RWA" class="logo-img" />
@@ -1236,7 +1040,6 @@
       </a>
 
       <a href="#pw" class="card has-live" data-platform="pw" data-name="pw physics wallah">
-        <button type="button" class="fav-btn" data-fav="pw" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1247,7 +1050,6 @@
       </a>
 
       <a href="#kgs" class="card has-live" data-platform="kgs" data-name="kgs khan global studies">
-        <button type="button" class="fav-btn" data-fav="kgs" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1258,7 +1060,6 @@
       </a>
 
       <a href="#parmar" class="card has-live" data-platform="parmar" data-name="parmar academy ssc">
-        <button type="button" class="fav-btn" data-fav="parmar" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1269,7 +1070,6 @@
       </a>
 
       <a href="#sciencemagnet" class="card has-live" data-platform="sciencemagnet" data-name="science magnet">
-        <button type="button" class="fav-btn" data-fav="sciencemagnet" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1280,7 +1080,6 @@
       </a>
 
       <a href="#vidyagram" class="card has-live" data-platform="vidyagram" data-name="vidyagram">
-        <button type="button" class="fav-btn" data-fav="vidyagram" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1291,7 +1090,6 @@
       </a>
 
       <a href="#yesofficer" class="card has-live" data-platform="yesofficer" data-name="yes officer">
-        <button type="button" class="fav-btn" data-fav="yesofficer" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1302,7 +1100,6 @@
       </a>
 
       <a href="#missionjeet" class="card has-live" data-platform="missionjeet" data-name="mission jeet mission cheat">
-        <button type="button" class="fav-btn" data-fav="missionjeet" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1313,7 +1110,6 @@
       </a>
 
       <a href="#nexttoppers" class="card has-live" data-platform="nexttoppers" data-name="next toppers next topper">
-        <button type="button" class="fav-btn" data-fav="nexttoppers" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1324,7 +1120,6 @@
       </a>
 
       <a href="#eduteria" class="card has-live" data-platform="eduteria" data-name="eduteria edu teria">
-        <button type="button" class="fav-btn" data-fav="eduteria" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1335,7 +1130,6 @@
       </a>
 
       <a href="#futurekul" class="card has-live" data-platform="futurekul" data-name="futurekul future kul">
-        <button type="button" class="fav-btn" data-fav="futurekul" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1346,7 +1140,6 @@
       </a>
 
       <a href="#unacademy" class="card has-live" data-platform="unacademy" data-name="unacademy">
-        <button type="button" class="fav-btn" data-fav="unacademy" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1357,7 +1150,6 @@
       </a>
 
       <a href="#careerwill" class="card has-live" data-platform="careerwill" data-name="careerwill career will">
-        <button type="button" class="fav-btn" data-fav="careerwill" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="Active Servers Available"></span>
@@ -1368,7 +1160,6 @@
       </a>
 
       <a href="#nklibrary" class="card has-live" data-platform="nklibrary" data-name="nk library nk books notes pdf">
-        <button type="button" class="fav-btn" data-fav="nklibrary" title="Favorite">★</button>
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <span class="live-dot" title="NK's Library Ready"></span>
@@ -1397,7 +1188,7 @@
           <div>
             <div class="modal-brand-tag">NK PATHSHALA • MY STUDY DESK</div>
             <div id="modalTitle" class="modal-title">Platform</div>
-            <div class="modal-subtitle">Server chunein, test karein, delete karein ya add karein</div>
+            <div class="modal-subtitle">Server chunein, delete karein ya naya link jodein</div>
           </div>
         </div>
         <button type="button" id="modalClose" class="modal-close" aria-label="Close">×</button>
@@ -1686,120 +1477,6 @@
 
     refreshServerBadges();
 
-    // Toast Helper
-    const toast = document.getElementById("toast");
-    let toastTimer;
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add("show");
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => {
-        toast.classList.remove("show");
-      }, 2200);
-    }
-
-    // Focus Timer & Daily Streak
-    const focusTimerBtn = document.getElementById("focusTimerBtn");
-    const focusClock = document.getElementById("focusClock");
-    const streakBadge = document.getElementById("streakBadge");
-
-    let focusSecondsLeft = 25 * 60;
-    let focusInterval = null;
-    let longPressTimer = null;
-
-    function getTodayKey() {
-      const d = new Date();
-      return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-    }
-
-    function loadStreak() {
-      try {
-        return JSON.parse(localStorage.getItem("nk_study_streak") || '{"count":0,"lastDay":""}');
-      } catch (_) {
-        return { count: 0, lastDay: "" };
-      }
-    }
-
-    function recordStudySession() {
-      const today = getTodayKey();
-      const s = loadStreak();
-      if (s.lastDay !== today) {
-        s.count = (s.count || 0) + 1;
-        s.lastDay = today;
-        try {
-          localStorage.setItem("nk_study_streak", JSON.stringify(s));
-        } catch (_) {}
-      }
-      renderStreak();
-    }
-
-    function renderStreak() {
-      const s = loadStreak();
-      streakBadge.textContent = `🔥 ${s.count || 0}d`;
-    }
-
-    function renderFocusClock() {
-      const mins = String(Math.floor(focusSecondsLeft / 60)).padStart(2, "0");
-      const secs = String(focusSecondsLeft % 60).padStart(2, "0");
-      focusClock.textContent = `${mins}:${secs}`;
-    }
-
-    function toggleFocusTimer() {
-      if (focusInterval) {
-        clearInterval(focusInterval);
-        focusInterval = null;
-        focusTimerBtn.classList.remove("running");
-        showToast("Focus timer pause ho gaya");
-      } else {
-        focusTimerBtn.classList.add("running");
-        showToast("Focus session shuru! All the best");
-        focusInterval = setInterval(() => {
-          if (focusSecondsLeft > 0) {
-            focusSecondsLeft--;
-            renderFocusClock();
-          } else {
-            clearInterval(focusInterval);
-            focusInterval = null;
-            focusTimerBtn.classList.remove("running");
-            focusSecondsLeft = 25 * 60;
-            renderFocusClock();
-            recordStudySession();
-            showToast("25 min focus session complete! 🔥 Streak updated");
-          }
-        }, 1000);
-      }
-    }
-
-    focusTimerBtn.addEventListener("pointerdown", () => {
-      longPressTimer = setTimeout(() => {
-        clearInterval(focusInterval);
-        focusInterval = null;
-        focusSecondsLeft = 25 * 60;
-        focusTimerBtn.classList.remove("running");
-        renderFocusClock();
-        showToast("Timer 25:00 par reset ho gaya");
-        longPressTimer = null;
-      }, 650);
-    });
-
-    focusTimerBtn.addEventListener("pointerup", () => {
-      if (longPressTimer) {
-        clearTimeout(longPressTimer);
-        longPressTimer = null;
-        toggleFocusTimer();
-      }
-    });
-
-    focusTimerBtn.addEventListener("pointerleave", () => {
-      if (longPressTimer) {
-        clearTimeout(longPressTimer);
-        longPressTimer = null;
-      }
-    });
-
-    renderFocusClock();
-    renderStreak();
-
     // Theme Toggle
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
@@ -1832,7 +1509,19 @@
       applyTheme(!document.body.classList.contains("light-mode"));
     });
 
-    // Share & Install App Buttons
+    // Toast Helper
+    const toast = document.getElementById("toast");
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+
+    // Share Button
     const shareSiteBtn = document.getElementById("shareSiteBtn");
     shareSiteBtn.addEventListener("click", async () => {
       const shareData = {
@@ -1856,66 +1545,8 @@
       }
     });
 
-    let deferredInstallPrompt = null;
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredInstallPrompt = e;
-    });
-
-    const installAppBtn = document.getElementById("installAppBtn");
-    installAppBtn.addEventListener("click", async () => {
-      if (deferredInstallPrompt) {
-        deferredInstallPrompt.prompt();
-        await deferredInstallPrompt.userChoice;
-        deferredInstallPrompt = null;
-      } else {
-        showToast("Chrome menu (⋮) se 'Add to Home screen' tap karein");
-      }
-    });
-
-    // Favorites State
-    const cards = Array.from(document.querySelectorAll("#platformGrid .card"));
-
-    function getFavorites() {
-      try {
-        return JSON.parse(localStorage.getItem("nk_favorites") || "[]") || [];
-      } catch (_) {
-        return [];
-      }
-    }
-
-    function toggleFavorite(key) {
-      const favs = new Set(getFavorites());
-      if (favs.has(key)) {
-        favs.delete(key);
-        showToast("Favorites se hata diya");
-      } else {
-        favs.add(key);
-        showToast("Favorites mein pin ho gaya ⭐");
-      }
-      try {
-        localStorage.setItem("nk_favorites", JSON.stringify(Array.from(favs)));
-      } catch (_) {}
-      renderFavorites();
-      applyFiltersAndSearch();
-    }
-
-    function renderFavorites() {
-      const favs = new Set(getFavorites());
-      cards.forEach((card) => {
-        card.classList.toggle("is-fav", favs.has(card.dataset.platform));
-      });
-    }
-
-    document.querySelectorAll(".fav-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (btn.dataset.fav) toggleFavorite(btn.dataset.fav);
-      });
-    });
-
     // RECENT Platform & Last Used State
+    const cards = Array.from(document.querySelectorAll("#platformGrid .card"));
     const quickResume = document.getElementById("quickResume");
     const resumeText = document.getElementById("resumeText");
 
@@ -1986,32 +1617,20 @@
       showToast(`All the best! Opening ${last?.title || "class"}...`);
     });
 
-    // Search + Filter Tabs
+    // Search Filter
     const searchInput = document.getElementById("platformSearch");
     const clearBtn = document.getElementById("clearSearch");
     const noResult = document.getElementById("noResult");
-    const filterTabs = document.getElementById("filterTabs");
-    let activeFilterMode = "all";
 
-    function applyFiltersAndSearch() {
+    function filterPlatforms() {
       const q = searchInput.value.trim().toLowerCase();
       clearBtn.classList.toggle("visible", q.length > 0);
-      const favs = new Set(getFavorites());
 
       let visibleCount = 0;
       cards.forEach((card) => {
-        const key = card.dataset.platform;
         const title = card.querySelector(".platform-name").textContent.toLowerCase();
         const extra = (card.dataset.name || "").toLowerCase();
-        const srvCount = PLATFORM_SERVERS[key]?.servers?.length || 0;
-        const hasActive = key === "nklibrary" || srvCount > 0;
-
-        const matchesSearch = !q || title.includes(q) || extra.includes(q);
-        let matchesFilter = true;
-        if (activeFilterMode === "active") matchesFilter = hasActive;
-        if (activeFilterMode === "fav") matchesFilter = favs.has(key);
-
-        const matches = matchesSearch && matchesFilter;
+        const matches = !q || title.includes(q) || extra.includes(q);
         card.classList.toggle("hidden", !matches);
         if (matches) visibleCount++;
       });
@@ -2019,57 +1638,15 @@
       noResult.classList.toggle("visible", visibleCount === 0);
     }
 
-    filterTabs.addEventListener("click", (e) => {
-      const tab = e.target.closest(".filter-tab");
-      if (!tab) return;
-      activeFilterMode = tab.dataset.filter;
-      filterTabs.querySelectorAll(".filter-tab").forEach((t) => {
-        t.classList.toggle("active", t === tab);
-      });
-      applyFiltersAndSearch();
-    });
-
-    searchInput.addEventListener("input", applyFiltersAndSearch);
+    searchInput.addEventListener("input", filterPlatforms);
 
     clearBtn.addEventListener("click", () => {
       searchInput.value = "";
-      applyFiltersAndSearch();
+      filterPlatforms();
       searchInput.focus();
     });
 
-    // Server Speed / Ping Check Helper
-    async function checkServerSpeed(url, badgeEl, btnEl) {
-      const start = performance.now();
-      btnEl.textContent = "...";
-      btnEl.disabled = true;
-      badgeEl.style.display = "inline-block";
-      badgeEl.classList.remove("slow");
-      badgeEl.textContent = "Checking...";
-
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000);
-
-      try {
-        await fetch(url, {
-          mode: "no-cors",
-          cache: "no-store",
-          signal: controller.signal
-        });
-        clearTimeout(timeoutId);
-        const ms = Math.round(performance.now() - start);
-        badgeEl.textContent = `⚡ ${ms} ms`;
-        if (ms > 2800) badgeEl.classList.add("slow");
-      } catch (_) {
-        clearTimeout(timeoutId);
-        badgeEl.classList.add("slow");
-        badgeEl.textContent = "Timeout / Check";
-      } finally {
-        btnEl.textContent = "⚡ Test";
-        btnEl.disabled = false;
-      }
-    }
-
-    // NK Pathshala Study Desk Modal Controls + Live Add/Delete + Ping
+    // NK Pathshala Study Desk Modal Controls + Live Add/Delete
     const serverModal = document.getElementById("serverModal");
     const modalLogo = document.getElementById("modalLogo");
     const modalTitle = document.getElementById("modalTitle");
@@ -2130,7 +1707,6 @@
             <div class="server-name-row">
               <span class="server-name">${srv.name}</span>
               ${isLastSrv ? '<span class="server-used-pill">RECENT</span>' : ""}
-              <span class="ping-pill" style="display:none;"></span>
             </div>
             <span class="server-tag">${srv.tag || "NK Desk • Class Link"}</span>
           </div>
@@ -2139,18 +1715,6 @@
         a.addEventListener("click", () => {
           setLastUsed(platformKey, platformData.title, srv.name, srv.url);
           showToast(`All the best! Opening ${srv.name}...`);
-        });
-
-        const pingPill = a.querySelector(".ping-pill");
-
-        const pingBtn = document.createElement("button");
-        pingBtn.type = "button";
-        pingBtn.className = "ping-srv-btn";
-        pingBtn.textContent = "⚡ Test";
-        pingBtn.title = "Check server response speed";
-        pingBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          checkServerSpeed(srv.url, pingPill, pingBtn);
         });
 
         const delBtn = document.createElement("button");
@@ -2168,7 +1732,6 @@
         });
 
         row.appendChild(a);
-        row.appendChild(pingBtn);
         row.appendChild(delBtn);
         serverList.appendChild(row);
       });
@@ -2374,7 +1937,6 @@
     });
 
     // Initial Render
-    renderFavorites();
     renderRecentBadge();
     renderLastUsed();
   </script>
