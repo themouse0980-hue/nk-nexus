@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#111111" />
+  <meta name="theme-color" content="#0b0907" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -14,58 +14,56 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
 
     :root {
-      --bg-base: #111111;
-      --watermark-opacity: 0.92;
-      --light-overlay-opacity: 0;
+      --bg-base: #0b0907;
+      --bg-vignette: radial-gradient(circle at 50% 10%, rgba(245, 183, 0, 0.08), rgba(8, 7, 6, 0.88) 72%);
+      --watermark-opacity: 0.36;
+      --tint-bg: rgba(8, 7, 6, 0.56);
+      --tint-opacity: 1;
       --accent: #f5b700;
-      --accent-glow: rgba(245, 183, 0, 0.3);
+      --accent-soft: rgba(245, 183, 0, 0.22);
+      --accent-border: rgba(245, 183, 0, 0.42);
+      --accent-glow: rgba(245, 183, 0, 0.16);
       --text-main: #ffffff;
-      --text-sub: #ffffff;
-      --box-bg: rgba(15, 15, 15, 0.74);
-      --badge-bg: rgba(15, 15, 15, 0.84);
-      --input-bg: rgba(15, 15, 15, 0.74);
-      --input-focus-bg: rgba(15, 15, 15, 0.9);
-      --footer-bg: rgba(15, 15, 15, 0.76);
-      --footer-text: rgba(255, 255, 255, 0.92);
-      --text-shadow-strong: 0 2px 8px rgba(0, 0, 0, 0.96), 0 0 7px rgba(0, 0, 0, 0.92);
-      --toggle-bg: rgba(34, 24, 62, 0.9);
-      --toggle-text: #ffffff;
-      --toggle-border: rgba(255, 255, 255, 0.22);
-      --modal-bg: rgba(18, 18, 22, 0.96);
-      --server-item-bg: rgba(255, 255, 255, 0.08);
-      --server-item-hover: rgba(245, 183, 0, 0.22);
-      --resume-bg: rgba(20, 20, 20, 0.84);
-      --share-bg: rgba(20, 20, 20, 0.85);
+      --text-sub: #d6d0c4;
+      --text-muted: #a69f92;
+      --surface-1: rgba(18, 15, 12, 0.78);
+      --surface-2: rgba(24, 20, 16, 0.84);
+      --surface-hover: rgba(34, 28, 20, 0.92);
+      --surface-border: rgba(255, 255, 255, 0.09);
+      --logo-tile-bg: rgba(10, 9, 8, 0.92);
+      --dot-color: #f5b700;
+      --dot-glow: rgba(245, 183, 0, 0.75);
+      --modal-bg: rgba(14, 12, 10, 0.97);
+      --text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
     }
 
     body.light-mode {
-      --bg-base: #f4f1ea;
-      --watermark-opacity: 0.92;
-      --light-overlay-opacity: 0.34;
+      --bg-base: #f4f0e6;
+      --bg-vignette: radial-gradient(circle at 50% 10%, rgba(180, 115, 0, 0.12), rgba(244, 240, 230, 0.78) 75%);
+      --watermark-opacity: 0.24;
+      --tint-bg: rgba(252, 249, 242, 0.68);
+      --tint-opacity: 1;
       --accent: #9a5b00;
-      --accent-glow: rgba(154, 91, 0, 0.24);
-      --text-main: #141414;
-      --text-sub: #1c1c1c;
-      --box-bg: rgba(255, 255, 255, 0.78);
-      --badge-bg: rgba(255, 255, 255, 0.86);
-      --input-bg: rgba(255, 255, 255, 0.82);
-      --input-focus-bg: rgba(255, 255, 255, 0.95);
-      --footer-bg: rgba(255, 255, 255, 0.84);
-      --footer-text: #1c1c1c;
-      --text-shadow-strong: 0 1px 6px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.9);
-      --toggle-bg: rgba(238, 234, 246, 0.94);
-      --toggle-text: #1e1b2e;
-      --toggle-border: rgba(30, 27, 46, 0.16);
-      --modal-bg: rgba(255, 253, 248, 0.98);
-      --server-item-bg: rgba(0, 0, 0, 0.06);
-      --server-item-hover: rgba(154, 91, 0, 0.16);
-      --resume-bg: rgba(255, 255, 255, 0.86);
-      --share-bg: rgba(255, 255, 255, 0.88);
+      --accent-soft: rgba(154, 91, 0, 0.14);
+      --accent-border: rgba(154, 91, 0, 0.38);
+      --accent-glow: rgba(154, 91, 0, 0.14);
+      --text-main: #161412;
+      --text-sub: #3b352c;
+      --text-muted: #665e52;
+      --surface-1: rgba(255, 253, 248, 0.84);
+      --surface-2: rgba(255, 252, 245, 0.92);
+      --surface-hover: rgba(255, 249, 235, 0.98);
+      --surface-border: rgba(22, 20, 18, 0.11);
+      --logo-tile-bg: rgba(255, 255, 255, 0.95);
+      --dot-color: #16a34a;
+      --dot-glow: rgba(22, 163, 74, 0.6);
+      --modal-bg: rgba(255, 252, 245, 0.98);
+      --text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
     }
 
     html {
@@ -75,15 +73,15 @@
     body {
       min-height: 100vh;
       background-color: var(--bg-base);
+      background-image: var(--bg-vignette);
       color: var(--text-main);
-      padding: calc(46px + env(safe-area-inset-top)) 14px calc(36px + env(safe-area-inset-bottom));
+      padding: calc(44px + env(safe-area-inset-top)) 14px calc(36px + env(safe-area-inset-bottom));
       position: relative;
       overflow-x: hidden;
       overscroll-behavior-y: none;
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    /* Peeche background wallpaper */
     .bg-watermark {
       position: fixed;
       inset: 0;
@@ -97,18 +95,16 @@
       transition: opacity 0.25s ease;
     }
 
-    /* Light mode mein halki bright parat */
     .light-tint {
       position: fixed;
       inset: 0;
-      background: rgba(255, 250, 240, 1);
-      opacity: var(--light-overlay-opacity);
+      background: var(--tint-bg);
+      opacity: var(--tint-opacity);
       pointer-events: none;
       z-index: 1;
-      transition: opacity 0.25s ease;
+      transition: background 0.25s ease, opacity 0.25s ease;
     }
 
-    /* Upar dayein kone mein Light / Dark toggle button */
     .theme-toggle {
       position: fixed;
       top: calc(12px + env(safe-area-inset-top));
@@ -118,18 +114,22 @@
       align-items: center;
       gap: 6px;
       padding: 7px 13px;
-      border-radius: 14px;
-      background: var(--toggle-bg);
-      color: var(--toggle-text);
-      border: 1px solid var(--toggle-border);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      font-size: 13px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-size: 12.5px;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
       touch-action: manipulation;
-      transition: transform 0.16s ease, background 0.2s ease, color 0.2s ease;
+      transition: transform 0.16s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent-border);
     }
 
     .theme-toggle:active {
@@ -137,7 +137,7 @@
     }
 
     .theme-icon {
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1;
     }
 
@@ -150,176 +150,248 @@
 
     .header {
       text-align: center;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .nk-badge {
-      width: 86px;
-      height: 86px;
-      margin: 0 auto 10px;
-      border-radius: 50%;
-      background: var(--badge-bg);
-      border: 2px solid var(--accent);
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 12px;
+      border-radius: 24px;
+      background: var(--surface-2);
+      border: 1.5px solid var(--accent-border);
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 4px;
       overflow: hidden;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 14px var(--accent-glow);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 22px var(--accent-glow);
     }
 
     .nk-badge img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
+      border-radius: 20px;
     }
 
     .header h1 {
-      font-size: 22px;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      color: var(--text-main);
+      margin-bottom: 5px;
+      text-shadow: var(--text-shadow);
+    }
+
+    .header h1 span {
       color: var(--accent);
-      margin-bottom: 4px;
-      text-shadow: var(--text-shadow-strong);
     }
 
     .header p {
       font-size: 11px;
-      letter-spacing: 1px;
+      letter-spacing: 1.4px;
       color: var(--text-sub);
       text-transform: uppercase;
       font-weight: 600;
-      text-shadow: var(--text-shadow-strong);
+      text-shadow: var(--text-shadow);
     }
 
     .focus-chip {
-      display: inline-block;
-      margin-top: 7px;
-      padding: 3px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 9px;
+      padding: 4px 12px;
       border-radius: 999px;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      color: var(--text-main);
-      background: var(--badge-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(245, 183, 0, 0.45);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-sub);
+      background: var(--surface-1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--surface-border);
     }
 
-    /* Telegram + Share Action Row */
-    .action-row {
+    .focus-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Premium Banner Cards (Telegram + Share) */
+    .banner-stack {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
       gap: 10px;
-      flex-wrap: wrap;
       margin-bottom: 14px;
     }
 
-    .telegram-btn {
-      display: inline-flex;
+    .banner-card {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 15px;
+      border-radius: 18px;
+      text-decoration: none;
+      background: var(--surface-1);
+      border: 1px solid var(--surface-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--text-main);
+      cursor: pointer;
+      touch-action: manipulation;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      transition: transform 0.16s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .banner-card:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent-border);
+    }
+
+    .banner-card:active {
+      transform: scale(0.985);
+    }
+
+    .banner-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .banner-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 13px;
+      flex-shrink: 0;
+      background: var(--surface-2);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      font-size: 17px;
+    }
+
+    .banner-icon-box.telegram-accent {
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.28);
+    }
+
+    .banner-icon-box.share-accent {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    .banner-text-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-align: left;
+      min-width: 0;
+    }
+
+    .banner-title {
+      font-size: 14px;
       font-weight: 700;
-      color: #ffffff;
-      background: rgba(24, 119, 242, 0.92);
-      border: 1.5px solid rgba(255, 255, 255, 0.35);
-      box-shadow: 0 4px 16px rgba(24, 119, 242, 0.35);
-      transition: transform 0.18s ease, background 0.18s ease;
+      color: var(--text-main);
     }
 
-    .telegram-btn:hover,
-    .telegram-btn:active {
-      transform: scale(0.97);
-      background: rgba(24, 119, 242, 1);
+    .banner-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .telegram-icon {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
+    .banner-sub-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
       flex-shrink: 0;
     }
 
-    .share-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 10px 15px;
-      border-radius: 999px;
-      background: var(--share-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: var(--text-main);
-      border: 1.5px solid var(--accent);
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 8px var(--accent-glow);
-      touch-action: manipulation;
-      transition: transform 0.16s ease, background 0.16s ease;
+    .banner-arrow {
+      font-size: 15px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: transform 0.16s ease, color 0.16s ease;
     }
 
-    .share-btn:active {
-      transform: scale(0.95);
+    .banner-card:hover .banner-arrow {
+      transform: translateX(2px);
+      color: var(--accent);
     }
 
-    /* Glass search bar */
+    /* Search Bar */
     .search-wrap {
       margin-bottom: 12px;
       position: relative;
     }
 
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
     .search-input {
       width: 100%;
-      padding: 11px 38px 11px 16px;
-      border-radius: 999px;
-      border: 1.5px solid var(--accent);
-      background: var(--input-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      padding: 12px 40px 12px 40px;
+      border-radius: 16px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface-1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       color: var(--text-main);
       font-size: 14px;
       outline: none;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 10px var(--accent-glow);
-      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
 
     .search-input::placeholder {
-      color: var(--text-main);
-      opacity: 0.72;
+      color: var(--text-muted);
     }
 
     .search-input:focus {
-      background: var(--input-focus-bg);
+      background: var(--surface-2);
+      border-color: var(--accent-border);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.38), 0 0 14px var(--accent-glow);
     }
 
     .clear-btn {
       position: absolute;
-      right: 12px;
+      right: 10px;
       top: 50%;
       transform: translateY(-50%);
       background: transparent;
       border: none;
       color: var(--accent);
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
       cursor: pointer;
       display: none;
-      padding: 2px 6px;
+      padding: 2px 7px;
     }
 
     .clear-btn.visible {
       display: block;
     }
 
-    /* Quick Resume bar */
+    /* Quick Resume Bar */
     .quick-resume {
       display: none;
       align-items: center;
@@ -327,17 +399,17 @@
       gap: 10px;
       width: 100%;
       margin-bottom: 14px;
-      padding: 9px 14px;
-      border-radius: 14px;
+      padding: 10px 14px;
+      border-radius: 16px;
       text-decoration: none;
-      background: var(--resume-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1.5px solid var(--accent);
+      background: var(--surface-2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--accent-border);
       color: var(--text-main);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 8px var(--accent-glow);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), 0 0 12px var(--accent-glow);
       touch-action: manipulation;
-      transition: transform 0.16s ease;
+      transition: transform 0.16s ease, background 0.2s ease;
     }
 
     .quick-resume.visible {
@@ -345,25 +417,26 @@
     }
 
     .quick-resume:active {
-      transform: scale(0.98);
+      transform: scale(0.985);
     }
 
     .resume-left {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       min-width: 0;
     }
 
     .resume-pill {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 800;
-      padding: 2px 7px;
+      padding: 3px 8px;
       border-radius: 999px;
       background: var(--accent);
       color: #111111;
       flex-shrink: 0;
       text-transform: uppercase;
+      letter-spacing: 0.4px;
     }
 
     .resume-text {
@@ -382,59 +455,78 @@
       flex-shrink: 0;
     }
 
+    /* 2-Column Premium Platform Cards Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 13px;
     }
 
     .card {
       position: relative;
       text-decoration: none;
       color: var(--text-main);
-      background: transparent;
-      border: none;
-      border-radius: 16px;
-      padding: 14px 8px 12px;
+      background: var(--surface-1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 18px 10px 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 7px;
+      gap: 10px;
       touch-action: manipulation;
-      transition: transform 0.16s ease;
       cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      transition: transform 0.16s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
+      background: var(--surface-hover);
+      border-color: var(--accent-border);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 0 16px var(--accent-glow);
     }
 
     .card:active {
-      transform: scale(0.95);
+      transform: scale(0.965);
     }
 
     .card.hidden {
       display: none;
     }
 
-    /* Top-right RECENT badge */
+    .card.is-recent {
+      border-color: var(--accent-border);
+    }
+
+    .status-dot {
+      position: absolute;
+      top: 11px;
+      right: 11px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--dot-color);
+      box-shadow: 0 0 8px var(--dot-glow);
+    }
+
     .recent-badge {
       display: none;
       position: absolute;
-      top: 4px;
-      right: 6px;
-      z-index: 5;
+      top: 9px;
+      left: 10px;
+      z-index: 4;
       padding: 2px 7px;
-      border-radius: 6px;
-      background: #15803d;
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      font-size: 9.5px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #111111;
+      font-size: 9px;
       font-weight: 800;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
     }
 
     .card.is-recent .recent-badge {
@@ -442,43 +534,24 @@
     }
 
     .logo-box {
-      width: 64px;
-      height: 64px;
-      border-radius: 14px;
-      background: var(--box-bg);
-      backdrop-filter: blur(9px);
-      -webkit-backdrop-filter: blur(9px);
-      border: 1.5px solid var(--accent);
+      width: 62px;
+      height: 62px;
+      border-radius: 16px;
+      background: var(--logo-tile-bg);
+      border: 1.5px solid var(--accent-border);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 6px;
-      overflow: visible;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45), 0 0 10px var(--accent-glow);
-      position: relative;
-      transition: box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .card.has-live .logo-box,
-    .card.is-recent .logo-box {
-      border-width: 2px;
-      animation: spotlightPulse 2.4s infinite ease-in-out;
-    }
-
-    @keyframes spotlightPulse {
-      0%, 100% {
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.48), 0 0 12px var(--accent-glow);
-      }
-      50% {
-        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.52), 0 0 20px var(--accent-glow);
-      }
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.38);
     }
 
     .logo-img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      border-radius: 8px;
+      border-radius: 10px;
     }
 
     .library-icon-text {
@@ -486,90 +559,66 @@
       line-height: 1;
     }
 
-    .live-dot {
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #22c55e;
-      border: 2px solid #ffffff;
-      box-shadow: 0 0 8px rgba(34, 197, 94, 0.95);
-    }
-
-    .server-count-badge {
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      white-space: nowrap;
-      font-size: 9.5px;
-      font-weight: 800;
-      padding: 1px 6px;
-      border-radius: 999px;
-      background: #16a34a;
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.65);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
-    }
-
     .platform-name {
-      margin-top: 2px;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
       text-align: center;
       color: var(--text-main);
-      text-shadow: var(--text-shadow-strong);
+      line-height: 1.25;
+    }
+
+    .platform-meta {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--text-muted);
     }
 
     .no-result {
       display: none;
       text-align: center;
       padding: 22px 14px;
-      margin-top: 8px;
-      border-radius: 14px;
-      background: var(--footer-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--accent);
-      font-size: 14px;
-      color: var(--text-main);
+      margin-top: 10px;
+      border-radius: 16px;
+      background: var(--surface-1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--surface-border);
+      font-size: 13.5px;
+      color: var(--text-sub);
     }
 
     .no-result.visible {
       display: block;
     }
 
-    /* Neeche clean Glass Disclaimer */
     .footer-note {
-      margin-top: 28px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: var(--footer-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(128, 128, 128, 0.28);
+      margin-top: 26px;
+      padding: 13px 15px;
+      border-radius: 16px;
+      background: var(--surface-1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--surface-border);
       text-align: center;
     }
 
     .footer-note p {
       font-size: 11.5px;
-      line-height: 1.5;
-      color: var(--footer-text);
+      line-height: 1.55;
+      color: var(--text-muted);
     }
 
     .footer-note strong {
       color: var(--accent);
     }
 
-    /* NK Pathshala Class / Server Desk & Library Modal */
+    /* Modals */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.72);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -587,19 +636,19 @@
       max-height: 88vh;
       overflow-y: auto;
       background: var(--modal-bg);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1.5px solid var(--accent);
-      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--accent-border);
+      border-radius: 22px;
       padding: 18px 16px 16px;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 0 0 18px var(--accent-glow);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.65), 0 0 20px var(--accent-glow);
       animation: popIn 0.18s ease;
     }
 
     @keyframes popIn {
       from {
         opacity: 0;
-        transform: scale(0.94);
+        transform: scale(0.95);
       }
       to {
         opacity: 1;
@@ -612,24 +661,24 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+      padding-bottom: 11px;
+      border-bottom: 1px solid var(--surface-border);
     }
 
     .modal-title-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 11px;
     }
 
     .modal-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      border: 1px solid var(--accent);
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--accent-border);
       object-fit: contain;
-      background: var(--box-bg);
-      padding: 3px;
+      background: var(--logo-tile-bg);
+      padding: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -639,7 +688,7 @@
     .modal-brand-tag {
       font-size: 9.5px;
       font-weight: 800;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.7px;
       text-transform: uppercase;
       color: var(--accent);
     }
@@ -652,15 +701,15 @@
 
     .modal-subtitle {
       font-size: 11px;
-      color: var(--footer-text);
+      color: var(--text-muted);
     }
 
     .modal-close {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      border: 1px solid rgba(128, 128, 128, 0.35);
-      background: transparent;
+      border: 1px solid var(--surface-border);
+      background: var(--surface-1);
       color: var(--text-main);
       font-size: 18px;
       font-weight: 700;
@@ -683,7 +732,7 @@
       color: #111111;
       font-size: 13px;
       font-weight: 800;
-      box-shadow: 0 4px 14px var(--accent-glow);
+      box-shadow: 0 6px 16px var(--accent-glow);
       transition: transform 0.16s ease, filter 0.16s ease;
     }
 
@@ -717,24 +766,24 @@
       justify-content: space-between;
       gap: 8px;
       text-decoration: none;
-      padding: 10px 12px;
-      border-radius: 13px;
-      background: var(--server-item-bg);
-      border: 1px solid rgba(245, 183, 0, 0.35);
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: var(--surface-1);
+      border: 1px solid var(--surface-border);
       color: var(--text-main);
       min-width: 0;
-      transition: background 0.16s ease, transform 0.16s ease, border-color 0.16s ease;
+      transition: background 0.16s ease, border-color 0.16s ease;
     }
 
     .server-link.last-server {
-      border-color: var(--accent);
-      background: var(--server-item-hover);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
     }
 
     .server-link:hover,
     .server-link:active {
-      background: var(--server-item-hover);
-      border-color: var(--accent);
+      background: var(--surface-hover);
+      border-color: var(--accent-border);
     }
 
     .server-left {
@@ -758,9 +807,9 @@
     }
 
     .server-used-pill {
-      font-size: 9.5px;
-      font-weight: 700;
-      padding: 1px 6px;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 6px;
       border-radius: 999px;
       background: var(--accent);
       color: #111111;
@@ -769,7 +818,7 @@
 
     .server-tag {
       font-size: 10.5px;
-      color: var(--footer-text);
+      color: var(--text-muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -785,9 +834,9 @@
 
     .delete-srv-btn {
       width: 40px;
-      border-radius: 13px;
-      border: 1px solid rgba(239, 68, 68, 0.45);
-      background: rgba(239, 68, 68, 0.14);
+      border-radius: 14px;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      background: rgba(239, 68, 68, 0.12);
       color: #ef4444;
       font-size: 14px;
       font-weight: 700;
@@ -801,49 +850,52 @@
 
     .delete-srv-btn:active {
       transform: scale(0.94);
-      background: rgba(239, 68, 68, 0.28);
+      background: rgba(239, 68, 68, 0.25);
     }
 
     .empty-servers {
       text-align: center;
       font-size: 12px;
-      color: var(--footer-text);
-      padding: 12px 8px;
-      border-radius: 12px;
-      background: var(--server-item-bg);
+      color: var(--text-muted);
+      padding: 14px 10px;
+      border-radius: 14px;
+      background: var(--surface-1);
+      border: 1px solid var(--surface-border);
     }
 
-    /* Add Server Form inside Modal */
     .manage-box {
       margin-top: 14px;
       padding-top: 12px;
-      border-top: 1px solid rgba(128, 128, 128, 0.25);
+      border-top: 1px solid var(--surface-border);
     }
 
     .manage-heading {
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 800;
       color: var(--accent);
       margin-bottom: 8px;
       text-transform: uppercase;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.5px;
     }
 
     .manage-input {
       width: 100%;
-      padding: 9px 11px;
-      border-radius: 11px;
-      border: 1px solid rgba(245, 183, 0, 0.45);
-      background: var(--server-item-bg);
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface-1);
       color: var(--text-main);
       font-size: 12.5px;
       outline: none;
       margin-bottom: 8px;
     }
 
+    .manage-input:focus {
+      border-color: var(--accent-border);
+    }
+
     .manage-input::placeholder {
-      color: var(--footer-text);
-      opacity: 0.8;
+      color: var(--text-muted);
     }
 
     .add-srv-btn {
@@ -856,7 +908,7 @@
       font-size: 13px;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 3px 12px var(--accent-glow);
+      box-shadow: 0 4px 14px var(--accent-glow);
       transition: transform 0.15s ease;
     }
 
@@ -874,9 +926,9 @@
       flex: 1;
       padding: 7px 10px;
       border-radius: 10px;
-      border: 1px solid rgba(128, 128, 128, 0.35);
-      background: var(--server-item-bg);
-      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+      background: var(--surface-1);
+      color: var(--text-sub);
       font-size: 11px;
       font-weight: 700;
       cursor: pointer;
@@ -885,25 +937,28 @@
     .manage-note {
       margin-top: 7px;
       font-size: 10.5px;
-      line-height: 1.4;
-      color: var(--footer-text);
+      line-height: 1.45;
+      color: var(--text-muted);
     }
 
-    /* NK's Library inside modal */
     .lib-search {
       width: 100%;
-      padding: 9px 12px;
+      padding: 10px 12px;
       border-radius: 12px;
-      border: 1px solid rgba(245, 183, 0, 0.5);
-      background: var(--server-item-bg);
+      border: 1px solid var(--surface-border);
+      background: var(--surface-1);
       color: var(--text-main);
       font-size: 13px;
       outline: none;
       margin-bottom: 10px;
     }
 
+    .lib-search:focus {
+      border-color: var(--accent-border);
+    }
+
     .lib-search::placeholder {
-      color: var(--footer-text);
+      color: var(--text-muted);
     }
 
     .lib-chips {
@@ -914,11 +969,11 @@
     }
 
     .lib-chip {
-      padding: 5px 10px;
+      padding: 5px 11px;
       border-radius: 999px;
-      border: 1px solid rgba(245, 183, 0, 0.45);
-      background: var(--server-item-bg);
-      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+      background: var(--surface-1);
+      color: var(--text-sub);
       font-size: 11px;
       font-weight: 700;
       cursor: pointer;
@@ -933,11 +988,10 @@
     .lib-empty {
       text-align: center;
       font-size: 12px;
-      color: var(--footer-text);
+      color: var(--text-muted);
       padding: 14px 8px;
     }
 
-    /* Halka Coming Soon / Notice Toast */
     .toast {
       position: fixed;
       left: 50%;
@@ -946,17 +1000,17 @@
       max-width: 90%;
       padding: 10px 16px;
       border-radius: 999px;
-      background: var(--badge-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1.5px solid var(--accent);
+      background: var(--surface-2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--accent-border);
       color: var(--text-main);
       font-size: 12.5px;
       font-weight: 600;
       text-align: center;
       opacity: 0;
       pointer-events: none;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
       transition: opacity 0.22s ease, transform 0.22s ease;
       z-index: 50;
     }
@@ -981,31 +1035,52 @@
       <div class="nk-badge">
         <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nk-logo.png" alt="NK Pathshala Logo" />
       </div>
-      <h1>Welcome to NK Pathshala</h1>
+      <h1>Welcome to <span>NK Pathshala</span></h1>
       <p>Education Must Be Free For Everyone</p>
-      <div class="focus-chip">NK Pathshala Self Study Desk • Free Access</div>
+      <div class="focus-chip">
+        <span class="focus-chip-dot"></span>
+        <span>NK Pathshala Self Study Desk • Free Access</span>
+      </div>
     </div>
 
-    <div class="action-row">
-      <a href="https://t.me/+ci3EnMDrgswxMjc1" target="_blank" rel="noopener noreferrer" class="telegram-btn">
-        <svg class="telegram-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M21.944 4.506a1.5 1.5 0 0 0-1.607-.246L3.168 11.12a1.5 1.5 0 0 0 .14 2.836l3.67 1.18 1.42 4.54a1.5 1.5 0 0 0 2.576.53l2.06-2.25 3.99 2.94a1.5 1.5 0 0 0 2.373-.91l2.62-13.5a1.5 1.5 0 0 0-.071-1.452zM8.32 14.37l9.42-6.58-7.43 8.12-.33 2.82-1.66-4.36z"/>
-        </svg>
-        <span>Join to Telegram</span>
+    <div class="banner-stack">
+      <a href="https://t.me/+ci3EnMDrgswxMjc1" target="_blank" rel="noopener noreferrer" class="banner-card">
+        <div class="banner-left">
+          <div class="banner-icon-box telegram-accent">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.944 4.506a1.5 1.5 0 0 0-1.607-.246L3.168 11.12a1.5 1.5 0 0 0 .14 2.836l3.67 1.18 1.42 4.54a1.5 1.5 0 0 0 2.576.53l2.06-2.25 3.99 2.94a1.5 1.5 0 0 0 2.373-.91l2.62-13.5a1.5 1.5 0 0 0-.071-1.452zM8.32 14.37l9.42-6.58-7.43 8.12-.33 2.82-1.66-4.36z"/>
+            </svg>
+          </div>
+          <div class="banner-text-wrap">
+            <span class="banner-title">Join Our Telegram</span>
+            <span class="banner-sub">
+              <span class="banner-sub-dot"></span>
+              <span>Updates & Study Links</span>
+            </span>
+          </div>
+        </div>
+        <span class="banner-arrow">→</span>
       </a>
 
-      <button type="button" id="shareSiteBtn" class="share-btn" aria-label="Share NK Pathshala">
-        <span>🔗</span>
-        <span>Share</span>
+      <button type="button" id="shareSiteBtn" class="banner-card" aria-label="Share NK Pathshala">
+        <div class="banner-left">
+          <div class="banner-icon-box share-accent">🔗</div>
+          <div class="banner-text-wrap">
+            <span class="banner-title">Share NK Pathshala</span>
+            <span class="banner-sub">Share study desk link with friends</span>
+          </div>
+        </div>
+        <span class="banner-arrow">→</span>
       </button>
     </div>
 
     <div class="search-wrap">
+      <span class="search-icon" aria-hidden="true">🔍</span>
       <input
         type="text"
         id="platformSearch"
         class="search-input"
-        placeholder="Search platform..."
+        placeholder="Search platforms..."
         autocomplete="off"
       />
       <button type="button" id="clearSearch" class="clear-btn" aria-label="Clear search">×</button>
@@ -1014,7 +1089,7 @@
     <a href="#" id="quickResume" class="quick-resume" target="_blank" rel="noopener noreferrer">
       <div class="resume-left">
         <span class="resume-pill">Continue</span>
-        <span id="resumeText" class="resume-text">Next Toppers • Server 1</span>
+        <span id="resumeText" class="resume-text">Parmar Academy • Server 1</span>
       </div>
       <span class="resume-go">Open →</span>
     </a>
@@ -1022,151 +1097,151 @@
     <div class="grid" id="platformGrid">
       <a href="#selectionway" class="card has-live" data-platform="selectionway" data-name="selection way">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Server"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png" alt="Selection Way" class="logo-img" />
-          <span class="server-count-badge" data-server-count="selectionway"></span>
         </div>
         <span class="platform-name">Selection Way</span>
+        <span class="platform-meta" data-server-meta="selectionway"></span>
       </a>
 
       <a href="#rwa" class="card" data-platform="rwa" data-name="rwa rojgar with ankit">
         <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="RWA" class="logo-img" />
-          <span class="server-count-badge" data-server-count="rwa"></span>
         </div>
         <span class="platform-name">RWA</span>
+        <span class="platform-meta" data-server-meta="rwa"></span>
       </a>
 
       <a href="#pw" class="card has-live" data-platform="pw" data-name="pw physics wallah">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Server"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png" alt="PW" class="logo-img" />
-          <span class="server-count-badge" data-server-count="pw"></span>
         </div>
         <span class="platform-name">PW</span>
+        <span class="platform-meta" data-server-meta="pw"></span>
       </a>
 
       <a href="#kgs" class="card has-live" data-platform="kgs" data-name="kgs khan global studies">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Servers"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png" alt="KGS" class="logo-img" />
-          <span class="server-count-badge" data-server-count="kgs"></span>
         </div>
         <span class="platform-name">KGS</span>
+        <span class="platform-meta" data-server-meta="kgs"></span>
       </a>
 
-      <a href="#parmar" class="card has-live" data-platform="parmar" data-name="parmar academy ssc">
+      <a href="#parmar" class="card has-live" data-platform="parmar" data-name="parmar academy ssc toppers 5.0">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Servers"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png" alt="Parmar Academy" class="logo-img" />
-          <span class="server-count-badge" data-server-count="parmar"></span>
         </div>
         <span class="platform-name">Parmar Academy</span>
+        <span class="platform-meta" data-server-meta="parmar"></span>
       </a>
 
       <a href="#sciencemagnet" class="card has-live" data-platform="sciencemagnet" data-name="science magnet">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Server"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png" alt="Science Magnet" class="logo-img" />
-          <span class="server-count-badge" data-server-count="sciencemagnet"></span>
         </div>
         <span class="platform-name">Science Magnet</span>
+        <span class="platform-meta" data-server-meta="sciencemagnet"></span>
       </a>
 
       <a href="#vidyagram" class="card has-live" data-platform="vidyagram" data-name="vidyagram">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Servers"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png" alt="Vidyagram" class="logo-img" />
-          <span class="server-count-badge" data-server-count="vidyagram"></span>
         </div>
         <span class="platform-name">Vidyagram</span>
+        <span class="platform-meta" data-server-meta="vidyagram"></span>
       </a>
 
       <a href="#yesofficer" class="card has-live" data-platform="yesofficer" data-name="yes officer">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Servers"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png" alt="Yes Officer" class="logo-img" />
-          <span class="server-count-badge" data-server-count="yesofficer"></span>
         </div>
         <span class="platform-name">Yes Officer</span>
+        <span class="platform-meta" data-server-meta="yesofficer"></span>
       </a>
 
       <a href="#missionjeet" class="card has-live" data-platform="missionjeet" data-name="mission jeet mission cheat">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Servers"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png" alt="Mission Jeet" class="logo-img" />
-          <span class="server-count-badge" data-server-count="missionjeet"></span>
         </div>
         <span class="platform-name">Mission Jeet</span>
+        <span class="platform-meta" data-server-meta="missionjeet"></span>
       </a>
 
       <a href="#nexttoppers" class="card has-live" data-platform="nexttoppers" data-name="next toppers next topper">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Servers"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png" alt="Next Toppers" class="logo-img" />
-          <span class="server-count-badge" data-server-count="nexttoppers"></span>
         </div>
         <span class="platform-name">Next Toppers</span>
+        <span class="platform-meta" data-server-meta="nexttoppers"></span>
       </a>
 
       <a href="#eduteria" class="card has-live" data-platform="eduteria" data-name="eduteria edu teria">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Server"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png" alt="Edu Teria" class="logo-img" />
-          <span class="server-count-badge" data-server-count="eduteria"></span>
         </div>
         <span class="platform-name">Edu Teria</span>
+        <span class="platform-meta" data-server-meta="eduteria"></span>
       </a>
 
       <a href="#futurekul" class="card has-live" data-platform="futurekul" data-name="futurekul future kul">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Servers"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png" alt="Futurekul" class="logo-img" />
-          <span class="server-count-badge" data-server-count="futurekul"></span>
         </div>
         <span class="platform-name">Futurekul</span>
+        <span class="platform-meta" data-server-meta="futurekul"></span>
       </a>
 
       <a href="#unacademy" class="card has-live" data-platform="unacademy" data-name="unacademy">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Servers"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png" alt="Unacademy" class="logo-img" />
-          <span class="server-count-badge" data-server-count="unacademy"></span>
         </div>
         <span class="platform-name">Unacademy</span>
+        <span class="platform-meta" data-server-meta="unacademy"></span>
       </a>
 
       <a href="#careerwill" class="card has-live" data-platform="careerwill" data-name="careerwill career will">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Active Servers"></span>
         <div class="logo-box">
-          <span class="live-dot" title="Active Servers Available"></span>
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png" alt="Careerwill" class="logo-img" />
-          <span class="server-count-badge" data-server-count="careerwill"></span>
         </div>
         <span class="platform-name">Careerwill</span>
+        <span class="platform-meta" data-server-meta="careerwill"></span>
       </a>
 
       <a href="#nklibrary" class="card has-live" data-platform="nklibrary" data-name="nk library nk books notes pdf">
         <span class="recent-badge">RECENT</span>
+        <span class="status-dot" title="Books & Notes"></span>
         <div class="logo-box">
-          <span class="live-dot" title="NK's Library Ready"></span>
           <span class="library-icon-text" aria-hidden="true">📚</span>
-          <span class="server-count-badge" data-library-count></span>
         </div>
         <span class="platform-name">NK's Library</span>
+        <span class="platform-meta" data-library-meta></span>
       </a>
     </div>
 
@@ -1179,14 +1254,14 @@
     </footer>
   </div>
 
-  <!-- NK Pathshala Class / Server Desk Modal -->
+  <!-- Server Desk Modal -->
   <div id="serverModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box">
       <div class="modal-header">
         <div class="modal-title-wrap">
           <img id="modalLogo" class="modal-logo" src="" alt="" />
           <div>
-            <div class="modal-brand-tag">NK PATHSHALA • MY STUDY DESK</div>
+            <div class="modal-brand-tag">NK PATHSHALA • STUDY DESK</div>
             <div id="modalTitle" class="modal-title">Platform</div>
             <div class="modal-subtitle">Server chunein, delete karein ya naya link jodein</div>
           </div>
@@ -1207,7 +1282,7 @@
           type="text"
           id="newSrvName"
           class="manage-input"
-          placeholder="Server naam (jaise: Server 6 या Working Link)"
+          placeholder="Server naam (jaise: Server 6)"
           autocomplete="off"
         />
         <input
@@ -1221,7 +1296,7 @@
           type="text"
           id="newSrvTag"
           class="manage-input"
-          placeholder="Note / Tag (optional, jaise: Active Batch)"
+          placeholder="Note / Tag (optional)"
           autocomplete="off"
         />
         <button type="button" id="addSrvBtn" class="add-srv-btn">+ Add Server</button>
@@ -1231,7 +1306,7 @@
           <button type="button" id="resetSrvBtn" class="sub-tool-btn">↺ Reset Default</button>
         </div>
         <div class="manage-note">
-          Is browser mein turant save hota hai. Sab devices ke liye permanent karna ho to Copy List karke index.html mein update kar sakte hain.
+          Is browser mein turant save hota hai. Sab devices ke liye permanent karna ho to Copy List karke code mein update kar sakte hain.
         </div>
       </div>
     </div>
@@ -1434,18 +1509,19 @@
     }
 
     function refreshServerBadges() {
-      document.querySelectorAll("[data-server-count]").forEach((badge) => {
-        const key = badge.dataset.serverCount;
+      document.querySelectorAll("[data-server-meta]").forEach((metaEl) => {
+        const key = metaEl.dataset.serverMeta;
         const count = PLATFORM_SERVERS[key]?.servers?.length || 0;
-        const card = badge.closest(".card");
+        const card = metaEl.closest(".card");
+        const dot = card ? card.querySelector(".status-dot") : null;
         if (count > 0) {
-          badge.textContent = `${count} ${count === 1 ? "Server" : "Servers"}`;
-          badge.style.display = "";
+          metaEl.textContent = `${count} ${count === 1 ? "Server" : "Servers"}`;
           if (card) card.classList.add("has-live");
+          if (dot) dot.style.display = "";
         } else {
-          badge.textContent = "";
-          badge.style.display = "none";
+          metaEl.textContent = "Coming Soon";
           if (card) card.classList.remove("has-live");
+          if (dot) dot.style.display = "none";
         }
       });
     }
@@ -1471,10 +1547,10 @@
       }
     ];
 
-    const libCountBadge = document.querySelector("[data-library-count]");
-    if (libCountBadge) {
+    const libMetaEl = document.querySelector("[data-library-meta]");
+    if (libMetaEl) {
       const totalBooks = NK_LIBRARY_ITEMS.length;
-      libCountBadge.textContent = `${totalBooks} ${totalBooks === 1 ? "Book" : "Books"}`;
+      libMetaEl.textContent = `${totalBooks} ${totalBooks === 1 ? "Resource" : "Resources"}`;
     }
 
     refreshServerBadges();
@@ -1490,11 +1566,11 @@
       if (isLight) {
         themeIcon.textContent = "🌙";
         themeLabel.textContent = "Dark";
-        if (metaTheme) metaTheme.setAttribute("content", "#f4f1ea");
+        if (metaTheme) metaTheme.setAttribute("content", "#f4f0e6");
       } else {
         themeIcon.textContent = "☀️";
         themeLabel.textContent = "Light";
-        if (metaTheme) metaTheme.setAttribute("content", "#111111");
+        if (metaTheme) metaTheme.setAttribute("content", "#0b0907");
       }
       try {
         localStorage.setItem("nk_theme_mode", isLight ? "light" : "dark");
@@ -1528,7 +1604,7 @@
     shareSiteBtn.addEventListener("click", async () => {
       const shareData = {
         title: "NK Pathshala",
-        text: "NK Pathshala - Education Must Be Free For Everyone",
+        text: "Welcome to NK Pathshala - Education Must Be Free For Everyone",
         url: window.location.href
       };
       if (navigator.share) {
@@ -1648,7 +1724,7 @@
       searchInput.focus();
     });
 
-    // NK Pathshala Study Desk Modal Controls + Live Add/Delete
+    // Server Desk Modal Controls
     const serverModal = document.getElementById("serverModal");
     const modalLogo = document.getElementById("modalLogo");
     const modalTitle = document.getElementById("modalTitle");
