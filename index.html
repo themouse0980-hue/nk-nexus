@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="NK Pathshala" />
-  <title>NK Pathshala</title>
+  <title>𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀</title>
   <style>
     * {
       box-sizing: border-box;
@@ -20,10 +20,12 @@
 
     :root {
       --bg-base: #0b0907;
-      --bg-vignette: radial-gradient(circle at 50% 10%, rgba(245, 183, 0, 0.08), rgba(8, 7, 6, 0.88) 72%);
+      --bg-vignette: radial-gradient(circle at 50% 10%, rgba(245, 183, 0, 0.1), rgba(8, 7, 6, 0.9) 74%);
       --watermark-opacity: 0.34;
-      --tint-bg: rgba(8, 7, 6, 0.58);
+      --tint-bg: rgba(8, 7, 6, 0.56);
       --tint-opacity: 1;
+      --particle-color: rgba(245, 183, 0, 0.55);
+      --particle-glow: rgba(245, 183, 0, 0.35);
       --accent: #f5b700;
       --accent-soft: rgba(245, 183, 0, 0.22);
       --accent-border: rgba(245, 183, 0, 0.42);
@@ -46,6 +48,8 @@
       --watermark-opacity: 0.22;
       --tint-bg: rgba(252, 249, 242, 0.7);
       --tint-opacity: 1;
+      --particle-color: rgba(154, 91, 0, 0.38);
+      --particle-glow: rgba(154, 91, 0, 0.2);
       --accent: #9a5b00;
       --accent-soft: rgba(154, 91, 0, 0.14);
       --accent-border: rgba(154, 91, 0, 0.38);
@@ -78,14 +82,17 @@
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
+    /* Parallax Watermark + Tint + Cosmic Gold Dust */
     .bg-watermark {
       position: fixed;
-      inset: 0;
+      inset: -24px;
       background-image: url("https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vishwa.png");
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
       opacity: var(--watermark-opacity);
+      transform: translate3d(0, var(--parallax-y, 0px), 0);
+      will-change: transform, opacity;
       pointer-events: none;
       z-index: 0;
       transition: opacity 0.25s ease;
@@ -99,6 +106,44 @@
       pointer-events: none;
       z-index: 1;
       transition: background 0.25s ease, opacity 0.25s ease;
+    }
+
+    .cosmic-dust {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .dust-dot {
+      position: absolute;
+      bottom: -12px;
+      left: var(--x, 50%);
+      width: var(--size, 3px);
+      height: var(--size, 3px);
+      border-radius: 50%;
+      background: var(--particle-color);
+      box-shadow: 0 0 8px var(--particle-glow);
+      opacity: 0;
+      animation: floatDust var(--dur, 14s) linear var(--delay, 0s) infinite;
+    }
+
+    @keyframes floatDust {
+      0% {
+        transform: translate3d(0, 0, 0) scale(0.8);
+        opacity: 0;
+      }
+      15% {
+        opacity: var(--max-o, 0.7);
+      }
+      85% {
+        opacity: var(--max-o, 0.7);
+      }
+      100% {
+        transform: translate3d(var(--drift, 14px), -108vh, 0) scale(1.1);
+        opacity: 0;
+      }
     }
 
     .theme-toggle {
@@ -172,9 +217,9 @@
     }
 
     .header h1 {
-      font-size: 24px;
+      font-size: 23px;
       font-weight: 800;
-      letter-spacing: -0.2px;
+      letter-spacing: 0.3px;
       color: var(--text-main);
       margin-bottom: 5px;
       text-shadow: var(--text-shadow);
@@ -448,7 +493,6 @@
       flex-shrink: 0;
     }
 
-    /* Platform Card Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -499,7 +543,6 @@
       border-color: var(--accent-border);
     }
 
-    /* Top-left RECENT tag */
     .recent-badge {
       display: none;
       position: absolute;
@@ -521,7 +564,6 @@
       display: inline-block;
     }
 
-    /* Top-right Pin Star button */
     .pin-btn {
       position: absolute;
       top: 7px;
@@ -586,9 +628,9 @@
     }
 
     .platform-name {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
-      letter-spacing: 0.1px;
+      letter-spacing: 0.25px;
       text-align: center;
       color: var(--text-main);
       line-height: 1.25;
@@ -1051,11 +1093,22 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dust-dot {
+        animation: none;
+        display: none;
+      }
+      .bg-watermark {
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="bg-watermark"></div>
+  <div class="bg-watermark" id="bgWatermark"></div>
   <div class="light-tint"></div>
+  <div class="cosmic-dust" id="cosmicDust" aria-hidden="true"></div>
 
   <button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch Dark or Light mode">
     <span id="themeIcon" class="theme-icon">☀️</span>
@@ -1065,13 +1118,13 @@
   <div class="container">
     <div class="header">
       <div class="nk-badge">
-        <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nk-logo.png" alt="NK Pathshala Logo" />
+        <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nk-logo.png" alt="𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀 Logo" />
       </div>
-      <h1>Welcome to <span>NK Pathshala</span></h1>
+      <h1>Welcome to <span>𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀</span></h1>
       <p>Education Must Be Free For Everyone</p>
       <div class="focus-chip">
         <span class="focus-chip-dot"></span>
-        <span>NK Pathshala Self Study Desk • Free Access</span>
+        <span>𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀 Self Study Desk • Free Access</span>
       </div>
     </div>
 
@@ -1098,7 +1151,7 @@
         <div class="banner-left">
           <div class="banner-icon-box share-accent">🔗</div>
           <div class="banner-text-wrap">
-            <span class="banner-title">Share NK Pathshala</span>
+            <span class="banner-title">Share 𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀</span>
             <span class="banner-sub">Share study desk link with friends</span>
           </div>
         </div>
@@ -1121,7 +1174,7 @@
     <a href="#" id="quickResume" class="quick-resume" target="_blank" rel="noopener noreferrer">
       <div class="resume-left">
         <span class="resume-pill">Continue</span>
-        <span id="resumeText" class="resume-text">Parmar Academy • Server 1</span>
+        <span id="resumeText" class="resume-text">𝐏𝐀𝐑𝐌𝐀𝐑 𝐀𝐂𝐀𝐃𝐄𝐌𝐘 • Server 1</span>
       </div>
       <span class="resume-go">Open →</span>
     </a>
@@ -1131,9 +1184,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="selectionway" title="Pin platform" aria-label="Pin Selection Way">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png" alt="Selection Way" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png" alt="𝐒𝐄𝐋𝐄𝐂𝐓𝐈𝐎𝐍 𝐖𝐀𝐘" class="logo-img" />
         </div>
-        <span class="platform-name">Selection Way</span>
+        <span class="platform-name">𝐒𝐄𝐋𝐄𝐂𝐓𝐈𝐎𝐍 𝐖𝐀𝐘</span>
         <span class="server-count-text" data-server-count="selectionway"></span>
       </a>
 
@@ -1141,9 +1194,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="rwa" title="Pin platform" aria-label="Pin RWA">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="RWA" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="𝐑𝐖𝐀" class="logo-img" />
         </div>
-        <span class="platform-name">RWA</span>
+        <span class="platform-name">𝐑𝐖𝐀</span>
         <span class="server-count-text" data-server-count="rwa"></span>
       </a>
 
@@ -1151,9 +1204,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="pw" title="Pin platform" aria-label="Pin PW">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png" alt="PW" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png" alt="𝐏𝐖" class="logo-img" />
         </div>
-        <span class="platform-name">PW</span>
+        <span class="platform-name">𝐏𝐖</span>
         <span class="server-count-text" data-server-count="pw"></span>
       </a>
 
@@ -1161,9 +1214,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="kgs" title="Pin platform" aria-label="Pin KGS">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png" alt="KGS" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png" alt="𝐊𝐆𝐒" class="logo-img" />
         </div>
-        <span class="platform-name">KGS</span>
+        <span class="platform-name">𝐊𝐆𝐒</span>
         <span class="server-count-text" data-server-count="kgs"></span>
       </a>
 
@@ -1171,9 +1224,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="parmar" title="Pin platform" aria-label="Pin Parmar Academy">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png" alt="Parmar Academy" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png" alt="𝐏𝐀𝐑𝐌𝐀𝐑 𝐀𝐂𝐀𝐃𝐄𝐌𝐘" class="logo-img" />
         </div>
-        <span class="platform-name">Parmar Academy</span>
+        <span class="platform-name">𝐏𝐀𝐑𝐌𝐀𝐑 𝐀𝐂𝐀𝐃𝐄𝐌𝐘</span>
         <span class="server-count-text" data-server-count="parmar"></span>
       </a>
 
@@ -1181,9 +1234,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="sciencemagnet" title="Pin platform" aria-label="Pin Science Magnet">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png" alt="Science Magnet" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png" alt="𝐒𝐂𝐈𝐄𝐍𝐂𝐄 𝐌𝐀𝐆𝐍𝐄𝐓" class="logo-img" />
         </div>
-        <span class="platform-name">Science Magnet</span>
+        <span class="platform-name">𝐒𝐂𝐈𝐄𝐍𝐂𝐄 𝐌𝐀𝐆𝐍𝐄𝐓</span>
         <span class="server-count-text" data-server-count="sciencemagnet"></span>
       </a>
 
@@ -1191,9 +1244,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="vidyagram" title="Pin platform" aria-label="Pin Vidyagram">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png" alt="Vidyagram" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png" alt="𝐕𝐈𝐃𝐘𝐀𝐆𝐑𝐀𝐌" class="logo-img" />
         </div>
-        <span class="platform-name">Vidyagram</span>
+        <span class="platform-name">𝐕𝐈𝐃𝐘𝐀𝐆𝐑𝐀𝐌</span>
         <span class="server-count-text" data-server-count="vidyagram"></span>
       </a>
 
@@ -1201,9 +1254,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="yesofficer" title="Pin platform" aria-label="Pin Yes Officer">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png" alt="Yes Officer" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png" alt="𝐘𝐄𝐒 𝐎𝐅𝐅𝐈𝐂𝐄𝐑" class="logo-img" />
         </div>
-        <span class="platform-name">Yes Officer</span>
+        <span class="platform-name">𝐘𝐄𝐒 𝐎𝐅𝐅𝐈𝐂𝐄𝐑</span>
         <span class="server-count-text" data-server-count="yesofficer"></span>
       </a>
 
@@ -1211,9 +1264,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="missionjeet" title="Pin platform" aria-label="Pin Mission Jeet">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png" alt="Mission Jeet" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png" alt="𝐌𝐈𝐒𝐒𝐈𝐎𝐍 𝐉𝐄𝐄𝐓" class="logo-img" />
         </div>
-        <span class="platform-name">Mission Jeet</span>
+        <span class="platform-name">𝐌𝐈𝐒𝐒𝐈𝐎𝐍 𝐉𝐄𝐄𝐓</span>
         <span class="server-count-text" data-server-count="missionjeet"></span>
       </a>
 
@@ -1221,9 +1274,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="nexttoppers" title="Pin platform" aria-label="Pin Next Toppers">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png" alt="Next Toppers" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png" alt="𝐍𝐄𝐗𝐓 𝐓𝐎𝐏𝐏𝐄𝐑𝐒" class="logo-img" />
         </div>
-        <span class="platform-name">Next Toppers</span>
+        <span class="platform-name">𝐍𝐄𝐗𝐓 𝐓𝐎𝐏𝐏𝐄𝐑𝐒</span>
         <span class="server-count-text" data-server-count="nexttoppers"></span>
       </a>
 
@@ -1231,9 +1284,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="eduteria" title="Pin platform" aria-label="Pin Edu Teria">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png" alt="Edu Teria" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png" alt="𝐄𝐃𝐔 𝐓𝐄𝐑𝐈𝐀" class="logo-img" />
         </div>
-        <span class="platform-name">Edu Teria</span>
+        <span class="platform-name">𝐄𝐃𝐔 𝐓𝐄𝐑𝐈𝐀</span>
         <span class="server-count-text" data-server-count="eduteria"></span>
       </a>
 
@@ -1241,9 +1294,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="futurekul" title="Pin platform" aria-label="Pin Futurekul">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png" alt="Futurekul" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png" alt="𝐅𝐔𝐓𝐔𝐑𝐄𝐊𝐔𝐋" class="logo-img" />
         </div>
-        <span class="platform-name">Futurekul</span>
+        <span class="platform-name">𝐅𝐔𝐓𝐔𝐑𝐄𝐊𝐔𝐋</span>
         <span class="server-count-text" data-server-count="futurekul"></span>
       </a>
 
@@ -1251,9 +1304,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="unacademy" title="Pin platform" aria-label="Pin Unacademy">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png" alt="Unacademy" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png" alt="𝐔𝐍𝐀𝐂𝐀𝐃𝐄𝐌𝐘" class="logo-img" />
         </div>
-        <span class="platform-name">Unacademy</span>
+        <span class="platform-name">𝐔𝐍𝐀𝐂𝐀𝐃𝐄𝐌𝐘</span>
         <span class="server-count-text" data-server-count="unacademy"></span>
       </a>
 
@@ -1261,9 +1314,9 @@
         <span class="recent-badge">RECENT</span>
         <button type="button" class="pin-btn" data-pin="careerwill" title="Pin platform" aria-label="Pin Careerwill">★</button>
         <div class="logo-box">
-          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png" alt="Careerwill" class="logo-img" />
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png" alt="𝐂𝐀𝐑𝐄𝐄𝐑𝐖𝐈𝐋𝐋" class="logo-img" />
         </div>
-        <span class="platform-name">Careerwill</span>
+        <span class="platform-name">𝐂𝐀𝐑𝐄𝐄𝐑𝐖𝐈𝐋𝐋</span>
         <span class="server-count-text" data-server-count="careerwill"></span>
       </a>
 
@@ -1273,7 +1326,7 @@
         <div class="logo-box">
           <span class="library-icon-text" aria-hidden="true">📚</span>
         </div>
-        <span class="platform-name">NK's Library</span>
+        <span class="platform-name">𝐍𝐊'𝐒 𝐋𝐈𝐁𝐑𝐀𝐑𝐘</span>
         <span class="server-count-text" data-library-count></span>
       </a>
     </div>
@@ -1282,7 +1335,7 @@
 
     <footer class="footer-note">
       <p>
-        <strong>Disclaimer:</strong> NK Pathshala sirf self-study aur students ki suvidha ke liye banaya gaya personal study hub hai. Sabhi platform logos aur names unke respective owners ke hain.
+        <strong>Disclaimer:</strong> 𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀 sirf self-study aur students ki suvidha ke liye banaya gaya personal study hub hai. Sabhi platform logos aur names unke respective owners ke hain.
       </p>
     </footer>
   </div>
@@ -1294,7 +1347,7 @@
         <div class="modal-title-wrap">
           <img id="modalLogo" class="modal-logo" src="" alt="" />
           <div>
-            <div class="modal-brand-tag">NK PATHSHALA • STUDY DESK</div>
+            <div class="modal-brand-tag">𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀 • STUDY DESK</div>
             <div id="modalTitle" class="modal-title">Platform</div>
             <div class="modal-subtitle">Server chunein, delete karein ya naya link jodein</div>
           </div>
@@ -1352,8 +1405,8 @@
         <div class="modal-title-wrap">
           <div class="modal-logo" aria-hidden="true">📚</div>
           <div>
-            <div class="modal-brand-tag">NK PATHSHALA • BOOKS & NOTES</div>
-            <div id="libraryModalTitle" class="modal-title">NK's Library</div>
+            <div class="modal-brand-tag">𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀 • BOOKS & NOTES</div>
+            <div id="libraryModalTitle" class="modal-title">𝐍𝐊'𝐒 𝐋𝐈𝐁𝐑𝐀𝐑𝐘</div>
             <div class="modal-subtitle">Books, PDFs aur study notes search & open karein</div>
           </div>
         </div>
@@ -1382,9 +1435,49 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
+    // Cosmic Gold Dust + Parallax Background
+    (function initCosmicBackground() {
+      const dustWrap = document.getElementById("cosmicDust");
+      const watermark = document.getElementById("bgWatermark");
+      if (dustWrap) {
+        const count = 22;
+        for (let i = 0; i < count; i++) {
+          const dot = document.createElement("span");
+          dot.className = "dust-dot";
+          const x = ((i * 37) % 96) + 2;
+          const size = (i % 3 === 0) ? 4 : (i % 2 === 0 ? 3 : 2);
+          const dur = 12 + (i % 7) * 2.4;
+          const delay = -((i * 1.9) % dur);
+          const drift = ((i % 2 === 0 ? 1 : -1) * (8 + (i % 5) * 4));
+          const maxO = (0.35 + (i % 4) * 0.12).toFixed(2);
+          dot.style.setProperty("--x", `${x}%`);
+          dot.style.setProperty("--size", `${size}px`);
+          dot.style.setProperty("--dur", `${dur}s`);
+          dot.style.setProperty("--delay", `${delay}s`);
+          dot.style.setProperty("--drift", `${drift}px`);
+          dot.style.setProperty("--max-o", maxO);
+          dustWrap.appendChild(dot);
+        }
+      }
+
+      if (watermark) {
+        let ticking = false;
+        window.addEventListener("scroll", () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              const offset = Math.min(24, Math.max(-24, window.scrollY * -0.06));
+              watermark.style.setProperty("--parallax-y", `${offset.toFixed(1)}px`);
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+      }
+    })();
+
     const DEFAULT_PLATFORM_SERVERS = {
       nexttoppers: {
-        title: "Next Toppers",
+        title: "𝐍𝐄𝐗𝐓 𝐓𝐎𝐏𝐏𝐄𝐑𝐒",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Next Toppers Server 1", url: "https://all.codewithvivek.qzz.io/next-toppers" },
@@ -1398,7 +1491,7 @@
         ]
       },
       parmar: {
-        title: "Parmar Academy",
+        title: "𝐏𝐀𝐑𝐌𝐀𝐑 𝐀𝐂𝐀𝐃𝐄𝐌𝐘",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Parmar Academy All Batches", url: "https://pwnexus.eu.cc/pramar-academy" },
@@ -1409,14 +1502,14 @@
         ]
       },
       sciencemagnet: {
-        title: "Science Magnet",
+        title: "𝐒𝐂𝐈𝐄𝐍𝐂𝐄 𝐌𝐀𝐆𝐍𝐄𝐓",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Science Magnet Class Link", url: "https://troubled-beige-d2ktwr2j.edgeone.dev/" }
         ]
       },
       vidyagram: {
-        title: "Vidyagram",
+        title: "𝐕𝐈𝐃𝐘𝐀𝐆𝐑𝐀𝐌",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Vidyagram Class Link 1", url: "https://vidyagram-studybison.space-z.ai/" },
@@ -1425,7 +1518,7 @@
         ]
       },
       careerwill: {
-        title: "Careerwill",
+        title: "𝐂𝐀𝐑𝐄𝐄𝐑𝐖𝐈𝐋𝐋",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Careerwill Class Link 1", url: "https://stream.nexthope.sbs/careerwill/" },
@@ -1434,14 +1527,14 @@
         ]
       },
       eduteria: {
-        title: "Edu Teria",
+        title: "𝐄𝐃𝐔 𝐓𝐄𝐑𝐈𝐀",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Edu Teria Class Link 1", url: "https://all.codewithvivek.qzz.io/eduteria" }
         ]
       },
       futurekul: {
-        title: "Futurekul",
+        title: "𝐅𝐔𝐓𝐔𝐑𝐄𝐊𝐔𝐋",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Futurekul Link 1", url: "https://all.codewithvivek.qzz.io/futurekul" },
@@ -1449,7 +1542,7 @@
         ]
       },
       unacademy: {
-        title: "Unacademy",
+        title: "𝐔𝐍𝐀𝐂𝐀𝐃𝐄𝐌𝐘",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Unacademy Link 1", url: "https://unacademy-studybison.space-z.ai/" },
@@ -1460,7 +1553,7 @@
         ]
       },
       missionjeet: {
-        title: "Mission Jeet",
+        title: "𝐌𝐈𝐒𝐒𝐈𝐎𝐍 𝐉𝐄𝐄𝐓",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Mission Jeet Link 1", url: "https://studymonkeymj.netlify.app/#/" },
@@ -1469,7 +1562,7 @@
         ]
       },
       kgs: {
-        title: "KGS",
+        title: "𝐊𝐆𝐒",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • KGS Batches Link 1", url: "https://sahukgs.com/batches" },
@@ -1477,7 +1570,7 @@
         ]
       },
       yesofficer: {
-        title: "Yes Officer",
+        title: "𝐘𝐄𝐒 𝐎𝐅𝐅𝐈𝐂𝐄𝐑",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Yes Officer Link 1", url: "https://pwnexus.eu.cc/yes-officer" },
@@ -1486,21 +1579,21 @@
         ]
       },
       pw: {
-        title: "PW",
+        title: "𝐏𝐖",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • PW Class Link", url: "https://studyhulkxpw.ai.studio/" }
         ]
       },
       selectionway: {
-        title: "Selection Way",
+        title: "𝐒𝐄𝐋𝐄𝐂𝐓𝐈𝐎𝐍 𝐖𝐀𝐘",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png",
         servers: [
           { name: "Server 1", tag: "NK Desk • Selection Way Class Link", url: "https://swstudyhulk.edgeone.dev/" }
         ]
       },
       rwa: {
-        title: "RWA",
+        title: "𝐑𝐖𝐀",
         logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png",
         servers: []
       }
@@ -1631,8 +1724,8 @@
     const shareSiteBtn = document.getElementById("shareSiteBtn");
     shareSiteBtn.addEventListener("click", async () => {
       const shareData = {
-        title: "NK Pathshala",
-        text: "Welcome to NK Pathshala - Education Must Be Free For Everyone",
+        title: "𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀",
+        text: "Welcome to 𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀 - Education Must Be Free For Everyone",
         url: window.location.href
       };
       if (navigator.share) {
@@ -1645,7 +1738,7 @@
       }
       try {
         await navigator.clipboard.writeText(window.location.href);
-        showToast("NK Pathshala ka link copy ho gaya!");
+        showToast("𝐍𝐊 𝐏𝐀𝐓𝐇𝐒𝐇𝐀𝐋𝐀 ka link copy ho gaya!");
       } catch (_) {
         showToast(window.location.href);
       }
@@ -1686,7 +1779,7 @@
         msg = "Pinned to top ★";
       }
       setPinnedPlatforms(pinned);
-      const title = PLATFORM_SERVERS[platformKey]?.title || (platformKey === "nklibrary" ? "NK's Library" : platformKey);
+      const title = PLATFORM_SERVERS[platformKey]?.title || (platformKey === "nklibrary" ? "𝐍𝐊'𝐒 𝐋𝐈𝐁𝐑𝐀𝐑𝐘" : platformKey);
       showToast(`${title}: ${msg}`);
     }
 
@@ -2038,7 +2131,7 @@
             showToast(`"${book.title}" ka link abhi add karna baaki hai`);
             return;
           }
-          setLastUsed("nklibrary", "NK's Library", book.title, book.url);
+          setLastUsed("nklibrary", "𝐍𝐊'𝐒 𝐋𝐈𝐁𝐑𝐀𝐑𝐘", book.title, book.url);
           showToast(`Opening ${book.title}...`);
         });
 
