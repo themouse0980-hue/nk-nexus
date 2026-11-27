@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f1115" />
+  <title>Parmar GS 5.0 • NK Pathshala Batch Portal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #0f1115;
+      color: #ffffff;
+      padding: 18px 14px 40px;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #171a21;
+      border: 1px solid rgba(245, 183, 0, 0.35);
+      margin-bottom: 16px;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid #f5b700;
+      object-fit: cover;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #f5b700;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .back-home {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      color: #111111;
+      background: #f5b700;
+      padding: 7px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .batch-card {
+      background: linear-gradient(145deg, #191d26, #13161d);
+      border: 1.5px solid rgba(245, 183, 0, 0.45);
+      border-radius: 18px;
+      padding: 16px;
+      cursor: pointer;
+      transition: transform 0.16s ease, border-color 0.16s ease;
+    }
+
+    .batch-card:active {
+      transform: scale(0.98);
+    }
+
+    .batch-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .batch-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background: #0f1115;
+      border: 1px solid rgba(245, 183, 0, 0.5);
+      padding: 6px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .batch-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.18);
+      color: #4ade80;
+      margin-bottom: 5px;
+    }
+
+    .batch-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+
+    .batch-meta {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .batch-cta {
+      margin-top: 14px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #f5b700;
+      color: #111111;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .inside-view {
+      display: none;
+    }
+
+    .inside-view.active {
+      display: block;
+    }
+
+    .batch-view.hidden {
+      display: none;
+    }
+
+    .inside-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .back-batch-btn {
+      background: #1a1e27;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 7px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(245, 183, 0, 0.45);
+      background: #171a21;
+      color: #ffffff;
+      font-size: 13.5px;
+      outline: none;
+      margin-bottom: 12px;
+    }
+
+    .subject-tabs {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+    }
+
+    .sub-tab {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: #171a21;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .sub-tab.active {
+      background: #f5b700;
+      color: #111111;
+      border-color: #f5b700;
+    }
+
+    .class-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .class-card {
+      background: #171a21;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 12px 13px;
+    }
+
+    .class-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .class-sub-tag {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #f5b700;
+      text-transform: uppercase;
+    }
+
+    .class-num {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 700;
+    }
+
+    .class-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .class-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-watch,
+    .btn-pdf {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      padding: 9px 10px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-watch {
+      background: #f5b700;
+      color: #111111;
+    }
+
+    .btn-pdf {
+      background: rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.45);
+    }
+
+    .viewer-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      z-index: 50;
+    }
+
+    .viewer-modal.open {
+      display: flex;
+    }
+
+    .viewer-box {
+      width: 100%;
+      max-width: 520px;
+      background: #171a21;
+      border: 1.5px solid #f5b700;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .viewer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .viewer-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #f5b700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .viewer-close {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0 6px;
+    }
+
+    .viewer-frame {
+      width: 100%;
+      height: 68vh;
+      border: none;
+      background: #0f1115;
+    }
+
+    .viewer-foot {
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .open-ext {
+      color: #f5b700;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .empty-msg {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand-left">
+        <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nk-logo.png" alt="NK Pathshala" class="brand-logo" />
+        <div>
+          <div class="brand-title">NK Pathshala Batch Hub</div>
+          <div class="brand-sub">Direct Chrome Study Portal</div>
+        </div>
+      </div>
+      <a href="index.html" class="back-home">← Home</a>
+    </div>
+
+    <div id="batchView" class="batch-view">
+      <div id="openBatchCard" class="batch-card">
+        <div class="batch-top">
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png" alt="Parmar GS 5.0" class="batch-thumb" />
+          <div>
+            <span class="batch-badge">● Active Batch</span>
+            <div class="batch-name">Parmar GS 5.0 Batch</div>
+            <div class="batch-meta" id="totalLectureCount">All Subjects • Video Classes & Class PDFs</div>
+          </div>
+        </div>
+        <div class="batch-cta">Open Batch Classes & PDFs →</div>
+      </div>
+    </div>
+
+    <div id="insideView" class="inside-view">
+      <div class="inside-nav">
+        <button type="button" id="backToBatches" class="back-batch-btn">← All Batches</button>
+        <span style="font-size: 12px; font-weight: 700; color: #f5b700;">Parmar GS 5.0</span>
+      </div>
+
+      <input type="text" id="classSearch" class="search-box" placeholder="Search class or topic..." autocomplete="off" />
+
+      <div id="subjectTabs" class="subject-tabs">
+        <button type="button" class="sub-tab active" data-sub="All">All</button>
+        <button type="button" class="sub-tab" data-sub="History">History</button>
+        <button type="button" class="sub-tab" data-sub="Polity">Polity</button>
+        <button type="button" class="sub-tab" data-sub="Geography">Geography</button>
+        <button type="button" class="sub-tab" data-sub="Static GK">Static GK</button>
+        <button type="button" class="sub-tab" data-sub="Science">Science</button>
+      </div>
+
+      <div id="classList" class="class-list"></div>
+    </div>
+  </div>
+
+  <div id="viewerModal" class="viewer-modal">
+    <div class="viewer-box">
+      <div class="viewer-head">
+        <div id="viewerTitle" class="viewer-title">Class Viewer</div>
+        <button type="button" id="viewerClose" class="viewer-close">×</button>
+      </div>
+      <iframe id="viewerFrame" class="viewer-frame" src="about:blank" allowfullscreen></iframe>
+      <div class="viewer-foot">
+        <span>Chrome Web Preview</span>
+        <a id="openDirectTab" href="#" target="_blank" rel="noopener noreferrer" class="open-ext">Open in New Tab ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Yahan apne Public Telegram group ke post links (e.g. https://t.me/your_group/12) daalte jayein
+    const PARMAR_5_CLASSES = [
+      {
+        lectureNo: "Class 01",
+        subject: "History",
+        title: "Indus Valley Civilization (हड़प्पा सभ्यता) - Complete Class",
+        videoUrl: "https://t.me/YOUR_PUBLIC_GROUP_USERNAME/1",
+        pdfUrl: "https://t.me/YOUR_PUBLIC_GROUP_USERNAME/2"
+      },
+      {
+        lectureNo: "Class 02",
+        subject: "Polity",
+        title: "Making of Indian Constitution & Preamble",
+        videoUrl: "https://t.me/YOUR_PUBLIC_GROUP_USERNAME/3",
+        pdfUrl: "https://t.me/YOUR_PUBLIC_GROUP_USERNAME/4"
+      },
+      {
+        lectureNo: "Class 03",
+        subject: "Geography",
+        title: "Physiographic Divisions of India - Himalayas",
+        videoUrl: "https://t.me/YOUR_PUBLIC_GROUP_USERNAME/5",
+        pdfUrl: "https://t.me/YOUR_PUBLIC_GROUP_USERNAME/6"
+      }
+    ];
+
+    const batchView = document.getElementById("batchView");
+    const insideView = document.getElementById("insideView");
+    const openBatchCard = document.getElementById("openBatchCard");
+    const backToBatches = document.getElementById("backToBatches");
+    const classSearch = document.getElementById("classSearch");
+    const subjectTabs = document.getElementById("subjectTabs");
+    const classList = document.getElementById("classList");
+    const totalLectureCount = document.getElementById("totalLectureCount");
+
+    const viewerModal = document.getElementById("viewerModal");
+    const viewerTitle = document.getElementById("viewerTitle");
+    const viewerFrame = document.getElementById("viewerFrame");
+    const viewerClose = document.getElementById("viewerClose");
+    const openDirectTab = document.getElementById("openDirectTab");
+
+    let activeSubject = "All";
+    totalLectureCount.textContent = `${PARMAR_5_CLASSES.length} Classes Available • Video & PDFs`;
+
+    function toChromeWebUrl(rawUrl) {
+      if (!rawUrl) return "";
+      const match = rawUrl.match(/^https?:\/\/t\.me\/([^/]+)\/(\d+)/i);
+      if (match && match[1].toLowerCase() !== "s" && match[1].toLowerCase() !== "c") {
+        return `https://t.me/s/${match[1]}/${match[2]}`;
+      }
+      return rawUrl;
+    }
+
+    function openInChromeViewer(title, rawUrl) {
+      const webUrl = toChromeWebUrl(rawUrl);
+      viewerTitle.textContent = title;
+      viewerFrame.src = webUrl;
+      openDirectTab.href = webUrl;
+      viewerModal.classList.add("open");
+    }
+
+    viewerClose.addEventListener("click", () => {
+      viewerModal.classList.remove("open");
+      viewerFrame.src = "about:blank";
+    });
+
+    viewerModal.addEventListener("click", (e) => {
+      if (e.target === viewerModal) {
+        viewerModal.classList.remove("open");
+        viewerFrame.src = "about:blank";
+      }
+    });
+
+    function renderClasses() {
+      const q = classSearch.value.trim().toLowerCase();
+      const filtered = PARMAR_5_CLASSES.filter((item) => {
+        const subOk = activeSubject === "All" || item.subject === activeSubject;
+        const txtOk =
+          !q ||
+          item.title.toLowerCase().includes(q) ||
+          item.subject.toLowerCase().includes(q) ||
+          item.lectureNo.toLowerCase().includes(q);
+        return subOk && txtOk;
+      });
+
+      classList.innerHTML = "";
+      if (filtered.length === 0) {
+        classList.innerHTML = '<div class="empty-msg">Koi matching class nahi mili.</div>';
+        return;
+      }
+
+      filtered.forEach((cls) => {
+        const card = document.createElement("div");
+        card.className = "class-card";
+        card.innerHTML = `
+          <div class="class-head">
+            <span class="class-sub-tag">${cls.subject}</span>
+            <span class="class-num">${cls.lectureNo}</span>
+          </div>
+          <div class="class-title">${cls.title}</div>
+          <div class="class-actions">
+            ${cls.videoUrl ? '<button type="button" class="btn-watch">▶ Watch Class</button>' : ""}
+            ${cls.pdfUrl ? '<button type="button" class="btn-pdf">📄 Class PDF</button>' : ""}
+          </div>
+        `;
+
+        const watchBtn = card.querySelector(".btn-watch");
+        if (watchBtn) {
+          watchBtn.addEventListener("click", () => {
+            openInChromeViewer(`${cls.lectureNo} • ${cls.title}`, cls.videoUrl);
+          });
+        }
+
+        const pdfBtn = card.querySelector(".btn-pdf");
+        if (pdfBtn) {
+          pdfBtn.addEventListener("click", () => {
+            openInChromeViewer(`${cls.lectureNo} PDF • ${cls.title}`, cls.pdfUrl);
+          });
+        }
+
+        classList.appendChild(card);
+      });
+    }
+
+    openBatchCard.addEventListener("click", () => {
+      batchView.classList.add("hidden");
+      insideView.classList.add("active");
+      renderClasses();
+    });
+
+    backToBatches.addEventListener("click", () => {
+      insideView.classList.remove("active");
+      batchView.classList.remove("hidden");
+    });
+
+    classSearch.addEventListener("input", renderClasses);
+
+    subjectTabs.addEventListener("click", (e) => {
+      const tab = e.target.closest(".sub-tab");
+      if (!tab) return;
+      activeSubject = tab.dataset.sub;
+      subjectTabs.querySelectorAll(".sub-tab").forEach((t) => {
+        t.classList.toggle("active", t === tab);
+      });
+      renderClasses();
+    });
+  </script>
+</body>
+</html>
