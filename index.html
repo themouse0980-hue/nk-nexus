@@ -448,7 +448,7 @@
       flex-shrink: 0;
     }
 
-    /* Clean Platform Name Card Grid */
+    /* Platform Card Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -464,12 +464,12 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--surface-border);
       border-radius: 20px;
-      padding: 20px 12px 18px;
+      padding: 20px 12px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       touch-action: manipulation;
       cursor: pointer;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -493,6 +493,70 @@
 
     .card.is-recent {
       border-color: var(--accent-border);
+    }
+
+    .card.is-pinned {
+      border-color: var(--accent-border);
+    }
+
+    /* Top-left RECENT tag */
+    .recent-badge {
+      display: none;
+      position: absolute;
+      top: 9px;
+      left: 10px;
+      z-index: 4;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #16a34a;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    .card.is-recent .recent-badge {
+      display: inline-block;
+    }
+
+    /* Top-right Pin Star button */
+    .pin-btn {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      z-index: 5;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--surface-border);
+      background: var(--surface-2);
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: transform 0.15s ease, color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .pin-btn:hover {
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+
+    .pin-btn:active {
+      transform: scale(0.88);
+    }
+
+    .card.is-pinned .pin-btn {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+      box-shadow: 0 0 10px var(--accent-glow);
     }
 
     .logo-box {
@@ -528,6 +592,17 @@
       text-align: center;
       color: var(--text-main);
       line-height: 1.25;
+    }
+
+    .server-count-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .card.has-servers .server-count-text {
+      color: var(--accent);
     }
 
     .no-result {
@@ -1053,108 +1128,153 @@
 
     <div class="grid" id="platformGrid">
       <a href="#selectionway" class="card" data-platform="selectionway" data-name="selection way">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="selectionway" title="Pin platform" aria-label="Pin Selection Way">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png" alt="Selection Way" class="logo-img" />
         </div>
         <span class="platform-name">Selection Way</span>
+        <span class="server-count-text" data-server-count="selectionway"></span>
       </a>
 
       <a href="#rwa" class="card" data-platform="rwa" data-name="rwa rojgar with ankit">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="rwa" title="Pin platform" aria-label="Pin RWA">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="RWA" class="logo-img" />
         </div>
         <span class="platform-name">RWA</span>
+        <span class="server-count-text" data-server-count="rwa"></span>
       </a>
 
       <a href="#pw" class="card" data-platform="pw" data-name="pw physics wallah">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="pw" title="Pin platform" aria-label="Pin PW">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png" alt="PW" class="logo-img" />
         </div>
         <span class="platform-name">PW</span>
+        <span class="server-count-text" data-server-count="pw"></span>
       </a>
 
       <a href="#kgs" class="card" data-platform="kgs" data-name="kgs khan global studies">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="kgs" title="Pin platform" aria-label="Pin KGS">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png" alt="KGS" class="logo-img" />
         </div>
         <span class="platform-name">KGS</span>
+        <span class="server-count-text" data-server-count="kgs"></span>
       </a>
 
       <a href="#parmar" class="card" data-platform="parmar" data-name="parmar academy ssc toppers 5.0">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="parmar" title="Pin platform" aria-label="Pin Parmar Academy">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png" alt="Parmar Academy" class="logo-img" />
         </div>
         <span class="platform-name">Parmar Academy</span>
+        <span class="server-count-text" data-server-count="parmar"></span>
       </a>
 
       <a href="#sciencemagnet" class="card" data-platform="sciencemagnet" data-name="science magnet">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="sciencemagnet" title="Pin platform" aria-label="Pin Science Magnet">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png" alt="Science Magnet" class="logo-img" />
         </div>
         <span class="platform-name">Science Magnet</span>
+        <span class="server-count-text" data-server-count="sciencemagnet"></span>
       </a>
 
       <a href="#vidyagram" class="card" data-platform="vidyagram" data-name="vidyagram">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="vidyagram" title="Pin platform" aria-label="Pin Vidyagram">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png" alt="Vidyagram" class="logo-img" />
         </div>
         <span class="platform-name">Vidyagram</span>
+        <span class="server-count-text" data-server-count="vidyagram"></span>
       </a>
 
       <a href="#yesofficer" class="card" data-platform="yesofficer" data-name="yes officer">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="yesofficer" title="Pin platform" aria-label="Pin Yes Officer">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png" alt="Yes Officer" class="logo-img" />
         </div>
         <span class="platform-name">Yes Officer</span>
+        <span class="server-count-text" data-server-count="yesofficer"></span>
       </a>
 
       <a href="#missionjeet" class="card" data-platform="missionjeet" data-name="mission jeet mission cheat">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="missionjeet" title="Pin platform" aria-label="Pin Mission Jeet">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png" alt="Mission Jeet" class="logo-img" />
         </div>
         <span class="platform-name">Mission Jeet</span>
+        <span class="server-count-text" data-server-count="missionjeet"></span>
       </a>
 
       <a href="#nexttoppers" class="card" data-platform="nexttoppers" data-name="next toppers next topper">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="nexttoppers" title="Pin platform" aria-label="Pin Next Toppers">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png" alt="Next Toppers" class="logo-img" />
         </div>
         <span class="platform-name">Next Toppers</span>
+        <span class="server-count-text" data-server-count="nexttoppers"></span>
       </a>
 
       <a href="#eduteria" class="card" data-platform="eduteria" data-name="eduteria edu teria">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="eduteria" title="Pin platform" aria-label="Pin Edu Teria">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png" alt="Edu Teria" class="logo-img" />
         </div>
         <span class="platform-name">Edu Teria</span>
+        <span class="server-count-text" data-server-count="eduteria"></span>
       </a>
 
       <a href="#futurekul" class="card" data-platform="futurekul" data-name="futurekul future kul">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="futurekul" title="Pin platform" aria-label="Pin Futurekul">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png" alt="Futurekul" class="logo-img" />
         </div>
         <span class="platform-name">Futurekul</span>
+        <span class="server-count-text" data-server-count="futurekul"></span>
       </a>
 
       <a href="#unacademy" class="card" data-platform="unacademy" data-name="unacademy">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="unacademy" title="Pin platform" aria-label="Pin Unacademy">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png" alt="Unacademy" class="logo-img" />
         </div>
         <span class="platform-name">Unacademy</span>
+        <span class="server-count-text" data-server-count="unacademy"></span>
       </a>
 
       <a href="#careerwill" class="card" data-platform="careerwill" data-name="careerwill career will">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="careerwill" title="Pin platform" aria-label="Pin Careerwill">★</button>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png" alt="Careerwill" class="logo-img" />
         </div>
         <span class="platform-name">Careerwill</span>
+        <span class="server-count-text" data-server-count="careerwill"></span>
       </a>
 
       <a href="#nklibrary" class="card" data-platform="nklibrary" data-name="nk library nk books notes pdf">
+        <span class="recent-badge">RECENT</span>
+        <button type="button" class="pin-btn" data-pin="nklibrary" title="Pin platform" aria-label="Pin NK's Library">★</button>
         <div class="logo-box">
           <span class="library-icon-text" aria-hidden="true">📚</span>
         </div>
         <span class="platform-name">NK's Library</span>
+        <span class="server-count-text" data-library-count></span>
       </a>
     </div>
 
@@ -1410,6 +1530,18 @@
 
     const PLATFORM_SERVERS = loadPlatformServers();
 
+    function refreshServerCounts() {
+      document.querySelectorAll("[data-server-count]").forEach((el) => {
+        const key = el.dataset.serverCount;
+        const count = PLATFORM_SERVERS[key]?.servers?.length || 0;
+        const card = el.closest(".card");
+        el.textContent = `${count} ${count === 1 ? "Server" : "Servers"}`;
+        if (card) {
+          card.classList.toggle("has-servers", count > 0);
+        }
+      });
+    }
+
     function saveCustomServersToStorage() {
       const payload = {};
       Object.keys(PLATFORM_SERVERS).forEach((key) => {
@@ -1418,6 +1550,7 @@
       try {
         localStorage.setItem("nk_custom_servers", JSON.stringify(payload));
       } catch (_) {}
+      refreshServerCounts();
     }
 
     const NK_LIBRARY_ITEMS = [
@@ -1440,6 +1573,15 @@
         url: "#add-notes-link"
       }
     ];
+
+    const libCountEl = document.querySelector("[data-library-count]");
+    if (libCountEl) {
+      const totalBooks = NK_LIBRARY_ITEMS.length;
+      libCountEl.textContent = `${totalBooks} ${totalBooks === 1 ? "Item" : "Items"}`;
+      libCountEl.closest(".card")?.classList.add("has-servers");
+    }
+
+    refreshServerCounts();
 
     // Theme Toggle
     const themeToggle = document.getElementById("themeToggle");
@@ -1509,10 +1651,71 @@
       }
     });
 
-    // RECENT Platform & Last Used State
-    const cards = Array.from(document.querySelectorAll("#platformGrid .card"));
+    // Pin State + RECENT Platform + Last Used State
+    const platformGrid = document.getElementById("platformGrid");
+    const cards = Array.from(platformGrid.querySelectorAll(".card"));
     const quickResume = document.getElementById("quickResume");
     const resumeText = document.getElementById("resumeText");
+
+    function getPinnedPlatforms() {
+      try {
+        const list = JSON.parse(localStorage.getItem("nk_pinned_platforms") || "[]");
+        return Array.isArray(list) ? list : [];
+      } catch (_) {
+        return [];
+      }
+    }
+
+    function setPinnedPlatforms(list) {
+      try {
+        localStorage.setItem("nk_pinned_platforms", JSON.stringify(list));
+      } catch (_) {}
+      applyPinOrderAndState();
+    }
+
+    function togglePinPlatform(platformKey) {
+      if (!platformKey) return;
+      const pinned = getPinnedPlatforms();
+      const idx = pinned.indexOf(platformKey);
+      let msg = "";
+      if (idx > -1) {
+        pinned.splice(idx, 1);
+        msg = "Unpinned";
+      } else {
+        pinned.unshift(platformKey);
+        msg = "Pinned to top ★";
+      }
+      setPinnedPlatforms(pinned);
+      const title = PLATFORM_SERVERS[platformKey]?.title || (platformKey === "nklibrary" ? "NK's Library" : platformKey);
+      showToast(`${title}: ${msg}`);
+    }
+
+    function applyPinOrderAndState() {
+      const pinned = getPinnedPlatforms();
+      const sorted = [...cards].sort((a, b) => {
+        const aKey = a.dataset.platform || "";
+        const bKey = b.dataset.platform || "";
+        const aIdx = pinned.indexOf(aKey);
+        const bIdx = pinned.indexOf(bKey);
+        const aPinned = aIdx !== -1;
+        const bPinned = bIdx !== -1;
+        if (aPinned && bPinned) return aIdx - bIdx;
+        if (aPinned) return -1;
+        if (bPinned) return 1;
+        return 0;
+      });
+
+      sorted.forEach((card) => {
+        const key = card.dataset.platform || "";
+        const isPinned = pinned.includes(key);
+        card.classList.toggle("is-pinned", isPinned);
+        const pinBtn = card.querySelector(".pin-btn");
+        if (pinBtn) {
+          pinBtn.title = isPinned ? "Unpin platform" : "Pin platform";
+        }
+        platformGrid.appendChild(card);
+      });
+    }
 
     function getRecentPlatform() {
       try {
@@ -1882,6 +2085,15 @@
     });
 
     cards.forEach((card) => {
+      const pinBtn = card.querySelector(".pin-btn");
+      if (pinBtn) {
+        pinBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          togglePinPlatform(card.dataset.platform);
+        });
+      }
+
       card.addEventListener("click", (e) => {
         e.preventDefault();
         const key = card.dataset.platform;
@@ -1901,6 +2113,7 @@
     });
 
     // Initial Render
+    applyPinOrderAndState();
     renderRecentBadge();
     renderLastUsed();
   </script>
