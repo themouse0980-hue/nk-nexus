@@ -20,12 +20,10 @@
 
     :root {
       --bg-base: #0b0907;
-      --bg-vignette: radial-gradient(circle at 50% 10%, rgba(245, 183, 0, 0.1), rgba(8, 7, 6, 0.9) 74%);
-      --watermark-opacity: 0.34;
-      --tint-bg: rgba(8, 7, 6, 0.56);
-      --tint-opacity: 1;
-      --particle-color: rgba(245, 183, 0, 0.55);
-      --particle-glow: rgba(245, 183, 0, 0.35);
+      --bg-spotlight:
+        radial-gradient(ellipse 85% 42% at 50% 6%, rgba(245, 183, 0, 0.16), transparent 72%),
+        radial-gradient(circle at 18% 36%, rgba(245, 183, 0, 0.05), transparent 55%),
+        linear-gradient(180deg, #110e0a 0%, #0b0907 52%, #070605 100%);
       --accent: #f5b700;
       --accent-soft: rgba(245, 183, 0, 0.22);
       --accent-border: rgba(245, 183, 0, 0.42);
@@ -33,23 +31,21 @@
       --text-main: #ffffff;
       --text-sub: #d6d0c4;
       --text-muted: #a69f92;
-      --surface-1: rgba(18, 15, 12, 0.78);
-      --surface-2: rgba(24, 20, 16, 0.84);
-      --surface-hover: rgba(34, 28, 20, 0.92);
+      --surface-1: rgba(18, 15, 12, 0.86);
+      --surface-2: rgba(24, 20, 16, 0.92);
+      --surface-hover: rgba(34, 28, 20, 0.96);
       --surface-border: rgba(255, 255, 255, 0.09);
-      --logo-tile-bg: rgba(10, 9, 8, 0.92);
-      --modal-bg: rgba(14, 12, 10, 0.97);
+      --logo-tile-bg: rgba(10, 9, 8, 0.94);
+      --modal-bg: rgba(14, 12, 10, 0.98);
       --text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
     }
 
     body.light-mode {
       --bg-base: #f4f0e6;
-      --bg-vignette: radial-gradient(circle at 50% 10%, rgba(180, 115, 0, 0.12), rgba(244, 240, 230, 0.78) 75%);
-      --watermark-opacity: 0.22;
-      --tint-bg: rgba(252, 249, 242, 0.7);
-      --tint-opacity: 1;
-      --particle-color: rgba(154, 91, 0, 0.38);
-      --particle-glow: rgba(154, 91, 0, 0.2);
+      --bg-spotlight:
+        radial-gradient(ellipse 85% 42% at 50% 6%, rgba(180, 115, 0, 0.16), transparent 72%),
+        radial-gradient(circle at 82% 32%, rgba(180, 115, 0, 0.07), transparent 55%),
+        linear-gradient(180deg, #f8f4ea 0%, #f4f0e6 58%, #ece6d8 100%);
       --accent: #9a5b00;
       --accent-soft: rgba(154, 91, 0, 0.14);
       --accent-border: rgba(154, 91, 0, 0.38);
@@ -57,12 +53,12 @@
       --text-main: #161412;
       --text-sub: #3b352c;
       --text-muted: #665e52;
-      --surface-1: rgba(255, 253, 248, 0.84);
-      --surface-2: rgba(255, 252, 245, 0.92);
-      --surface-hover: rgba(255, 249, 235, 0.98);
+      --surface-1: rgba(255, 253, 248, 0.88);
+      --surface-2: rgba(255, 252, 245, 0.94);
+      --surface-hover: rgba(255, 249, 235, 0.99);
       --surface-border: rgba(22, 20, 18, 0.11);
-      --logo-tile-bg: rgba(255, 255, 255, 0.95);
-      --modal-bg: rgba(255, 252, 245, 0.98);
+      --logo-tile-bg: rgba(255, 255, 255, 0.96);
+      --modal-bg: rgba(255, 252, 245, 0.99);
       --text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
     }
 
@@ -73,77 +69,14 @@
     body {
       min-height: 100vh;
       background-color: var(--bg-base);
-      background-image: var(--bg-vignette);
+      background-image: var(--bg-spotlight);
+      background-attachment: fixed;
       color: var(--text-main);
       padding: calc(44px + env(safe-area-inset-top)) 14px calc(36px + env(safe-area-inset-bottom));
       position: relative;
       overflow-x: hidden;
       overscroll-behavior-y: none;
       transition: background-color 0.25s ease, color 0.25s ease;
-    }
-
-    /* Parallax Watermark + Tint + Cosmic Gold Dust */
-    .bg-watermark {
-      position: fixed;
-      inset: -24px;
-      background-image: url("https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vishwa.png");
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      opacity: var(--watermark-opacity);
-      transform: translate3d(0, var(--parallax-y, 0px), 0);
-      will-change: transform, opacity;
-      pointer-events: none;
-      z-index: 0;
-      transition: opacity 0.25s ease;
-    }
-
-    .light-tint {
-      position: fixed;
-      inset: 0;
-      background: var(--tint-bg);
-      opacity: var(--tint-opacity);
-      pointer-events: none;
-      z-index: 1;
-      transition: background 0.25s ease, opacity 0.25s ease;
-    }
-
-    .cosmic-dust {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .dust-dot {
-      position: absolute;
-      bottom: -12px;
-      left: var(--x, 50%);
-      width: var(--size, 3px);
-      height: var(--size, 3px);
-      border-radius: 50%;
-      background: var(--particle-color);
-      box-shadow: 0 0 8px var(--particle-glow);
-      opacity: 0;
-      animation: floatDust var(--dur, 14s) linear var(--delay, 0s) infinite;
-    }
-
-    @keyframes floatDust {
-      0% {
-        transform: translate3d(0, 0, 0) scale(0.8);
-        opacity: 0;
-      }
-      15% {
-        opacity: var(--max-o, 0.7);
-      }
-      85% {
-        opacity: var(--max-o, 0.7);
-      }
-      100% {
-        transform: translate3d(var(--drift, 14px), -108vh, 0) scale(1.1);
-        opacity: 0;
-      }
     }
 
     .theme-toggle {
@@ -1094,23 +1027,9 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      .dust-dot {
-        animation: none;
-        display: none;
-      }
-      .bg-watermark {
-        transform: none;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="bg-watermark" id="bgWatermark"></div>
-  <div class="light-tint"></div>
-  <div class="cosmic-dust" id="cosmicDust" aria-hidden="true"></div>
-
   <button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch Dark or Light mode">
     <span id="themeIcon" class="theme-icon">☀️</span>
     <span id="themeLabel">Light</span>
@@ -1436,46 +1355,6 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
-    // Cosmic Gold Dust + Parallax Background
-    (function initCosmicBackground() {
-      const dustWrap = document.getElementById("cosmicDust");
-      const watermark = document.getElementById("bgWatermark");
-      if (dustWrap) {
-        const count = 22;
-        for (let i = 0; i < count; i++) {
-          const dot = document.createElement("span");
-          dot.className = "dust-dot";
-          const x = ((i * 37) % 96) + 2;
-          const size = (i % 3 === 0) ? 4 : (i % 2 === 0 ? 3 : 2);
-          const dur = 12 + (i % 7) * 2.4;
-          const delay = -((i * 1.9) % dur);
-          const drift = ((i % 2 === 0 ? 1 : -1) * (8 + (i % 5) * 4));
-          const maxO = (0.35 + (i % 4) * 0.12).toFixed(2);
-          dot.style.setProperty("--x", `${x}%`);
-          dot.style.setProperty("--size", `${size}px`);
-          dot.style.setProperty("--dur", `${dur}s`);
-          dot.style.setProperty("--delay", `${delay}s`);
-          dot.style.setProperty("--drift", `${drift}px`);
-          dot.style.setProperty("--max-o", maxO);
-          dustWrap.appendChild(dot);
-        }
-      }
-
-      if (watermark) {
-        let ticking = false;
-        window.addEventListener("scroll", () => {
-          if (!ticking) {
-            window.requestAnimationFrame(() => {
-              const offset = Math.min(24, Math.max(-24, window.scrollY * -0.06));
-              watermark.style.setProperty("--parallax-y", `${offset.toFixed(1)}px`);
-              ticking = false;
-            });
-            ticking = true;
-          }
-        }, { passive: true });
-      }
-    })();
-
     const DEFAULT_PLATFORM_SERVERS = {
       nexttoppers: {
         title: "𝐍𝐄𝐗𝐓 𝐓𝐎𝐏𝐏𝐄𝐑𝐒",
