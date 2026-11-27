@@ -23,24 +23,24 @@
       --watermark-opacity: 0.92;
       --light-overlay-opacity: 0;
       --accent: #f5b700;
-      --accent-glow: rgba(245, 183, 0, 0.3);
+      --accent-glow: rgba(245, 183, 0, 0.25);
       --text-main: #ffffff;
       --text-sub: #ffffff;
-      --box-bg: rgba(15, 15, 15, 0.74);
-      --badge-bg: rgba(15, 15, 15, 0.84);
-      --input-bg: rgba(15, 15, 15, 0.74);
-      --input-focus-bg: rgba(15, 15, 15, 0.9);
-      --footer-bg: rgba(15, 15, 15, 0.76);
+      --box-bg: rgba(15, 15, 15, 0.76);
+      --badge-bg: rgba(15, 15, 15, 0.85);
+      --input-bg: rgba(15, 15, 15, 0.78);
+      --input-focus-bg: rgba(15, 15, 15, 0.92);
+      --footer-bg: rgba(15, 15, 15, 0.78);
       --footer-text: rgba(255, 255, 255, 0.92);
-      --text-shadow-strong: 0 2px 8px rgba(0, 0, 0, 0.96), 0 0 7px rgba(0, 0, 0, 0.92);
-      --toggle-bg: rgba(34, 24, 62, 0.9);
+      --text-shadow-strong: 0 2px 8px rgba(0, 0, 0, 0.95);
+      --toggle-bg: rgba(25, 25, 30, 0.9);
       --toggle-text: #ffffff;
       --toggle-border: rgba(255, 255, 255, 0.22);
-      --modal-bg: rgba(18, 18, 22, 0.96);
-      --server-item-bg: rgba(255, 255, 255, 0.08);
-      --server-item-hover: rgba(245, 183, 0, 0.22);
-      --resume-bg: rgba(20, 20, 20, 0.84);
-      --share-bg: rgba(20, 20, 20, 0.85);
+      --modal-bg: rgba(18, 18, 22, 0.97);
+      --server-item-bg: rgba(255, 255, 255, 0.07);
+      --server-item-hover: rgba(245, 183, 0, 0.18);
+      --resume-bg: rgba(20, 20, 20, 0.86);
+      --share-bg: rgba(20, 20, 20, 0.86);
     }
 
     body.light-mode {
@@ -48,24 +48,24 @@
       --watermark-opacity: 0.92;
       --light-overlay-opacity: 0.34;
       --accent: #9a5b00;
-      --accent-glow: rgba(154, 91, 0, 0.24);
+      --accent-glow: rgba(154, 91, 0, 0.2);
       --text-main: #141414;
       --text-sub: #1c1c1c;
-      --box-bg: rgba(255, 255, 255, 0.78);
-      --badge-bg: rgba(255, 255, 255, 0.86);
-      --input-bg: rgba(255, 255, 255, 0.82);
-      --input-focus-bg: rgba(255, 255, 255, 0.95);
-      --footer-bg: rgba(255, 255, 255, 0.84);
+      --box-bg: rgba(255, 255, 255, 0.8);
+      --badge-bg: rgba(255, 255, 255, 0.88);
+      --input-bg: rgba(255, 255, 255, 0.84);
+      --input-focus-bg: rgba(255, 255, 255, 0.96);
+      --footer-bg: rgba(255, 255, 255, 0.86);
       --footer-text: #1c1c1c;
-      --text-shadow-strong: 0 1px 6px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.9);
-      --toggle-bg: rgba(238, 234, 246, 0.94);
+      --text-shadow-strong: 0 1px 6px rgba(255, 255, 255, 0.95);
+      --toggle-bg: rgba(242, 240, 246, 0.94);
       --toggle-text: #1e1b2e;
       --toggle-border: rgba(30, 27, 46, 0.16);
       --modal-bg: rgba(255, 253, 248, 0.98);
-      --server-item-bg: rgba(0, 0, 0, 0.06);
-      --server-item-hover: rgba(154, 91, 0, 0.16);
-      --resume-bg: rgba(255, 255, 255, 0.86);
-      --share-bg: rgba(255, 255, 255, 0.88);
+      --server-item-bg: rgba(0, 0, 0, 0.05);
+      --server-item-hover: rgba(154, 91, 0, 0.14);
+      --resume-bg: rgba(255, 255, 255, 0.88);
+      --share-bg: rgba(255, 255, 255, 0.9);
     }
 
     html {
@@ -124,7 +124,7 @@
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       touch-action: manipulation;
       transition: transform 0.16s ease, background 0.2s ease, color 0.2s ease;
     }
@@ -161,7 +161,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 14px var(--accent-glow);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
     }
 
     .nk-badge img {
@@ -172,7 +172,7 @@
     }
 
     .header h1 {
-      font-size: 22px;
+      font-size: 21px;
       color: var(--accent);
       margin-bottom: 4px;
       text-shadow: var(--text-shadow-strong);
@@ -180,7 +180,7 @@
 
     .header p {
       font-size: 11px;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
       color: var(--text-sub);
       text-transform: uppercase;
       font-weight: 600;
@@ -190,17 +190,16 @@
     .focus-chip {
       display: inline-block;
       margin-top: 7px;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 999px;
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.4px;
       color: var(--text-main);
       background: var(--badge-bg);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(245, 183, 0, 0.45);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(245, 183, 0, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .action-row {
@@ -216,28 +215,26 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 10px 18px;
+      gap: 7px;
+      padding: 9px 17px;
       border-radius: 999px;
       text-decoration: none;
       font-size: 13px;
       font-weight: 700;
       color: #ffffff;
-      background: rgba(24, 119, 242, 0.92);
-      border: 1.5px solid rgba(255, 255, 255, 0.35);
-      box-shadow: 0 4px 16px rgba(24, 119, 242, 0.35);
-      transition: transform 0.18s ease, background 0.18s ease;
+      background: #1877f2;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 3px 12px rgba(24, 119, 242, 0.3);
+      transition: transform 0.16s ease;
     }
 
-    .telegram-btn:hover,
     .telegram-btn:active {
-      transform: scale(0.97);
-      background: rgba(24, 119, 242, 1);
+      transform: scale(0.96);
     }
 
     .telegram-icon {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       fill: currentColor;
       flex-shrink: 0;
     }
@@ -247,23 +244,23 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 10px 15px;
+      padding: 9px 16px;
       border-radius: 999px;
       background: var(--share-bg);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       color: var(--text-main);
-      border: 1.5px solid var(--accent);
+      border: 1px solid var(--accent);
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 8px var(--accent-glow);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
       touch-action: manipulation;
-      transition: transform 0.16s ease, background 0.16s ease;
+      transition: transform 0.16s ease;
     }
 
     .share-btn:active {
-      transform: scale(0.95);
+      transform: scale(0.96);
     }
 
     .search-wrap {
@@ -282,7 +279,7 @@
       color: var(--text-main);
       font-size: 14px;
       outline: none;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 10px var(--accent-glow);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
 
@@ -329,7 +326,7 @@
       -webkit-backdrop-filter: blur(10px);
       border: 1.5px solid var(--accent);
       color: var(--text-main);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 8px var(--accent-glow);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       touch-action: manipulation;
       transition: transform 0.16s ease;
     }
@@ -447,24 +444,8 @@
       justify-content: center;
       padding: 6px;
       overflow: visible;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45), 0 0 10px var(--accent-glow);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
       position: relative;
-      transition: box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .card.has-live .logo-box,
-    .card.is-recent .logo-box {
-      border-width: 2px;
-      animation: spotlightPulse 2.4s infinite ease-in-out;
-    }
-
-    @keyframes spotlightPulse {
-      0%, 100% {
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.48), 0 0 12px var(--accent-glow);
-      }
-      50% {
-        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.52), 0 0 20px var(--accent-glow);
-      }
     }
 
     .logo-img {
@@ -583,19 +564,7 @@
       border: 1.5px solid var(--accent);
       border-radius: 20px;
       padding: 18px 16px 16px;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 0 0 18px var(--accent-glow);
-      animation: popIn 0.18s ease;
-    }
-
-    @keyframes popIn {
-      from {
-        opacity: 0;
-        transform: scale(0.94);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65);
     }
 
     .modal-header {
@@ -674,13 +643,6 @@
       color: #111111;
       font-size: 13px;
       font-weight: 800;
-      box-shadow: 0 4px 14px var(--accent-glow);
-      transition: transform 0.16s ease, filter 0.16s ease;
-    }
-
-    .quick-start-btn:active {
-      transform: scale(0.98);
-      filter: brightness(0.95);
     }
 
     .quick-start-sub {
@@ -714,12 +676,6 @@
       border: 1px solid rgba(245, 183, 0, 0.35);
       color: var(--text-main);
       min-width: 0;
-      transition: background 0.16s ease, transform 0.16s ease, border-color 0.16s ease;
-    }
-
-    .server-link.last-server {
-      border-color: var(--accent);
-      background: var(--server-item-hover);
     }
 
     .server-link:hover,
@@ -733,13 +689,6 @@
       flex-direction: column;
       gap: 2px;
       min-width: 0;
-    }
-
-    .server-name-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
     }
 
     .server-name {
@@ -777,12 +726,6 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      transition: background 0.15s ease, transform 0.15s ease;
-    }
-
-    .delete-srv-btn:active {
-      transform: scale(0.94);
-      background: rgba(239, 68, 68, 0.28);
     }
 
     .empty-servers {
@@ -847,9 +790,9 @@
       <div class="nk-badge">
         <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nk-logo.png" alt="NK Pathshala" />
       </div>
-      <h1>NK Pathshala</h1>
-      <p>Your Personal Self-Study Hub</p>
-      <div class="focus-chip">Chrome Direct • Study Desk</div>
+      <h1>Welcome to NK Pathshala</h1>
+      <p>EDUCATION MUST BE FREE FOR EVERYONE</p>
+      <div class="focus-chip">NK Pathshala Self Study Desk • Free Access</div>
     </div>
 
     <div class="action-row">
@@ -859,7 +802,7 @@
         </svg>
         <span>Telegram</span>
       </a>
-      <button type="button" class="share-btn" id="shareBtn">🔗 Share Hub</button>
+      <button type="button" class="share-btn" id="shareBtn">🔗 Share</button>
     </div>
 
     <div class="search-wrap">
@@ -879,7 +822,7 @@
     <div class="no-result" id="noResult">Koi matching batch/platform nahi mila.</div>
 
     <div class="footer-note">
-      <p><strong>NK Pathshala</strong> • Personal Self-Study Portal. Links open directly in browser.</p>
+      <p><strong>NK Pathshala</strong> • EDUCATION MUST BE FREE FOR EVERYONE.</p>
     </div>
   </div>
 
@@ -889,7 +832,7 @@
         <div class="modal-title-wrap">
           <div class="modal-logo" id="modalLogoWrap">📚</div>
           <div>
-            <div class="modal-brand-tag" id="modalTag">NK PATHSHALA DESK</div>
+            <div class="modal-brand-tag">NK PATHSHALA DESK</div>
             <div class="modal-title" id="modalTitle">Platform</div>
             <div class="modal-subtitle" id="modalSubtitle">Select a server</div>
           </div>
@@ -905,8 +848,8 @@
       <div class="server-list" id="serverList"></div>
 
       <div class="manage-box">
-        <div class="manage-title">+ Add Server to this Platform</div>
-        <input type="text" id="newSrvName" class="manage-input" placeholder="Server name (e.g. Parmar Toppers)" />
+        <div class="manage-title">+ Add Server</div>
+        <input type="text" id="newSrvName" class="manage-input" placeholder="Server name" />
         <input type="url" id="newSrvUrl" class="manage-input" placeholder="https://..." />
         <button type="button" id="addSrvBtn" class="add-srv-btn">Add Server</button>
       </div>
@@ -925,7 +868,7 @@
           { name: "Parmar Academy All Batches", url: "https://parmartoppers.edgeone.dev/", tag: "Batch Hub" },
           { name: "Parmar 4.0 Batch", url: "https://parmartoppers.edgeone.dev/", tag: "GS 4.0 Server" },
           { name: "Parmar 5.0 GK", url: "https://parmartoppers.edgeone.dev/", tag: "GS 5.0 Server" },
-          { name: "Parmar Toppers", url: "https://parmartoppers.edgeone.dev/", tag: "New Server • EdgeOne" }
+          { name: "Parmar Toppers", url: "https://parmartoppers.edgeone.dev/", tag: "New Server" }
         ]
       },
       {
@@ -1144,7 +1087,7 @@
 
       serverList.innerHTML = "";
       if (!p.servers || p.servers.length === 0) {
-        serverList.innerHTML = `<div class="empty-servers">Is platform mein abhi koi server nahi hai. Neeche se add karein.</div>`;
+        serverList.innerHTML = `<div class="empty-servers">Is platform mein abhi koi server nahi hai.</div>`;
       } else {
         p.servers.forEach((srv, idx) => {
           const row = document.createElement("div");
@@ -1152,9 +1095,7 @@
           row.innerHTML = `
             <a href="${srv.url}" target="_blank" rel="noopener noreferrer" class="server-link">
               <div class="server-left">
-                <div class="server-name-row">
-                  <span class="server-name">${srv.name}</span>
-                </div>
+                <span class="server-name">${srv.name}</span>
                 <span class="server-tag">${srv.tag || srv.url}</span>
               </div>
               <span class="server-arrow">Open →</span>
@@ -1183,7 +1124,7 @@
       if (!name || !url || !currentPlatformId) return;
       const p = platforms.find((item) => item.id === currentPlatformId);
       if (!p) return;
-      p.servers.push({ name, url, tag: "Chrome Direct" });
+      p.servers.push({ name, url, tag: "Server" });
       savePlatforms();
       newSrvName.value = "";
       newSrvUrl.value = "";
@@ -1208,7 +1149,7 @@
     });
 
     document.getElementById("shareBtn").addEventListener("click", async () => {
-      const shareData = { title: "NK Pathshala", text: "NK Pathshala Self-Study Hub", url: window.location.href };
+      const shareData = { title: "NK Pathshala", text: "Welcome to NK Pathshala", url: window.location.href };
       if (navigator.share) {
         try { await navigator.share(shareData); } catch (_) {}
       } else {
