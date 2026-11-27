@@ -19,21 +19,20 @@
     }
 
     :root {
-      --bg-base: #0b0907;
+      --bg-base: #090807;
       --bg-spotlight:
-        radial-gradient(ellipse 85% 42% at 50% 6%, rgba(245, 183, 0, 0.16), transparent 72%),
-        radial-gradient(circle at 18% 36%, rgba(245, 183, 0, 0.05), transparent 55%),
-        linear-gradient(180deg, #110e0a 0%, #0b0907 52%, #070605 100%);
+        radial-gradient(ellipse 85% 42% at 50% 10%, rgba(245, 183, 0, 0.14), transparent 72%),
+        linear-gradient(180deg, #0e0c09 0%, #080706 55%, #050504 100%);
       --accent: #f5b700;
       --accent-soft: rgba(245, 183, 0, 0.22);
       --accent-border: rgba(245, 183, 0, 0.42);
-      --accent-glow: rgba(245, 183, 0, 0.16);
+      --accent-glow: rgba(245, 183, 0, 0.18);
       --text-main: #ffffff;
       --text-sub: #d6d0c4;
       --text-muted: #a69f92;
-      --surface-1: rgba(18, 15, 12, 0.86);
-      --surface-2: rgba(24, 20, 16, 0.92);
-      --surface-hover: rgba(34, 28, 20, 0.96);
+      --surface-1: rgba(18, 15, 12, 0.78);
+      --surface-2: rgba(24, 20, 16, 0.86);
+      --surface-hover: rgba(34, 28, 20, 0.94);
       --surface-border: rgba(255, 255, 255, 0.09);
       --logo-tile-bg: rgba(10, 9, 8, 0.94);
       --modal-bg: rgba(14, 12, 10, 0.98);
@@ -43,8 +42,7 @@
     body.light-mode {
       --bg-base: #f4f0e6;
       --bg-spotlight:
-        radial-gradient(ellipse 85% 42% at 50% 6%, rgba(180, 115, 0, 0.16), transparent 72%),
-        radial-gradient(circle at 82% 32%, rgba(180, 115, 0, 0.07), transparent 55%),
+        radial-gradient(ellipse 85% 42% at 50% 10%, rgba(180, 115, 0, 0.14), transparent 72%),
         linear-gradient(180deg, #f8f4ea 0%, #f4f0e6 58%, #ece6d8 100%);
       --accent: #9a5b00;
       --accent-soft: rgba(154, 91, 0, 0.14);
@@ -53,9 +51,9 @@
       --text-main: #161412;
       --text-sub: #3b352c;
       --text-muted: #665e52;
-      --surface-1: rgba(255, 253, 248, 0.88);
-      --surface-2: rgba(255, 252, 245, 0.94);
-      --surface-hover: rgba(255, 249, 235, 0.99);
+      --surface-1: rgba(255, 253, 248, 0.82);
+      --surface-2: rgba(255, 252, 245, 0.9);
+      --surface-hover: rgba(255, 249, 235, 0.98);
       --surface-border: rgba(22, 20, 18, 0.11);
       --logo-tile-bg: rgba(255, 255, 255, 0.96);
       --modal-bg: rgba(255, 252, 245, 0.99);
@@ -77,6 +75,15 @@
       overflow-x: hidden;
       overscroll-behavior-y: none;
       transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .solar-bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .theme-toggle {
@@ -139,7 +146,18 @@
       justify-content: center;
       padding: 4px;
       overflow: hidden;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 22px var(--accent-glow);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 24px var(--accent-glow);
+      animation: nkFloatY 3.4s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes nkFloatY {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-7px);
+      }
     }
 
     .nk-badge img {
@@ -1027,9 +1045,17 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nk-badge {
+        animation: none;
+      }
+    }
   </style>
 </head>
 <body>
+  <canvas id="solarBgCanvas" class="solar-bg-canvas" aria-hidden="true"></canvas>
+
   <button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch Dark or Light mode">
     <span id="themeIcon" class="theme-icon">☀️</span>
     <span id="themeLabel">Light</span>
@@ -1355,6 +1381,132 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
+    // Sun & Orbiting Planets Background Canvas (3rd Image Style)
+    (function initSolarOrbitBackground() {
+      const canvas = document.getElementById("solarBgCanvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      let width = 0;
+      let height = 0;
+      let dpr = 1;
+
+      function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      resize();
+      window.addEventListener("resize", resize, { passive: true });
+
+      const orbits = [
+        { rxRatio: 0.24, ryRatio: 0.085, tilt: -0.22, speed: 0.00048, angle: 0.4, planetRadius: 4.5, color: "#60a5fa", glow: "rgba(96, 165, 250, 0.45)" },
+        { rxRatio: 0.38, ryRatio: 0.135, tilt: -0.18, speed: -0.00032, angle: 2.1, planetRadius: 6.5, color: "#fbbf24", glow: "rgba(251, 191, 36, 0.45)" },
+        { rxRatio: 0.52, ryRatio: 0.19, tilt: -0.25, speed: 0.00022, angle: 4.3, planetRadius: 5.2, color: "#f97316", glow: "rgba(249, 115, 22, 0.42)" },
+        { rxRatio: 0.67, ryRatio: 0.245, tilt: -0.15, speed: -0.00016, angle: 1.2, planetRadius: 7.5, color: "#d6b88c", glow: "rgba(214, 184, 140, 0.35)" }
+      ];
+
+      function drawFrame(now) {
+        ctx.clearRect(0, 0, width, height);
+
+        const isLight = document.body.classList.contains("light-mode");
+        const sunX = width * 0.5;
+        const sunY = height * 0.46;
+        const baseRadius = Math.min(width, height);
+
+        // Soft Sun Glow
+        const sunGlow = ctx.createRadialGradient(
+          sunX, sunY, 4,
+          sunX, sunY, Math.max(95, baseRadius * 0.24)
+        );
+        if (isLight) {
+          sunGlow.addColorStop(0, "rgba(217, 130, 0, 0.55)");
+          sunGlow.addColorStop(0.32, "rgba(245, 183, 0, 0.22)");
+          sunGlow.addColorStop(1, "rgba(245, 183, 0, 0)");
+        } else {
+          sunGlow.addColorStop(0, "rgba(255, 214, 102, 0.72)");
+          sunGlow.addColorStop(0.28, "rgba(245, 183, 0, 0.26)");
+          sunGlow.addColorStop(1, "rgba(245, 183, 0, 0)");
+        }
+        ctx.fillStyle = sunGlow;
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, Math.max(95, baseRadius * 0.24), 0, Math.PI * 2);
+        ctx.fill();
+
+        // Sun Core
+        const sunCoreR = Math.max(14, Math.min(26, baseRadius * 0.045));
+        const sunCore = ctx.createRadialGradient(
+          sunX - sunCoreR * 0.28, sunY - sunCoreR * 0.28, 1,
+          sunX, sunY, sunCoreR
+        );
+        sunCore.addColorStop(0, "#fff7d6");
+        sunCore.addColorStop(0.55, "#f5b700");
+        sunCore.addColorStop(1, "#b45309");
+        ctx.fillStyle = sunCore;
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunCoreR, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Orbits & Rotating Planets
+        orbits.forEach((orb, idx) => {
+          const rx = Math.max(70, width * orb.rxRatio);
+          const ry = Math.max(28, height * orb.ryRatio);
+          const theta = reducedMotion ? orb.angle : orb.angle + now * orb.speed;
+
+          ctx.save();
+          ctx.translate(sunX, sunY);
+          ctx.rotate(orb.tilt);
+
+          // Orbit Path
+          ctx.strokeStyle = isLight
+            ? "rgba(120, 82, 20, 0.16)"
+            : "rgba(245, 215, 150, 0.14)";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2);
+          ctx.stroke();
+
+          // Planet Position
+          const px = Math.cos(theta) * rx;
+          const py = Math.sin(theta) * ry;
+          const depthScale = 0.82 + 0.25 * ((Math.sin(theta) + 1) * 0.5);
+          const pr = orb.planetRadius * depthScale;
+
+          ctx.shadowColor = orb.glow;
+          ctx.shadowBlur = 10;
+          ctx.fillStyle = orb.color;
+          ctx.beginPath();
+          ctx.arc(px, py, pr, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Subtle ring on outer planet
+          if (idx === 3) {
+            ctx.shadowBlur = 0;
+            ctx.strokeStyle = isLight ? "rgba(120, 82, 20, 0.42)" : "rgba(255, 232, 185, 0.45)";
+            ctx.lineWidth = 1.2;
+            ctx.beginPath();
+            ctx.ellipse(px, py, pr * 1.75, pr * 0.52, -0.35, 0, Math.PI * 2);
+            ctx.stroke();
+          }
+
+          ctx.restore();
+        });
+
+        if (!reducedMotion) {
+          window.requestAnimationFrame(drawFrame);
+        }
+      }
+
+      window.requestAnimationFrame(drawFrame);
+    })();
+
     const DEFAULT_PLATFORM_SERVERS = {
       nexttoppers: {
         title: "𝐍𝐄𝐗𝐓 𝐓𝐎𝐏𝐏𝐄𝐑𝐒",
