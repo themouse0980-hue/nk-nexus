@@ -23,24 +23,24 @@
       --watermark-opacity: 0.92;
       --light-overlay-opacity: 0;
       --accent: #f5b700;
-      --accent-glow: rgba(245, 183, 0, 0.25);
+      --accent-glow: rgba(245, 183, 0, 0.3);
       --text-main: #ffffff;
       --text-sub: #ffffff;
-      --box-bg: rgba(15, 15, 15, 0.76);
-      --badge-bg: rgba(15, 15, 15, 0.85);
-      --input-bg: rgba(15, 15, 15, 0.78);
-      --input-focus-bg: rgba(15, 15, 15, 0.92);
-      --footer-bg: rgba(15, 15, 15, 0.78);
+      --box-bg: rgba(15, 15, 15, 0.74);
+      --badge-bg: rgba(15, 15, 15, 0.84);
+      --input-bg: rgba(15, 15, 15, 0.74);
+      --input-focus-bg: rgba(15, 15, 15, 0.9);
+      --footer-bg: rgba(15, 15, 15, 0.76);
       --footer-text: rgba(255, 255, 255, 0.92);
-      --text-shadow-strong: 0 2px 8px rgba(0, 0, 0, 0.95);
-      --toggle-bg: rgba(25, 25, 30, 0.9);
+      --text-shadow-strong: 0 2px 8px rgba(0, 0, 0, 0.96), 0 0 7px rgba(0, 0, 0, 0.92);
+      --toggle-bg: rgba(34, 24, 62, 0.9);
       --toggle-text: #ffffff;
       --toggle-border: rgba(255, 255, 255, 0.22);
-      --modal-bg: rgba(18, 18, 22, 0.97);
-      --server-item-bg: rgba(255, 255, 255, 0.07);
-      --server-item-hover: rgba(245, 183, 0, 0.18);
-      --resume-bg: rgba(20, 20, 20, 0.86);
-      --share-bg: rgba(20, 20, 20, 0.86);
+      --modal-bg: rgba(18, 18, 22, 0.96);
+      --server-item-bg: rgba(255, 255, 255, 0.08);
+      --server-item-hover: rgba(245, 183, 0, 0.22);
+      --resume-bg: rgba(20, 20, 20, 0.84);
+      --share-bg: rgba(20, 20, 20, 0.85);
     }
 
     body.light-mode {
@@ -48,24 +48,24 @@
       --watermark-opacity: 0.92;
       --light-overlay-opacity: 0.34;
       --accent: #9a5b00;
-      --accent-glow: rgba(154, 91, 0, 0.2);
+      --accent-glow: rgba(154, 91, 0, 0.24);
       --text-main: #141414;
       --text-sub: #1c1c1c;
-      --box-bg: rgba(255, 255, 255, 0.8);
-      --badge-bg: rgba(255, 255, 255, 0.88);
-      --input-bg: rgba(255, 255, 255, 0.84);
-      --input-focus-bg: rgba(255, 255, 255, 0.96);
-      --footer-bg: rgba(255, 255, 255, 0.86);
+      --box-bg: rgba(255, 255, 255, 0.78);
+      --badge-bg: rgba(255, 255, 255, 0.86);
+      --input-bg: rgba(255, 255, 255, 0.82);
+      --input-focus-bg: rgba(255, 255, 255, 0.95);
+      --footer-bg: rgba(255, 255, 255, 0.84);
       --footer-text: #1c1c1c;
-      --text-shadow-strong: 0 1px 6px rgba(255, 255, 255, 0.95);
-      --toggle-bg: rgba(242, 240, 246, 0.94);
+      --text-shadow-strong: 0 1px 6px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.9);
+      --toggle-bg: rgba(238, 234, 246, 0.94);
       --toggle-text: #1e1b2e;
       --toggle-border: rgba(30, 27, 46, 0.16);
       --modal-bg: rgba(255, 253, 248, 0.98);
-      --server-item-bg: rgba(0, 0, 0, 0.05);
-      --server-item-hover: rgba(154, 91, 0, 0.14);
-      --resume-bg: rgba(255, 255, 255, 0.88);
-      --share-bg: rgba(255, 255, 255, 0.9);
+      --server-item-bg: rgba(0, 0, 0, 0.06);
+      --server-item-hover: rgba(154, 91, 0, 0.16);
+      --resume-bg: rgba(255, 255, 255, 0.86);
+      --share-bg: rgba(255, 255, 255, 0.88);
     }
 
     html {
@@ -83,6 +83,7 @@
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
+    /* Peeche background wallpaper */
     .bg-watermark {
       position: fixed;
       inset: 0;
@@ -96,6 +97,7 @@
       transition: opacity 0.25s ease;
     }
 
+    /* Light mode mein halki bright parat */
     .light-tint {
       position: fixed;
       inset: 0;
@@ -106,6 +108,7 @@
       transition: opacity 0.25s ease;
     }
 
+    /* Upar dayein kone mein Light / Dark toggle button */
     .theme-toggle {
       position: fixed;
       top: calc(12px + env(safe-area-inset-top));
@@ -124,7 +127,7 @@
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
       touch-action: manipulation;
       transition: transform 0.16s ease, background 0.2s ease, color 0.2s ease;
     }
@@ -161,7 +164,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 14px var(--accent-glow);
     }
 
     .nk-badge img {
@@ -172,7 +175,7 @@
     }
 
     .header h1 {
-      font-size: 21px;
+      font-size: 22px;
       color: var(--accent);
       margin-bottom: 4px;
       text-shadow: var(--text-shadow-strong);
@@ -180,7 +183,7 @@
 
     .header p {
       font-size: 11px;
-      letter-spacing: 0.8px;
+      letter-spacing: 1px;
       color: var(--text-sub);
       text-transform: uppercase;
       font-weight: 600;
@@ -190,18 +193,20 @@
     .focus-chip {
       display: inline-block;
       margin-top: 7px;
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 999px;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
+      letter-spacing: 0.4px;
       color: var(--text-main);
       background: var(--badge-bg);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(245, 183, 0, 0.4);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(245, 183, 0, 0.45);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
     }
 
+    /* Telegram + Share Action Row */
     .action-row {
       display: flex;
       justify-content: center;
@@ -215,26 +220,28 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
-      padding: 9px 17px;
+      gap: 8px;
+      padding: 10px 18px;
       border-radius: 999px;
       text-decoration: none;
       font-size: 13px;
       font-weight: 700;
       color: #ffffff;
-      background: #1877f2;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 3px 12px rgba(24, 119, 242, 0.3);
-      transition: transform 0.16s ease;
+      background: rgba(24, 119, 242, 0.92);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 16px rgba(24, 119, 242, 0.35);
+      transition: transform 0.18s ease, background 0.18s ease;
     }
 
+    .telegram-btn:hover,
     .telegram-btn:active {
-      transform: scale(0.96);
+      transform: scale(0.97);
+      background: rgba(24, 119, 242, 1);
     }
 
     .telegram-icon {
-      width: 15px;
-      height: 15px;
+      width: 16px;
+      height: 16px;
       fill: currentColor;
       flex-shrink: 0;
     }
@@ -244,25 +251,26 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 9px 16px;
+      padding: 10px 15px;
       border-radius: 999px;
       background: var(--share-bg);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       color: var(--text-main);
-      border: 1px solid var(--accent);
+      border: 1.5px solid var(--accent);
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 8px var(--accent-glow);
       touch-action: manipulation;
-      transition: transform 0.16s ease;
+      transition: transform 0.16s ease, background 0.16s ease;
     }
 
     .share-btn:active {
-      transform: scale(0.96);
+      transform: scale(0.95);
     }
 
+    /* Glass search bar */
     .search-wrap {
       margin-bottom: 12px;
       position: relative;
@@ -279,7 +287,7 @@
       color: var(--text-main);
       font-size: 14px;
       outline: none;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 10px var(--accent-glow);
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
 
@@ -311,6 +319,7 @@
       display: block;
     }
 
+    /* Quick Resume bar */
     .quick-resume {
       display: none;
       align-items: center;
@@ -326,7 +335,7 @@
       -webkit-backdrop-filter: blur(10px);
       border: 1.5px solid var(--accent);
       color: var(--text-main);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 8px var(--accent-glow);
       touch-action: manipulation;
       transition: transform 0.16s ease;
     }
@@ -409,6 +418,7 @@
       display: none;
     }
 
+    /* Top-right RECENT badge */
     .recent-badge {
       display: none;
       position: absolute;
@@ -444,8 +454,24 @@
       justify-content: center;
       padding: 6px;
       overflow: visible;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45), 0 0 10px var(--accent-glow);
       position: relative;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card.has-live .logo-box,
+    .card.is-recent .logo-box {
+      border-width: 2px;
+      animation: spotlightPulse 2.4s infinite ease-in-out;
+    }
+
+    @keyframes spotlightPulse {
+      0%, 100% {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.48), 0 0 12px var(--accent-glow);
+      }
+      50% {
+        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.52), 0 0 20px var(--accent-glow);
+      }
     }
 
     .logo-img {
@@ -515,6 +541,7 @@
       display: block;
     }
 
+    /* Neeche clean Glass Disclaimer */
     .footer-note {
       margin-top: 28px;
       padding: 12px 14px;
@@ -536,6 +563,7 @@
       color: var(--accent);
     }
 
+    /* NK Pathshala Class / Server Desk & Library Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -564,7 +592,19 @@
       border: 1.5px solid var(--accent);
       border-radius: 20px;
       padding: 18px 16px 16px;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 0 0 18px var(--accent-glow);
+      animation: popIn 0.18s ease;
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.94);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     .modal-header {
@@ -643,6 +683,13 @@
       color: #111111;
       font-size: 13px;
       font-weight: 800;
+      box-shadow: 0 4px 14px var(--accent-glow);
+      transition: transform 0.16s ease, filter 0.16s ease;
+    }
+
+    .quick-start-btn:active {
+      transform: scale(0.98);
+      filter: brightness(0.95);
     }
 
     .quick-start-sub {
@@ -676,6 +723,12 @@
       border: 1px solid rgba(245, 183, 0, 0.35);
       color: var(--text-main);
       min-width: 0;
+      transition: background 0.16s ease, transform 0.16s ease, border-color 0.16s ease;
+    }
+
+    .server-link.last-server {
+      border-color: var(--accent);
+      background: var(--server-item-hover);
     }
 
     .server-link:hover,
@@ -691,10 +744,27 @@
       min-width: 0;
     }
 
+    .server-name-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
     .server-name {
       font-size: 13.5px;
       font-weight: 700;
       color: var(--text-main);
+    }
+
+    .server-used-pill {
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #111111;
+      white-space: nowrap;
     }
 
     .server-tag {
@@ -726,6 +796,12 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .delete-srv-btn:active {
+      transform: scale(0.94);
+      background: rgba(239, 68, 68, 0.28);
     }
 
     .empty-servers {
@@ -737,42 +813,157 @@
       background: var(--server-item-bg);
     }
 
+    /* Add Server Form inside Modal */
     .manage-box {
-      margin-top: 12px;
+      margin-top: 14px;
       padding-top: 12px;
-      border-top: 1px dashed rgba(128, 128, 128, 0.35);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      border-top: 1px solid rgba(128, 128, 128, 0.25);
     }
 
-    .manage-title {
+    .manage-heading {
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--accent);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
     }
 
     .manage-input {
       width: 100%;
       padding: 9px 11px;
-      border-radius: 10px;
-      border: 1px solid rgba(245, 183, 0, 0.4);
-      background: var(--input-bg);
+      border-radius: 11px;
+      border: 1px solid rgba(245, 183, 0, 0.45);
+      background: var(--server-item-bg);
       color: var(--text-main);
       font-size: 12.5px;
       outline: none;
+      margin-bottom: 8px;
+    }
+
+    .manage-input::placeholder {
+      color: var(--footer-text);
+      opacity: 0.8;
     }
 
     .add-srv-btn {
       width: 100%;
-      padding: 9px 12px;
-      border-radius: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
       border: none;
       background: var(--accent);
       color: #111111;
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 800;
       cursor: pointer;
+      box-shadow: 0 3px 12px var(--accent-glow);
+      transition: transform 0.15s ease;
+    }
+
+    .add-srv-btn:active {
+      transform: scale(0.98);
+    }
+
+    .manage-tools {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .sub-tool-btn {
+      flex: 1;
+      padding: 7px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(128, 128, 128, 0.35);
+      background: var(--server-item-bg);
+      color: var(--text-main);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .manage-note {
+      margin-top: 7px;
+      font-size: 10.5px;
+      line-height: 1.4;
+      color: var(--footer-text);
+    }
+
+    /* NK's Library inside modal */
+    .lib-search {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(245, 183, 0, 0.5);
+      background: var(--server-item-bg);
+      color: var(--text-main);
+      font-size: 13px;
+      outline: none;
+      margin-bottom: 10px;
+    }
+
+    .lib-search::placeholder {
+      color: var(--footer-text);
+    }
+
+    .lib-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .lib-chip {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 183, 0, 0.45);
+      background: var(--server-item-bg);
+      color: var(--text-main);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lib-chip.active {
+      background: var(--accent);
+      color: #111111;
+      border-color: var(--accent);
+    }
+
+    .lib-empty {
+      text-align: center;
+      font-size: 12px;
+      color: var(--footer-text);
+      padding: 14px 8px;
+    }
+
+    /* Halka Coming Soon / Notice Toast */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(22px + env(safe-area-inset-bottom));
+      transform: translateX(-50%) translateY(16px);
+      max-width: 90%;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1.5px solid var(--accent);
+      color: var(--text-main);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 50;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
   </style>
 </head>
@@ -780,386 +971,974 @@
   <div class="bg-watermark"></div>
   <div class="light-tint"></div>
 
-  <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle Light or Dark Mode">
-    <span class="theme-icon" id="themeIcon">☀️</span>
+  <button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch Dark or Light mode">
+    <span id="themeIcon" class="theme-icon">☀️</span>
     <span id="themeLabel">Light</span>
   </button>
 
   <div class="container">
     <div class="header">
       <div class="nk-badge">
-        <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nk-logo.png" alt="NK Pathshala" />
+        <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nk-logo.png" alt="NK Pathshala Logo" />
       </div>
       <h1>Welcome to NK Pathshala</h1>
-      <p>EDUCATION MUST BE FREE FOR EVERYONE</p>
+      <p>Education Must Be Free For Everyone</p>
       <div class="focus-chip">NK Pathshala Self Study Desk • Free Access</div>
     </div>
 
     <div class="action-row">
-      <a href="https://t.me/your_channel_here" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+      <a href="https://t.me/+ci3EnMDrgswxMjc1" target="_blank" rel="noopener noreferrer" class="telegram-btn">
         <svg class="telegram-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M9.78 15.45l-.4 5.63c.57 0 .82-.25 1.12-.54l2.69-2.57 5.57 4.08c1.02.56 1.75.27 2.02-.94l3.66-17.15c.33-1.52-.55-2.12-1.55-1.74L1.37 10.52c-1.47.57-1.45 1.39-.25 1.76l5.5 1.72L19.4 6.02c.6-.4 1.15-.18.7.22z" />
+          <path d="M21.944 4.506a1.5 1.5 0 0 0-1.607-.246L3.168 11.12a1.5 1.5 0 0 0 .14 2.836l3.67 1.18 1.42 4.54a1.5 1.5 0 0 0 2.576.53l2.06-2.25 3.99 2.94a1.5 1.5 0 0 0 2.373-.91l2.62-13.5a1.5 1.5 0 0 0-.071-1.452zM8.32 14.37l9.42-6.58-7.43 8.12-.33 2.82-1.66-4.36z"/>
         </svg>
-        <span>Telegram</span>
+        <span>Join to Telegram</span>
       </a>
-      <button type="button" class="share-btn" id="shareBtn">🔗 Share</button>
+
+      <button type="button" id="shareSiteBtn" class="share-btn" aria-label="Share NK Pathshala">
+        <span>🔗</span>
+        <span>Share</span>
+      </button>
     </div>
 
     <div class="search-wrap">
-      <input type="text" id="searchInput" class="search-input" placeholder="Search batch or platform..." autocomplete="off" />
+      <input
+        type="text"
+        id="platformSearch"
+        class="search-input"
+        placeholder="Search platform..."
+        autocomplete="off"
+      />
       <button type="button" id="clearSearch" class="clear-btn" aria-label="Clear search">×</button>
     </div>
 
-    <a href="#" target="_blank" rel="noopener noreferrer" class="quick-resume" id="quickResume">
+    <a href="#" id="quickResume" class="quick-resume" target="_blank" rel="noopener noreferrer">
       <div class="resume-left">
-        <span class="resume-pill">Resume</span>
-        <span class="resume-text" id="resumeText">Last opened</span>
+        <span class="resume-pill">Continue</span>
+        <span id="resumeText" class="resume-text">Next Toppers • Server 1</span>
       </div>
       <span class="resume-go">Open →</span>
     </a>
 
-    <div class="grid" id="platformGrid"></div>
-    <div class="no-result" id="noResult">Koi matching batch/platform nahi mila.</div>
+    <div class="grid" id="platformGrid">
+      <a href="#selectionway" class="card has-live" data-platform="selectionway" data-name="selection way">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png" alt="Selection Way" class="logo-img" />
+          <span class="server-count-badge" data-server-count="selectionway"></span>
+        </div>
+        <span class="platform-name">Selection Way</span>
+      </a>
 
-    <div class="footer-note">
-      <p><strong>NK Pathshala</strong> • EDUCATION MUST BE FREE FOR EVERYONE.</p>
+      <a href="#rwa" class="card" data-platform="rwa" data-name="rwa rojgar with ankit">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="RWA" class="logo-img" />
+          <span class="server-count-badge" data-server-count="rwa"></span>
+        </div>
+        <span class="platform-name">RWA</span>
+      </a>
+
+      <a href="#pw" class="card has-live" data-platform="pw" data-name="pw physics wallah">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png" alt="PW" class="logo-img" />
+          <span class="server-count-badge" data-server-count="pw"></span>
+        </div>
+        <span class="platform-name">PW</span>
+      </a>
+
+      <a href="#kgs" class="card has-live" data-platform="kgs" data-name="kgs khan global studies">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png" alt="KGS" class="logo-img" />
+          <span class="server-count-badge" data-server-count="kgs"></span>
+        </div>
+        <span class="platform-name">KGS</span>
+      </a>
+
+      <a href="#parmar" class="card has-live" data-platform="parmar" data-name="parmar academy ssc">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png" alt="Parmar Academy" class="logo-img" />
+          <span class="server-count-badge" data-server-count="parmar"></span>
+        </div>
+        <span class="platform-name">Parmar Academy</span>
+      </a>
+
+      <a href="#sciencemagnet" class="card has-live" data-platform="sciencemagnet" data-name="science magnet">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png" alt="Science Magnet" class="logo-img" />
+          <span class="server-count-badge" data-server-count="sciencemagnet"></span>
+        </div>
+        <span class="platform-name">Science Magnet</span>
+      </a>
+
+      <a href="#vidyagram" class="card has-live" data-platform="vidyagram" data-name="vidyagram">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png" alt="Vidyagram" class="logo-img" />
+          <span class="server-count-badge" data-server-count="vidyagram"></span>
+        </div>
+        <span class="platform-name">Vidyagram</span>
+      </a>
+
+      <a href="#yesofficer" class="card has-live" data-platform="yesofficer" data-name="yes officer">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png" alt="Yes Officer" class="logo-img" />
+          <span class="server-count-badge" data-server-count="yesofficer"></span>
+        </div>
+        <span class="platform-name">Yes Officer</span>
+      </a>
+
+      <a href="#missionjeet" class="card has-live" data-platform="missionjeet" data-name="mission jeet mission cheat">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png" alt="Mission Jeet" class="logo-img" />
+          <span class="server-count-badge" data-server-count="missionjeet"></span>
+        </div>
+        <span class="platform-name">Mission Jeet</span>
+      </a>
+
+      <a href="#nexttoppers" class="card has-live" data-platform="nexttoppers" data-name="next toppers next topper">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png" alt="Next Toppers" class="logo-img" />
+          <span class="server-count-badge" data-server-count="nexttoppers"></span>
+        </div>
+        <span class="platform-name">Next Toppers</span>
+      </a>
+
+      <a href="#eduteria" class="card has-live" data-platform="eduteria" data-name="eduteria edu teria">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png" alt="Edu Teria" class="logo-img" />
+          <span class="server-count-badge" data-server-count="eduteria"></span>
+        </div>
+        <span class="platform-name">Edu Teria</span>
+      </a>
+
+      <a href="#futurekul" class="card has-live" data-platform="futurekul" data-name="futurekul future kul">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png" alt="Futurekul" class="logo-img" />
+          <span class="server-count-badge" data-server-count="futurekul"></span>
+        </div>
+        <span class="platform-name">Futurekul</span>
+      </a>
+
+      <a href="#unacademy" class="card has-live" data-platform="unacademy" data-name="unacademy">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png" alt="Unacademy" class="logo-img" />
+          <span class="server-count-badge" data-server-count="unacademy"></span>
+        </div>
+        <span class="platform-name">Unacademy</span>
+      </a>
+
+      <a href="#careerwill" class="card has-live" data-platform="careerwill" data-name="careerwill career will">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="Active Servers Available"></span>
+          <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png" alt="Careerwill" class="logo-img" />
+          <span class="server-count-badge" data-server-count="careerwill"></span>
+        </div>
+        <span class="platform-name">Careerwill</span>
+      </a>
+
+      <a href="#nklibrary" class="card has-live" data-platform="nklibrary" data-name="nk library nk books notes pdf">
+        <span class="recent-badge">RECENT</span>
+        <div class="logo-box">
+          <span class="live-dot" title="NK's Library Ready"></span>
+          <span class="library-icon-text" aria-hidden="true">📚</span>
+          <span class="server-count-badge" data-library-count></span>
+        </div>
+        <span class="platform-name">NK's Library</span>
+      </a>
     </div>
+
+    <div id="noResult" class="no-result">Koi matching platform nahi mila.</div>
+
+    <footer class="footer-note">
+      <p>
+        <strong>Disclaimer:</strong> NK Pathshala sirf self-study aur students ki suvidha ke liye banaya gaya personal study hub hai. Sabhi platform logos aur names unke respective owners ke hain.
+      </p>
+    </footer>
   </div>
 
-  <div class="modal-backdrop" id="serverModal">
+  <!-- NK Pathshala Class / Server Desk Modal -->
+  <div id="serverModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box">
       <div class="modal-header">
         <div class="modal-title-wrap">
-          <div class="modal-logo" id="modalLogoWrap">📚</div>
+          <img id="modalLogo" class="modal-logo" src="" alt="" />
           <div>
-            <div class="modal-brand-tag">NK PATHSHALA DESK</div>
-            <div class="modal-title" id="modalTitle">Platform</div>
-            <div class="modal-subtitle" id="modalSubtitle">Select a server</div>
+            <div class="modal-brand-tag">NK PATHSHALA • MY STUDY DESK</div>
+            <div id="modalTitle" class="modal-title">Platform</div>
+            <div class="modal-subtitle">Server chunein, delete karein ya naya link jodein</div>
           </div>
         </div>
-        <button type="button" class="modal-close" id="modalClose" aria-label="Close">×</button>
+        <button type="button" id="modalClose" class="modal-close" aria-label="Close">×</button>
       </div>
 
-      <a href="#" target="_blank" rel="noopener noreferrer" class="quick-start-btn" id="quickStartBtn">
-        <span>⚡ Quick Open</span>
-        <span class="quick-start-sub" id="quickStartSub">Latest Server</span>
+      <a href="#" id="quickStartBtn" class="quick-start-btn" target="_blank" rel="noopener noreferrer">
+        <span>⚡ Quick Start</span>
+        <span id="quickStartSub" class="quick-start-sub">Server 1</span>
       </a>
 
-      <div class="server-list" id="serverList"></div>
+      <div id="serverList" class="server-list"></div>
 
       <div class="manage-box">
-        <div class="manage-title">+ Add Server</div>
-        <input type="text" id="newSrvName" class="manage-input" placeholder="Server name" />
-        <input type="url" id="newSrvUrl" class="manage-input" placeholder="https://..." />
-        <button type="button" id="addSrvBtn" class="add-srv-btn">Add Server</button>
+        <div class="manage-heading">+ Add / Manage Servers</div>
+        <input
+          type="text"
+          id="newSrvName"
+          class="manage-input"
+          placeholder="Server naam (jaise: Server 4 या Working Link)"
+          autocomplete="off"
+        />
+        <input
+          type="url"
+          id="newSrvUrl"
+          class="manage-input"
+          placeholder="Naya link paste karein (https://...)"
+          autocomplete="off"
+        />
+        <input
+          type="text"
+          id="newSrvTag"
+          class="manage-input"
+          placeholder="Note / Tag (optional, jaise: Active Batch)"
+          autocomplete="off"
+        />
+        <button type="button" id="addSrvBtn" class="add-srv-btn">+ Add Server</button>
+
+        <div class="manage-tools">
+          <button type="button" id="copySrvDataBtn" class="sub-tool-btn">📋 Copy List</button>
+          <button type="button" id="resetSrvBtn" class="sub-tool-btn">↺ Reset Default</button>
+        </div>
+        <div class="manage-note">
+          Is browser mein turant save hota hai. Sab devices ke liye permanent karna ho to Copy List karke index.html mein update kar sakte hain.
+        </div>
       </div>
     </div>
   </div>
 
-  <script>
-    const LOGO_BASE = "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/";
+  <!-- NK's Library Modal -->
+  <div id="libraryModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="libraryModalTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-logo" aria-hidden="true">📚</div>
+          <div>
+            <div class="modal-brand-tag">NK PATHSHALA • BOOKS & NOTES</div>
+            <div id="libraryModalTitle" class="modal-title">NK's Library</div>
+            <div class="modal-subtitle">Books, PDFs aur study notes search & open karein</div>
+          </div>
+        </div>
+        <button type="button" id="libraryClose" class="modal-close" aria-label="Close">×</button>
+      </div>
 
-    const DEFAULT_PLATFORMS = [
-      {
-        id: "parmar-academy",
-        name: "Parmar Academy",
-        logo: `${LOGO_BASE}parmar.png`,
+      <input
+        type="text"
+        id="libSearch"
+        class="lib-search"
+        placeholder="Book ya subject search karein..."
+        autocomplete="off"
+      />
+
+      <div id="libChips" class="lib-chips">
+        <button type="button" class="lib-chip active" data-cat="All">All</button>
+        <button type="button" class="lib-chip" data-cat="GK & SSC">GK & SSC</button>
+        <button type="button" class="lib-chip" data-cat="Science">Science</button>
+        <button type="button" class="lib-chip" data-cat="Notes">Notes</button>
+      </div>
+
+      <div id="libraryList" class="server-list"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const DEFAULT_PLATFORM_SERVERS = {
+      nexttoppers: {
+        title: "Next Toppers",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png",
         servers: [
-          { name: "Parmar Academy All Batches", url: "https://parmartoppers.edgeone.dev/", tag: "Batch Hub" },
-          { name: "Parmar 4.0 Batch", url: "https://parmartoppers.edgeone.dev/", tag: "GS 4.0 Server" },
-          { name: "Parmar 5.0 GK", url: "https://parmartoppers.edgeone.dev/", tag: "GS 5.0 Server" },
-          { name: "Parmar Toppers", url: "https://parmartoppers.edgeone.dev/", tag: "New Server" }
+          { name: "Server 1", tag: "NK Desk • Next Toppers Server 1", url: "https://all.codewithvivek.qzz.io/next-toppers" },
+          { name: "Server 2", tag: "NK Desk • Next Toppers Server 2", url: "https://nt-study-bison.space-z.ai/" },
+          { name: "Server 3", tag: "NK Desk • Next Toppers Server 3", url: "https://nt.studybeepro.site/" },
+          { name: "Server 4", tag: "NK Desk • Next Toppers Server 4", url: "https://spidystudynt.vercel.app/" },
+          { name: "Server 5", tag: "NK Desk • Next Toppers Server 5", url: "https://studymonkeynxt.netlify.app/" },
+          { name: "Server 6", tag: "NK Desk • Next Toppers New Link 1", url: "https://stream.nexthope.sbs/nexttopper/" },
+          { name: "Server 7", tag: "NK Desk • Next Toppers New Link 2", url: "http://ntstudyhulk.vercel.app/" },
+          { name: "Server 8", tag: "NK Desk • Next Toppers New Link 3", url: "https://ntnexusstudyy.netlify.app" }
         ]
       },
-      {
-        id: "next-toppers",
-        name: "Next Toppers",
-        logo: `${LOGO_BASE}nexttoppers.png`,
+      parmar: {
+        title: "Parmar Academy",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png",
         servers: [
-          { name: "Next Toppers Server 1", url: "#next-toppers-1", tag: "Batch Server" },
-          { name: "Next Toppers Server 2", url: "#next-toppers-2", tag: "Backup Server" }
+          { name: "Server 1", tag: "NK Desk • Parmar Academy All Batches", url: "https://pwnexus.eu.cc/pramar-academy" },
+          { name: "Server 2", tag: "NK Desk • Parmar 4.0 Batch", url: "https://choudharymehfil.vercel.app/parmar-4.0.html" },
+          { name: "Server 3", tag: "NK Desk • Parmar 5.0 GK", url: "https://vividellorvii.vercel.app/#course=SSC/GK/PARMAR%205.0%20GK" }
         ]
       },
-      {
-        id: "vidyagram",
-        name: "Vidyagram",
-        logo: `${LOGO_BASE}vidyagram.png`,
+      sciencemagnet: {
+        title: "Science Magnet",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png",
         servers: [
-          { name: "VG Study Hulk", url: "http://vgstudyhulk.vercel.app/", tag: "Vercel Server" }
+          { name: "Server 1", tag: "NK Desk • Science Magnet Class Link", url: "https://troubled-beige-d2ktwr2j.edgeone.dev/" }
         ]
       },
-      {
-        id: "selection-way",
-        name: "Selection Way",
-        logo: `${LOGO_BASE}selectionway.png`,
+      vidyagram: {
+        title: "Vidyagram",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png",
         servers: [
-          { name: "SW Study Hulk", url: "https://swstudyhulk.edgeone.dev/", tag: "EdgeOne Server" }
+          { name: "Server 1", tag: "NK Desk • Vidyagram Class Link 1", url: "https://vidyagram-studybison.space-z.ai/" },
+          { name: "Server 2", tag: "NK Desk • Vidyagram Class Link 2", url: "https://studymonkeyvg.netlify.app/" },
+          { name: "Server 3", tag: "NK Desk • Vidyagram New Link", url: "http://vgstudyhulk.vercel.app/" }
         ]
       },
-      {
-        id: "pw",
-        name: "PW (Physics Wallah)",
-        logo: `${LOGO_BASE}pw.png`,
+      careerwill: {
+        title: "Careerwill",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png",
         servers: [
-          { name: "Study Hulk x PW", url: "https://studyhulkxpw.ai.studio/", tag: "Web Server" }
+          { name: "Server 1", tag: "NK Desk • Careerwill Class Link 1", url: "https://stream.nexthope.sbs/careerwill/" },
+          { name: "Server 2", tag: "NK Desk • Careerwill Class Link 2", url: "https://runtkyp.xo.je/?i=1" },
+          { name: "Server 3", tag: "NK Desk • Careerwill Class Link 3", url: "https://pwnexus.eu.cc/career-will" }
         ]
       },
-      {
-        id: "kgs",
-        name: "KGS",
-        logo: `${LOGO_BASE}kgs.png`,
+      eduteria: {
+        title: "Edu Teria",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png",
         servers: [
-          { name: "KGS Server 1", url: "#kgs-1", tag: "Batch Server" }
+          { name: "Server 1", tag: "NK Desk • Edu Teria Class Link 1", url: "https://all.codewithvivek.qzz.io/eduteria" }
         ]
       },
-      {
-        id: "unacademy",
-        name: "Unacademy",
-        logo: `${LOGO_BASE}unacademy.png`,
+      futurekul: {
+        title: "Futurekul",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png",
         servers: [
-          { name: "Unacademy Server 1", url: "#unacademy-1", tag: "Batch Server" }
+          { name: "Server 1", tag: "NK Desk • Futurekul Link 1", url: "https://all.codewithvivek.qzz.io/futurekul" },
+          { name: "Server 2", tag: "NK Desk • Futurekul Link 2", url: "https://studybison-fc.space-z.ai/" }
         ]
       },
-      {
-        id: "careerwill",
-        name: "Careerwill",
-        logo: `${LOGO_BASE}careerwill.png`,
+      unacademy: {
+        title: "Unacademy",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png",
         servers: [
-          { name: "Careerwill Server 1", url: "#careerwill-1", tag: "Batch Server" }
+          { name: "Server 1", tag: "NK Desk • Unacademy Link 1", url: "https://unacademy-studybison.space-z.ai/" },
+          { name: "Server 2", tag: "NK Desk • Unacademy Link 2", url: "https://unacademypro.probrosystemset.workers.dev/" },
+          { name: "Server 3", tag: "NK Desk • Unacademy Link 3", url: "https://studyuk.online/" },
+          { name: "Server 4", tag: "NK Desk • Unacademy Link 4", url: "https://stream.nexthope.sbs/unacademy/" },
+          { name: "Server 5", tag: "NK Desk • Unacademy Offline Link", url: "https://stream.nexthope.sbs/uncoffline/" }
         ]
       },
-      {
-        id: "mission-jeet",
-        name: "Mission Jeet",
-        logo: `${LOGO_BASE}missionjeet.png`,
+      missionjeet: {
+        title: "Mission Jeet",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png",
         servers: [
-          { name: "Mission Jeet Server 1", url: "#missionjeet-1", tag: "Batch Server" }
+          { name: "Server 1", tag: "NK Desk • Mission Jeet Link 1", url: "https://studymonkeymj.netlify.app/#/" },
+          { name: "Server 2", tag: "NK Desk • Mission Jeet Link 2", url: "https://mjnexusstudy.netlify.app/" },
+          { name: "Server 3", tag: "NK Desk • Mission Jeet Link 3", url: "https://studypanda.live/missionjeet" }
         ]
       },
-      {
-        id: "yes-officer",
-        name: "Yes Officer",
-        logo: `${LOGO_BASE}yesofficer.png`,
+      kgs: {
+        title: "KGS",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png",
         servers: [
-          { name: "Yes Officer Server 1", url: "#yesofficer-1", tag: "Batch Server" }
+          { name: "Server 1", tag: "NK Desk • KGS Batches Link 1", url: "https://sahukgs.com/batches" },
+          { name: "Server 2", tag: "NK Desk • KGS Batches Link 2", url: "https://www.study-mate.in/batches" }
         ]
       },
-      {
-        id: "futurekul",
-        name: "Futurekul",
-        logo: `${LOGO_BASE}futurekul.png`,
+      yesofficer: {
+        title: "Yes Officer",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png",
         servers: [
-          { name: "Futurekul Server 1", url: "#futurekul-1", tag: "Batch Server" }
+          { name: "Server 1", tag: "NK Desk • Yes Officer Link 1", url: "https://pwnexus.eu.cc/yes-officer" },
+          { name: "Server 2", tag: "NK Desk • Yes Officer Link 2", url: "https://yes-officer.space-z.ai/" },
+          { name: "Server 3", tag: "NK Desk • Yes Officer Link 3", url: "https://yesofficerpro.pages.dev/" }
         ]
       },
-      {
-        id: "edu-teria",
-        name: "Edu Teria",
-        logo: `${LOGO_BASE}eduteria.png`,
+      pw: {
+        title: "PW",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png",
         servers: [
-          { name: "Edu Teria Server 1", url: "#eduteria-1", tag: "Batch Server" }
+          { name: "Server 1", tag: "NK Desk • PW Class Link", url: "https://studyhulkxpw.ai.studio/" }
         ]
       },
-      {
-        id: "nk-library",
-        name: "NK's Library",
-        isLibrary: true,
+      selectionway: {
+        title: "Selection Way",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png",
+        servers: [
+          { name: "Server 1", tag: "NK Desk • Selection Way Class Link", url: "https://swstudyhulk.edgeone.dev/" }
+        ]
+      },
+      rwa: {
+        title: "RWA",
+        logo: "https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png",
         servers: []
+      }
+    };
+
+    function loadPlatformServers() {
+      const merged = {};
+      let saved = {};
+      try {
+        saved = JSON.parse(localStorage.getItem("nk_custom_servers") || "{}") || {};
+      } catch (_) {
+        saved = {};
+      }
+
+      Object.keys(DEFAULT_PLATFORM_SERVERS).forEach((key) => {
+        const base = DEFAULT_PLATFORM_SERVERS[key];
+        const customList = Array.isArray(saved[key]) ? saved[key] : base.servers;
+        merged[key] = {
+          title: base.title,
+          logo: base.logo,
+          servers: customList.map((s) => ({ ...s }))
+        };
+      });
+
+      return merged;
+    }
+
+    const PLATFORM_SERVERS = loadPlatformServers();
+
+    function saveCustomServersToStorage() {
+      const payload = {};
+      Object.keys(PLATFORM_SERVERS).forEach((key) => {
+        payload[key] = PLATFORM_SERVERS[key].servers;
+      });
+      try {
+        localStorage.setItem("nk_custom_servers", JSON.stringify(payload));
+      } catch (_) {}
+      refreshServerBadges();
+    }
+
+    function refreshServerBadges() {
+      document.querySelectorAll("[data-server-count]").forEach((badge) => {
+        const key = badge.dataset.serverCount;
+        const count = PLATFORM_SERVERS[key]?.servers?.length || 0;
+        const card = badge.closest(".card");
+        if (count > 0) {
+          badge.textContent = `${count} ${count === 1 ? "Server" : "Servers"}`;
+          badge.style.display = "";
+          if (card) card.classList.add("has-live");
+        } else {
+          badge.textContent = "";
+          badge.style.display = "none";
+          if (card) card.classList.remove("has-live");
+        }
+      });
+    }
+
+    const NK_LIBRARY_ITEMS = [
+      {
+        title: "SSC Static GK & Polity Compendium",
+        category: "GK & SSC",
+        tag: "PDF / Study Resource • Ready to add link",
+        url: "#add-gk-book-link"
+      },
+      {
+        title: "General Science Formula & Concept Book",
+        category: "Science",
+        tag: "Physics • Chemistry • Biology • Ready to add link",
+        url: "#add-science-book-link"
+      },
+      {
+        title: "Self Study Revision Notes",
+        category: "Notes",
+        tag: "Quick Revision • Ready to add link",
+        url: "#add-notes-link"
       }
     ];
 
-    const STORAGE_PLATFORMS_KEY = "nk_pathshala_platforms_v3";
-    const STORAGE_LAST_KEY = "nk_pathshala_last_opened_v1";
-    const STORAGE_THEME_KEY = "nk_pathshala_theme_v1";
+    const libCountBadge = document.querySelector("[data-library-count]");
+    if (libCountBadge) {
+      const totalBooks = NK_LIBRARY_ITEMS.length;
+      libCountBadge.textContent = `${totalBooks} ${totalBooks === 1 ? "Book" : "Books"}`;
+    }
 
-    let platforms = JSON.parse(localStorage.getItem(STORAGE_PLATFORMS_KEY) || "null") || DEFAULT_PLATFORMS;
-    let currentPlatformId = null;
+    refreshServerBadges();
 
+    // Theme Toggle
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
     const themeLabel = document.getElementById("themeLabel");
-    const platformGrid = document.getElementById("platformGrid");
-    const searchInput = document.getElementById("searchInput");
-    const clearSearch = document.getElementById("clearSearch");
-    const noResult = document.getElementById("noResult");
-    const quickResume = document.getElementById("quickResume");
-    const resumeText = document.getElementById("resumeText");
-    const serverModal = document.getElementById("serverModal");
-    const modalClose = document.getElementById("modalClose");
-    const serverList = document.getElementById("serverList");
-    const newSrvName = document.getElementById("newSrvName");
-    const newSrvUrl = document.getElementById("newSrvUrl");
-    const addSrvBtn = document.getElementById("addSrvBtn");
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
 
     function applyTheme(isLight) {
       document.body.classList.toggle("light-mode", isLight);
-      themeIcon.textContent = isLight ? "🌙" : "☀️";
-      themeLabel.textContent = isLight ? "Dark" : "Light";
-      localStorage.setItem(STORAGE_THEME_KEY, isLight ? "light" : "dark");
+      if (isLight) {
+        themeIcon.textContent = "🌙";
+        themeLabel.textContent = "Dark";
+        if (metaTheme) metaTheme.setAttribute("content", "#f4f1ea");
+      } else {
+        themeIcon.textContent = "☀️";
+        themeLabel.textContent = "Light";
+        if (metaTheme) metaTheme.setAttribute("content", "#111111");
+      }
+      try {
+        localStorage.setItem("nk_theme_mode", isLight ? "light" : "dark");
+      } catch (_) {}
     }
+
+    let initialLight = false;
+    try {
+      initialLight = localStorage.getItem("nk_theme_mode") === "light";
+    } catch (_) {}
+    applyTheme(initialLight);
 
     themeToggle.addEventListener("click", () => {
       applyTheme(!document.body.classList.contains("light-mode"));
     });
-    applyTheme(localStorage.getItem(STORAGE_THEME_KEY) === "light");
 
-    function savePlatforms() {
-      localStorage.setItem(STORAGE_PLATFORMS_KEY, JSON.stringify(platforms));
+    // Toast Helper
+    const toast = document.getElementById("toast");
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
     }
 
-    function updateQuickResume() {
-      const last = JSON.parse(localStorage.getItem(STORAGE_LAST_KEY) || "null");
+    // Share Button
+    const shareSiteBtn = document.getElementById("shareSiteBtn");
+    shareSiteBtn.addEventListener("click", async () => {
+      const shareData = {
+        title: "NK Pathshala",
+        text: "NK Pathshala - Education Must Be Free For Everyone",
+        url: window.location.href
+      };
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (err) {
+          if (err && err.name === "AbortError") return;
+        }
+      }
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        showToast("NK Pathshala ka link copy ho gaya!");
+      } catch (_) {
+        showToast(window.location.href);
+      }
+    });
+
+    // RECENT Platform & Last Used State
+    const cards = Array.from(document.querySelectorAll("#platformGrid .card"));
+    const quickResume = document.getElementById("quickResume");
+    const resumeText = document.getElementById("resumeText");
+
+    function getRecentPlatform() {
+      try {
+        return localStorage.getItem("nk_recent_platform") || "";
+      } catch (_) {
+        return "";
+      }
+    }
+
+    function setRecentPlatform(platformKey) {
+      try {
+        localStorage.setItem("nk_recent_platform", platformKey || "");
+      } catch (_) {}
+      renderRecentBadge();
+    }
+
+    function renderRecentBadge() {
+      const recentKey = getRecentPlatform();
+      cards.forEach((card) => {
+        card.classList.toggle("is-recent", Boolean(recentKey && card.dataset.platform === recentKey));
+      });
+    }
+
+    function getLastUsed() {
+      try {
+        return JSON.parse(localStorage.getItem("nk_last_used") || "null");
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function setLastUsed(platformKey, platformTitle, serverName, url) {
+      const data = {
+        platform: platformKey,
+        title: platformTitle || platformKey,
+        server: serverName || "",
+        url: url || ""
+      };
+      try {
+        localStorage.setItem("nk_last_used", JSON.stringify(data));
+      } catch (_) {}
+      setRecentPlatform(platformKey);
+      renderLastUsed();
+    }
+
+    function renderLastUsed() {
+      const last = getLastUsed();
       if (last && last.url) {
         quickResume.href = last.url;
-        resumeText.textContent = `${last.platformName} • ${last.serverName}`;
+        resumeText.textContent = last.server
+          ? `${last.title} • ${last.server}`
+          : last.title;
         quickResume.classList.add("visible");
       } else {
         quickResume.classList.remove("visible");
       }
     }
 
-    function recordLastOpened(platformName, serverName, url) {
-      localStorage.setItem(STORAGE_LAST_KEY, JSON.stringify({ platformName, serverName, url }));
-      updateQuickResume();
-      renderGrid();
-    }
+    quickResume.addEventListener("click", (e) => {
+      const last = getLastUsed();
+      if (!last || !last.url || last.url.startsWith("#")) {
+        e.preventDefault();
+        showToast("Is item ka real link abhi jodne ke liye baaki hai");
+        return;
+      }
+      showToast(`All the best! Opening ${last?.title || "class"}...`);
+    });
 
-    function renderGrid() {
+    // Search Filter
+    const searchInput = document.getElementById("platformSearch");
+    const clearBtn = document.getElementById("clearSearch");
+    const noResult = document.getElementById("noResult");
+
+    function filterPlatforms() {
       const q = searchInput.value.trim().toLowerCase();
-      const last = JSON.parse(localStorage.getItem(STORAGE_LAST_KEY) || "null");
-      platformGrid.innerHTML = "";
+      clearBtn.classList.toggle("visible", q.length > 0);
+
       let visibleCount = 0;
-
-      platforms.forEach((p) => {
-        const matchName = p.name.toLowerCase().includes(q);
-        const matchSrv = (p.servers || []).some((s) => s.name.toLowerCase().includes(q));
-        if (q && !matchName && !matchSrv) return;
-
-        visibleCount++;
-        const isRecent = last && last.platformName === p.name;
-        const srvCount = (p.servers || []).length;
-
-        const card = document.createElement("button");
-        card.type = "button";
-        card.className = `card ${srvCount > 0 ? "has-live" : ""} ${isRecent ? "is-recent" : ""}`;
-        card.innerHTML = `
-          <span class="recent-badge">RECENT</span>
-          <div class="logo-box">
-            ${srvCount > 0 ? '<span class="live-dot"></span>' : ""}
-            ${p.isLibrary
-              ? '<span class="library-icon-text">📚</span>'
-              : `<img src="${p.logo}" alt="${p.name}" class="logo-img" />`
-            }
-            ${srvCount > 0 ? `<span class="server-count-badge">${srvCount} Servers</span>` : ""}
-          </div>
-          <div class="platform-name">${p.name}</div>
-        `;
-        card.addEventListener("click", () => openModal(p.id));
-        platformGrid.appendChild(card);
+      cards.forEach((card) => {
+        const title = card.querySelector(".platform-name").textContent.toLowerCase();
+        const extra = (card.dataset.name || "").toLowerCase();
+        const matches = !q || title.includes(q) || extra.includes(q);
+        card.classList.toggle("hidden", !matches);
+        if (matches) visibleCount++;
       });
 
       noResult.classList.toggle("visible", visibleCount === 0);
     }
 
-    function openModal(platformId) {
-      currentPlatformId = platformId;
-      const p = platforms.find((item) => item.id === platformId);
-      if (!p) return;
+    searchInput.addEventListener("input", filterPlatforms);
 
-      document.getElementById("modalTitle").textContent = p.name;
-      document.getElementById("modalSubtitle").textContent = `${(p.servers || []).length} Servers Available`;
-      const logoWrap = document.getElementById("modalLogoWrap");
-      logoWrap.innerHTML = p.isLibrary
-        ? "📚"
-        : `<img src="${p.logo}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;" />`;
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      filterPlatforms();
+      searchInput.focus();
+    });
 
-      const quickStartBtn = document.getElementById("quickStartBtn");
-      const quickStartSub = document.getElementById("quickStartSub");
-      const firstSrv = (p.servers || [])[0];
-      if (firstSrv) {
-        quickStartBtn.href = firstSrv.url;
-        quickStartSub.textContent = firstSrv.name;
+    // NK Pathshala Study Desk Modal Controls + Live Add/Delete
+    const serverModal = document.getElementById("serverModal");
+    const modalLogo = document.getElementById("modalLogo");
+    const modalTitle = document.getElementById("modalTitle");
+    const quickStartBtn = document.getElementById("quickStartBtn");
+    const quickStartSub = document.getElementById("quickStartSub");
+    const serverList = document.getElementById("serverList");
+    const modalClose = document.getElementById("modalClose");
+    const newSrvName = document.getElementById("newSrvName");
+    const newSrvUrl = document.getElementById("newSrvUrl");
+    const newSrvTag = document.getElementById("newSrvTag");
+    const addSrvBtn = document.getElementById("addSrvBtn");
+    const copySrvDataBtn = document.getElementById("copySrvDataBtn");
+    const resetSrvBtn = document.getElementById("resetSrvBtn");
+
+    let activeModalPlatformKey = "";
+
+    function renderServerModalList(platformKey) {
+      const platformData = PLATFORM_SERVERS[platformKey];
+      if (!platformData) return;
+
+      const last = getLastUsed();
+      const lastServerForPlatform = last && last.platform === platformKey ? last.server : "";
+      const bestServer =
+        platformData.servers.find((s) => s.name === lastServerForPlatform) ||
+        platformData.servers[0];
+
+      serverList.innerHTML = "";
+
+      if (bestServer) {
+        quickStartBtn.href = bestServer.url;
+        quickStartSub.textContent = bestServer.name;
         quickStartBtn.style.display = "flex";
-        quickStartBtn.onclick = () => recordLastOpened(p.name, firstSrv.name, firstSrv.url);
+        quickStartBtn.onclick = () => {
+          setLastUsed(platformKey, platformData.title, bestServer.name, bestServer.url);
+          showToast(`All the best! Opening ${bestServer.name}...`);
+        };
       } else {
         quickStartBtn.style.display = "none";
       }
 
-      serverList.innerHTML = "";
-      if (!p.servers || p.servers.length === 0) {
-        serverList.innerHTML = `<div class="empty-servers">Is platform mein abhi koi server nahi hai.</div>`;
-      } else {
-        p.servers.forEach((srv, idx) => {
-          const row = document.createElement("div");
-          row.className = "server-row";
-          row.innerHTML = `
-            <a href="${srv.url}" target="_blank" rel="noopener noreferrer" class="server-link">
-              <div class="server-left">
-                <span class="server-name">${srv.name}</span>
-                <span class="server-tag">${srv.tag || srv.url}</span>
-              </div>
-              <span class="server-arrow">Open →</span>
-            </a>
-            <button type="button" class="delete-srv-btn" aria-label="Delete server">✕</button>
-          `;
-          row.querySelector(".server-link").addEventListener("click", () => {
-            recordLastOpened(p.name, srv.name, srv.url);
-          });
-          row.querySelector(".delete-srv-btn").addEventListener("click", () => {
-            p.servers.splice(idx, 1);
-            savePlatforms();
-            openModal(p.id);
-            renderGrid();
-          });
-          serverList.appendChild(row);
-        });
+      if (platformData.servers.length === 0) {
+        serverList.innerHTML = '<div class="empty-servers">Abhi koi server link nahi hai. Neeche se naya link add karein.</div>';
+        return;
       }
 
+      platformData.servers.forEach((srv, idx) => {
+        const isLastSrv = lastServerForPlatform && lastServerForPlatform === srv.name;
+        const row = document.createElement("div");
+        row.className = "server-row";
+
+        const a = document.createElement("a");
+        a.href = srv.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.className = `server-link${isLastSrv ? " last-server" : ""}`;
+        a.innerHTML = `
+          <div class="server-left">
+            <div class="server-name-row">
+              <span class="server-name">${srv.name}</span>
+              ${isLastSrv ? '<span class="server-used-pill">RECENT</span>' : ""}
+            </div>
+            <span class="server-tag">${srv.tag || "NK Desk • Class Link"}</span>
+          </div>
+          <span class="server-arrow">Open →</span>
+        `;
+        a.addEventListener("click", () => {
+          setLastUsed(platformKey, platformData.title, srv.name, srv.url);
+          showToast(`All the best! Opening ${srv.name}...`);
+        });
+
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "delete-srv-btn";
+        delBtn.title = "Delete this server";
+        delBtn.setAttribute("aria-label", `Delete ${srv.name}`);
+        delBtn.textContent = "🗑";
+        delBtn.addEventListener("click", () => {
+          const removedName = srv.name;
+          platformData.servers.splice(idx, 1);
+          saveCustomServersToStorage();
+          renderServerModalList(platformKey);
+          showToast(`${removedName} delete ho gaya`);
+        });
+
+        row.appendChild(a);
+        row.appendChild(delBtn);
+        serverList.appendChild(row);
+      });
+    }
+
+    function openServerModal(platformKey) {
+      const platformData = PLATFORM_SERVERS[platformKey];
+      if (!platformData) return;
+
+      activeModalPlatformKey = platformKey;
+      modalLogo.src = platformData.logo;
+      modalLogo.alt = platformData.title;
+      modalTitle.textContent = platformData.title;
+      newSrvName.value = `Server ${platformData.servers.length + 1}`;
+      newSrvUrl.value = "";
+      newSrvTag.value = "";
+
+      renderServerModalList(platformKey);
       serverModal.classList.add("open");
     }
 
+    function closeServerModal() {
+      serverModal.classList.remove("open");
+      activeModalPlatformKey = "";
+    }
+
     addSrvBtn.addEventListener("click", () => {
-      const name = newSrvName.value.trim();
-      const url = newSrvUrl.value.trim();
-      if (!name || !url || !currentPlatformId) return;
-      const p = platforms.find((item) => item.id === currentPlatformId);
-      if (!p) return;
-      p.servers.push({ name, url, tag: "Server" });
-      savePlatforms();
-      newSrvName.value = "";
+      if (!activeModalPlatformKey) return;
+      const platformData = PLATFORM_SERVERS[activeModalPlatformKey];
+      const rawName = newSrvName.value.trim();
+      const rawUrl = newSrvUrl.value.trim();
+      const rawTag = newSrvTag.value.trim();
+
+      if (!rawUrl) {
+        showToast("Pehle server link paste karein!");
+        newSrvUrl.focus();
+        return;
+      }
+
+      const normalizedUrl = /^https?:\/\//i.test(rawUrl) ? rawUrl : `https://${rawUrl}`;
+      const srvName = rawName || `Server ${platformData.servers.length + 1}`;
+      const srvTag = rawTag || `NK Desk • ${platformData.title} Link`;
+
+      platformData.servers.push({
+        name: srvName,
+        tag: srvTag,
+        url: normalizedUrl
+      });
+
+      saveCustomServersToStorage();
+      newSrvName.value = `Server ${platformData.servers.length + 1}`;
       newSrvUrl.value = "";
-      openModal(p.id);
-      renderGrid();
+      newSrvTag.value = "";
+      renderServerModalList(activeModalPlatformKey);
+      showToast(`${srvName} add ho gaya!`);
     });
 
-    modalClose.addEventListener("click", () => serverModal.classList.remove("open"));
-    serverModal.addEventListener("click", (e) => {
-      if (e.target === serverModal) serverModal.classList.remove("open");
-    });
-
-    searchInput.addEventListener("input", () => {
-      clearSearch.classList.toggle("visible", searchInput.value.length > 0);
-      renderGrid();
-    });
-
-    clearSearch.addEventListener("click", () => {
-      searchInput.value = "";
-      clearSearch.classList.remove("visible");
-      renderGrid();
-    });
-
-    document.getElementById("shareBtn").addEventListener("click", async () => {
-      const shareData = { title: "NK Pathshala", text: "Welcome to NK Pathshala", url: window.location.href };
-      if (navigator.share) {
-        try { await navigator.share(shareData); } catch (_) {}
-      } else {
-        navigator.clipboard?.writeText(window.location.href);
-        alert("Link copied!");
+    copySrvDataBtn.addEventListener("click", async () => {
+      if (!activeModalPlatformKey) return;
+      const list = PLATFORM_SERVERS[activeModalPlatformKey]?.servers || [];
+      const formatted = JSON.stringify(list, null, 2);
+      try {
+        await navigator.clipboard.writeText(formatted);
+        showToast("Updated server list copy ho gayi!");
+      } catch (_) {
+        showToast("Clipboard copy supported nahi hai");
       }
     });
 
-    updateQuickResume();
-    renderGrid();
+    resetSrvBtn.addEventListener("click", () => {
+      if (!activeModalPlatformKey) return;
+      const def = DEFAULT_PLATFORM_SERVERS[activeModalPlatformKey];
+      if (!def) return;
+      PLATFORM_SERVERS[activeModalPlatformKey].servers = def.servers.map((s) => ({ ...s }));
+      saveCustomServersToStorage();
+      newSrvName.value = `Server ${PLATFORM_SERVERS[activeModalPlatformKey].servers.length + 1}`;
+      renderServerModalList(activeModalPlatformKey);
+      showToast(`${def.title} servers default par reset ho gaye`);
+    });
+
+    modalClose.addEventListener("click", closeServerModal);
+    serverModal.addEventListener("click", (e) => {
+      if (e.target === serverModal) closeServerModal();
+    });
+
+    // NK's Library Modal Controls
+    const libraryModal = document.getElementById("libraryModal");
+    const libraryClose = document.getElementById("libraryClose");
+    const libSearch = document.getElementById("libSearch");
+    const libChips = document.getElementById("libChips");
+    const libraryList = document.getElementById("libraryList");
+    let activeLibCategory = "All";
+
+    function renderLibraryItems() {
+      const q = libSearch.value.trim().toLowerCase();
+      const filtered = NK_LIBRARY_ITEMS.filter((item) => {
+        const catMatch = activeLibCategory === "All" || item.category === activeLibCategory;
+        const textMatch =
+          !q ||
+          item.title.toLowerCase().includes(q) ||
+          item.category.toLowerCase().includes(q) ||
+          item.tag.toLowerCase().includes(q);
+        return catMatch && textMatch;
+      });
+
+      libraryList.innerHTML = "";
+      if (filtered.length === 0) {
+        libraryList.innerHTML = '<div class="lib-empty">Koi matching book ya note nahi mila.</div>';
+        return;
+      }
+
+      filtered.forEach((book) => {
+        const hasRealLink = book.url && !book.url.startsWith("#");
+        const row = document.createElement("div");
+        row.className = "server-row";
+
+        const a = document.createElement("a");
+        a.href = hasRealLink ? book.url : "#";
+        if (hasRealLink) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+        a.className = "server-link";
+        a.innerHTML = `
+          <div class="server-left">
+            <div class="server-name-row">
+              <span class="server-name">${book.title}</span>
+              <span class="server-used-pill">${book.category}</span>
+            </div>
+            <span class="server-tag">${book.tag}</span>
+          </div>
+          <span class="server-arrow">${hasRealLink ? "Open →" : "Add Link"}</span>
+        `;
+        a.addEventListener("click", (e) => {
+          if (!hasRealLink) {
+            e.preventDefault();
+            showToast(`"${book.title}" ka link abhi add karna baaki hai`);
+            return;
+          }
+          setLastUsed("nklibrary", "NK's Library", book.title, book.url);
+          showToast(`Opening ${book.title}...`);
+        });
+
+        row.appendChild(a);
+        libraryList.appendChild(row);
+      });
+    }
+
+    function openLibraryModal() {
+      libSearch.value = "";
+      activeLibCategory = "All";
+      libChips.querySelectorAll(".lib-chip").forEach((chip) => {
+        chip.classList.toggle("active", chip.dataset.cat === "All");
+      });
+      renderLibraryItems();
+      libraryModal.classList.add("open");
+    }
+
+    function closeLibraryModal() {
+      libraryModal.classList.remove("open");
+    }
+
+    libSearch.addEventListener("input", renderLibraryItems);
+    libChips.addEventListener("click", (e) => {
+      const chip = e.target.closest(".lib-chip");
+      if (!chip) return;
+      activeLibCategory = chip.dataset.cat;
+      libChips.querySelectorAll(".lib-chip").forEach((c) => {
+        c.classList.toggle("active", c === chip);
+      });
+      renderLibraryItems();
+    });
+
+    libraryClose.addEventListener("click", closeLibraryModal);
+    libraryModal.addEventListener("click", (e) => {
+      if (e.target === libraryModal) closeLibraryModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeServerModal();
+        closeLibraryModal();
+      }
+    });
+
+    cards.forEach((card) => {
+      card.addEventListener("click", (e) => {
+        e.preventDefault();
+        const key = card.dataset.platform;
+        if (key) {
+          setRecentPlatform(key);
+        }
+
+        if (key === "nklibrary") {
+          openLibraryModal();
+          return;
+        }
+
+        if (key && PLATFORM_SERVERS[key]) {
+          openServerModal(key);
+        }
+      });
+    });
+
+    // Initial Render
+    renderRecentBadge();
+    renderLastUsed();
   </script>
 </body>
 </html>
