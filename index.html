@@ -21,8 +21,8 @@
     :root {
       --bg-base: #0b0907;
       --bg-vignette: radial-gradient(circle at 50% 10%, rgba(245, 183, 0, 0.08), rgba(8, 7, 6, 0.88) 72%);
-      --watermark-opacity: 0.36;
-      --tint-bg: rgba(8, 7, 6, 0.56);
+      --watermark-opacity: 0.34;
+      --tint-bg: rgba(8, 7, 6, 0.58);
       --tint-opacity: 1;
       --accent: #f5b700;
       --accent-soft: rgba(245, 183, 0, 0.22);
@@ -36,8 +36,6 @@
       --surface-hover: rgba(34, 28, 20, 0.92);
       --surface-border: rgba(255, 255, 255, 0.09);
       --logo-tile-bg: rgba(10, 9, 8, 0.92);
-      --dot-color: #f5b700;
-      --dot-glow: rgba(245, 183, 0, 0.75);
       --modal-bg: rgba(14, 12, 10, 0.97);
       --text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
     }
@@ -45,8 +43,8 @@
     body.light-mode {
       --bg-base: #f4f0e6;
       --bg-vignette: radial-gradient(circle at 50% 10%, rgba(180, 115, 0, 0.12), rgba(244, 240, 230, 0.78) 75%);
-      --watermark-opacity: 0.24;
-      --tint-bg: rgba(252, 249, 242, 0.68);
+      --watermark-opacity: 0.22;
+      --tint-bg: rgba(252, 249, 242, 0.7);
       --tint-opacity: 1;
       --accent: #9a5b00;
       --accent-soft: rgba(154, 91, 0, 0.14);
@@ -60,8 +58,6 @@
       --surface-hover: rgba(255, 249, 235, 0.98);
       --surface-border: rgba(22, 20, 18, 0.11);
       --logo-tile-bg: rgba(255, 255, 255, 0.95);
-      --dot-color: #16a34a;
-      --dot-glow: rgba(22, 163, 74, 0.6);
       --modal-bg: rgba(255, 252, 245, 0.98);
       --text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
     }
@@ -220,7 +216,6 @@
       background: var(--accent);
     }
 
-    /* Premium Banner Cards (Telegram + Share) */
     .banner-stack {
       display: flex;
       flex-direction: column;
@@ -331,7 +326,6 @@
       color: var(--accent);
     }
 
-    /* Search Bar */
     .search-wrap {
       margin-bottom: 12px;
       position: relative;
@@ -391,7 +385,6 @@
       display: block;
     }
 
-    /* Quick Resume Bar */
     .quick-resume {
       display: none;
       align-items: center;
@@ -455,7 +448,7 @@
       flex-shrink: 0;
     }
 
-    /* 2-Column Premium Platform Cards Grid */
+    /* Clean Platform Name Card Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -471,12 +464,12 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--surface-border);
       border-radius: 20px;
-      padding: 18px 10px 15px;
+      padding: 20px 12px 18px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       touch-action: manipulation;
       cursor: pointer;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -500,37 +493,6 @@
 
     .card.is-recent {
       border-color: var(--accent-border);
-    }
-
-    .status-dot {
-      position: absolute;
-      top: 11px;
-      right: 11px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--dot-color);
-      box-shadow: 0 0 8px var(--dot-glow);
-    }
-
-    .recent-badge {
-      display: none;
-      position: absolute;
-      top: 9px;
-      left: 10px;
-      z-index: 4;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #111111;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .card.is-recent .recent-badge {
-      display: inline-block;
     }
 
     .logo-box {
@@ -560,17 +522,12 @@
     }
 
     .platform-name {
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 700;
+      letter-spacing: 0.1px;
       text-align: center;
       color: var(--text-main);
       line-height: 1.25;
-    }
-
-    .platform-meta {
-      font-size: 10.5px;
-      font-weight: 600;
-      color: var(--text-muted);
     }
 
     .no-result {
@@ -1095,153 +1052,109 @@
     </a>
 
     <div class="grid" id="platformGrid">
-      <a href="#selectionway" class="card has-live" data-platform="selectionway" data-name="selection way">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Server"></span>
+      <a href="#selectionway" class="card" data-platform="selectionway" data-name="selection way">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/selectionway.png" alt="Selection Way" class="logo-img" />
         </div>
         <span class="platform-name">Selection Way</span>
-        <span class="platform-meta" data-server-meta="selectionway"></span>
       </a>
 
       <a href="#rwa" class="card" data-platform="rwa" data-name="rwa rojgar with ankit">
-        <span class="recent-badge">RECENT</span>
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/rwa.png" alt="RWA" class="logo-img" />
         </div>
         <span class="platform-name">RWA</span>
-        <span class="platform-meta" data-server-meta="rwa"></span>
       </a>
 
-      <a href="#pw" class="card has-live" data-platform="pw" data-name="pw physics wallah">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Server"></span>
+      <a href="#pw" class="card" data-platform="pw" data-name="pw physics wallah">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/pw.png" alt="PW" class="logo-img" />
         </div>
         <span class="platform-name">PW</span>
-        <span class="platform-meta" data-server-meta="pw"></span>
       </a>
 
-      <a href="#kgs" class="card has-live" data-platform="kgs" data-name="kgs khan global studies">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Servers"></span>
+      <a href="#kgs" class="card" data-platform="kgs" data-name="kgs khan global studies">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/kgs.png" alt="KGS" class="logo-img" />
         </div>
         <span class="platform-name">KGS</span>
-        <span class="platform-meta" data-server-meta="kgs"></span>
       </a>
 
-      <a href="#parmar" class="card has-live" data-platform="parmar" data-name="parmar academy ssc toppers 5.0">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Servers"></span>
+      <a href="#parmar" class="card" data-platform="parmar" data-name="parmar academy ssc toppers 5.0">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/parmar.png" alt="Parmar Academy" class="logo-img" />
         </div>
         <span class="platform-name">Parmar Academy</span>
-        <span class="platform-meta" data-server-meta="parmar"></span>
       </a>
 
-      <a href="#sciencemagnet" class="card has-live" data-platform="sciencemagnet" data-name="science magnet">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Server"></span>
+      <a href="#sciencemagnet" class="card" data-platform="sciencemagnet" data-name="science magnet">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/sciencemagnet.png" alt="Science Magnet" class="logo-img" />
         </div>
         <span class="platform-name">Science Magnet</span>
-        <span class="platform-meta" data-server-meta="sciencemagnet"></span>
       </a>
 
-      <a href="#vidyagram" class="card has-live" data-platform="vidyagram" data-name="vidyagram">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Servers"></span>
+      <a href="#vidyagram" class="card" data-platform="vidyagram" data-name="vidyagram">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/vidyagram.png" alt="Vidyagram" class="logo-img" />
         </div>
         <span class="platform-name">Vidyagram</span>
-        <span class="platform-meta" data-server-meta="vidyagram"></span>
       </a>
 
-      <a href="#yesofficer" class="card has-live" data-platform="yesofficer" data-name="yes officer">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Servers"></span>
+      <a href="#yesofficer" class="card" data-platform="yesofficer" data-name="yes officer">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/yesofficer.png" alt="Yes Officer" class="logo-img" />
         </div>
         <span class="platform-name">Yes Officer</span>
-        <span class="platform-meta" data-server-meta="yesofficer"></span>
       </a>
 
-      <a href="#missionjeet" class="card has-live" data-platform="missionjeet" data-name="mission jeet mission cheat">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Servers"></span>
+      <a href="#missionjeet" class="card" data-platform="missionjeet" data-name="mission jeet mission cheat">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/missionjeet.png" alt="Mission Jeet" class="logo-img" />
         </div>
         <span class="platform-name">Mission Jeet</span>
-        <span class="platform-meta" data-server-meta="missionjeet"></span>
       </a>
 
-      <a href="#nexttoppers" class="card has-live" data-platform="nexttoppers" data-name="next toppers next topper">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Servers"></span>
+      <a href="#nexttoppers" class="card" data-platform="nexttoppers" data-name="next toppers next topper">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/nexttoppers.png" alt="Next Toppers" class="logo-img" />
         </div>
         <span class="platform-name">Next Toppers</span>
-        <span class="platform-meta" data-server-meta="nexttoppers"></span>
       </a>
 
-      <a href="#eduteria" class="card has-live" data-platform="eduteria" data-name="eduteria edu teria">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Server"></span>
+      <a href="#eduteria" class="card" data-platform="eduteria" data-name="eduteria edu teria">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/eduteria.png" alt="Edu Teria" class="logo-img" />
         </div>
         <span class="platform-name">Edu Teria</span>
-        <span class="platform-meta" data-server-meta="eduteria"></span>
       </a>
 
-      <a href="#futurekul" class="card has-live" data-platform="futurekul" data-name="futurekul future kul">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Servers"></span>
+      <a href="#futurekul" class="card" data-platform="futurekul" data-name="futurekul future kul">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/futurekul.png" alt="Futurekul" class="logo-img" />
         </div>
         <span class="platform-name">Futurekul</span>
-        <span class="platform-meta" data-server-meta="futurekul"></span>
       </a>
 
-      <a href="#unacademy" class="card has-live" data-platform="unacademy" data-name="unacademy">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Servers"></span>
+      <a href="#unacademy" class="card" data-platform="unacademy" data-name="unacademy">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/unacademy.png" alt="Unacademy" class="logo-img" />
         </div>
         <span class="platform-name">Unacademy</span>
-        <span class="platform-meta" data-server-meta="unacademy"></span>
       </a>
 
-      <a href="#careerwill" class="card has-live" data-platform="careerwill" data-name="careerwill career will">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Active Servers"></span>
+      <a href="#careerwill" class="card" data-platform="careerwill" data-name="careerwill career will">
         <div class="logo-box">
           <img src="https://raw.githubusercontent.com/themouse0980-hue/nk-nexus/index.html/cw.png" alt="Careerwill" class="logo-img" />
         </div>
         <span class="platform-name">Careerwill</span>
-        <span class="platform-meta" data-server-meta="careerwill"></span>
       </a>
 
-      <a href="#nklibrary" class="card has-live" data-platform="nklibrary" data-name="nk library nk books notes pdf">
-        <span class="recent-badge">RECENT</span>
-        <span class="status-dot" title="Books & Notes"></span>
+      <a href="#nklibrary" class="card" data-platform="nklibrary" data-name="nk library nk books notes pdf">
         <div class="logo-box">
           <span class="library-icon-text" aria-hidden="true">📚</span>
         </div>
         <span class="platform-name">NK's Library</span>
-        <span class="platform-meta" data-library-meta></span>
       </a>
     </div>
 
@@ -1505,25 +1418,6 @@
       try {
         localStorage.setItem("nk_custom_servers", JSON.stringify(payload));
       } catch (_) {}
-      refreshServerBadges();
-    }
-
-    function refreshServerBadges() {
-      document.querySelectorAll("[data-server-meta]").forEach((metaEl) => {
-        const key = metaEl.dataset.serverMeta;
-        const count = PLATFORM_SERVERS[key]?.servers?.length || 0;
-        const card = metaEl.closest(".card");
-        const dot = card ? card.querySelector(".status-dot") : null;
-        if (count > 0) {
-          metaEl.textContent = `${count} ${count === 1 ? "Server" : "Servers"}`;
-          if (card) card.classList.add("has-live");
-          if (dot) dot.style.display = "";
-        } else {
-          metaEl.textContent = "Coming Soon";
-          if (card) card.classList.remove("has-live");
-          if (dot) dot.style.display = "none";
-        }
-      });
     }
 
     const NK_LIBRARY_ITEMS = [
@@ -1546,14 +1440,6 @@
         url: "#add-notes-link"
       }
     ];
-
-    const libMetaEl = document.querySelector("[data-library-meta]");
-    if (libMetaEl) {
-      const totalBooks = NK_LIBRARY_ITEMS.length;
-      libMetaEl.textContent = `${totalBooks} ${totalBooks === 1 ? "Resource" : "Resources"}`;
-    }
-
-    refreshServerBadges();
 
     // Theme Toggle
     const themeToggle = document.getElementById("themeToggle");
